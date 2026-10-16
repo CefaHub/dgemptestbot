@@ -10,7 +10,7 @@ from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, InputMediaPhoto, BotCommand
 from aiogram.exceptions import TelegramAPIError
-from .db import engine_and_session, init_database
+from .db import engine_and_session, init_database, reset_all_players_once, PHOTO_ONLY_RESET_KEY
 from .service import Game, GameError
 from .economy import slot_upgrade_price
 from .catalog import RARITY_EMOJIS, RARITY_TITLES, album_groups, search_cards, get_card, all_cards
@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.16-spotlight-pager-r3'
+BUILD_VERSION = '2026.10.16-photo-only-reset-r1'
 
 
 def g():
@@ -150,7 +150,7 @@ async def show_roll(event):
          f'💎 Премиум-баннер: <b>{n(p["premium_price"])} 🪙</b>\n'
          f'📈 Платных круток сегодня: <b>{p["paid_count"]}</b>\n\n'
          'Цена зависит от рекордного дохода в час и растёт на 15% за каждую платную крутку за сутки. '
-         'Бесплатная крутка не дорожает. Премиум убирает Common и даёт 70% фокус на группе недели внутри полученной редкости.\n\n'
+         'Бесплатная крутка не дорожает. Премиум меняет шансы редкостей и даёт 70% фокус на группе недели внутри полученной редкости.\n\n'
          'Гаранты: Epic — 10; Legendary — 40; Mythic — 150 круток без соответствующей редкости.')
     await send(event,msg,kb([('🎁 Бесплатная','roll:free')],
                             [('🪙 Обычная','roll:paid'),('💎 Премиум','roll:premium')],back()))
@@ -778,12 +778,28 @@ async def main():
         db_url='postgresql+asyncpg://'+db_url[len('postgres://'):]
     if db_url.startswith('sqlite'):
         Path('data').mkdir(exist_ok=True)
-    # Check static resources before accepting Telegram updates.
+    # Ensure complete new photo-only catalog before modifying ANY persistent data.
+    # A partial or cached Docker checkout must NOT erase the players' progress.
+    photo_cards = all_cards()
+    if len(photo_cards) != 84:
+        raise RuntimeError(f'Refusing reset: expected 84 photo cards, found {len(photo_cards)}')
+    root = Path(__file__).resolve().parent.parent
+    missing = [c['id'] for c in photo_cards if not c.get('image_path')
+               or not (root / c['image_path']).is_file()]
+    if missing:
+        raise RuntimeError('Refusing reset: incomplete card images: ' + ', '.join(missing[:5]))
     log.info('DOLCE EMPIRE running build: %s', BUILD_VERSION)
-    log.info('Loaded %s K-pop cards from bundled catalogue', len(all_cards()))
+    log.info('Loaded %s verified real-photo cards', len(photo_cards))
     engine,sf=engine_and_session(db_url)
     try:
         await init_database(engine)
+        was_reset = await reset_all_players_once(engine)
+        if was_reset:
+            log.warning('WORLD RESET APPLIED ONCE: %s. All existing players and gameplay cleared.',
+                        PHOTO_ONLY_RESET_KEY)
+        else:
+            log.info('World reset previously applied: %s. Keeping current progress.',
+                     PHOTO_ONLY_RESET_KEY)
         service=Game(sf)
         bot=Bot(token=token)
         dp=Dispatcher()

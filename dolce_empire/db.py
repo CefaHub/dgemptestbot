@@ -1,6 +1,6 @@
 """Database schema. PostgreSQL recommended for production; SQLite for local tests."""
 from datetime import datetime, timezone
-from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, String, UniqueConstraint, Index, Text
+from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, String, UniqueConstraint, Index, Text, delete, select, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
@@ -89,6 +89,42 @@ class Ledger(Base):
     reason: Mapped[str] = mapped_column(String(80))
     reference: Mapped[str] = mapped_column(String(128), default='')
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
+
+
+class ResetMarker(Base):
+    """Persists completed resets so a new Docker deployment never wipes players twice."""
+    __tablename__ = 'game_reset_markers'
+    key: Mapped[str] = mapped_column(String(100), primary_key=True)
+    applied_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow, nullable=False)
+
+
+# Increase this ONLY when an explicitly requested new worldwide wipe is needed.
+PHOTO_ONLY_RESET_KEY = 'photo_only_world_reset_2026_10_16_v1'
+
+
+async def reset_all_players_once(engine, key: str = PHOTO_ONLY_RESET_KEY) -> bool:
+    """Clear all gameplay in one DB transaction, once per persistent database.
+
+    Handles PostgreSQL and SQLite. Git pull alone cannot reset Bothost state:
+    the reset is performed at boot *before* Telegram polling begins.
+    Returns True only if this invocation performed the wipe.
+    """
+    async with engine.begin() as conn:
+        if conn.dialect.name == 'postgresql':
+            # Serializes concurrent workers trying to apply the same migration.
+            await conn.execute(text('SELECT pg_advisory_xact_lock(20261016084)'))
+        existing = await conn.scalar(
+            select(ResetMarker.key).where(ResetMarker.key == key)
+        )
+        if existing is not None:
+            return False
+        # Child records first, so FK enforcement remains valid in both DBs.
+        for model in (Listing, Trade, Discovery, OwnedCard, Ledger, Player):
+            await conn.execute(delete(model))
+        await conn.execute(
+            ResetMarker.__table__.insert().values(key=key, applied_at=utcnow())
+        )
+        return True
 
 
 def engine_and_session(db_url: str):

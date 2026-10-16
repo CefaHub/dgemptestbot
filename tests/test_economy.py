@@ -26,6 +26,26 @@ def test_catalog_transliterations_and_sets():
     assert any(x['idol']=='Chaewon' for x in search_cards('чэвон'))
     assert len(album_sets())>=12
 
+def test_photo_only_rarity_rolls_and_complete_catalog():
+    from pathlib import Path
+    rarities = {card['rarity'] for card in all_cards()}
+    assert rarities == {'rare', 'epic', 'legendary', 'mythic'}
+    assert len(all_cards()) == 84
+    for c in all_cards():
+        assert c.get('image_path') and Path(c['image_path']).is_file(), c['id']
+    from collections import Counter
+    sets = Counter((c['group'], c['era'], c['rarity']) for c in all_cards())
+    assert len(sets) == 17
+    assert all(count in (4,5,6) for count in sets.values())
+    for premium in (False, True):
+        for value in range(0,200,7):
+            result = rarity_roll(lambda n, value=value: value % n, premium=premium,
+                                 available_rarities=rarities)
+            assert result in rarities
+    assert rarity_roll(lambda n: 0, pity_mythic=149,
+                       available_rarities=rarities) == 'mythic'
+
+
 def test_income_cap():
     start=datetime(2026,10,16,0)
     pending,_,seconds=projected_unclaimed(100,0,0,0,start,start+timedelta(days=1))

@@ -106,9 +106,20 @@ class Game:
                        last_claim=self.clock())
             session.add(p)
             await session.flush()
-            commons = [c for c in all_cards() if c['rarity'] == 'common']
+            # All legacy Common cards were removed in the photo-only wipe.
+            # Give newcomers three different real-photo Rare cards, from
+            # separate groups, so they can immediately use the 3 studio slots.
             rares = [c for c in all_cards() if c['rarity'] == 'rare']
-            starts = [commons[0], commons[len(commons)//3], rares[0]]
+            starts = []
+            selected_groups = set()
+            for card in rares:
+                if card['group'] not in selected_groups:
+                    starts.append(card)
+                    selected_groups.add(card['group'])
+                if len(starts) == 3:
+                    break
+            if len(starts) < 3:
+                raise RuntimeError('Photo-only starter catalog is incomplete.')
             for index, c in enumerate(starts, 1):
                 session.add(OwnedCard(owner_id=uid, definition_id=c['id'], slot=index))
                 session.add(Discovery(user_id=uid, definition_id=c['id']))
@@ -183,7 +194,9 @@ class Game:
                 price=paid_price(p.peak_income,p.paid_count+1,mode=='premium')
                 await self._debit(session,p,price,'paid_roll',mode)
                 p.paid_count+=1
-            tier=rarity_roll(self.randbelow,mode=='premium',p.pity_epic,p.pity_legendary,p.pity_mythic)
+            tier=rarity_roll(self.randbelow,mode=='premium',p.pity_epic,
+                             p.pity_legendary,p.pity_mythic,
+                             available_rarities={c['rarity'] for c in all_cards()})
             tier_index=RARITIES.index(tier)
             p.pity_epic=0 if tier_index>=2 else p.pity_epic+1
             p.pity_legendary=0 if tier_index>=3 else p.pity_legendary+1

@@ -37,22 +37,36 @@ def card_income(base_income: int, level: int, awakening: int) -> int:
     return base_income * (100 + (level - 1) * 6) * (100 + awakening * 20) // 10000
 
 
-def rarity_roll(randbelow, premium=False, pity_epic=0, pity_legendary=0, pity_mythic=0):
+def rarity_roll(randbelow, premium=False, pity_epic=0, pity_legendary=0,
+                pity_mythic=0, available_rarities=None):
+    """Roll only rarities that actually have cards; renormalize remaining weights.
+
+    Existing rates and pity remain unchanged whenever the full catalog is
+    available. After a photo-only wipe, Common/Secret have zero cards and must
+    never produce a missing-card error or consume a paid roll.
+    """
     weights = WEIGHTS_PREMIUM if premium else WEIGHTS_NORMAL
-    number = randbelow(sum(weights.values()))
+    enabled = set(available_rarities) if available_rarities is not None else set(RARITIES)
+    choices = [(tier, weights[tier]) for tier in RARITIES if tier in enabled and weights[tier] > 0]
+    total = sum(weight for _, weight in choices)
+    if not choices or total <= 0:
+        raise ValueError('There are no available cards for this gacha.')
+    number = randbelow(total)
     position = 0
-    rolled = RARITIES[-1]
-    for rarity in RARITIES:
-        position += weights[rarity]
+    rolled = choices[-1][0]
+    for rarity, weight in choices:
+        position += weight
         if number < position:
             rolled = rarity
             break
-    # Guarantee applies after 9 / 39 / 149 prior failures.
-    if pity_mythic >= 149 and RARITIES.index(rolled) < RARITIES.index('mythic'):
+    if ('mythic' in enabled and pity_mythic >= 149
+            and RARITIES.index(rolled) < RARITIES.index('mythic')):
         return 'mythic'
-    if pity_legendary >= 39 and RARITIES.index(rolled) < RARITIES.index('legendary'):
+    if ('legendary' in enabled and pity_legendary >= 39
+            and RARITIES.index(rolled) < RARITIES.index('legendary')):
         return 'legendary'
-    if pity_epic >= 9 and RARITIES.index(rolled) < RARITIES.index('epic'):
+    if ('epic' in enabled and pity_epic >= 9
+            and RARITIES.index(rolled) < RARITIES.index('epic')):
         return 'epic'
     return rolled
 
