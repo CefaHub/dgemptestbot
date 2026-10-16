@@ -56,6 +56,21 @@ def _fit_font(text,max_px,starting):
 def render_card(definition_id, level=1, awakening=0, serial=0):
     c=get_card(definition_id)
     if c is None: raise ValueError('Unknown card')
+    # Full official-photo-based Spotlight design is already a finished 3:4 card.
+    # Do not crop it or draw a second frame over the member's face.
+    if c.get('image_path'):
+        bundled = ROOT / c['image_path']
+        if bundled.is_file():
+            try:
+                with Image.open(bundled) as original:
+                    finished = original.convert('RGB')
+                    if finished.size != (900, 1200):
+                        finished = finished.resize((900, 1200), Image.Resampling.LANCZOS)
+                    data = BytesIO()
+                    finished.save(data, format='PNG', optimize=True)
+                    return data.getvalue()
+            except (OSError, ValueError):
+                pass  # Keep the safe procedural fallback if an image is unavailable.
     width,height=700,1000
     primary,dark,light=PALETTE[c['rarity']]
     p,d,l=rgb(primary),rgb(dark),rgb(light)
