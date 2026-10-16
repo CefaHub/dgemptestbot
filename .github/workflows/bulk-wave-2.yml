@@ -14,7 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [illit, aespa, ive, itzy, lesserafim]
+        include:
+          - {group: illit, members: ''}
+          - {group: aespa, members: ''}
+          - {group: ive, members: ''}
+          - {group: itzy, members: ''}
+          - {group: lesserafim, members: 'CHAEWON,SAKURA,YUNJIN'}
+          - {group: lesserafim, members: 'KAZUHA,EUNCHAE'}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -27,11 +33,11 @@ jobs:
       - name: Generate real-photo member cards and banners
         run: |
           python -m py_compile tools/build_bulk_wave_2.py
-          python tools/build_bulk_wave_2.py --group ${{ matrix.group }}
+          python tools/build_bulk_wave_2.py --group ${{ matrix.group }} --members "${{ matrix.members }}"
       - name: Upload only verified group assets
         uses: actions/upload-artifact@v4
         with:
-          name: wave2-${{ matrix.group }}
+          name: wave2-${{ matrix.group }}-${{ strategy.job-index }}
           path: output/bulk_wave_2/assets
           retention-days: 14
           if-no-files-found: error
@@ -60,6 +66,27 @@ jobs:
           from PIL import Image
           data=json.loads(Path('tools/bulk_wave_2.json').read_text())
           assert len(data['cards'])==75 and len(data['banners'])==15
+          # LE SSERAFIM is downloaded in two small jobs to avoid Commons 429.
+          # Reconstruct its group banners from the REAL portrait areas of the
+          # already rendered member cards, without any synthetic faces.
+          from tools.build_bulk_wave_2 import banner_image
+          for group in data['groups']:
+              if group['slug'] != 'lesserafim':
+                  continue
+              portraits = {}
+              for c in data['cards']:
+                  if c['group'] != group['group'] or c['rarity'] != 'rare':
+                      continue
+                  path=Path('bulk_generated') / Path(*Path(c['image_path']).parts[1:])
+                  with Image.open(path) as photo:
+                      portraits[c['photo_source_id']]=photo.convert('RGB').crop((75,145,825,905))
+              assert len(portraits) == 5
+              for rarity in data['series']:
+                  bn=next(b for b in data['banners'] if b['slug']==group['slug'] and b['rarity']==rarity['rarity'])
+                  loc=Path('bulk_generated') / Path(*Path(bn['image_path']).parts[1:])
+                  loc.parent.mkdir(parents=True,exist_ok=True)
+                  chosen=[{'source_id':c['photo_source_id']} for c in data['cards'] if c['group']==group['group'] and c['rarity']==rarity['rarity']]
+                  banner_image(group,rarity,chosen,portraits).save(loc,'PNG',optimize=True)
           for row in data['cards']+data['banners']:
               relative=Path(row['image_path'])
               source=Path('bulk_generated')/Path(*relative.parts[1:])
