@@ -962,5 +962,169 @@
     "aliases": [
       "хеин"
     ]
+  },
+  {
+    "id": "card_illit_spotlight_epic_yunah_01",
+    "group": "ILLIT",
+    "idol": "Yunah",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Юна",
+      "юна",
+      "yunah",
+      "юнах"
+    ],
+    "collection_id": "coll_illit_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 1,
+    "card_total": 5,
+    "image_path": "assets/cards/illit/illit_spotlight_epic_yunah_01.png"
+  },
+  {
+    "id": "card_illit_spotlight_epic_minju_02",
+    "group": "ILLIT",
+    "idol": "Minju",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Минджу",
+      "минджу",
+      "minju"
+    ],
+    "collection_id": "coll_illit_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 2,
+    "card_total": 5,
+    "image_path": "assets/cards/illit/illit_spotlight_epic_minju_02.png"
+  },
+  {
+    "id": "card_illit_spotlight_epic_moka_03",
+    "group": "ILLIT",
+    "idol": "Moka",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Мока",
+      "мока",
+      "moka"
+    ],
+    "collection_id": "coll_illit_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 3,
+    "card_total": 5,
+    "image_path": "assets/cards/illit/illit_spotlight_epic_moka_03.png"
+  },
+  {
+    "id": "card_illit_spotlight_epic_wonhee_04",
+    "group": "ILLIT",
+    "idol": "Wonhee",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Вонхи",
+      "вонхи",
+      "вонхе",
+      "wonhee"
+    ],
+    "collection_id": "coll_illit_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 4,
+    "card_total": 5,
+    "image_path": "assets/cards/illit/illit_spotlight_epic_wonhee_04.png"
+  },
+  {
+    "id": "card_illit_spotlight_epic_iroha_05",
+    "group": "ILLIT",
+    "idol": "Iroha",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Ироха",
+      "ироха",
+      "iroha"
+    ],
+    "collection_id": "coll_illit_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 5,
+    "card_total": 5,
+    "image_path": "assets/cards/illit/illit_spotlight_epic_iroha_05.png"
+  },
+  {
+    "id": "card_aespa_spotlight_epic_karina_01",
+    "group": "aespa",
+    "idol": "Karina",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Карина",
+      "карина",
+      "karina"
+    ],
+    "collection_id": "coll_aespa_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 1,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_karina_01.png"
+  },
+  {
+    "id": "card_aespa_spotlight_epic_winter_02",
+    "group": "aespa",
+    "idol": "Winter",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Винтер",
+      "винтер",
+      "winter"
+    ],
+    "collection_id": "coll_aespa_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 2,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_winter_02.png"
+  },
+  {
+    "id": "card_aespa_spotlight_epic_giselle_03",
+    "group": "aespa",
+    "idol": "Giselle",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Жизель",
+      "жизель",
+      "giselle"
+    ],
+    "collection_id": "coll_aespa_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 3,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_giselle_03.png"
+  },
+  {
+    "id": "card_aespa_spotlight_epic_ningning_04",
+    "group": "aespa",
+    "idol": "Ningning",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Ниннин",
+      "ниннин",
+      "ningning"
+    ],
+    "collection_id": "coll_aespa_spotlight_epic",
+    "series": "SPOTLIGHT",
+    "card_number": 4,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_ningning_04.png"
   }
 ]
