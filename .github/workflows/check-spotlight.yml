@@ -2,7 +2,7 @@ name: Test DOLCE EMPIRE and Spotlight assets
 on:
   workflow_dispatch:
   push:
-    branches: [feature/real-photo-cards, fix/spotlight-pagination, main]
+    branches: [feature/real-photo-cards, fix/spotlight-pagination, fix/spotlight-deployment-check, main]
     paths:
       - '.github/workflows/check-spotlight.yml'
       - 'dolce_empire/**'
