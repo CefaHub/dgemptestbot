@@ -18,6 +18,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
+BUILD_VERSION = '2026.10.16-spotlight-pager-r3'
 
 
 def g():
@@ -83,10 +84,21 @@ async def start(message:Message):
     await show_home(message)
 
 
+@router.message(Command('version'))
+async def version_cmd(message: Message):
+    """Show the deployed build identity to distinguish hosting cache from GitHub main."""
+    await message.answer(
+        f'🔧 DOLCE EMPIRE\\nСборка: <code>{BUILD_VERSION}</code>\\n'
+        'Галерея SPOTLIGHT: 1 баннер за раз, стрелки ◀️ ▶️',
+        parse_mode='HTML',
+    )
+
+
 @router.message(Command('help'))
 async def help_cmd(message:Message):
     text='''<b>🎮 DOLCE EMPIRE — команды</b>
 /start — главное меню
+/version — проверить загруженную версию бота
 /me — профиль
 /roll — гача и цены
 /studio — студия и сбор монет
@@ -319,7 +331,7 @@ async def show_spotlight(event, page: int = 0):
                f'{escape(names)}\n'
                '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\n'
                '🎰 Карточки доступны в обычной и премиум-гаче.\n\n'
-               f'📖 Коллекция {page + 1}/{len(SPOTLIGHT_SETS)}')
+               f'📖 Коллекция {page + 1}/{len(SPOTLIGHT_SETS)} · {BUILD_VERSION}')
     buttons = kb(
         [('◀️', f'spotlight:{(page - 1) % len(SPOTLIGHT_SETS)}'),
          ('▶️', f'spotlight:{(page + 1) % len(SPOTLIGHT_SETS)}')],
@@ -687,6 +699,7 @@ async def main():
     if db_url.startswith('sqlite'):
         Path('data').mkdir(exist_ok=True)
     # Check static resources before accepting Telegram updates.
+    log.info('DOLCE EMPIRE running build: %s', BUILD_VERSION)
     log.info('Loaded %s K-pop cards from bundled catalogue', len(all_cards()))
     engine,sf=engine_and_session(db_url)
     try:
@@ -700,6 +713,7 @@ async def main():
             try:
                 await bot.set_my_commands([
                     BotCommand(command='start', description='✨ Главное меню'),
+                    BotCommand(command='version', description='🔧 Версия сборки'),
                     BotCommand(command='roll', description='🎰 Крутить гачу'),
                     BotCommand(command='studio', description='🏢 Тайкун и сбор дохода'),
                     BotCommand(command='cards', description='🃏 Мои карточки'),
