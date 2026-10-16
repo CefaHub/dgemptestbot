@@ -1,4 +1,4 @@
-name: Make DOLCE real photo cards
+name: Build and publish DOLCE SPOTLIGHT EPIC cards
 on:
   workflow_dispatch:
   push:
@@ -9,27 +9,75 @@ on:
       - 'tools/photo_sources.json'
       - '.github/workflows/dolce-photo-cards.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
   export:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install renderer dependencies
+      - name: Install renderer
         run: python -m pip install 'Pillow>=10,<13'
-      - name: Check renderer syntax
-        run: python -m py_compile tools/build_real_photocards.py
-      - name: Fetch original photos and render collectible cards
+      - name: Check source syntax and catalog completeness
+        run: |
+          python -m py_compile tools/build_real_photocards.py dolce_empire/bot.py dolce_empire/art.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cards = json.loads(Path('dolce_empire/_catalog.json').read_text())
+          sources = json.loads(Path('tools/photo_sources.json').read_text())
+          assert len(cards) >= 95
+          assert len(sources['cards']) == 9
+          assert len(sources['banners']) == 2
+          for group, count in [('ILLIT', 5), ('aespa', 4)]:
+              matches = [c for c in cards if c['group'] == group and c['era'] == 'SPOTLIGHT']
+              assert len(matches) == count, (group, len(matches))
+              assert {c['rarity'] for c in matches} == {'epic'}
+          PY
+      - name: Fetch authentic photos and render complete collections
         run: python tools/build_real_photocards.py
-      - name: Upload finished images with credits
+      - name: Verify dimensions, export into bot assets and preserve attribution
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          for group, count in [('illit', 5), ('aespa', 4)]:
+              files = list(Path('output/cards_3x4').glob(group + '_spotlight_epic_*.png'))
+              assert len(files) == count, (group, len(files))
+              dst = Path('assets/cards') / group
+              dst.mkdir(parents=True, exist_ok=True)
+              for src in files:
+                  with Image.open(src) as image:
+                      assert image.size == (900,1200), src
+                  (dst / src.name).write_bytes(src.read_bytes())
+              banner = Path('output/banners_16x9') / (group + '_spotlight_epic_banner.png')
+              with Image.open(banner) as image:
+                  assert image.size == (1600,900), banner
+              dest = Path('assets/banners') / group
+              dest.mkdir(parents=True, exist_ok=True)
+              (dest / banner.name).write_bytes(banner.read_bytes())
+          Path('assets/PHOTO_CREDITS.md').write_bytes(Path('output/PHOTO_CREDITS.md').read_bytes())
+          print('OK: all 9 cards and both banners saved in bot assets')
+          PY
+      - name: Commit completed PNG assets to feature branch
+        if: github.ref == 'refs/heads/feature/real-photo-cards'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/cards/illit assets/cards/aespa assets/banners/illit assets/banners/aespa assets/PHOTO_CREDITS.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Include 9 authentic-photo EPIC cards and two group banners'
+            git push origin HEAD:feature/real-photo-cards
+          fi
+      - name: Upload finished images and original-photo credits
         uses: actions/upload-artifact@v4
-        if: success()
         with:
-          name: DolceEmpire-RealPhotos-8cards-2banners
-          path: output/DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip
+          name: DolceEmpire-SPOTLIGHT-EPIC-9cards-2banners
+          path: output/DolceEmpire_SPOTLIGHT_EPIC_9_CARDS_2_BANNERS.zip
           retention-days: 14
           if-no-files-found: error
