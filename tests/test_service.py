@@ -10,24 +10,26 @@ async def test_start_roll_claim_upgrades(env):
     assert await game.start(101,'<Admin>') is True
     assert await game.start(101,'<Admin>') is False
     p=await game.profile(101)
-    assert p['income']==200 and p['slots']==3 and p['free']==3
-    assert p['price']==2000
+    assert p['income']==300 and p['slots']==3 and p['free']==3
+    assert p['price']==2400
     rolled=await game.roll(101,'free')
-    assert rolled['price']==0 and rolled['card']['rarity']=='common'
+    assert rolled['price']==0 and rolled['card']['rarity']=='rare'
     assert (await game.profile(101))['free']==2
     clock.now+=timedelta(hours=2)
     p=await game.profile(101)
-    assert p['pending']==400 and p['free']==3
+    assert p['pending']==600 and p['free']==3
     amount,balance=await game.claim(101)
-    assert amount==400 and balance==400
+    assert amount==600 and balance==600
     with pytest.raises(GameError):await game.roll(101,'paid')
-    assert (await game.profile(101))['coins']==400
+    assert (await game.profile(101))['coins']==600
     await game.daily(101)
+    clock.now+=timedelta(hours=3)
+    await game.claim(101)
     cards=await game.cards(101)
     target=cards[0]
     upgraded,cost=await game.upgrade(101,target['id'])
-    assert upgraded['level']==2 and cost==900
-    assert (await game.profile(101))['income']>200
+    assert upgraded['level']==2 and cost==1800
+    assert (await game.profile(101))['income']>300
     with pytest.raises(GameError):await game.upgrade(101,999999)
 
 @pytest.mark.asyncio
@@ -39,10 +41,10 @@ async def test_tycoon_no_history_minting(env):
     card=await game.roll(11,'free')
     await game.equip(11,card['card']['id'],1)
     pending=(await game.profile(11))['pending']
-    assert pending==1000 # previous 5 hours ×200, not new equipped rate
+    assert pending==1500 # previous 5 hours ×300, not new equipped rate
     clock.now+=timedelta(hours=24)
     p=await game.profile(11)
-    assert p['pending'] == 1000 + p['income']*7  # 12h total cap, 5 already banked
+    assert p['pending'] == 1500 + p['income']*7  # 12h total cap, 5 already banked
     got,_=await game.claim(11)
     assert got==p['pending']
     assert (await game.profile(11))['pending']==0
@@ -62,7 +64,7 @@ async def test_trade_happy_path_and_double_spend(env):
     assert any(c['id']==a for c in await game.cards(2))
     assert any(c['id']==b for c in await game.cards(1))
     p1=await game.profile(1);p2=await game.profile(2)
-    assert p1['coins']==440 and p2['coins']==560
+    assert p1['coins']==540 and p2['coins']==660
 
 @pytest.mark.asyncio
 async def test_trade_validations(env):
@@ -94,7 +96,7 @@ async def test_awakening_consumes_one_copy(env):
     await game.start(1,'A')
     a=(await game.roll(1,'free'))['card']
     b=(await game.roll(1,'free'))['card']
-    assert a['definition_id']==b['definition_id'] # RNG fixed at first common
+    assert a['definition_id']==b['definition_id'] # RNG fixed at first available Rare
     c,used=await game.awaken(1,a['id'])
     assert c['awakening']==1 and used==b['id']
     assert not any(x['id']==b['id'] for x in await game.cards(1))
