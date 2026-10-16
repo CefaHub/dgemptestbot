@@ -144,17 +144,20 @@ def collage_from_card_photos(group):
     if not members:
         raise ValueError('Missing member portraits for ' + group)
     image = Image.new('RGB', (BW, BH), COLORS[group.lower()]['base'])
-    band = BW // len(members)
+    # Text lives in the left panel; every member gets a fully visible photo strip.
+    photo_start = 680
+    usable_width = BW - photo_start
+    band = usable_width // len(members)
     for idx, row in enumerate(members):
         url = row['photo']
         local = SRC / (row['id'] + ('.png' if url.endswith('.png') else '.jpg'))
         with Image.open(local) as ph:
             portrait = ImageOps.fit(ph.convert('RGB'), (band, BH),
                                     method=Image.Resampling.LANCZOS, centering=(.5, .36))
-        image.paste(portrait, (idx * band, 0))
+        image.paste(portrait, (photo_start + idx * band, 0))
     d = ImageDraw.Draw(image, 'RGBA')
     for idx in range(1, len(members)):
-        x = idx * band
+        x = photo_start + idx * band
         d.line((x, 0, x, BH), fill=(255, 245, 255, 140), width=3)
     return image
 
