@@ -1,0 +1,52 @@
+{
+  "id": "wave1_spotlight_epic",
+  "status": "live_on_normal_gacha_rarity_pool",
+  "description": "Complete group EPIC sets. One rarity per collection. Already integrated into the normal gacha catalog; no separate guaranteed-EPIC banner pool.",
+  "collections": [
+    {
+      "id": "coll_illit_spotlight_epic",
+      "group": "ILLIT",
+      "series": "SPOTLIGHT",
+      "rarity": "epic",
+      "member_count": 5,
+      "banner_id": "banner_illit_spotlight_epic",
+      "image_path": "assets/banners/illit/illit_spotlight_epic_banner.png",
+      "theme_colors": [
+        "#f2c6ff",
+        "#d39cff",
+        "#ffffff",
+        "#b26cff"
+      ],
+      "card_ids": [
+        "card_illit_spotlight_epic_yunah_01",
+        "card_illit_spotlight_epic_minju_02",
+        "card_illit_spotlight_epic_moka_03",
+        "card_illit_spotlight_epic_wonhee_04",
+        "card_illit_spotlight_epic_iroha_05"
+      ],
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_aespa_spotlight_epic",
+      "group": "aespa",
+      "series": "SPOTLIGHT",
+      "rarity": "epic",
+      "member_count": 4,
+      "banner_id": "banner_aespa_spotlight_epic",
+      "image_path": "assets/banners/aespa/aespa_spotlight_epic_banner.png",
+      "theme_colors": [
+        "#98bfff",
+        "#8f6bff",
+        "#ffffff",
+        "#5168ff"
+      ],
+      "card_ids": [
+        "card_aespa_spotlight_epic_karina_01",
+        "card_aespa_spotlight_epic_winter_02",
+        "card_aespa_spotlight_epic_giselle_03",
+        "card_aespa_spotlight_epic_ningning_04"
+      ],
+      "bonus_income_percent": 5
+    }
+  ]
+}
