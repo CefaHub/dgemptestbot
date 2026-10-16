@@ -128,7 +128,7 @@ def render_card(row,photo):
     x=(W-tw)//2
     d.text((x+3,1028+5),name,font=label_font,fill=(0,0,0,180))
     d.text((x,1028),name,font=label_font,fill=cc['faint'],stroke_width=1,stroke_fill=cc['base'])
-    d.text((W//2,1140),row['group'].upper()+'   /   001',font=font(20,True),anchor='mm',fill=(*cc['highlight'],240))
+    d.text((W//2,1140),f"{row['group'].upper()}  /  SPOTLIGHT  /  {row['number']:02d}/{row['total']:02d}",font=font(20,True),anchor='mm',fill=(*cc['highlight'],240))
     d.line((126,1124,275,1124),fill=(*cc['highlight'],150),width=2)
     d.line((625,1124,774,1124),fill=(*cc['highlight'],150),width=2)
     path=CARDS/(row['id']+'.png');image.save(path,optimize=True)
@@ -136,23 +136,24 @@ def render_card(row,photo):
 
 
 def collage_from_card_photos(group):
-    """Compose four authentic member photos; no new requests or AI faces."""
-    members = [row for row in MANIFEST['cards'] if row['group'].lower() == group.lower()]
-    if len(members) < 4:
-        raise ValueError('Expected four real source portraits for ' + group)
-    result = Image.new('RGB', (BW, BH), (20, 20, 35))
-    band = BW // 4
-    for idx, row in enumerate(members[:4]):
-        src = SRC / (row['id'] + ('.png' if row['photo'].endswith('.png') else '.jpg'))
-        with Image.open(src) as ph:
+    """Compose all group members from actual pre-downloaded photos. No AI portraits."""
+    members = [row for row in MANIFEST['cards'] if row['group'].casefold() == group.casefold()]
+    if not members:
+        raise ValueError('Missing member portraits for ' + group)
+    image = Image.new('RGB', (BW, BH), COLORS[group.lower()]['base'])
+    band = BW // len(members)
+    for idx, row in enumerate(members):
+        url = row['photo']
+        local = SRC / (row['id'] + ('.png' if url.endswith('.png') else '.jpg'))
+        with Image.open(local) as ph:
             portrait = ImageOps.fit(ph.convert('RGB'), (band, BH),
-                                    method=Image.Resampling.LANCZOS,
-                                    centering=(.5, .35))
-        result.paste(portrait, (idx * band, 0))
-    d = ImageDraw.Draw(result, 'RGBA')
-    for x in (band, 2 * band, 3 * band):
-        d.line((x, 0, x, BH), fill=(245, 228, 255, 145), width=3)
-    return result
+                                    method=Image.Resampling.LANCZOS, centering=(.5, .36))
+        image.paste(portrait, (idx * band, 0))
+    d = ImageDraw.Draw(image, 'RGBA')
+    for idx in range(1, len(members)):
+        x = idx * band
+        d.line((x, 0, x, BH), fill=(255, 245, 255, 140), width=3)
+    return image
 
 
 def gradient_transparent(width,height,color,gradient='left'):
@@ -218,10 +219,10 @@ def main():
     credits()
     (OUT/'MANIFEST.json').write_text(json.dumps(MANIFEST,ensure_ascii=False,indent=2),encoding='utf-8')
     import zipfile
-    with zipfile.ZipFile(OUT/'DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip','w',zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(OUT/'DolceEmpire_SPOTLIGHT_EPIC_9_CARDS_2_BANNERS.zip','w',zipfile.ZIP_DEFLATED) as z:
         for folder in [CARDS,BANNERS]:
             for f in folder.glob('*.png'): z.write(f, f.relative_to(OUT))
         for f in [OUT/'PHOTO_CREDITS.md',OUT/'MANIFEST.json']:z.write(f,f.name)
-    print('SUCCESS:',OUT/'DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip')
+    print('SUCCESS:',OUT/'DolceEmpire_SPOTLIGHT_EPIC_9_CARDS_2_BANNERS.zip')
 
 if __name__=='__main__':main()
