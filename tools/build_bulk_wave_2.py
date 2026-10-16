@@ -70,7 +70,7 @@ def image_urls(row):
         )
     path = urllib.parse.urlsplit(original).path
     name = path.rsplit("/", 1)[-1]
-    thumb = "https://upload.wikimedia.org" + path.replace("/wikipedia/commons/", "/wikipedia/commons/thumb/", 1)
+    thumb = "https://thumb.wikimedia.org" + path.replace("/wikipedia/commons/", "/wikipedia/commons/thumb/", 1)
     # Thumbnails lower Wikimedia bandwidth and normally avoid the 429 limit on originals.
     return [thumb + "/640px-" + name, thumb + "/500px-" + name, original]
 
