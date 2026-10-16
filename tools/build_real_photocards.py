@@ -39,9 +39,12 @@ def fetch_photo(row):
     if local.exists():
         return Image.open(local).convert('RGB')
     if CACHE:
-        p=Path(CACHE)/ (row['id']+'.png')
-        if not p.is_file(): raise RuntimeError(f"Missing explicit test image: {p}")
-        return Image.open(p).convert('RGB')
+        p = Path(CACHE) / (row['id'] + '.png')
+        if not p.is_file():
+            raise RuntimeError(f"Missing explicit test image: {p}")
+        photo = Image.open(p).convert('RGB')
+        photo.save(local, format='PNG')
+        return photo
     # Prefer Commons cached thumbnail rather than rate-limited original.
     from urllib.parse import urlsplit
     url_path = urlsplit(url).path
