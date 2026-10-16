@@ -6,7 +6,7 @@ from html import escape
 from pathlib import Path
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import Command, CommandStart
-from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, BotCommand
+from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, BotCommand
 from aiogram.exceptions import TelegramAPIError
 from .db import engine_and_session, init_database
 from .service import Game, GameError
@@ -37,6 +37,7 @@ def kb(*rows):
 def main_kb():
     return kb([('🎰 Гача','nav:roll'),('🏢 Тайкун','nav:studio')],
               [('🃏 Карточки','cards:0'),('📚 Альбомы','nav:albums')],
+              [('✨ SPOTLIGHT','nav:spotlight')],
               [('🤝 Обмены','nav:trades'),('🛒 Рынок','nav:market')],
               [('🎁 Задания','nav:quests'),('🏆 Топ','nav:top')])
 
@@ -99,6 +100,7 @@ async def help_cmd(message:Message):
 /awake ID — пробудить дубликатом
 /expand — купить слот студии
 /album — коллекции
+/spotlight — новые EPIC-сеты ILLIT и aespa
 /daily — ежедневная награда
 /quests — задания
 /market — рынок (фиксированные цены)
@@ -297,6 +299,40 @@ async def show_album_group(event,index):
     await send(event,'\n'.join(lines),kb([('◀️ Все группы','nav:albums')],back()))
 
 
+async def show_spotlight(event):
+    """Show complete EPIC releases with actual 16:9 banners, or text fallback."""
+    sets = [
+        ('ILLIT', '5/5', 'Юна · Минджу · Мока · Вонхи · Ироха',
+         'assets/banners/illit/illit_spotlight_epic_banner.png'),
+        ('aespa', '4/4', 'Карина · Винтер · Жизель · Ниннин',
+         'assets/banners/aespa/aespa_spotlight_epic_banner.png'),
+    ]
+    if isinstance(event, CallbackQuery):
+        await event.answer()
+    for group, count, names, relative_path in sets:
+        caption = (f'✨ <b>{escape(group)} — SPOTLIGHT</b>\n'
+                   f'🟣 Редкость: <b>EPIC</b> · полный сет {count}\n'
+                   f'{escape(names)}\n'
+                   '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\n'
+                   '🎰 Карточки доступны в обычной и премиум-гаче.')
+        buttons = kb([('🎰 Крутить','nav:roll'),('📚 Альбомы','nav:albums')],back())
+        banner = Path(__file__).resolve().parent.parent / relative_path
+        if banner.is_file():
+            if isinstance(event, CallbackQuery):
+                await event.bot.send_photo(user_id(event), FSInputFile(banner),
+                                           caption=caption, parse_mode='HTML',
+                                           reply_markup=buttons)
+            else:
+                await event.answer_photo(FSInputFile(banner), caption=caption,
+                                         parse_mode='HTML', reply_markup=buttons)
+        else:
+            if isinstance(event, CallbackQuery):
+                await event.bot.send_message(user_id(event), caption,
+                                             reply_markup=buttons, parse_mode='HTML')
+            else:
+                await event.answer(caption, reply_markup=buttons, parse_mode='HTML')
+
+
 async def show_market(event):
     entries=await g().market()
     lines=['🛒 <b>РЫНОК КАРТОЧЕК</b>\n','Фиксированные объявления; комиссия с продавца 5%.\n']
@@ -351,6 +387,9 @@ async def show_leaders(event,kind='income'):
     await send(event,'\n'.join(lines),kb([('🪙 Баланс','top:rich'),('🏢 Доход','top:income')],
                                          [('🎰 Крутки','top:rolls'),('💰 Собрано','top:collector')],back()))
 
+
+@router.message(Command('spotlight'))
+async def spotlight_cmd(m:Message):await show_spotlight(m)
 
 @router.message(Command('album'))
 async def album_cmd(m:Message):await show_album(m)
@@ -462,6 +501,7 @@ async def nav_callback(c:CallbackQuery):
         case 'roll':await show_roll(c)
         case 'studio':await show_studio(c)
         case 'albums':await show_album(c)
+        case 'spotlight':await show_spotlight(c)
         case 'trades':await show_trades(c)
         case 'market':await show_market(c)
         case 'quests':await show_quests(c)
@@ -622,6 +662,7 @@ async def main():
                     BotCommand(command='studio', description='🏢 Тайкун и сбор дохода'),
                     BotCommand(command='cards', description='🃏 Мои карточки'),
                     BotCommand(command='album', description='📚 Коллекции'),
+                    BotCommand(command='spotlight', description='✨ Новые EPIC-сеты'),
                     BotCommand(command='market', description='🛒 Рынок'),
                     BotCommand(command='trades', description='🤝 Обмены'),
                     BotCommand(command='quests', description='🎁 Задания'),

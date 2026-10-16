@@ -39,20 +39,37 @@ def fetch_photo(row):
     if local.exists():
         return Image.open(local).convert('RGB')
     if CACHE:
-        p=Path(CACHE)/ (row['id']+'.png')
-        if not p.is_file(): raise RuntimeError(f"Missing explicit test image: {p}")
-        return Image.open(p).convert('RGB')
-    request=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"image/avif,image/webp,image/png,image/jpeg,image/*;q=0.9"})
-    for attempt in range(4):
-        try:
-            with urllib.request.urlopen(request,timeout=35) as response:
-                buf=response.read(24_000_000)
-            im=Image.open(BytesIO(buf)); im.verify()
-            local.write_bytes(buf)
-            return Image.open(local).convert('RGB')
-        except Exception as exc:
-            if attempt==3:raise RuntimeError(f"Unable to fetch authentic photograph {row['id']} {row['page']}: {exc}") from exc
-            time.sleep(2*(attempt+1))
+        p = Path(CACHE) / (row['id'] + '.png')
+        if not p.is_file():
+            raise RuntimeError(f"Missing explicit test image: {p}")
+        photo = Image.open(p).convert('RGB')
+        photo.save(local, format='PNG')
+        return photo
+    # Prefer Commons cached thumbnail rather than rate-limited original.
+    from urllib.parse import urlsplit
+    url_path = urlsplit(url).path
+    if url_path.startswith('/wikipedia/commons/'):
+        name = url_path.rsplit('/', 1)[-1]
+        thumb_root = 'https://thumb.wikimedia.org' + url_path.replace('/wikipedia/commons/', '/wikipedia/commons/thumb/', 1)
+        candidates = [thumb_root + '/500px-' + name, url]
+    else:
+        candidates = [url]
+    errors = []
+    for candidate in candidates:
+        req = urllib.request.Request(candidate, headers={'User-Agent': UA, 'Accept': 'image/png,image/jpeg,image/*;q=0.9'})
+        for attempt in range(2):
+            try:
+                with urllib.request.urlopen(req, timeout=25) as response:
+                    buf = response.read(24_000_000)
+                check = Image.open(BytesIO(buf))
+                check.verify()
+                local.write_bytes(buf)
+                return Image.open(local).convert('RGB')
+            except Exception as exc:
+                errors.append(str(exc))
+                if attempt == 0:
+                    time.sleep(2)
+    raise RuntimeError('Unable to fetch real photograph ' + row['id'] + ': ' + '; '.join(errors))
 
 
 def rounded_photo(c,photo,xy,radius=24,zoom=1,shift_y=0):
@@ -114,11 +131,35 @@ def render_card(row,photo):
     x=(W-tw)//2
     d.text((x+3,1028+5),name,font=label_font,fill=(0,0,0,180))
     d.text((x,1028),name,font=label_font,fill=cc['faint'],stroke_width=1,stroke_fill=cc['base'])
-    d.text((W//2,1140),row['group'].upper()+'   /   001',font=font(20,True),anchor='mm',fill=(*cc['highlight'],240))
+    d.text((W//2,1140),f"{row['group'].upper()}  /  SPOTLIGHT  /  {row['number']:02d}/{row['total']:02d}",font=font(20,True),anchor='mm',fill=(*cc['highlight'],240))
     d.line((126,1124,275,1124),fill=(*cc['highlight'],150),width=2)
     d.line((625,1124,774,1124),fill=(*cc['highlight'],150),width=2)
     path=CARDS/(row['id']+'.png');image.save(path,optimize=True)
     return path
+
+
+def collage_from_card_photos(group):
+    """Compose all group members from actual pre-downloaded photos. No AI portraits."""
+    members = [row for row in MANIFEST['cards'] if row['group'].casefold() == group.casefold()]
+    if not members:
+        raise ValueError('Missing member portraits for ' + group)
+    image = Image.new('RGB', (BW, BH), COLORS[group.lower()]['base'])
+    # Text lives in the left panel; every member gets a fully visible photo strip.
+    photo_start = 680
+    usable_width = BW - photo_start
+    band = usable_width // len(members)
+    for idx, row in enumerate(members):
+        url = row['photo']
+        local = SRC / (row['id'] + ('.png' if url.endswith('.png') else '.jpg'))
+        with Image.open(local) as ph:
+            portrait = ImageOps.fit(ph.convert('RGB'), (band, BH),
+                                    method=Image.Resampling.LANCZOS, centering=(.5, .36))
+        image.paste(portrait, (photo_start + idx * band, 0))
+    d = ImageDraw.Draw(image, 'RGBA')
+    for idx in range(1, len(members)):
+        x = photo_start + idx * band
+        d.line((x, 0, x, BH), fill=(255, 245, 255, 140), width=3)
+    return image
 
 
 def gradient_transparent(width,height,color,gradient='left'):
@@ -156,10 +197,21 @@ def render_banner(row,photo):
 def credits():
     entries=MANIFEST['cards']+MANIFEST['banners']
     lines=['# Original photo credits / Источники реальных фотографий','','Images on these cards and banners are original REAL photographs, **not AI-generated**. Cards/banners are modified (cropping, frames, typography, colors).','Each entry preserves author, file link and license as required under Creative Commons attribution.','**Important:** public image license does not waive artists\' publicity/personality rights; verify permitted use before deploying widely.','']
+    cards_by_id = {c['id']: c for c in MANIFEST['cards']}
     for e in entries:
-        lines+=['## '+e['id'],'- Author / Автор: '+e['author'],'- Original / Оригинал: '+e['page'],'- License / Лицензия: '+e['license']+' — '+e['license_url'],'- Modification: cropped and composited into an original DOLCE EMPIRE fan-made collectible.']
-        if e['license_review']=='pending':lines+=['- ⚠️ Wikimedia Commons marks the source license review as pending. Double-check before public distribution.']
-        lines+=['']
+        lines += ['## ' + e['id']]
+        if e.get('source_card_ids'):
+            lines += ['- Composite banner from REAL member photos; no AI portraits.']
+            for card_id in e['source_card_ids']:
+                c = cards_by_id[card_id]
+                lines += ['- ' + c['member'] + ': ' + c['author'] + ' — ' + c['page'] + ' — ' + c['license'] + ' (' + c['license_url'] + ')']
+        else:
+            lines += ['- Author / Автор: ' + e['author'],
+                      '- Original / Оригинал: ' + e['page'],
+                      '- License / Лицензия: ' + e['license'] + ' — ' + e['license_url']]
+            if e['license_review'] == 'pending':
+                lines += ['- WARNING: License review pending on Commons; verify before public distribution.']
+        lines += ['- Modification: real photographs cropped and composited into fan-made card or banner.', '']
     (OUT/'PHOTO_CREDITS.md').write_text('\n'.join(lines),encoding='utf-8')
 
 
@@ -168,14 +220,15 @@ def main():
     for row in MANIFEST['cards']:
         print('CARD',row['id'],flush=True);render_card(row,fetch_photo(row))
     for row in MANIFEST['banners']:
-        print('BANNER',row['id'],flush=True);render_banner(row,fetch_photo(row))
+        print('BANNER COLLAGE', row['id'], flush=True)
+        render_banner(row, collage_from_card_photos(row['group']))
     credits()
     (OUT/'MANIFEST.json').write_text(json.dumps(MANIFEST,ensure_ascii=False,indent=2),encoding='utf-8')
     import zipfile
-    with zipfile.ZipFile(OUT/'DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip','w',zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(OUT/'DolceEmpire_SPOTLIGHT_EPIC_9_CARDS_2_BANNERS.zip','w',zipfile.ZIP_DEFLATED) as z:
         for folder in [CARDS,BANNERS]:
             for f in folder.glob('*.png'): z.write(f, f.relative_to(OUT))
         for f in [OUT/'PHOTO_CREDITS.md',OUT/'MANIFEST.json']:z.write(f,f.name)
-    print('SUCCESS:',OUT/'DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip')
+    print('SUCCESS:',OUT/'DolceEmpire_SPOTLIGHT_EPIC_9_CARDS_2_BANNERS.zip')
 
 if __name__=='__main__':main()

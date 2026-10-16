@@ -1,0 +1,54 @@
+name: Test DOLCE EMPIRE and Spotlight assets
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/real-photo-cards, main]
+    paths:
+      - '.github/workflows/check-spotlight.yml'
+      - 'dolce_empire/**'
+      - 'data/catalog.json'
+      - 'assets/cards/**'
+      - 'assets/banners/**'
+      - 'tests/**'
+      - 'requirements.txt'
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bot and test dependencies
+        run: python -m pip install -r requirements.txt pytest pytest-asyncio
+      - name: Test economy and database logic
+        run: python -m pytest -q
+      - name: Verify full EPIC sets and rendered photo output
+        run: |
+          python - <<'PY'
+          from io import BytesIO
+          from pathlib import Path
+          from PIL import Image
+          from dolce_empire.catalog import all_cards, album_sets
+          from dolce_empire.art import render_card
+          cards = all_cards()
+          expected = {'ILLIT': 5, 'aespa': 4}
+          for group, count in expected.items():
+              members = [c for c in cards if c['group'] == group and c['era'] == 'SPOTLIGHT']
+              assert len(members) == count, (group, members)
+              assert set(c['rarity'] for c in members) == {'epic'}
+              assert len(set(c['idol'] for c in members)) == count
+              assert len(album_sets()[(group, 'SPOTLIGHT')]) == count
+              for c in members:
+                  path = Path(c['image_path'])
+                  assert path.exists(), path
+                  with Image.open(BytesIO(render_card(c['id']))) as rendered:
+                      assert rendered.size == (900, 1200), (c['id'], rendered.size)
+              banner = Path('assets/banners') / group.lower() / (group.lower() + '_spotlight_epic_banner.png')
+              assert banner.exists(), banner
+              with Image.open(banner) as image:
+                  assert image.size == (1600, 900)
+          print('All Spotlight images, eras and rarities are consistent.')
+          PY
