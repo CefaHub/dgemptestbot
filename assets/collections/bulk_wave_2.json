@@ -1,0 +1,292 @@
+{
+  "version": "2.0.0",
+  "new_collection_count": 15,
+  "rarity_rule": "One group + one era = exactly one uniform rarity and complete member lineup",
+  "collections": [
+    {
+      "id": "coll_illit_aura_rare",
+      "group": "ILLIT",
+      "slug": "illit",
+      "era": "AURA",
+      "series": "AURA",
+      "rarity": "rare",
+      "member_count": 5,
+      "card_ids": [
+        "card_illit_aura_rare_yunah_01",
+        "card_illit_aura_rare_minju_02",
+        "card_illit_aura_rare_moka_03",
+        "card_illit_aura_rare_wonhee_04",
+        "card_illit_aura_rare_iroha_05"
+      ],
+      "banner_id": "banner_illit_aura_rare",
+      "banner_path": "assets/banners/illit/illit_aura_rare_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_illit_velvet_light_legendary",
+      "group": "ILLIT",
+      "slug": "illit",
+      "era": "VELVET LIGHT",
+      "series": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member_count": 5,
+      "card_ids": [
+        "card_illit_velvet_light_legendary_yunah_01",
+        "card_illit_velvet_light_legendary_minju_02",
+        "card_illit_velvet_light_legendary_moka_03",
+        "card_illit_velvet_light_legendary_wonhee_04",
+        "card_illit_velvet_light_legendary_iroha_05"
+      ],
+      "banner_id": "banner_illit_velvet_light_legendary",
+      "banner_path": "assets/banners/illit/illit_velvet_light_legendary_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_illit_royal_haze_mythic",
+      "group": "ILLIT",
+      "slug": "illit",
+      "era": "ROYAL HAZE",
+      "series": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member_count": 5,
+      "card_ids": [
+        "card_illit_royal_haze_mythic_yunah_01",
+        "card_illit_royal_haze_mythic_minju_02",
+        "card_illit_royal_haze_mythic_moka_03",
+        "card_illit_royal_haze_mythic_wonhee_04",
+        "card_illit_royal_haze_mythic_iroha_05"
+      ],
+      "banner_id": "banner_illit_royal_haze_mythic",
+      "banner_path": "assets/banners/illit/illit_royal_haze_mythic_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_aespa_aura_rare",
+      "group": "aespa",
+      "slug": "aespa",
+      "era": "AURA",
+      "series": "AURA",
+      "rarity": "rare",
+      "member_count": 4,
+      "card_ids": [
+        "card_aespa_aura_rare_karina_01",
+        "card_aespa_aura_rare_winter_02",
+        "card_aespa_aura_rare_giselle_03",
+        "card_aespa_aura_rare_ningning_04"
+      ],
+      "banner_id": "banner_aespa_aura_rare",
+      "banner_path": "assets/banners/aespa/aespa_aura_rare_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_aespa_velvet_light_legendary",
+      "group": "aespa",
+      "slug": "aespa",
+      "era": "VELVET LIGHT",
+      "series": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member_count": 4,
+      "card_ids": [
+        "card_aespa_velvet_light_legendary_karina_01",
+        "card_aespa_velvet_light_legendary_winter_02",
+        "card_aespa_velvet_light_legendary_giselle_03",
+        "card_aespa_velvet_light_legendary_ningning_04"
+      ],
+      "banner_id": "banner_aespa_velvet_light_legendary",
+      "banner_path": "assets/banners/aespa/aespa_velvet_light_legendary_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_aespa_royal_haze_mythic",
+      "group": "aespa",
+      "slug": "aespa",
+      "era": "ROYAL HAZE",
+      "series": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member_count": 4,
+      "card_ids": [
+        "card_aespa_royal_haze_mythic_karina_01",
+        "card_aespa_royal_haze_mythic_winter_02",
+        "card_aespa_royal_haze_mythic_giselle_03",
+        "card_aespa_royal_haze_mythic_ningning_04"
+      ],
+      "banner_id": "banner_aespa_royal_haze_mythic",
+      "banner_path": "assets/banners/aespa/aespa_royal_haze_mythic_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_ive_aura_rare",
+      "group": "IVE",
+      "slug": "ive",
+      "era": "AURA",
+      "series": "AURA",
+      "rarity": "rare",
+      "member_count": 6,
+      "card_ids": [
+        "card_ive_aura_rare_yujin_01",
+        "card_ive_aura_rare_gaeul_02",
+        "card_ive_aura_rare_rei_03",
+        "card_ive_aura_rare_wonyoung_04",
+        "card_ive_aura_rare_liz_05",
+        "card_ive_aura_rare_leeseo_06"
+      ],
+      "banner_id": "banner_ive_aura_rare",
+      "banner_path": "assets/banners/ive/ive_aura_rare_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_ive_velvet_light_legendary",
+      "group": "IVE",
+      "slug": "ive",
+      "era": "VELVET LIGHT",
+      "series": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member_count": 6,
+      "card_ids": [
+        "card_ive_velvet_light_legendary_yujin_01",
+        "card_ive_velvet_light_legendary_gaeul_02",
+        "card_ive_velvet_light_legendary_rei_03",
+        "card_ive_velvet_light_legendary_wonyoung_04",
+        "card_ive_velvet_light_legendary_liz_05",
+        "card_ive_velvet_light_legendary_leeseo_06"
+      ],
+      "banner_id": "banner_ive_velvet_light_legendary",
+      "banner_path": "assets/banners/ive/ive_velvet_light_legendary_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_ive_royal_haze_mythic",
+      "group": "IVE",
+      "slug": "ive",
+      "era": "ROYAL HAZE",
+      "series": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member_count": 6,
+      "card_ids": [
+        "card_ive_royal_haze_mythic_yujin_01",
+        "card_ive_royal_haze_mythic_gaeul_02",
+        "card_ive_royal_haze_mythic_rei_03",
+        "card_ive_royal_haze_mythic_wonyoung_04",
+        "card_ive_royal_haze_mythic_liz_05",
+        "card_ive_royal_haze_mythic_leeseo_06"
+      ],
+      "banner_id": "banner_ive_royal_haze_mythic",
+      "banner_path": "assets/banners/ive/ive_royal_haze_mythic_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_itzy_aura_rare",
+      "group": "ITZY",
+      "slug": "itzy",
+      "era": "AURA",
+      "series": "AURA",
+      "rarity": "rare",
+      "member_count": 5,
+      "card_ids": [
+        "card_itzy_aura_rare_yeji_01",
+        "card_itzy_aura_rare_lia_02",
+        "card_itzy_aura_rare_ryujin_03",
+        "card_itzy_aura_rare_chaeryeong_04",
+        "card_itzy_aura_rare_yuna_05"
+      ],
+      "banner_id": "banner_itzy_aura_rare",
+      "banner_path": "assets/banners/itzy/itzy_aura_rare_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_itzy_velvet_light_legendary",
+      "group": "ITZY",
+      "slug": "itzy",
+      "era": "VELVET LIGHT",
+      "series": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member_count": 5,
+      "card_ids": [
+        "card_itzy_velvet_light_legendary_yeji_01",
+        "card_itzy_velvet_light_legendary_lia_02",
+        "card_itzy_velvet_light_legendary_ryujin_03",
+        "card_itzy_velvet_light_legendary_chaeryeong_04",
+        "card_itzy_velvet_light_legendary_yuna_05"
+      ],
+      "banner_id": "banner_itzy_velvet_light_legendary",
+      "banner_path": "assets/banners/itzy/itzy_velvet_light_legendary_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_itzy_royal_haze_mythic",
+      "group": "ITZY",
+      "slug": "itzy",
+      "era": "ROYAL HAZE",
+      "series": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member_count": 5,
+      "card_ids": [
+        "card_itzy_royal_haze_mythic_yeji_01",
+        "card_itzy_royal_haze_mythic_lia_02",
+        "card_itzy_royal_haze_mythic_ryujin_03",
+        "card_itzy_royal_haze_mythic_chaeryeong_04",
+        "card_itzy_royal_haze_mythic_yuna_05"
+      ],
+      "banner_id": "banner_itzy_royal_haze_mythic",
+      "banner_path": "assets/banners/itzy/itzy_royal_haze_mythic_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_lesserafim_aura_rare",
+      "group": "LE SSERAFIM",
+      "slug": "lesserafim",
+      "era": "AURA",
+      "series": "AURA",
+      "rarity": "rare",
+      "member_count": 5,
+      "card_ids": [
+        "card_lesserafim_aura_rare_chaewon_01",
+        "card_lesserafim_aura_rare_sakura_02",
+        "card_lesserafim_aura_rare_yunjin_03",
+        "card_lesserafim_aura_rare_kazuha_04",
+        "card_lesserafim_aura_rare_eunchae_05"
+      ],
+      "banner_id": "banner_lesserafim_aura_rare",
+      "banner_path": "assets/banners/lesserafim/lesserafim_aura_rare_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_lesserafim_velvet_light_legendary",
+      "group": "LE SSERAFIM",
+      "slug": "lesserafim",
+      "era": "VELVET LIGHT",
+      "series": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member_count": 5,
+      "card_ids": [
+        "card_lesserafim_velvet_light_legendary_chaewon_01",
+        "card_lesserafim_velvet_light_legendary_sakura_02",
+        "card_lesserafim_velvet_light_legendary_yunjin_03",
+        "card_lesserafim_velvet_light_legendary_kazuha_04",
+        "card_lesserafim_velvet_light_legendary_eunchae_05"
+      ],
+      "banner_id": "banner_lesserafim_velvet_light_legendary",
+      "banner_path": "assets/banners/lesserafim/lesserafim_velvet_light_legendary_banner.png",
+      "bonus_income_percent": 5
+    },
+    {
+      "id": "coll_lesserafim_royal_haze_mythic",
+      "group": "LE SSERAFIM",
+      "slug": "lesserafim",
+      "era": "ROYAL HAZE",
+      "series": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member_count": 5,
+      "card_ids": [
+        "card_lesserafim_royal_haze_mythic_chaewon_01",
+        "card_lesserafim_royal_haze_mythic_sakura_02",
+        "card_lesserafim_royal_haze_mythic_yunjin_03",
+        "card_lesserafim_royal_haze_mythic_kazuha_04",
+        "card_lesserafim_royal_haze_mythic_eunchae_05"
+      ],
+      "banner_id": "banner_lesserafim_royal_haze_mythic",
+      "banner_path": "assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png",
+      "bonus_income_percent": 5
+    }
+  ]
+}
