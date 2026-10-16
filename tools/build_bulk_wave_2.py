@@ -186,11 +186,17 @@ def banner_image(group, series, members, sources):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--group",required=True,choices=[g["slug"] for g in DATA["groups"]])
+    parser.add_argument("--members",default="",help="Optional comma-separated split for rate-limited group")
     opts=parser.parse_args()
     g=next(x for x in DATA["groups"] if x["slug"]==opts.group)
-    photo_rows=[x for x in DATA["photo_sources"] if x["group"] == g["group"]]
+    member_filter={v.strip().upper() for v in opts.members.split(",") if v.strip()}
+    photo_rows=[x for x in DATA["photo_sources"] if x["group"] == g["group"]
+                and (not member_filter or x["member"].upper() in member_filter)]
+    if member_filter and {x["member"].upper() for x in photo_rows} != member_filter:
+        raise ValueError('Unknown or duplicate member selected for split')
     sources={x["id"]:load_source(x) for x in photo_rows}
-    member_rows=[c for c in DATA["cards"] if c["image_path"].split("/")[2]==g["slug"]]
+    member_rows=[c for c in DATA["cards"] if c["image_path"].split("/")[2]==g["slug"]
+                 and c["photo_source_id"] in sources]
     tiers=DATA["series"]
     created=[]
     for row in member_rows:
@@ -199,14 +205,15 @@ def main():
         out.parent.mkdir(parents=True,exist_ok=True)
         card_image(row,photo).save(out,"PNG",optimize=True)
         created.append(out)
-    for tier in tiers:
-        banner=next(b for b in DATA["banners"] if b["slug"]==g["slug"] and b["rarity"]==tier["rarity"])
-        rows=[c for c in member_rows if c["rarity"]==tier["rarity"]]
-        members=[{"source_id":r["photo_source_id"]} for r in rows]
-        out=OUT / banner["image_path"]
-        out.parent.mkdir(parents=True,exist_ok=True)
-        banner_image(g,tier,members,sources).save(out,"PNG",optimize=True)
-        created.append(out)
+    if not member_filter:
+        for tier in tiers:
+            banner=next(b for b in DATA["banners"] if b["slug"]==g["slug"] and b["rarity"]==tier["rarity"])
+            rows=[c for c in member_rows if c["rarity"]==tier["rarity"]]
+            members=[{"source_id":r["photo_source_id"]} for r in rows]
+            out=OUT / banner["image_path"]
+            out.parent.mkdir(parents=True,exist_ok=True)
+            banner_image(g,tier,members,sources).save(out,"PNG",optimize=True)
+            created.append(out)
     # GitHub Actions artifacts include only finished game media, not source photographs.
     print(f"COMPLETE {g['group']}: {len(created)} png assets",flush=True)
 
