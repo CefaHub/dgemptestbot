@@ -1,0 +1,155 @@
+name: Build 75 real-photo K-pop cards / wave 2
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/kpop-bulk-wave-2]
+    paths:
+      - 'tools/bulk_wave_2.json'
+      - 'tools/build_bulk_wave_2.py'
+      - '.github/workflows/bulk-wave-2.yml'
+permissions:
+  contents: write
+jobs:
+  render:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - {group: illit, members: ''}
+          - {group: aespa, members: ''}
+          - {group: ive, members: ''}
+          - {group: itzy, members: ''}
+          - {group: lesserafim, members: 'CHAEWON,SAKURA,YUNJIN'}
+          - {group: lesserafim, members: 'KAZUHA,EUNCHAE'}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install artwork renderer
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Generate real-photo member cards and banners
+        run: |
+          python -m py_compile tools/build_bulk_wave_2.py
+          python tools/build_bulk_wave_2.py --group ${{ matrix.group }} --members "${{ matrix.members }}"
+      - name: Upload only verified group assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: wave2-${{ matrix.group }}-${{ strategy.job-index }}
+          path: output/bulk_wave_2/assets
+          retention-days: 14
+          if-no-files-found: error
+  publish:
+    needs: render
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt pytest pytest-asyncio
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wave2-*
+          merge-multiple: true
+          path: bulk_generated
+      - name: Verify all 75 real-photo cards and 15 banners then install into game
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          data=json.loads(Path('tools/bulk_wave_2.json').read_text())
+          assert len(data['cards'])==75 and len(data['banners'])==15
+          # LE SSERAFIM is downloaded in two small jobs to avoid Commons 429.
+          # Reconstruct its group banners from the REAL portrait areas of the
+          # already rendered member cards, without any synthetic faces.
+          from tools.build_bulk_wave_2 import banner_image
+          for group in data['groups']:
+              if group['slug'] != 'lesserafim':
+                  continue
+              portraits = {}
+              for c in data['cards']:
+                  if c['group'] != group['group'] or c['rarity'] != 'rare':
+                      continue
+                  path=Path('bulk_generated') / Path(*Path(c['image_path']).parts[1:])
+                  with Image.open(path) as photo:
+                      portraits[c['photo_source_id']]=photo.convert('RGB').crop((75,145,825,905))
+              assert len(portraits) == 5
+              for rarity in data['series']:
+                  bn=next(b for b in data['banners'] if b['slug']==group['slug'] and b['rarity']==rarity['rarity'])
+                  loc=Path('bulk_generated') / Path(*Path(bn['image_path']).parts[1:])
+                  loc.parent.mkdir(parents=True,exist_ok=True)
+                  chosen=[{'source_id':c['photo_source_id']} for c in data['cards'] if c['group']==group['group'] and c['rarity']==rarity['rarity']]
+                  banner_image(group,rarity,chosen,portraits).save(loc,'PNG',optimize=True)
+          for row in data['cards']+data['banners']:
+              relative=Path(row['image_path'])
+              source=Path('bulk_generated')/Path(*relative.parts[1:])
+              assert source.is_file(), 'MISSING '+str(source)
+              with Image.open(source) as im:
+                  expected=(900,1200) if row in data['cards'] else (1600,900)
+                  assert im.size==expected, (str(source), im.size)
+              relative.parent.mkdir(parents=True,exist_ok=True)
+              relative.write_bytes(source.read_bytes())
+          lines=['# DOLCE EMPIRE K-pop real photo credits / Wave 2',
+                 '',
+                 'All images are real photographs from Wikimedia Commons, with frame/text overlays only.',
+                 'The same source portrait is deliberately reused in several visual rarity editions; it is not a distinct photoshoot for each edition.',
+                 'Check image license, authorship, model/personality rights before public commercialization.',
+                 '']
+          for src in data['photo_sources']:
+              lines += ['## '+src['group']+' — '+src['member'],
+                        '- Source: '+src['page'],
+                        '- Creator: '+src['author'],
+                        '- Reported license: '+src['license']+' / '+src['license_url'],
+                        '- Review status: '+src['license_review'],
+                        '- Modifications: cropping, framing, visual design and labels', '']
+          Path('assets/PHOTO_CREDITS_BULK.md').write_text('\n'.join(lines),encoding='utf-8')
+          print('VALIDATED 75 PHOTOCARDS + 15 BANNERS')
+          PY
+      - name: Test original bot and new album integrity
+        run: |
+          python -m pytest -q
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from io import BytesIO
+          from PIL import Image
+          from dolce_empire.catalog import all_cards,album_sets
+          from dolce_empire.art import render_card
+          cards=all_cards()
+          sets=json.loads(Path('tools/bulk_wave_2.json').read_text())['collections']
+          assert len(cards)==170,len(cards)
+          for c in sets:
+              matches=[v for v in cards if v['group']==c['group'] and v['era']==c['era']]
+              assert len(matches)==c['member_count'], (c['group'],c['era'])
+              assert {v['rarity'] for v in matches}=={c['rarity']}
+              assert len(album_sets()[(c['group'],c['era'])])==c['member_count']
+              with Image.open(BytesIO(render_card(matches[0]['id']))) as img:
+                  assert img.size == (900,1200)
+          print('ALL 15 FULL MEMBER SETS READY')
+          PY
+      - name: Commit ready assets to feature branch (never deploy an unverified card set)
+        if: github.ref == 'refs/heads/feature/kpop-bulk-wave-2'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/cards assets/banners assets/PHOTO_CREDITS_BULK.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add finished 75 real-photo K-pop cards and 15 collection banners'
+            git push origin HEAD:feature/kpop-bulk-wave-2
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DolceEmpire-75-real-photo-cards-15-banners
+          path: |
+            assets/cards/
+            assets/banners/
+            assets/PHOTO_CREDITS_BULK.md
+          retention-days: 14

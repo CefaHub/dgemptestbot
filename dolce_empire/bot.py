@@ -1,5 +1,7 @@
 """Telegram UI for Dolce Empire. All mutations delegate to transactional Game service."""
 import asyncio
+import json
+from functools import lru_cache
 import logging
 import os
 from html import escape
@@ -38,7 +40,7 @@ def kb(*rows):
 def main_kb():
     return kb([('🎰 Гача','nav:roll'),('🏢 Тайкун','nav:studio')],
               [('🃏 Карточки','cards:0'),('📚 Альбомы','nav:albums')],
-              [('✨ SPOTLIGHT','nav:spotlight')],
+              [('✨ SPOTLIGHT','nav:spotlight'),('🌟 Новые сеты','nav:sets')],
               [('🤝 Обмены','nav:trades'),('🛒 Рынок','nav:market')],
               [('🎁 Задания','nav:quests'),('🏆 Топ','nav:top')])
 
@@ -113,6 +115,7 @@ async def help_cmd(message:Message):
 /expand — купить слот студии
 /album — коллекции
 /spotlight — новые EPIC-сеты ILLIT и aespa
+/sets — галерея всех новых коллекций
 /daily — ежедневная награда
 /quests — задания
 /market — рынок (фиксированные цены)
@@ -379,6 +382,71 @@ async def show_spotlight(event, page: int = 0):
         await event.answer(caption, parse_mode='HTML', reply_markup=buttons)
 
 
+@lru_cache(maxsize=1)
+def collection_gallery():
+    root = Path(__file__).resolve().parent.parent / 'assets' / 'collections'
+    entries = []
+    for filename in ('bulk_wave_2.json', 'spotlight_epic.json'):
+        path = root / filename
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding='utf-8'))
+        for item in data.get('collections', []):
+            entries.append({
+                'group': item['group'],
+                'series': item.get('era', item.get('series', '')),
+                'rarity': item['rarity'],
+                'size': item['member_count'],
+                'banner': item.get('banner_path', item.get('image_path', '')),
+            })
+    return entries
+
+
+async def show_sets(event, page=0):
+    """Paginated gallery of all full-member K-pop collection releases."""
+    items = collection_gallery()
+    if not items:
+        raise GameError('Коллекции ещё не установлены.')
+    if not 0 <= page < len(items):
+        raise GameError('Такой страницы нет.')
+    item = items[page]
+    caption = (f'🌟 <b>{escape(item["group"])} — {escape(item["series"])}</b>\n'
+               f'{RARITY_EMOJIS[item["rarity"]]} Редкость: <b>{RARITY_TITLES[item["rarity"]]}</b>\n'
+               f'🃏 Полный состав: <b>{item["size"]}/{item["size"]}</b>\n'
+               f'📖 Коллекция {page+1}/{len(items)}\n'
+               'Все карточки доступны через гачу. Полный альбом даёт бонус к доходу.')
+    markup=kb(
+        [('◀️', f'sets:{(page-1)%len(items)}'),
+         ('▶️', f'sets:{(page+1)%len(items)}')],
+        [('🎰 Крутить','nav:roll'),('📚 Альбомы','nav:albums')],
+        back(),
+    )
+    imagepath=Path(__file__).resolve().parent.parent / item['banner']
+    if isinstance(event, CallbackQuery):
+        await event.answer()
+        if isinstance(event.message, Message) and event.message.photo and imagepath.is_file():
+            try:
+                await event.message.edit_media(
+                    media=InputMediaPhoto(media=FSInputFile(imagepath),caption=caption,parse_mode='HTML'),
+                    reply_markup=markup,
+                )
+                return
+            except TelegramAPIError:
+                log.warning('Unable to edit collection photo in-place',exc_info=True)
+        if imagepath.is_file():
+            await event.bot.send_photo(user_id(event),FSInputFile(imagepath),
+                                       caption=caption,parse_mode='HTML',reply_markup=markup)
+        else:
+            await event.bot.send_message(user_id(event),caption,
+                                         parse_mode='HTML',reply_markup=markup)
+    else:
+        if imagepath.is_file():
+            await event.answer_photo(FSInputFile(imagepath),caption=caption,
+                                     parse_mode='HTML',reply_markup=markup)
+        else:
+            await event.answer(caption,parse_mode='HTML',reply_markup=markup)
+
+
 async def show_market(event):
     entries=await g().market()
     lines=['🛒 <b>РЫНОК КАРТОЧЕК</b>\n','Фиксированные объявления; комиссия с продавца 5%.\n']
@@ -433,6 +501,9 @@ async def show_leaders(event,kind='income'):
     await send(event,'\n'.join(lines),kb([('🪙 Баланс','top:rich'),('🏢 Доход','top:income')],
                                          [('🎰 Крутки','top:rolls'),('💰 Собрано','top:collector')],back()))
 
+
+@router.message(Command('sets','collections'))
+async def sets_cmd(m: Message):await show_sets(m)
 
 @router.message(Command('spotlight'))
 async def spotlight_cmd(m:Message):await show_spotlight(m)
@@ -548,11 +619,20 @@ async def nav_callback(c:CallbackQuery):
         case 'studio':await show_studio(c)
         case 'albums':await show_album(c)
         case 'spotlight':await show_spotlight(c)
+        case 'sets':await show_sets(c)
         case 'trades':await show_trades(c)
         case 'market':await show_market(c)
         case 'quests':await show_quests(c)
         case 'top':await show_leaders(c)
         case _:raise GameError('Раздел не найден.')
+
+
+@router.callback_query(F.data.startswith('sets:'))
+async def sets_callback(c: CallbackQuery):
+    index = c.data.split(':',1)[1]
+    if not index.isdecimal():
+        raise GameError('Неверный номер коллекции.')
+    await show_sets(c,int(index))
 
 
 @router.callback_query(F.data.startswith('spotlight:'))
@@ -719,6 +799,7 @@ async def main():
                     BotCommand(command='cards', description='🃏 Мои карточки'),
                     BotCommand(command='album', description='📚 Коллекции'),
                     BotCommand(command='spotlight', description='✨ Новые EPIC-сеты'),
+                    BotCommand(command='sets', description='🌟 Листать новые сеты'),
                     BotCommand(command='market', description='🛒 Рынок'),
                     BotCommand(command='trades', description='🤝 Обмены'),
                     BotCommand(command='quests', description='🎁 Задания'),
