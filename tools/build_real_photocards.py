@@ -121,6 +121,26 @@ def render_card(row,photo):
     return path
 
 
+def collage_from_card_photos(group):
+    """Compose four authentic member photos; no new requests or AI faces."""
+    members = [row for row in MANIFEST['cards'] if row['group'].lower() == group.lower()]
+    if len(members) < 4:
+        raise ValueError('Expected four real source portraits for ' + group)
+    result = Image.new('RGB', (BW, BH), (20, 20, 35))
+    band = BW // 4
+    for idx, row in enumerate(members[:4]):
+        src = SRC / (row['id'] + ('.png' if row['photo'].endswith('.png') else '.jpg'))
+        with Image.open(src) as ph:
+            portrait = ImageOps.fit(ph.convert('RGB'), (band, BH),
+                                    method=Image.Resampling.LANCZOS,
+                                    centering=(.5, .35))
+        result.paste(portrait, (idx * band, 0))
+    d = ImageDraw.Draw(result, 'RGBA')
+    for x in (band, 2 * band, 3 * band):
+        d.line((x, 0, x, BH), fill=(245, 228, 255, 145), width=3)
+    return result
+
+
 def gradient_transparent(width,height,color,gradient='left'):
     g=Image.new('RGBA',(width,height),(0,0,0,0));pix=g.load()
     for y in range(height):
@@ -156,10 +176,21 @@ def render_banner(row,photo):
 def credits():
     entries=MANIFEST['cards']+MANIFEST['banners']
     lines=['# Original photo credits / Источники реальных фотографий','','Images on these cards and banners are original REAL photographs, **not AI-generated**. Cards/banners are modified (cropping, frames, typography, colors).','Each entry preserves author, file link and license as required under Creative Commons attribution.','**Important:** public image license does not waive artists\' publicity/personality rights; verify permitted use before deploying widely.','']
+    cards_by_id = {c['id']: c for c in MANIFEST['cards']}
     for e in entries:
-        lines+=['## '+e['id'],'- Author / Автор: '+e['author'],'- Original / Оригинал: '+e['page'],'- License / Лицензия: '+e['license']+' — '+e['license_url'],'- Modification: cropped and composited into an original DOLCE EMPIRE fan-made collectible.']
-        if e['license_review']=='pending':lines+=['- ⚠️ Wikimedia Commons marks the source license review as pending. Double-check before public distribution.']
-        lines+=['']
+        lines += ['## ' + e['id']]
+        if e.get('source_card_ids'):
+            lines += ['- Composite banner from REAL member photos; no AI portraits.']
+            for card_id in e['source_card_ids']:
+                c = cards_by_id[card_id]
+                lines += ['- ' + c['member'] + ': ' + c['author'] + ' — ' + c['page'] + ' — ' + c['license'] + ' (' + c['license_url'] + ')']
+        else:
+            lines += ['- Author / Автор: ' + e['author'],
+                      '- Original / Оригинал: ' + e['page'],
+                      '- License / Лицензия: ' + e['license'] + ' — ' + e['license_url']]
+            if e['license_review'] == 'pending':
+                lines += ['- WARNING: License review pending on Commons; verify before public distribution.']
+        lines += ['- Modification: real photographs cropped and composited into fan-made card or banner.', '']
     (OUT/'PHOTO_CREDITS.md').write_text('\n'.join(lines),encoding='utf-8')
 
 
@@ -168,7 +199,8 @@ def main():
     for row in MANIFEST['cards']:
         print('CARD',row['id'],flush=True);render_card(row,fetch_photo(row))
     for row in MANIFEST['banners']:
-        print('BANNER',row['id'],flush=True);render_banner(row,fetch_photo(row))
+        print('BANNER COLLAGE', row['id'], flush=True)
+        render_banner(row, collage_from_card_photos(row['group']))
     credits()
     (OUT/'MANIFEST.json').write_text(json.dumps(MANIFEST,ensure_ascii=False,indent=2),encoding='utf-8')
     import zipfile
