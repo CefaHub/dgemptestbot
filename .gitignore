@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.idea/
+.vscode/
+venv/
+.venv/
+data/*.db
+data/*.db-*
+*.log
+assets/idols/*
+!assets/idols/.gitkeep
+.DS_Store
