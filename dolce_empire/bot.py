@@ -6,7 +6,7 @@ from html import escape
 from pathlib import Path
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import Command, CommandStart
-from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, BotCommand
+from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, InputMediaPhoto, BotCommand
 from aiogram.exceptions import TelegramAPIError
 from .db import engine_and_session, init_database
 from .service import Game, GameError
@@ -299,38 +299,72 @@ async def show_album_group(event,index):
     await send(event,'\n'.join(lines),kb([('◀️ Все группы','nav:albums')],back()))
 
 
-async def show_spotlight(event):
-    """Show complete EPIC releases with actual 16:9 banners, or text fallback."""
-    sets = [
-        ('ILLIT', '5/5', 'Юна · Минджу · Мока · Вонхи · Ироха',
-         'assets/banners/illit/illit_spotlight_epic_banner.png'),
-        ('aespa', '4/4', 'Карина · Винтер · Жизель · Ниннин',
-         'assets/banners/aespa/aespa_spotlight_epic_banner.png'),
-    ]
+# Only one Spotlight release is displayed per Telegram message.
+SPOTLIGHT_SETS = (
+    ('ILLIT', '5/5', 'Юна · Минджу · Мока · Вонхи · Ироха',
+     'assets/banners/illit/illit_spotlight_epic_banner.png'),
+    ('aespa', '4/4', 'Карина · Винтер · Жизель · Ниннин',
+     'assets/banners/aespa/aespa_spotlight_epic_banner.png'),
+)
+
+
+async def show_spotlight(event, page: int = 0):
+    """Single-message Spotlight carousel. Arrow clicks edit the existing banner."""
+    if not 0 <= page < len(SPOTLIGHT_SETS):
+        raise GameError('Такой страницы SPOTLIGHT нет.')
+
+    group, count, names, relative_path = SPOTLIGHT_SETS[page]
+    caption = (f'✨ <b>{escape(group)} — SPOTLIGHT</b>\\n'
+               f'🟣 Редкость: <b>EPIC</b> · полный сет {count}\\n'
+               f'{escape(names)}\\n'
+               '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\\n'
+               '🎰 Карточки доступны в обычной и премиум-гаче.\\n\\n'
+               f'📖 Коллекция {page + 1}/{len(SPOTLIGHT_SETS)}')
+    buttons = kb(
+        [('◀️', f'spotlight:{(page - 1) % len(SPOTLIGHT_SETS)}'),
+         ('▶️', f'spotlight:{(page + 1) % len(SPOTLIGHT_SETS)}')],
+        [('🎰 Крутить', 'nav:roll'), ('📚 Альбомы', 'nav:albums')],
+        back(),
+    )
+    banner = Path(__file__).resolve().parent.parent / relative_path
+
     if isinstance(event, CallbackQuery):
         await event.answer()
-    for group, count, names, relative_path in sets:
-        caption = (f'✨ <b>{escape(group)} — SPOTLIGHT</b>\n'
-                   f'🟣 Редкость: <b>EPIC</b> · полный сет {count}\n'
-                   f'{escape(names)}\n'
-                   '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\n'
-                   '🎰 Карточки доступны в обычной и премиум-гаче.')
-        buttons = kb([('🎰 Крутить','nav:roll'),('📚 Альбомы','nav:albums')],back())
-        banner = Path(__file__).resolve().parent.parent / relative_path
+        # When browsing an existing photo, update that same message instead of
+        # sending another image and filling the chat with duplicate banners.
+        if isinstance(event.message, Message) and event.message.photo:
+            try:
+                if banner.is_file():
+                    await event.message.edit_media(
+                        media=InputMediaPhoto(
+                            media=FSInputFile(banner), caption=caption, parse_mode='HTML'
+                        ),
+                        reply_markup=buttons,
+                    )
+                else:
+                    await event.message.edit_caption(
+                        caption=caption, parse_mode='HTML', reply_markup=buttons
+                    )
+                return
+            except TelegramAPIError:
+                log.warning('Could not edit SPOTLIGHT photo, sending a replacement', exc_info=True)
         if banner.is_file():
-            if isinstance(event, CallbackQuery):
-                await event.bot.send_photo(user_id(event), FSInputFile(banner),
-                                           caption=caption, parse_mode='HTML',
-                                           reply_markup=buttons)
-            else:
-                await event.answer_photo(FSInputFile(banner), caption=caption,
-                                         parse_mode='HTML', reply_markup=buttons)
+            await event.bot.send_photo(
+                user_id(event), FSInputFile(banner), caption=caption,
+                parse_mode='HTML', reply_markup=buttons
+            )
         else:
-            if isinstance(event, CallbackQuery):
-                await event.bot.send_message(user_id(event), caption,
-                                             reply_markup=buttons, parse_mode='HTML')
-            else:
-                await event.answer(caption, reply_markup=buttons, parse_mode='HTML')
+            await event.bot.send_message(
+                user_id(event), caption, parse_mode='HTML', reply_markup=buttons
+            )
+        return
+
+    if banner.is_file():
+        await event.answer_photo(
+            FSInputFile(banner), caption=caption, parse_mode='HTML', reply_markup=buttons
+        )
+    else:
+        await event.answer(caption, parse_mode='HTML', reply_markup=buttons)
 
 
 async def show_market(event):
@@ -507,6 +541,14 @@ async def nav_callback(c:CallbackQuery):
         case 'quests':await show_quests(c)
         case 'top':await show_leaders(c)
         case _:raise GameError('Раздел не найден.')
+
+
+@router.callback_query(F.data.startswith('spotlight:'))
+async def spotlight_callback(c: CallbackQuery):
+    raw = c.data.split(':', 1)[1]
+    if not raw.isdecimal():
+        raise GameError('Неверная страница SPOTLIGHT.')
+    await show_spotlight(c, int(raw))
 
 
 @router.callback_query(F.data.startswith('cards:'))
