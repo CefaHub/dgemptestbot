@@ -1,0 +1,23 @@
+name: Make DOLCE real photo cards
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pillow dependencies
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Fetch real photos and render cards
+        run: python tools/build_real_photocards.py
+      - name: Upload ready PNG cards and banners
+        uses: actions/upload-artifact@v4
+        with:
+          name: DolceEmpire-RealPhotos-8cards-2banners
+          path: output/DolceEmpire_REAL_PHOTOS_8_CARDS_2_BANNERS.zip
+          retention-days: 14
