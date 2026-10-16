@@ -11,7 +11,7 @@ from aiogram.exceptions import TelegramAPIError
 from .db import engine_and_session, init_database
 from .service import Game, GameError
 from .economy import slot_upgrade_price
-from .catalog import RARITY_EMOJIS, RARITY_TITLES, album_groups, search_cards, get_card
+from .catalog import RARITY_EMOJIS, RARITY_TITLES, album_groups, search_cards, get_card, all_cards
 from .art import render_card
 
 logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
@@ -604,6 +604,8 @@ async def main():
         db_url='postgresql+asyncpg://'+db_url[len('postgres://'):]
     if db_url.startswith('sqlite'):
         Path('data').mkdir(exist_ok=True)
+    # Check static resources before accepting Telegram updates.
+    log.info('Loaded %s K-pop cards from bundled catalogue', len(all_cards()))
     engine,sf=engine_and_session(db_url)
     try:
         await init_database(engine)

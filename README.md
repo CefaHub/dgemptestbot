@@ -62,7 +62,7 @@ POSTGRES_PASSWORD=придумай_сильный_пароль_без_спецс
 **Обмен:** ответь на сообщение второго игрока:
 `/trade 123 456 0 500` — ты отдаёшь экземпляр #123, хочешь его #456 и 500 монет; оба видят условия, второй подтверждает, затем ты завершаешь. Если пишешь в личке без reply: `/trade USER_ID 123 456 0 500`.
 
-**Картинки:** положи JPEG/PNG/WebP в `assets/idols/` с именем `id` карты из `data/catalog.json` (например `le-sserafim-eunchae-crazy.jpg`). Без файла карточка красиво оформляется абстрактным артом. Убедись в разрешении на использование фотографий и логотипов.
+**Картинки:** положи JPEG/PNG/WebP в `assets/idols/` с именем `id` карты из `dolce_empire/_catalog.json` (например `le-sserafim-eunchae-crazy.jpg`). Без файла карточка красиво оформляется абстрактным артом. Убедись в разрешении на использование фотографий и логотипов.
 
 ## Сохранность данных
 
@@ -86,3 +86,17 @@ python -m compileall -q dolce_empire main.py
 ```
 
 > Примечание: `.gitignore` исключает пользовательские фотографии, чтобы случайно не публиковать чужие изображения. Если у тебя есть разрешение использовать фотографии в приватном развёртывании, загружай их прямо на сервер либо добавляй сознательно через `git add -f`.
+
+
+## Bothost: card catalog fix (v1.0.2)
+
+The read-only card catalog is bundled as `dolce_empire/_catalog.json`,
+**not** loaded from `/app/data/catalog.json`. The hosting platform can mount an
+empty writable volume over `/app/data`, which previously made `/start` fail with
+`FileNotFoundError: /app/data/catalog.json`.
+
+The existing `data/catalog.json` is retained in the repository for backward
+compatibility, but the running bot loads the packaged file only. If adding
+new cards, update `dolce_empire/_catalog.json`. Player progress remains in
+`data/empire.db` unless `DATABASE_URL` points to PostgreSQL. Do not delete
+that DB while redeploying; use persistent storage or PostgreSQL on Bothost.

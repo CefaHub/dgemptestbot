@@ -12,10 +12,18 @@ RARITY_INCOME = {"common": 50, "rare": 100, "epic": 220, "legendary": 500, "myth
 WEIGHTS_NORMAL = {"common": 5400, "rare": 2700, "epic": 1300, "legendary": 500, "mythic": 90, "secret": 10}
 WEIGHTS_PREMIUM = {"common": 0, "rare": 5100, "epic": 3000, "legendary": 1500, "mythic": 380, "secret": 20}
 
+# Bundled read-only metadata must NOT be stored inside /app/data:
+# some hosting providers mount a writable volume over that directory.
+# This path remains available even when the /app/data directory is replaced.
+CATALOG_PATH = Path(__file__).resolve().with_name('_catalog.json')
+
 @lru_cache(maxsize=1)
 def all_cards():
-    with (ROOT / 'data' / 'catalog.json').open('r', encoding='utf-8') as file:
-        return json.load(file)
+    with CATALOG_PATH.open('r', encoding='utf-8') as file:
+        cards = json.load(file)
+    if not isinstance(cards, list) or len(cards) < 80:
+        raise ValueError(f'Card catalog is incomplete: {CATALOG_PATH}')
+    return cards
 
 @lru_cache(maxsize=1)
 def card_by_id():

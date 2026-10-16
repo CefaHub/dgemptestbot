@@ -33,3 +33,12 @@ def test_income_cap():
     assert seconds==12*3600
     assert upgrade_price(100,1)<upgrade_price(100,3)
     assert slot_upgrade_price(3)==7500
+
+
+def test_catalog_independent_of_data_volume(monkeypatch, tmp_path):
+    # Bothost can mount a blank volume at /app/data; catalogue must still load.
+    from dolce_empire import catalog as module
+    module.all_cards.cache_clear()
+    monkeypatch.setattr(module, 'ROOT', tmp_path)
+    assert len(module.all_cards()) >= 80
+    module.all_cards.cache_clear()

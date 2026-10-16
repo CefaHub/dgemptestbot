@@ -1,0 +1,966 @@
+[
+  {
+    "id": "le-sserafim-chaewon-antifragile",
+    "group": "LE SSERAFIM",
+    "idol": "Chaewon",
+    "era": "ANTIFRAGILE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "чэвон",
+      "че вон"
+    ]
+  },
+  {
+    "id": "le-sserafim-sakura-antifragile",
+    "group": "LE SSERAFIM",
+    "idol": "Sakura",
+    "era": "ANTIFRAGILE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "сакура"
+    ]
+  },
+  {
+    "id": "le-sserafim-yunjin-antifragile",
+    "group": "LE SSERAFIM",
+    "idol": "Yunjin",
+    "era": "ANTIFRAGILE",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "юнджин"
+    ]
+  },
+  {
+    "id": "le-sserafim-kazuha-antifragile",
+    "group": "LE SSERAFIM",
+    "idol": "Kazuha",
+    "era": "ANTIFRAGILE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "казуха"
+    ]
+  },
+  {
+    "id": "le-sserafim-eunchae-antifragile",
+    "group": "LE SSERAFIM",
+    "idol": "Eunchae",
+    "era": "ANTIFRAGILE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "ынче",
+      "ынчэ",
+      "ынчхе"
+    ]
+  },
+  {
+    "id": "le-sserafim-chaewon-crazy",
+    "group": "LE SSERAFIM",
+    "idol": "Chaewon",
+    "era": "CRAZY",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "чэвон",
+      "че вон"
+    ]
+  },
+  {
+    "id": "le-sserafim-sakura-crazy",
+    "group": "LE SSERAFIM",
+    "idol": "Sakura",
+    "era": "CRAZY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "сакура"
+    ]
+  },
+  {
+    "id": "le-sserafim-yunjin-crazy",
+    "group": "LE SSERAFIM",
+    "idol": "Yunjin",
+    "era": "CRAZY",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "юнджин"
+    ]
+  },
+  {
+    "id": "le-sserafim-kazuha-crazy",
+    "group": "LE SSERAFIM",
+    "idol": "Kazuha",
+    "era": "CRAZY",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "казуха"
+    ]
+  },
+  {
+    "id": "le-sserafim-eunchae-crazy",
+    "group": "LE SSERAFIM",
+    "idol": "Eunchae",
+    "era": "CRAZY",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "ынче",
+      "ынчэ",
+      "ынчхе"
+    ]
+  },
+  {
+    "id": "ive-yujin-love-dive",
+    "group": "IVE",
+    "idol": "Yujin",
+    "era": "LOVE DIVE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "юджин"
+    ]
+  },
+  {
+    "id": "ive-gaeul-love-dive",
+    "group": "IVE",
+    "idol": "Gaeul",
+    "era": "LOVE DIVE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "гаыль"
+    ]
+  },
+  {
+    "id": "ive-rei-love-dive",
+    "group": "IVE",
+    "idol": "Rei",
+    "era": "LOVE DIVE",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "реи",
+      "рей"
+    ]
+  },
+  {
+    "id": "ive-wonyoung-love-dive",
+    "group": "IVE",
+    "idol": "Wonyoung",
+    "era": "LOVE DIVE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "вонён",
+      "вонен"
+    ]
+  },
+  {
+    "id": "ive-liz-love-dive",
+    "group": "IVE",
+    "idol": "Liz",
+    "era": "LOVE DIVE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "лиз"
+    ]
+  },
+  {
+    "id": "ive-leeseo-love-dive",
+    "group": "IVE",
+    "idol": "Leeseo",
+    "era": "LOVE DIVE",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "лисо"
+    ]
+  },
+  {
+    "id": "ive-yujin-i-am",
+    "group": "IVE",
+    "idol": "Yujin",
+    "era": "I AM",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "юджин"
+    ]
+  },
+  {
+    "id": "ive-gaeul-i-am",
+    "group": "IVE",
+    "idol": "Gaeul",
+    "era": "I AM",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "гаыль"
+    ]
+  },
+  {
+    "id": "ive-rei-i-am",
+    "group": "IVE",
+    "idol": "Rei",
+    "era": "I AM",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "реи",
+      "рей"
+    ]
+  },
+  {
+    "id": "ive-wonyoung-i-am",
+    "group": "IVE",
+    "idol": "Wonyoung",
+    "era": "I AM",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "вонён",
+      "вонен"
+    ]
+  },
+  {
+    "id": "ive-liz-i-am",
+    "group": "IVE",
+    "idol": "Liz",
+    "era": "I AM",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "лиз"
+    ]
+  },
+  {
+    "id": "ive-leeseo-i-am",
+    "group": "IVE",
+    "idol": "Leeseo",
+    "era": "I AM",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "лисо"
+    ]
+  },
+  {
+    "id": "aespa-karina-drama",
+    "group": "aespa",
+    "idol": "Karina",
+    "era": "DRAMA",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "карина"
+    ]
+  },
+  {
+    "id": "aespa-giselle-drama",
+    "group": "aespa",
+    "idol": "Giselle",
+    "era": "DRAMA",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "жизель",
+      "гисель"
+    ]
+  },
+  {
+    "id": "aespa-winter-drama",
+    "group": "aespa",
+    "idol": "Winter",
+    "era": "DRAMA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "винтер"
+    ]
+  },
+  {
+    "id": "aespa-ningning-drama",
+    "group": "aespa",
+    "idol": "Ningning",
+    "era": "DRAMA",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "ниннин",
+      "ниннинг"
+    ]
+  },
+  {
+    "id": "aespa-karina-armageddon",
+    "group": "aespa",
+    "idol": "Karina",
+    "era": "ARMAGEDDON",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "карина"
+    ]
+  },
+  {
+    "id": "aespa-giselle-armageddon",
+    "group": "aespa",
+    "idol": "Giselle",
+    "era": "ARMAGEDDON",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "жизель",
+      "гисель"
+    ]
+  },
+  {
+    "id": "aespa-winter-armageddon",
+    "group": "aespa",
+    "idol": "Winter",
+    "era": "ARMAGEDDON",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "винтер"
+    ]
+  },
+  {
+    "id": "aespa-ningning-armageddon",
+    "group": "aespa",
+    "idol": "Ningning",
+    "era": "ARMAGEDDON",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "ниннин",
+      "ниннинг"
+    ]
+  },
+  {
+    "id": "twice-nayeon-fancy",
+    "group": "TWICE",
+    "idol": "Nayeon",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "наён"
+    ]
+  },
+  {
+    "id": "twice-jeongyeon-fancy",
+    "group": "TWICE",
+    "idol": "Jeongyeon",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "чонён"
+    ]
+  },
+  {
+    "id": "twice-momo-fancy",
+    "group": "TWICE",
+    "idol": "Momo",
+    "era": "FANCY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "момо"
+    ]
+  },
+  {
+    "id": "twice-sana-fancy",
+    "group": "TWICE",
+    "idol": "Sana",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "сана"
+    ]
+  },
+  {
+    "id": "twice-jihyo-fancy",
+    "group": "TWICE",
+    "idol": "Jihyo",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "джихё"
+    ]
+  },
+  {
+    "id": "twice-mina-fancy",
+    "group": "TWICE",
+    "idol": "Mina",
+    "era": "FANCY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "мина"
+    ]
+  },
+  {
+    "id": "twice-dahyun-fancy",
+    "group": "TWICE",
+    "idol": "Dahyun",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "дахён"
+    ]
+  },
+  {
+    "id": "twice-chaeyoung-fancy",
+    "group": "TWICE",
+    "idol": "Chaeyoung",
+    "era": "FANCY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "чеён"
+    ]
+  },
+  {
+    "id": "twice-tzuyu-fancy",
+    "group": "TWICE",
+    "idol": "Tzuyu",
+    "era": "FANCY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "цзыюй",
+      "цзыю"
+    ]
+  },
+  {
+    "id": "twice-nayeon-feel-special",
+    "group": "TWICE",
+    "idol": "Nayeon",
+    "era": "FEEL SPECIAL",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "наён"
+    ]
+  },
+  {
+    "id": "twice-jeongyeon-feel-special",
+    "group": "TWICE",
+    "idol": "Jeongyeon",
+    "era": "FEEL SPECIAL",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "чонён"
+    ]
+  },
+  {
+    "id": "twice-momo-feel-special",
+    "group": "TWICE",
+    "idol": "Momo",
+    "era": "FEEL SPECIAL",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "момо"
+    ]
+  },
+  {
+    "id": "twice-sana-feel-special",
+    "group": "TWICE",
+    "idol": "Sana",
+    "era": "FEEL SPECIAL",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "сана"
+    ]
+  },
+  {
+    "id": "twice-jihyo-feel-special",
+    "group": "TWICE",
+    "idol": "Jihyo",
+    "era": "FEEL SPECIAL",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "джихё"
+    ]
+  },
+  {
+    "id": "twice-mina-feel-special",
+    "group": "TWICE",
+    "idol": "Mina",
+    "era": "FEEL SPECIAL",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "мина"
+    ]
+  },
+  {
+    "id": "twice-dahyun-feel-special",
+    "group": "TWICE",
+    "idol": "Dahyun",
+    "era": "FEEL SPECIAL",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "дахён"
+    ]
+  },
+  {
+    "id": "twice-chaeyoung-feel-special",
+    "group": "TWICE",
+    "idol": "Chaeyoung",
+    "era": "FEEL SPECIAL",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "чеён"
+    ]
+  },
+  {
+    "id": "twice-tzuyu-feel-special",
+    "group": "TWICE",
+    "idol": "Tzuyu",
+    "era": "FEEL SPECIAL",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "цзыюй",
+      "цзыю"
+    ]
+  },
+  {
+    "id": "itzy-yeji-wannabe",
+    "group": "ITZY",
+    "idol": "Yeji",
+    "era": "WANNABE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "еджи"
+    ]
+  },
+  {
+    "id": "itzy-lia-wannabe",
+    "group": "ITZY",
+    "idol": "Lia",
+    "era": "WANNABE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "лиа"
+    ]
+  },
+  {
+    "id": "itzy-ryujin-wannabe",
+    "group": "ITZY",
+    "idol": "Ryujin",
+    "era": "WANNABE",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "рюджин"
+    ]
+  },
+  {
+    "id": "itzy-chaeryeong-wannabe",
+    "group": "ITZY",
+    "idol": "Chaeryeong",
+    "era": "WANNABE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "черён"
+    ]
+  },
+  {
+    "id": "itzy-yuna-wannabe",
+    "group": "ITZY",
+    "idol": "Yuna",
+    "era": "WANNABE",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "юна"
+    ]
+  },
+  {
+    "id": "itzy-yeji-cake",
+    "group": "ITZY",
+    "idol": "Yeji",
+    "era": "CAKE",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "еджи"
+    ]
+  },
+  {
+    "id": "itzy-lia-cake",
+    "group": "ITZY",
+    "idol": "Lia",
+    "era": "CAKE",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "лиа"
+    ]
+  },
+  {
+    "id": "itzy-ryujin-cake",
+    "group": "ITZY",
+    "idol": "Ryujin",
+    "era": "CAKE",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "рюджин"
+    ]
+  },
+  {
+    "id": "itzy-chaeryeong-cake",
+    "group": "ITZY",
+    "idol": "Chaeryeong",
+    "era": "CAKE",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "черён"
+    ]
+  },
+  {
+    "id": "itzy-yuna-cake",
+    "group": "ITZY",
+    "idol": "Yuna",
+    "era": "CAKE",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "юна"
+    ]
+  },
+  {
+    "id": "blackpink-jisoo-pink-venom",
+    "group": "BLACKPINK",
+    "idol": "Jisoo",
+    "era": "PINK VENOM",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "джису"
+    ]
+  },
+  {
+    "id": "blackpink-jennie-pink-venom",
+    "group": "BLACKPINK",
+    "idol": "Jennie",
+    "era": "PINK VENOM",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "дженни"
+    ]
+  },
+  {
+    "id": "blackpink-ros-pink-venom",
+    "group": "BLACKPINK",
+    "idol": "Rosé",
+    "era": "PINK VENOM",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "розе",
+      "розэ"
+    ]
+  },
+  {
+    "id": "blackpink-lisa-pink-venom",
+    "group": "BLACKPINK",
+    "idol": "Lisa",
+    "era": "PINK VENOM",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "лиса"
+    ]
+  },
+  {
+    "id": "blackpink-jisoo-shut-down",
+    "group": "BLACKPINK",
+    "idol": "Jisoo",
+    "era": "SHUT DOWN",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "джису"
+    ]
+  },
+  {
+    "id": "blackpink-jennie-shut-down",
+    "group": "BLACKPINK",
+    "idol": "Jennie",
+    "era": "SHUT DOWN",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "дженни"
+    ]
+  },
+  {
+    "id": "blackpink-ros-shut-down",
+    "group": "BLACKPINK",
+    "idol": "Rosé",
+    "era": "SHUT DOWN",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "розе",
+      "розэ"
+    ]
+  },
+  {
+    "id": "blackpink-lisa-shut-down",
+    "group": "BLACKPINK",
+    "idol": "Lisa",
+    "era": "SHUT DOWN",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "лиса"
+    ]
+  },
+  {
+    "id": "i-dle-miyeon-tomboy",
+    "group": "i-dle",
+    "idol": "Miyeon",
+    "era": "TOMBOY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "миён"
+    ]
+  },
+  {
+    "id": "i-dle-minnie-tomboy",
+    "group": "i-dle",
+    "idol": "Minnie",
+    "era": "TOMBOY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "минни"
+    ]
+  },
+  {
+    "id": "i-dle-soyeon-tomboy",
+    "group": "i-dle",
+    "idol": "Soyeon",
+    "era": "TOMBOY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "соён"
+    ]
+  },
+  {
+    "id": "i-dle-yuqi-tomboy",
+    "group": "i-dle",
+    "idol": "Yuqi",
+    "era": "TOMBOY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "юци"
+    ]
+  },
+  {
+    "id": "i-dle-shuhua-tomboy",
+    "group": "i-dle",
+    "idol": "Shuhua",
+    "era": "TOMBOY",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "шухуа"
+    ]
+  },
+  {
+    "id": "i-dle-miyeon-nxde",
+    "group": "i-dle",
+    "idol": "Miyeon",
+    "era": "Nxde",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "миён"
+    ]
+  },
+  {
+    "id": "i-dle-minnie-nxde",
+    "group": "i-dle",
+    "idol": "Minnie",
+    "era": "Nxde",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "минни"
+    ]
+  },
+  {
+    "id": "i-dle-soyeon-nxde",
+    "group": "i-dle",
+    "idol": "Soyeon",
+    "era": "Nxde",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "соён"
+    ]
+  },
+  {
+    "id": "i-dle-yuqi-nxde",
+    "group": "i-dle",
+    "idol": "Yuqi",
+    "era": "Nxde",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "юци"
+    ]
+  },
+  {
+    "id": "i-dle-shuhua-nxde",
+    "group": "i-dle",
+    "idol": "Shuhua",
+    "era": "Nxde",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "шухуа"
+    ]
+  },
+  {
+    "id": "newjeans-minji-omg",
+    "group": "NewJeans",
+    "idol": "Minji",
+    "era": "OMG",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "минджи"
+    ]
+  },
+  {
+    "id": "newjeans-hanni-omg",
+    "group": "NewJeans",
+    "idol": "Hanni",
+    "era": "OMG",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "ханни"
+    ]
+  },
+  {
+    "id": "newjeans-danielle-omg",
+    "group": "NewJeans",
+    "idol": "Danielle",
+    "era": "OMG",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "даниэль"
+    ]
+  },
+  {
+    "id": "newjeans-haerin-omg",
+    "group": "NewJeans",
+    "idol": "Haerin",
+    "era": "OMG",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "херин"
+    ]
+  },
+  {
+    "id": "newjeans-hyein-omg",
+    "group": "NewJeans",
+    "idol": "Hyein",
+    "era": "OMG",
+    "rarity": "common",
+    "base_income": 50,
+    "aliases": [
+      "хеин"
+    ]
+  },
+  {
+    "id": "newjeans-minji-super-shy",
+    "group": "NewJeans",
+    "idol": "Minji",
+    "era": "SUPER SHY",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "минджи"
+    ]
+  },
+  {
+    "id": "newjeans-hanni-super-shy",
+    "group": "NewJeans",
+    "idol": "Hanni",
+    "era": "SUPER SHY",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "ханни"
+    ]
+  },
+  {
+    "id": "newjeans-danielle-super-shy",
+    "group": "NewJeans",
+    "idol": "Danielle",
+    "era": "SUPER SHY",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "даниэль"
+    ]
+  },
+  {
+    "id": "newjeans-haerin-super-shy",
+    "group": "NewJeans",
+    "idol": "Haerin",
+    "era": "SUPER SHY",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "херин"
+    ]
+  },
+  {
+    "id": "newjeans-hyein-super-shy",
+    "group": "NewJeans",
+    "idol": "Hyein",
+    "era": "SUPER SHY",
+    "rarity": "secret",
+    "base_income": 3000,
+    "aliases": [
+      "хеин"
+    ]
+  }
+]
