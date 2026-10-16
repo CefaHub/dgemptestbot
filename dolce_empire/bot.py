@@ -314,11 +314,11 @@ async def show_spotlight(event, page: int = 0):
         raise GameError('Такой страницы SPOTLIGHT нет.')
 
     group, count, names, relative_path = SPOTLIGHT_SETS[page]
-    caption = (f'✨ <b>{escape(group)} — SPOTLIGHT</b>\\n'
-               f'🟣 Редкость: <b>EPIC</b> · полный сет {count}\\n'
-               f'{escape(names)}\\n'
-               '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\\n'
-               '🎰 Карточки доступны в обычной и премиум-гаче.\\n\\n'
+    caption = (f'✨ <b>{escape(group)} — SPOTLIGHT</b>\n'
+               f'🟣 Редкость: <b>EPIC</b> · полный сет {count}\n'
+               f'{escape(names)}\n'
+               '📚 Бонус за полный сет: +5% к доходу (общий лимит +20%).\n'
+               '🎰 Карточки доступны в обычной и премиум-гаче.\n\n'
                f'📖 Коллекция {page + 1}/{len(SPOTLIGHT_SETS)}')
     buttons = kb(
         [('◀️', f'spotlight:{(page - 1) % len(SPOTLIGHT_SETS)}'),
