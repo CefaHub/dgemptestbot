@@ -42,17 +42,31 @@ def fetch_photo(row):
         p=Path(CACHE)/ (row['id']+'.png')
         if not p.is_file(): raise RuntimeError(f"Missing explicit test image: {p}")
         return Image.open(p).convert('RGB')
-    request=urllib.request.Request(url,headers={"User-Agent":UA,"Accept":"image/avif,image/webp,image/png,image/jpeg,image/*;q=0.9"})
-    for attempt in range(4):
-        try:
-            with urllib.request.urlopen(request,timeout=35) as response:
-                buf=response.read(24_000_000)
-            im=Image.open(BytesIO(buf)); im.verify()
-            local.write_bytes(buf)
-            return Image.open(local).convert('RGB')
-        except Exception as exc:
-            if attempt==3:raise RuntimeError(f"Unable to fetch authentic photograph {row['id']} {row['page']}: {exc}") from exc
-            time.sleep(2*(attempt+1))
+    # Prefer Commons cached thumbnail rather than rate-limited original.
+    from urllib.parse import urlsplit
+    url_path = urlsplit(url).path
+    if url_path.startswith('/wikipedia/commons/'):
+        name = url_path.rsplit('/', 1)[-1]
+        thumb_root = 'https://thumb.wikimedia.org' + url_path.replace('/wikipedia/commons/', '/wikipedia/commons/thumb/', 1)
+        candidates = [thumb_root + '/500px-' + name, url]
+    else:
+        candidates = [url]
+    errors = []
+    for candidate in candidates:
+        req = urllib.request.Request(candidate, headers={'User-Agent': UA, 'Accept': 'image/png,image/jpeg,image/*;q=0.9'})
+        for attempt in range(2):
+            try:
+                with urllib.request.urlopen(req, timeout=25) as response:
+                    buf = response.read(24_000_000)
+                check = Image.open(BytesIO(buf))
+                check.verify()
+                local.write_bytes(buf)
+                return Image.open(local).convert('RGB')
+            except Exception as exc:
+                errors.append(str(exc))
+                if attempt == 0:
+                    time.sleep(2)
+    raise RuntimeError('Unable to fetch real photograph ' + row['id'] + ': ' + '; '.join(errors))
 
 
 def rounded_photo(c,photo,xy,radius=24,zoom=1,shift_y=0):
