@@ -88,7 +88,7 @@ async def start(message:Message):
 async def version_cmd(message: Message):
     """Show the deployed build identity to distinguish hosting cache from GitHub main."""
     await message.answer(
-        f'🔧 DOLCE EMPIRE\\nСборка: <code>{BUILD_VERSION}</code>\\n'
+        f'🔧 DOLCE EMPIRE\nСборка: <code>{BUILD_VERSION}</code>\n'
         'Галерея SPOTLIGHT: 1 баннер за раз, стрелки ◀️ ▶️',
         parse_mode='HTML',
     )
