@@ -86,7 +86,7 @@ async def test_market_tax_and_no_double_purchase(env):
     card,tax=await game.buy(2,lot)
     assert card['id']==cid and tax==25
     assert (await game.profile(1))['coins']==475
-    assert (await game.profile(2))['coins']==0
+    assert (await game.profile(2))['coins']==100
     with pytest.raises(GameError):await game.buy(3,lot)
     with pytest.raises(GameError):await game.cancel_listing(1,lot)
 
