@@ -51,8 +51,11 @@ def test_four_real_candidates_preview_without_publishing(preview_input):
     with Image.open(output / result["contact_sheet"]) as sheet:
         assert sheet.size[0] >= 1250
         assert sheet.size[1] == 720
-        # The YUNJIN slot stays unfilled, rather than copying another person's photo.
-        assert sheet.getpixel((sheet.width - 125, 350)) == (39, 47, 68)
+        # YUNJIN is member 3/5: inspect a blank area in the THIRD card slot.
+        # The other source cards remain genuine photographs, never copied into it.
+        margin = (sheet.width - (5 * 280 + 4 * 24)) // 2
+        third_slot_x = margin + 2 * (280 + 24)
+        assert sheet.getpixel((third_slot_x + 30, 500)) == (39, 47, 68)
     assert (live_catalog.read_bytes(), live_sets.read_bytes()) == before
 
 
