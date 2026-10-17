@@ -1,9 +1,81 @@
 {
   "version": 1,
-  "description": "Verified 2024 aespa K-Link Festival separate member photographs from distinct Flickr originals. Creative Commons Attribution-ShareAlike 2.0 — transformed artwork and banners must carry same or compatible license.",
-  "sets": [],
-  "release_revision": 2,
-  "last_published_set_ids": [
-    "coll_aespa_aura_rare"
+  "description": "IVE Show What I Have world tour Amsterdam June 13 2024. Six distinct solo photos by Robbie Klinkenberg; stage photography explicitly labeled as a concert series, NOT studio album/promotional shots.",
+  "sets": [
+    {
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "source_collection": "IVE — Show What I Have / Amsterdam 13 June 2024 / Robbie Klinkenberg",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "YUJIN",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/20240613_IVE_Amsterdam_concert_33_Yujin.jpg/960px-20240613_IVE_Amsterdam_concert_33_Yujin.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_33_Yujin.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.37
+        },
+        {
+          "member": "GAEUL",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/20240613_IVE_Amsterdam_concert_38_Gaeul.jpg/960px-20240613_IVE_Amsterdam_concert_38_Gaeul.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_38_Gaeul.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.51,
+          "focus_y": 0.31
+        },
+        {
+          "member": "REI",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg/851px-20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.49,
+          "focus_y": 0.35
+        },
+        {
+          "member": "WONYOUNG",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/20240613_IVE_Amsterdam_concert_10_Wonyoung.jpg/960px-20240613_IVE_Amsterdam_concert_10_Wonyoung.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_10_Wonyoung.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.35
+        },
+        {
+          "member": "LIZ",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/20240613_IVE_Amsterdam_concert_12_Liz.jpg/960px-20240613_IVE_Amsterdam_concert_12_Liz.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_12_Liz.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.37
+        },
+        {
+          "member": "LEESEO",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/20240613_IVE_Amsterdam_concert_35_Leeseo.jpg/960px-20240613_IVE_Amsterdam_concert_35_Leeseo.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_35_Leeseo.jpg",
+          "photographer": "Robbie Klinkenberg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.34
+        }
+      ]
+    }
   ]
 }
