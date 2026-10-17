@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.17-aespa-legendary-r3'
+BUILD_VERSION = '2026.10.17-gallery-r4'
 
 
 def g():
@@ -115,7 +115,7 @@ async def help_cmd(message:Message):
 /expand — купить слот студии
 /album — коллекции
 /spotlight — новые EPIC-сеты ILLIT и aespa
-/sets — галерея всех новых коллекций
+/sets — баннеры сетов и просмотр каждой фотокарточки
 /daily — ежедневная награда
 /quests — задания
 /market — рынок (фиксированные цены)
