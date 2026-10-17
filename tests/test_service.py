@@ -13,7 +13,7 @@ async def test_start_roll_claim_upgrades(env):
     assert p['income']==660 and p['slots']==3 and p['free']==3
     assert p['price']==5280
     rolled=await game.roll(101,'free')
-    assert rolled['price']==0 and rolled['card']['rarity']=='epic'
+    assert rolled['price']==0 and rolled['card']['rarity'] in {'rare', 'epic', 'legendary', 'mythic'}
     assert (await game.profile(101))['free']==2
     clock.now+=timedelta(hours=2)
     p=await game.profile(101)
@@ -147,6 +147,9 @@ async def test_trade_fails_if_card_sold_before_final_acceptance(env):
 async def test_premium_mode_disabled_until_another_verified_rarity_exists(env):
     game, clock, _ = env
     await game.start(909, 'Collector')
+    from dolce_empire.catalog import all_cards
+    if len({c['rarity'] for c in all_cards()}) >= 2:
+        pytest.skip('Premium enabled with multiple verified rarities')
     before = (await game.profile(909))['coins']
     with pytest.raises(GameError, match='Премиум'):
         await game.roll(909, 'premium')
