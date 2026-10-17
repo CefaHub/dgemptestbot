@@ -150,9 +150,9 @@ async def show_roll(event):
     active_rarities = {c['rarity'] for c in all_cards()}
     premium_active = len(active_rarities) >= 2
     premium_line = (
-        f'💎 Премиум-баннер: <b>{n(p["premium_price"])} 🪙</b>\\n'
+        f'💎 Премиум-баннер: <b>{n(p["premium_price"])} 🪙</b>\n'
         if premium_active else
-        '💎 Премиум: временно недоступен (пока одна редкость)\\n'
+        '💎 Премиум: временно недоступен (пока одна редкость)\n'
     )
     info = (
         'Премиум меняет шансы редкостей и даёт 70% фокус на группе недели.'
@@ -160,10 +160,10 @@ async def show_roll(event):
         'Пока доступны только ' + ', '.join(sorted(x.upper() for x in active_rarities)) + ' карточки.'
     )
     msg = (
-        f'🎰 <b>ГАЧА</b>\\n\\n🆓 Заряды: <b>{p["free"]}/3</b> — {remaining}\\n'
-        f'💸 Обычная крутка: <b>{n(p["price"])} 🪙</b>\\n'
+        f'🎰 <b>ГАЧА</b>\n\n🆓 Заряды: <b>{p["free"]}/3</b> — {remaining}\n'
+        f'💸 Обычная крутка: <b>{n(p["price"])} 🪙</b>\n'
         + premium_line +
-        f'📈 Платных круток сегодня: <b>{p["paid_count"]}</b>\\n\\n'
+        f'📈 Платных круток сегодня: <b>{p["paid_count"]}</b>\n\n'
         'Цена зависит от рекордного дохода/час и растёт на 15% за платную крутку в сутки. '
         'Бесплатная крутка не дорожает. ' + info
     )
