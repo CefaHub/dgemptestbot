@@ -81,6 +81,22 @@
         "YUNA"
       ],
       "banner_path": "assets/banners/itzy/itzy_spotlight_epic_banner.png"
+    },
+    {
+      "set_id": "coll_lesserafim_spotlight_epic",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour, Seattle Climate Pledge Arena, David Lee, 2025-09-17",
+      "source_mode": "curated",
+      "expected_members": [
+        "CHAEWON",
+        "SAKURA",
+        "YUNJIN",
+        "KAZUHA",
+        "EUNCHAE"
+      ],
+      "banner_path": "assets/banners/lesserafim/lesserafim_spotlight_epic_banner.png"
     }
   ]
 }

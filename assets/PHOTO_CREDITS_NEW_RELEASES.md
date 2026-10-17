@@ -130,3 +130,53 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY 4.0
 - License URL: https://creativecommons.org/licenses/by/4.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+# DOLCE EMPIRE — photo source credits
+
+The original photographs are NOT AI-generated.
+Every image below has been cropped, color-adjusted, framed and captioned.
+The photo and derived card/banner art retain the source license shown for each image.
+CC BY-SA requires author attribution, a license link, and compatible share-alike
+licensing for adapted artworks. Permission to use a photograph does not imply
+the photographer or depicted artist endorses DOLCE EMPIRE.
+
+## LE SSERAFIM / CHAEWON / SPOTLIGHT
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797154470%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54797154470/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / SAKURA / SPOTLIGHT
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854848411767%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54848411767/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / YUNJIN / SPOTLIGHT
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54849516999/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / KAZUHA / SPOTLIGHT
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963297%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54795963297/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / EUNCHAE / SPOTLIGHT
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344638%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54846344638/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
