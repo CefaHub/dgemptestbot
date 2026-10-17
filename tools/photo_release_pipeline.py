@@ -267,6 +267,7 @@ def generate(manifest_path, publish=False):
                 raise ValueError(f"Original photo reused across releases: {member}")
             urls.add(canonical(source_url))
             pages.add(canonical(page))
+            print(f'Fetching {member} from {source_url}', flush=True)
             raw, photo = original_image(item)
             digest = hashlib.sha256(raw).hexdigest()
             if digest in original_hashes:
