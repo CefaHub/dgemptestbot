@@ -332,5 +332,100 @@
     "card_number": 4,
     "card_total": 4,
     "image_path": "assets/cards/aespa/aespa_velvet_light_legendary_ningning_04.png"
+  },
+  {
+    "id": "card_itzy_spotlight_epic_yeji_01",
+    "group": "ITZY",
+    "idol": "Yeji",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Йеджи",
+      "yeji"
+    ],
+    "collection_id": "coll_itzy_spotlight_epic",
+    "set_id": "coll_itzy_spotlight_epic",
+    "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+    "series": "SPOTLIGHT",
+    "card_number": 1,
+    "card_total": 5,
+    "image_path": "assets/cards/itzy/itzy_spotlight_epic_yeji_01.png"
+  },
+  {
+    "id": "card_itzy_spotlight_epic_lia_02",
+    "group": "ITZY",
+    "idol": "Lia",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Лиа",
+      "lia"
+    ],
+    "collection_id": "coll_itzy_spotlight_epic",
+    "set_id": "coll_itzy_spotlight_epic",
+    "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+    "series": "SPOTLIGHT",
+    "card_number": 2,
+    "card_total": 5,
+    "image_path": "assets/cards/itzy/itzy_spotlight_epic_lia_02.png"
+  },
+  {
+    "id": "card_itzy_spotlight_epic_ryujin_03",
+    "group": "ITZY",
+    "idol": "Ryujin",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Рюджин",
+      "ryujin"
+    ],
+    "collection_id": "coll_itzy_spotlight_epic",
+    "set_id": "coll_itzy_spotlight_epic",
+    "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+    "series": "SPOTLIGHT",
+    "card_number": 3,
+    "card_total": 5,
+    "image_path": "assets/cards/itzy/itzy_spotlight_epic_ryujin_03.png"
+  },
+  {
+    "id": "card_itzy_spotlight_epic_chaeryeong_04",
+    "group": "ITZY",
+    "idol": "Chaeryeong",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Чэрён",
+      "chaeryeong"
+    ],
+    "collection_id": "coll_itzy_spotlight_epic",
+    "set_id": "coll_itzy_spotlight_epic",
+    "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+    "series": "SPOTLIGHT",
+    "card_number": 4,
+    "card_total": 5,
+    "image_path": "assets/cards/itzy/itzy_spotlight_epic_chaeryeong_04.png"
+  },
+  {
+    "id": "card_itzy_spotlight_epic_yuna_05",
+    "group": "ITZY",
+    "idol": "Yuna",
+    "era": "SPOTLIGHT",
+    "rarity": "epic",
+    "base_income": 220,
+    "aliases": [
+      "Юна",
+      "yuna"
+    ],
+    "collection_id": "coll_itzy_spotlight_epic",
+    "set_id": "coll_itzy_spotlight_epic",
+    "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+    "series": "SPOTLIGHT",
+    "card_number": 5,
+    "card_total": 5,
+    "image_path": "assets/cards/itzy/itzy_spotlight_epic_yuna_05.png"
   }
 ]

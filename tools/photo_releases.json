@@ -1,84 +1,9 @@
 {
   "version": 1,
   "description": "Authentic separate portraits of all five ITZY members from ONE TV10 BARRIE photo call in Seongsu-dong, 2025-11-10; original CC BY 4.0 video KHc_S_1uHsQ. All five derived real images are source-verified 960×1200 crops available for faithful 900×1200 framing. No AI, no duplicates or mixed events. Previous unfinished aespa Mythic queue is archived under tools/research.",
-  "sets": [
-    {
-      "group": "ITZY",
-      "era": "SPOTLIGHT",
-      "rarity": "epic",
-      "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
-      "source_mode": "curated",
-      "cards": [
-        {
-          "member": "YEJI",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/251110_Hwang_Yeji_from_ITZY.png/960px-251110_Hwang_Yeji_from_ITZY.png",
-          "source_page": "https://commons.wikimedia.org/wiki/File:251110_Hwang_Yeji_from_ITZY.png",
-          "original_source": "https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=78s",
-          "photographer": "티비텐 TV10",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.4,
-          "zoom": 1
-        },
-        {
-          "member": "LIA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/251110_Choi_Jisu_%28Lia%29_from_ITZY.png/960px-251110_Choi_Jisu_%28Lia%29_from_ITZY.png",
-          "source_page": "https://commons.wikimedia.org/wiki/File:251110_Choi_Jisu_%28Lia%29_from_ITZY.png",
-          "original_source": "https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=80s",
-          "photographer": "티비텐 TV10",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.39,
-          "zoom": 1
-        },
-        {
-          "member": "RYUJIN",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/251110_Shin_Ryujin_from_ITZY.png/960px-251110_Shin_Ryujin_from_ITZY.png",
-          "source_page": "https://commons.wikimedia.org/wiki/File:251110_Shin_Ryujin_from_ITZY.png",
-          "original_source": "https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=83s",
-          "photographer": "티비텐 TV10",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.43,
-          "zoom": 1
-        },
-        {
-          "member": "CHAERYEONG",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/251110_Lee_Chaeryeong_from_ITZY.png/960px-251110_Lee_Chaeryeong_from_ITZY.png",
-          "source_page": "https://commons.wikimedia.org/wiki/File:251110_Lee_Chaeryeong_from_ITZY.png",
-          "original_source": "https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=38s",
-          "photographer": "티비텐 TV10",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.39,
-          "zoom": 1
-        },
-        {
-          "member": "YUNA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/251110_Shin_Yuna_from_ITZY.png/960px-251110_Shin_Yuna_from_ITZY.png",
-          "source_page": "https://commons.wikimedia.org/wiki/File:251110_Shin_Yuna_from_ITZY.png",
-          "original_source": "https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=87s",
-          "photographer": "티비텐 TV10",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.42,
-          "zoom": 1
-        }
-      ]
-    }
-  ],
+  "sets": [],
   "preview_revision": 9,
   "last_published_set_ids": [
-    "coll_aespa_velvet_light_legendary"
+    "coll_itzy_spotlight_epic"
   ]
 }

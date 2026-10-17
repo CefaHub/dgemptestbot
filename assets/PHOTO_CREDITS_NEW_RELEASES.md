@@ -80,3 +80,53 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY 4.0
 - License URL: https://creativecommons.org/licenses/by/4.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+# DOLCE EMPIRE — photo source credits
+
+The original photographs are NOT AI-generated.
+Every image below has been cropped, color-adjusted, framed and captioned.
+The photo and derived card/banner art retain the source license shown for each image.
+CC BY-SA requires author attribution, a license link, and compatible share-alike
+licensing for adapted artworks. Permission to use a photograph does not imply
+the photographer or depicted artist endorses DOLCE EMPIRE.
+
+## ITZY / YEJI / SPOTLIGHT
+- Photo author: 티비텐 TV10
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:251110_Hwang_Yeji_from_ITZY.png
+- Original source: https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=78s
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## ITZY / LIA / SPOTLIGHT
+- Photo author: 티비텐 TV10
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:251110_Choi_Jisu_%28Lia%29_from_ITZY.png
+- Original source: https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=80s
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## ITZY / RYUJIN / SPOTLIGHT
+- Photo author: 티비텐 TV10
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:251110_Shin_Ryujin_from_ITZY.png
+- Original source: https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=83s
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## ITZY / CHAERYEONG / SPOTLIGHT
+- Photo author: 티비텐 TV10
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:251110_Lee_Chaeryeong_from_ITZY.png
+- Original source: https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=38s
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## ITZY / YUNA / SPOTLIGHT
+- Photo author: 티비텐 TV10
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:251110_Shin_Yuna_from_ITZY.png
+- Original source: https://www.youtube.com/watch?v=KHc_S_1uHsQ&t=87s
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition

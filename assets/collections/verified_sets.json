@@ -65,6 +65,22 @@
         "NINGNING"
       ],
       "banner_path": "assets/banners/aespa/aespa_velvet_light_legendary_banner.png"
+    },
+    {
+      "set_id": "coll_itzy_spotlight_epic",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "ITZY — BARRIE Seongsu-dong TV10 solo photocall, 2025-11-10",
+      "source_mode": "curated",
+      "expected_members": [
+        "YEJI",
+        "LIA",
+        "RYUJIN",
+        "CHAERYEONG",
+        "YUNA"
+      ],
+      "banner_path": "assets/banners/itzy/itzy_spotlight_epic_banner.png"
     }
   ]
 }
