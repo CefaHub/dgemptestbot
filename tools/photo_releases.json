@@ -1,9 +1,64 @@
 {
   "version": 1,
-  "description": "Verified 2024 aespa K-Link Festival separate member photographs from distinct Flickr originals. Creative Commons Attribution-ShareAlike 2.0 — transformed artwork and banners must carry same or compatible license.",
-  "sets": [],
-  "release_revision": 2,
-  "last_published_set_ids": [
-    "coll_aespa_aura_rare"
-  ]
+  "description": "Four separately captured solo portraits from the same aespa Mise-en-Scene photo call, Seoul, 2026-02-19. Original stills made available under CC BY 4.0 via TV10 YouTube, curated as matching set.",
+  "sets": [
+    {
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "KARINA",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Karina_at_Mise-en-Scene_event_on_19022026_%283%29.png/960px-Karina_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Karina_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.32
+        },
+        {
+          "member": "WINTER",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Winter_at_Mise-en-Scene_event_on_19022026_%283%29.png/960px-Winter_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Winter_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.33
+        },
+        {
+          "member": "GISELLE",
+          "photo_url": "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Faf%2FGiselle_at_Mise-en-Scene_event_on_19022026_%281%29.png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Giselle_at_Mise-en-Scene_event_on_19022026_%281%29.png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.34
+        },
+        {
+          "member": "NINGNING",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ningning_at_Mise-en-Scene_event_on_19022026_%283%29.png/960px-Ningning_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ningning_at_Mise-en-Scene_event_on_19022026_%283%29.png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.35
+        }
+      ]
+    }
+  ],
+  "preview_revision": 2
 }
