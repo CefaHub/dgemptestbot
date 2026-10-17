@@ -42,8 +42,9 @@
           "license": "CC BY-SA 2.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
           "license_status": "verified",
-          "focus_x": 0.5,
-          "focus_y": 0.34
+          "focus_x": 0.6,
+          "focus_y": 0.4,
+          "zoom": 1.36
         },
         {
           "member": "NINGNING",
