@@ -179,6 +179,8 @@ class Game:
     async def roll(self, uid, mode):
         if mode not in ('free','paid','premium'):
             raise GameError('Неизвестный баннер.')
+        if mode == 'premium' and len({c['rarity'] for c in all_cards()}) < 2:
+            raise GameError('Премиум-баннер временно закрыт: пока доступна только одна подтверждённая редкость. Не трать монеты зря.')
         async with self.sf() as session,session.begin():
             p=await self._player_locked(session,uid)
             now=self.clock()
