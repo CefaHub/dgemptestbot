@@ -1,8 +1,70 @@
 {
   "version": 1,
-  "description": "Five separate source-identified David Lee photographs of all active LE SSERAFIM members captured at Climate Pledge Arena, Seattle on 2025-09-17. Original source Flickr and Wikimedia Commons FlickreviewR-confirmed CC BY 4.0 mirrors. Full 960px photo thumbnails, no AI, no mixed sessions or recycled photo sources. Publication must pass dHash/original uniqueness checks and complete-group validation. Retry after fixed /start starter-pack logic for 4+ published groups.",
-  "sets": [],
-  "preview_revision": 12,
+  "description": "Four solo real-photo aespa portraits from the same photographer snow plumflower / SYNK PARALLEL LINE Encore concert series 15–16 March 2025; original Flickr photos, per-file CC BY-SA 2.0 verified. New source photos across all earlier rarities, no generated faces. This replaces the unrelated never-published blocked Mise-en-Scene Mythic attempt (which is preserved as research, not published).",
+  "sets": [
+    {
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "source_collection": "aespa — SYNK: PARALLEL LINE Encore, 15–16 March 2025 / snow plumflower (four matching solo photos)",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "KARINA",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/250315-16_aespa_Karina_01.jpg/960px-250315-16_aespa_Karina_01.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:250315-16_aespa_Karina_01.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54497656356/",
+          "photographer": "snow plumflower",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.36,
+          "zoom": 1
+        },
+        {
+          "member": "WINTER",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/250315-16_aespa_Winter_01.jpg/960px-250315-16_aespa_Winter_01.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:250315-16_aespa_Winter_01.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54497657726/",
+          "photographer": "snow plumflower",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.35,
+          "zoom": 1
+        },
+        {
+          "member": "GISELLE",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/250315-16_aespa_Giselle_01.jpg/960px-250315-16_aespa_Giselle_01.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:250315-16_aespa_Giselle_01.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54498009640/",
+          "photographer": "snow plumflower",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.35,
+          "zoom": 1
+        },
+        {
+          "member": "NINGNING",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/250315-16_aespa_Ningning_01.jpg/960px-250315-16_aespa_Ningning_01.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:250315-16_aespa_Ningning_01.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54498010765/",
+          "photographer": "snow plumflower",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.36,
+          "zoom": 1
+        }
+      ]
+    }
+  ],
+  "preview_revision": 13,
   "last_published_set_ids": [
     "coll_lesserafim_spotlight_epic"
   ]
