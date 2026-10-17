@@ -61,11 +61,11 @@ The 2025-09-17 Seattle concert by David Lee has an additional four high-resoluti
 - Candidate sources: `tools/research/lesserafim_aura_rare_candidates.json`
 - CHAEWON: Flickr image 54797153830
 - SAKURA: Flickr image 54797069478
-- KAZUHA: Flickr image 54796820566
-- EUNCHAE: Flickr image 54846336944
+- KAZUHA: Flickr image 54797069863 (replaces the original high-kick frame; now a sharp, clear 900x1200 solo portrait)
+- EUNCHAE: Flickr image 54846409880 (replaces the blurred/hair-flip candidate; new frame is bright and face visible, but has another performer farther behind on stage)
 - Remaining required member: YUNJIN. Existing published solo from Flickr 54849516999 **MUST NOT** be recycled. Other source photos show Yunjin in multi-person frames and are not reliably separable into a separately documented solo portrait without careful review.
 - Source rights: CC BY 4.0, photographer David Lee, verified Flickr review on Commons.
-- GitHub Actions preview successful: https://github.com/CefaHub/dgemptestbot/actions/runs/39075353449 — 48 tests passed, 1 skipped; candidate PNG archive under artifact `Dolce-Photo-Candidate-Review`. **NO catalog or playable cards were changed.**
+- Latest full four-card contact-sheet preview: https://github.com/CefaHub/dgemptestbot/actions/runs/39077707119 — **48 tests passed, 1 skipped**. Current candidate archive `Dolce-Photo-Candidate-Review` includes four 900x1200 cards and a 1604x720 `CONTACT_SHEET.png` with a deliberately blank YUNJIN position. **NO catalog or playable cards were changed.**
 - The completed AURA set must have all five unique high-quality portraits, consistent source concept, and must pass normal `tools/photo_release_pipeline.py build --publish` gates before releasing.
 
 ## Rejected or incomplete candidates
