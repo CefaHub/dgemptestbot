@@ -1,8 +1,83 @@
 {
   "version": 1,
-  "description": "Authentic separate portraits of all five ITZY members from ONE TV10 BARRIE photo call in Seongsu-dong, 2025-11-10; original CC BY 4.0 video KHc_S_1uHsQ. All five derived real images are source-verified 960×1200 crops available for faithful 900×1200 framing. No AI, no duplicates or mixed events. Previous unfinished aespa Mythic queue is archived under tools/research.",
-  "sets": [],
-  "preview_revision": 9,
+  "description": "Five separate source-identified David Lee photographs of all active LE SSERAFIM members captured at Climate Pledge Arena, Seattle on 2025-09-17. Original source Flickr and Wikimedia Commons FlickreviewR-confirmed CC BY 4.0 mirrors. Full 960px photo thumbnails, no AI, no mixed sessions or recycled photo sources. Publication must pass dHash/original uniqueness checks and complete-group validation.",
+  "sets": [
+    {
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour, Seattle Climate Pledge Arena, David Lee, 2025-09-17",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "CHAEWON",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797154470%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797154470%29.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797154470%29.jpg",
+          "original_source": "https://www.flickr.com/photos/davidjlee/54797154470/",
+          "photographer": "David Lee",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.37,
+          "zoom": 1
+        },
+        {
+          "member": "SAKURA",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854848411767%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854848411767%29.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854848411767%29.jpg",
+          "original_source": "https://www.flickr.com/photos/davidjlee/54848411767/",
+          "photographer": "David Lee",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.51,
+          "focus_y": 0.35,
+          "zoom": 1
+        },
+        {
+          "member": "YUNJIN",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg",
+          "original_source": "https://www.flickr.com/photos/davidjlee/54849516999/",
+          "photographer": "David Lee",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.35,
+          "zoom": 1
+        },
+        {
+          "member": "KAZUHA",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963297%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963297%29.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963297%29.jpg",
+          "original_source": "https://www.flickr.com/photos/davidjlee/54795963297/",
+          "photographer": "David Lee",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.36,
+          "zoom": 1
+        },
+        {
+          "member": "EUNCHAE",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344638%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344638%29.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344638%29.jpg",
+          "original_source": "https://www.flickr.com/photos/davidjlee/54846344638/",
+          "photographer": "David Lee",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.36,
+          "zoom": 1
+        }
+      ]
+    }
+  ],
+  "preview_revision": 10,
   "last_published_set_ids": [
     "coll_itzy_spotlight_epic"
   ]
