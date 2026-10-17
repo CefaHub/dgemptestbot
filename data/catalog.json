@@ -16,7 +16,9 @@
     "series": "SPOTLIGHT",
     "card_number": 1,
     "card_total": 5,
-    "image_path": "assets/cards/illit/illit_spotlight_epic_yunah_01.png"
+    "image_path": "assets/cards/illit/illit_spotlight_epic_yunah_01.png",
+    "set_id": "coll_illit_spotlight_epic",
+    "source_collection": "ILLIT 2025-11-06 event photo series"
   },
   {
     "id": "card_illit_spotlight_epic_minju_02",
@@ -34,7 +36,9 @@
     "series": "SPOTLIGHT",
     "card_number": 2,
     "card_total": 5,
-    "image_path": "assets/cards/illit/illit_spotlight_epic_minju_02.png"
+    "image_path": "assets/cards/illit/illit_spotlight_epic_minju_02.png",
+    "set_id": "coll_illit_spotlight_epic",
+    "source_collection": "ILLIT 2025-11-06 event photo series"
   },
   {
     "id": "card_illit_spotlight_epic_moka_03",
@@ -52,7 +56,9 @@
     "series": "SPOTLIGHT",
     "card_number": 3,
     "card_total": 5,
-    "image_path": "assets/cards/illit/illit_spotlight_epic_moka_03.png"
+    "image_path": "assets/cards/illit/illit_spotlight_epic_moka_03.png",
+    "set_id": "coll_illit_spotlight_epic",
+    "source_collection": "ILLIT 2025-11-06 event photo series"
   },
   {
     "id": "card_illit_spotlight_epic_wonhee_04",
@@ -71,7 +77,9 @@
     "series": "SPOTLIGHT",
     "card_number": 4,
     "card_total": 5,
-    "image_path": "assets/cards/illit/illit_spotlight_epic_wonhee_04.png"
+    "image_path": "assets/cards/illit/illit_spotlight_epic_wonhee_04.png",
+    "set_id": "coll_illit_spotlight_epic",
+    "source_collection": "ILLIT 2025-11-06 event photo series"
   },
   {
     "id": "card_illit_spotlight_epic_iroha_05",
@@ -89,7 +97,9 @@
     "series": "SPOTLIGHT",
     "card_number": 5,
     "card_total": 5,
-    "image_path": "assets/cards/illit/illit_spotlight_epic_iroha_05.png"
+    "image_path": "assets/cards/illit/illit_spotlight_epic_iroha_05.png",
+    "set_id": "coll_illit_spotlight_epic",
+    "source_collection": "ILLIT 2025-11-06 event photo series"
   },
   {
     "id": "card_aespa_spotlight_epic_karina_01",
@@ -107,7 +117,9 @@
     "series": "SPOTLIGHT",
     "card_number": 1,
     "card_total": 4,
-    "image_path": "assets/cards/aespa/aespa_spotlight_epic_karina_01.png"
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_karina_01.png",
+    "set_id": "coll_aespa_spotlight_epic",
+    "source_collection": "aespa 2025-01-28 event photo series"
   },
   {
     "id": "card_aespa_spotlight_epic_winter_02",
@@ -125,7 +137,9 @@
     "series": "SPOTLIGHT",
     "card_number": 2,
     "card_total": 4,
-    "image_path": "assets/cards/aespa/aespa_spotlight_epic_winter_02.png"
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_winter_02.png",
+    "set_id": "coll_aespa_spotlight_epic",
+    "source_collection": "aespa 2025-01-28 event photo series"
   },
   {
     "id": "card_aespa_spotlight_epic_giselle_03",
@@ -143,7 +157,9 @@
     "series": "SPOTLIGHT",
     "card_number": 3,
     "card_total": 4,
-    "image_path": "assets/cards/aespa/aespa_spotlight_epic_giselle_03.png"
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_giselle_03.png",
+    "set_id": "coll_aespa_spotlight_epic",
+    "source_collection": "aespa 2025-01-28 event photo series"
   },
   {
     "id": "card_aespa_spotlight_epic_ningning_04",
@@ -161,6 +177,8 @@
     "series": "SPOTLIGHT",
     "card_number": 4,
     "card_total": 4,
-    "image_path": "assets/cards/aespa/aespa_spotlight_epic_ningning_04.png"
+    "image_path": "assets/cards/aespa/aespa_spotlight_epic_ningning_04.png",
+    "set_id": "coll_aespa_spotlight_epic",
+    "source_collection": "aespa 2025-01-28 event photo series"
   }
 ]
