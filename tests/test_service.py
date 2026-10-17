@@ -5,6 +5,31 @@ from dolce_empire.service import GameError
 from dolce_empire.db import OwnedCard, Listing, Trade
 
 @pytest.mark.asyncio
+async def test_starter_pack_is_exactly_three_unique_cards_with_many_groups(env, monkeypatch):
+    """Adding more groups must never block /start or grant a fourth studio card."""
+    from dolce_empire import service as svc
+    from dolce_empire.catalog import all_cards
+
+    known = all_cards()
+    groups = {card['group'] for card in known}
+    assert len(groups) >= 4
+    extra = [
+        {'id': 'test_card_extra_group_1', 'group': 'EXTRA GROUP ONE', 'base_income': 100},
+        {'id': 'test_card_extra_group_2', 'group': 'EXTRA GROUP TWO', 'base_income': 100},
+    ]
+    monkeypatch.setattr(svc, 'all_cards', lambda: known + extra)
+
+    game, clock, factory = env
+    assert await game.start(771, 'Many Groups') is True
+    owned = await game.cards(771)
+    assert len(owned) == 3
+    assert {c['slot'] for c in owned} == {1, 2, 3}
+    assert len({c['definition_id'] for c in owned}) == 3
+    assert len({c['group'] for c in owned}) == 3
+    assert (await game.profile(771))['income'] == sum(c['hourly'] for c in owned)
+
+
+@pytest.mark.asyncio
 async def test_start_roll_claim_upgrades(env):
     game,clock,factory=env
     assert await game.start(101,'<Admin>') is True
