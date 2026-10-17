@@ -125,3 +125,21 @@ def test_tiny_source_is_rejected(photo_sandbox):
     image.save(root / "photos/inbox/karina.jpg")
     with pytest.raises(ValueError, match="too small"):
         pipe.generate("tools/photo_releases.json")
+
+
+def test_reencoded_photo_cannot_reappear_as_higher_rarity(photo_sandbox):
+    root, manifest = photo_sandbox
+    first = manifest["sets"][0]["cards"][0]
+    raw, photo = pipe.original_image(first)
+    old_hash = pipe.perceptual_hash(photo)
+    old_source = {
+        "cards": [{
+            "id": "previous_rare_member",
+            "photo": "https://example.test/different-old-file.jpg",
+            "page": "https://example.test/old-source-page",
+            "source_dhash": f"{old_hash:016x}",
+        }]
+    }
+    (root / "tools/photo_sources.json").write_text(json.dumps(old_source))
+    with pytest.raises(ValueError, match="near-identical"):
+        pipe.generate("tools/photo_releases.json")
