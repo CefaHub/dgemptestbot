@@ -281,7 +281,9 @@ def generate(manifest_path, publish=False):
             })
             pending_sources.append({
                 "id": stem, "group": group["name"], "member": member,
-                "photo": source_url, "page": page, "author": item["photographer"],
+                "photo": source_url, "page": page,
+                "original_source": item.get("original_source", page),
+                "author": item["photographer"],
                 "license": item["license"], "license_url": item["license_url"],
                 "license_review": "confirmed", "source_sha256": digest,
                 "source_dhash": f"{visual:016x}", "rarity": tier["rarity"],
@@ -302,7 +304,35 @@ def generate(manifest_path, publish=False):
     (OUT / "release_metadata.json").write_text(
         json.dumps(additions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    credit_lines = [
+        "# DOLCE EMPIRE — photo source credits",
+        "",
+        "The original photographs are NOT AI-generated.",
+        "Every image below has been cropped, color-adjusted, framed and captioned.",
+        "The photo and derived card/banner art retain the source license shown for each image.",
+        "CC BY-SA requires author attribution, a license link, and compatible share-alike",
+        "licensing for adapted artworks. Permission to use a photograph does not imply",
+        "the photographer or depicted artist endorses DOLCE EMPIRE.",
+        "",
+    ]
+    for source in pending_sources:
+        credit_lines += [
+            "## " + source["group"] + " / " + source["member"] + " / " + source["series"],
+            "- Photo author: " + source["author"],
+            "- Wikimedia page: " + source["page"],
+            "- Original source: " + source["original_source"],
+            "- Source license: " + source["license"],
+            "- License URL: " + source["license_url"],
+            "- Modifications: image crop, contrast, card frame, text and banner composition",
+            "",
+        ]
+    credit_text = "\n".join(credit_lines)
+    (OUT / "PHOTO_CREDITS_NEW_RELEASES.md").write_text(credit_text, encoding="utf-8")
     if publish:
+        credits = ROOT / "assets/PHOTO_CREDITS_NEW_RELEASES.md"
+        existing = credits.read_text(encoding="utf-8") if credits.exists() else ""
+        credits.write_text(existing + ("\n\n" if existing else "") + credit_text,
+                           encoding="utf-8")
         for image in (OUT / "assets").rglob("*.png"):
             destination = ROOT / image.relative_to(OUT)
             destination.parent.mkdir(parents=True, exist_ok=True)
