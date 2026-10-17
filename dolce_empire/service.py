@@ -106,20 +106,21 @@ class Game:
                        last_claim=self.clock())
             session.add(p)
             await session.flush()
-            # All legacy Common cards were removed in the photo-only wipe.
-            # Give newcomers three different real-photo Rare cards, from
-            # separate groups, so they can immediately use the 3 studio slots.
-            rares = [c for c in all_cards() if c['rarity'] == 'rare']
-            starts = []
-            selected_groups = set()
-            for card in rares:
+            # Offer three DIFFERENT real photographs from the verified sets.
+            # Prefer different groups before filling the remaining slot.
+            options = all_cards()
+            starts, selected_groups = [], set()
+            for card in options:
                 if card['group'] not in selected_groups:
                     starts.append(card)
                     selected_groups.add(card['group'])
-                if len(starts) == 3:
+            for card in options:
+                if len(starts) >= 3:
                     break
-            if len(starts) < 3:
-                raise RuntimeError('Photo-only starter catalog is incomplete.')
+                if card['id'] not in {c['id'] for c in starts}:
+                    starts.append(card)
+            if len(starts) != 3:
+                raise RuntimeError('At least three different verified card photos required.')
             for index, c in enumerate(starts, 1):
                 session.add(OwnedCard(owner_id=uid, definition_id=c['id'], slot=index))
                 session.add(Discovery(user_id=uid, definition_id=c['id']))
