@@ -15,3 +15,7 @@ data/*.db-*
 assets/idols/*
 !assets/idols/.gitkeep
 .DS_Store
+
+# Curated source photos and generated previews are never blindly committed.
+photos/inbox/
+output/
