@@ -13,10 +13,16 @@ import json
 import sys
 from pathlib import Path
 
-from photo_release_pipeline import (
-    ROOT, GROUPS, TIERS, OUT, CARD_SIZE, canonical, original_image,
-    perceptual_hash, zoomed_photo, card_art, load_json,
-)
+try:
+    from .photo_release_pipeline import (
+        ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
+        perceptual_hash, zoomed_photo, card_art, load_json,
+    )
+except ImportError:  # Direct CLI invocation from tools/ as a script.
+    from photo_release_pipeline import (
+        ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
+        perceptual_hash, zoomed_photo, card_art, load_json,
+    )
 
 PREVIEW_DIR = ROOT / "output" / "photo_candidate_previews"
 
