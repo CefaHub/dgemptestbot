@@ -107,6 +107,20 @@ def color(hexvalue):
     return tuple(bytes.fromhex(hexvalue.lstrip("#")))
 
 
+def zoomed_photo(photo, zoom, focus):
+    """Crop away unwanted neighbors while keeping the idol centered."""
+    zoom = float(zoom)
+    if not 1 <= zoom <= 1.6:
+        raise ValueError("Photo zoom must be between 1.0 and 1.6")
+    if zoom == 1:
+        return photo
+    w, h = photo.size
+    cw, ch = int(w / zoom), int(h / zoom)
+    x = max(0, min(w - cw, round(focus[0] * w - cw / 2)))
+    y = max(0, min(h - ch, round(focus[1] * h - ch / 2)))
+    return photo.crop((x, y, x + cw, y + ch))
+
+
 def card_art(photo, group, tier, member, number, total, focus=(0.5, 0.35)):
     """Actual photo fills 3:4; fades only at bottom—no opaque stripe over the face."""
     frame = ImageOps.fit(photo, CARD_SIZE, method=Image.Resampling.LANCZOS, centering=focus)
@@ -269,7 +283,10 @@ def generate(manifest_path, publish=False):
             image_path = f"assets/cards/{group['slug']}/{stem}.png"
             exported = OUT / image_path
             exported.parent.mkdir(parents=True, exist_ok=True)
-            card_art(photo, group, tier, member, index, len(members), focus).save(exported, "PNG", optimize=True)
+            framed_photo = zoomed_photo(photo, item.get("zoom", 1.0), focus)
+            card_art(framed_photo, group, tier, member, index, len(members), focus).save(
+                exported, "PNG", optimize=True
+            )
             staged[member] = (photo, focus)
             pending_cards.append({
                 "id": card_id, "group": group["name"], "idol": member.title(),
