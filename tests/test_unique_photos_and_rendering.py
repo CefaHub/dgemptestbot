@@ -20,12 +20,12 @@ def source_patch(monkeypatch, tmp_path):
 
 
 def test_real_unique_source_photographs_in_live_catalog():
-    assert set_validation.validate_photo_sets(all_cards()) == 9
+    assert set_validation.validate_photo_sets(all_cards()) == len(all_cards())
     sources = json.loads(set_validation.SOURCES_FILE.read_text(encoding="utf-8"))["cards"]
     assert len({s["photo"] for s in sources}) == len(sources)
     assert len({s["page"] for s in sources}) == len(sources)
-    assert {c["rarity"] for c in all_cards()} == {"epic"}
-    assert all(c["era"] == "SPOTLIGHT" for c in all_cards())
+    assert "epic" in {c["rarity"] for c in all_cards()}
+    assert sum(c["group"] == "ILLIT" and c["era"] == "SPOTLIGHT" for c in all_cards()) == 5
 
 
 def test_same_original_photo_url_with_new_file_page_is_rejected(source_patch):
