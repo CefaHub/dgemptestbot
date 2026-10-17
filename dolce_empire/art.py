@@ -1,5 +1,6 @@
-"""Procedural card graphics; optionally uses owner-supplied licensed image assets.
-No idol photographs are redistributed in this repository.
+"""Render published real-photo cards directly without altering idol portraits.
+
+A missing/corrupted released photo must fail, never become a synthetic placeholder.
 """
 from functools import lru_cache
 from io import BytesIO
@@ -56,21 +57,20 @@ def _fit_font(text,max_px,starting):
 def render_card(definition_id, level=1, awakening=0, serial=0):
     c=get_card(definition_id)
     if c is None: raise ValueError('Unknown card')
-    # Full official-photo-based Spotlight design is already a finished 3:4 card.
-    # Do not crop it or draw a second frame over the member's face.
+    # Published collectible artwork is the REAL credited portrait baked into
+    # its 3:4 frame. Never crop it again or paint an opaque text bar over it.
+    # If a released PNG goes missing, STOP instead of silently making fake art.
     if c.get('image_path'):
         bundled = ROOT / c['image_path']
-        if bundled.is_file():
-            try:
-                with Image.open(bundled) as original:
-                    finished = original.convert('RGB')
-                    if finished.size != (900, 1200):
-                        finished = finished.resize((900, 1200), Image.Resampling.LANCZOS)
-                    data = BytesIO()
-                    finished.save(data, format='PNG', optimize=True)
-                    return data.getvalue()
-            except (OSError, ValueError):
-                pass  # Keep the safe procedural fallback if an image is unavailable.
+        if not bundled.is_file():
+            raise FileNotFoundError(f'Real-photo card missing: {bundled}')
+        with Image.open(bundled) as original:
+            finished = original.convert('RGB')
+            if finished.size != (900, 1200):
+                raise ValueError(f'Invalid 3:4 card artwork size for {definition_id}: {finished.size}')
+            data = BytesIO()
+            finished.save(data, format='PNG', optimize=True)
+            return data.getvalue()
     width,height=700,1000
     primary,dark,light=PALETTE[c['rarity']]
     p,d,l=rgb(primary),rgb(dark),rgb(light)
