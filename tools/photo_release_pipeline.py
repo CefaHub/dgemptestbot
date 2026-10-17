@@ -371,6 +371,14 @@ def generate(manifest_path, publish=False):
         )
         from dolce_empire.set_validation import validate_photo_sets
         assert validate_photo_sets(current) == len(current)
+        # Consume the release queue ONLY after all assets and catalog checks pass.
+        # Future curators can add fresh sets without recycling previously shipped ones.
+        manifest["last_published_set_ids"] = [x["set_id"] for x in pending_sets]
+        manifest["sets"] = []
+        (ROOT / manifest_path).write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8"
+        )
     print(f"Built {len(pending_cards)} unique real-photo 3:4 cards and {len(pending_sets)} 16:9 banners.")
     print("Published to the game catalog." if publish else "Preview only; no live game files changed.")
     return additions
