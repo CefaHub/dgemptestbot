@@ -2,7 +2,7 @@ name: Test DOLCE EMPIRE and Spotlight assets
 on:
   workflow_dispatch:
   push:
-    branches: [feature/real-photo-curation-pipeline, main]
+    branches: [feature/aespa-klink-rare-photo-set, main]
     paths:
       - '.github/workflows/check-spotlight.yml'
       - 'dolce_empire/**'
