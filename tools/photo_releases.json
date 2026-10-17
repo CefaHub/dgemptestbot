@@ -1,8 +1,70 @@
 {
   "version": 1,
-  "description": "Four separately captured solo portraits from the same aespa Mise-en-Scene photo call, Seoul, 2026-02-19. Original stills made available under CC BY 4.0 via TV10 YouTube, curated as matching set.",
-  "sets": [],
-  "preview_revision": 2,
+  "description": "Four different verified real-photo aespa solo stills from the same 2026-02-19 Mise-en-Scène/TV10 photocall, NOT the four already issued in Legendary. New Mythic cards, crop 3:4, no reuse. Publish only after full CI, source downloads and visual dHash uniqueness pass.",
+  "sets": [
+    {
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photocall / alternative solo poses for ROYAL HAZE",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "KARINA",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Karina_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Karina_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.38,
+          "zoom": 1
+        },
+        {
+          "member": "WINTER",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Winter_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Winter_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.57,
+          "focus_y": 0.39,
+          "zoom": 1
+        },
+        {
+          "member": "GISELLE",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.55,
+          "focus_y": 0.36,
+          "zoom": 1
+        },
+        {
+          "member": "NINGNING",
+          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Ningning_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ningning_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
+          "photographer": "티비텐 TV10",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.37,
+          "zoom": 1
+        }
+      ]
+    }
+  ],
+  "preview_revision": 3,
   "last_published_set_ids": [
     "coll_aespa_velvet_light_legendary"
   ]
