@@ -180,3 +180,45 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY 4.0
 - License URL: https://creativecommons.org/licenses/by/4.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+# DOLCE EMPIRE — photo source credits
+
+The original photographs are NOT AI-generated.
+Every image below has been cropped, color-adjusted, framed and captioned.
+The photo and derived card/banner art retain the source license shown for each image.
+CC BY-SA requires author attribution, a license link, and compatible share-alike
+licensing for adapted artworks. Permission to use a photograph does not imply
+the photographer or depicted artist endorses DOLCE EMPIRE.
+
+## aespa / KARINA / ROYAL HAZE
+- Photo author: snow plumflower
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:250315-16_aespa_Karina_01.jpg
+- Original source: https://www.flickr.com/photos/197564772@N02/54497656356/
+- Source license: CC BY-SA 2.0
+- License URL: https://creativecommons.org/licenses/by-sa/2.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## aespa / WINTER / ROYAL HAZE
+- Photo author: snow plumflower
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:250315-16_aespa_Winter_01.jpg
+- Original source: https://www.flickr.com/photos/197564772@N02/54497657726/
+- Source license: CC BY-SA 2.0
+- License URL: https://creativecommons.org/licenses/by-sa/2.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## aespa / GISELLE / ROYAL HAZE
+- Photo author: snow plumflower
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:250315-16_aespa_Giselle_01.jpg
+- Original source: https://www.flickr.com/photos/197564772@N02/54498009640/
+- Source license: CC BY-SA 2.0
+- License URL: https://creativecommons.org/licenses/by-sa/2.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## aespa / NINGNING / ROYAL HAZE
+- Photo author: snow plumflower
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:250315-16_aespa_Ningning_01.jpg
+- Original source: https://www.flickr.com/photos/197564772@N02/54498010765/
+- Source license: CC BY-SA 2.0
+- License URL: https://creativecommons.org/licenses/by-sa/2.0/
+- Modifications: image crop, contrast, card frame, text and banner composition

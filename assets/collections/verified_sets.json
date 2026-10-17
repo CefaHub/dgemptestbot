@@ -97,6 +97,21 @@
         "EUNCHAE"
       ],
       "banner_path": "assets/banners/lesserafim/lesserafim_spotlight_epic_banner.png"
+    },
+    {
+      "set_id": "coll_aespa_royal_haze_mythic",
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "source_collection": "aespa — SYNK: PARALLEL LINE Encore, 15–16 March 2025 / snow plumflower (four matching solo photos)",
+      "source_mode": "curated",
+      "expected_members": [
+        "KARINA",
+        "WINTER",
+        "GISELLE",
+        "NINGNING"
+      ],
+      "banner_path": "assets/banners/aespa/aespa_royal_haze_mythic_banner.png"
     }
   ]
 }
