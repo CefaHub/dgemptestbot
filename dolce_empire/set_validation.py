@@ -1,6 +1,7 @@
 """Fail-closed validation for complete member sets with traceable real photo sources."""
 import hashlib
 import json
+from urllib.parse import urlsplit, unquote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -14,6 +15,9 @@ def validate_photo_sets(cards):
     source_index = {'card_' + s['id']: s for s in source_data['cards']}
     allowed_ids = set()
     all_source_images = set()
+    all_source_urls = set()
+    all_source_fingerprints = set()
+    member_photo_registry = set()
     checksums = set()
 
     if not manifest.get('sets'):
@@ -41,12 +45,29 @@ def validate_photo_sets(cards):
                 raise ValueError(f'Missing unique member source for {c["id"]}')
             if source['group'] != group or source['author'] != series['photographer']:
                 raise ValueError(f'Mixed photographers in {group}')
-            photo_id = source['page'].split('File:', 1)[-1]
-            if series['source_key'] not in photo_id:
+            # Photo identity is global, not specific to a rarity, frame,
+            # or set. Never re-issue the SAME source image as another card.
+            # Canonicalize Wikimedia file paths so a URL query / encoding
+            # change cannot masquerade as a new collectible.
+            photo_id = unquote(source['page'].split('File:', 1)[-1]).replace('_', ' ').strip().casefold()
+            source_url_path = unquote(urlsplit(source['photo']).path).replace('_', ' ').casefold()
+            if series['source_key'].replace('_', ' ').casefold() not in photo_id:
                 raise ValueError(f'Mixed shooting dates/collections in {group}: {photo_id}')
-            if photo_id in all_source_images:
-                raise ValueError(f'Reused source photo across sets: {photo_id}')
+            if photo_id in all_source_images or source_url_path in all_source_urls:
+                raise ValueError(f'Reused source photograph across cards or rarities: {photo_id}')
             all_source_images.add(photo_id)
+            all_source_urls.add(source_url_path)
+            # Optional original-file hashes are strongly recommended for
+            # future releases; catch reuploads under a second filename.
+            original_hash = source.get('source_sha256')
+            if original_hash:
+                if original_hash in all_source_fingerprints:
+                    raise ValueError(f'Reused photo binary under another rarity: {c["id"]}')
+                all_source_fingerprints.add(original_hash)
+            group_member = (group.casefold(), c['idol'].casefold(), photo_id)
+            if group_member in member_photo_registry:
+                raise ValueError(f'Same idol photo reused as a new card: {c["id"]}')
+            member_photo_registry.add(group_member)
             path = ROOT / c['image_path']
             if not path.is_file():
                 raise ValueError(f'Card has no rendered photo: {path}')

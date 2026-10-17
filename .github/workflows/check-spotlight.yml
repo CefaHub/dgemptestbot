@@ -2,7 +2,7 @@ name: Test DOLCE EMPIRE and Spotlight assets
 on:
   workflow_dispatch:
   push:
-    branches: [fix/verified-photo-series-only, main]
+    branches: [fix/remove-readme-and-duplicate-photo-rarities, main]
     paths:
       - '.github/workflows/check-spotlight.yml'
       - 'dolce_empire/**'
