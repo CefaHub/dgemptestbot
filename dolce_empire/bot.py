@@ -10,7 +10,7 @@ from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, InputMediaPhoto, BotCommand
 from aiogram.exceptions import TelegramAPIError
-from .db import engine_and_session, init_database, reset_all_players_once, PHOTO_ONLY_RESET_KEY
+from .db import engine_and_session, init_database, retire_unverified_cards_once, CURATION_RESET_KEY
 from .service import Game, GameError
 from .economy import slot_upgrade_price
 from .catalog import RARITY_EMOJIS, RARITY_TITLES, album_groups, search_cards, get_card, all_cards
@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.16-photo-only-reset-r1'
+BUILD_VERSION = '2026.10.17-coherent-sources-r1'
 
 
 def g():
@@ -384,23 +384,19 @@ async def show_spotlight(event, page: int = 0):
 
 @lru_cache(maxsize=1)
 def collection_gallery():
-    root = Path(__file__).resolve().parent.parent / 'assets' / 'collections'
-    entries = []
-    for filename in ('bulk_wave_2.json', 'spotlight_epic.json'):
-        path = root / filename
-        if not path.exists():
-            continue
-        data = json.loads(path.read_text(encoding='utf-8'))
-        for item in data.get('collections', []):
-            entries.append({
-                'group': item['group'],
-                'series': item.get('era', item.get('series', '')),
-                'rarity': item['rarity'],
-                'size': item['member_count'],
-                'banner': item.get('banner_path', item.get('image_path', '')),
-            })
-    return entries
-
+    manifest = Path(__file__).resolve().parent.parent / 'assets/collections/verified_sets.json'
+    data = json.loads(manifest.read_text(encoding='utf-8'))
+    return [
+        {
+            'group': row['group'],
+            'series': row['era'],
+            'rarity': row['rarity'],
+            'size': len(row['expected_members']),
+            'banner': row['banner_path'],
+            'photo_series': row['source_collection'],
+        }
+        for row in data['sets']
+    ]
 
 async def show_sets(event, page=0):
     """Paginated gallery of all full-member K-pop collection releases."""
@@ -778,28 +774,29 @@ async def main():
         db_url='postgresql+asyncpg://'+db_url[len('postgres://'):]
     if db_url.startswith('sqlite'):
         Path('data').mkdir(exist_ok=True)
-    # Ensure complete new photo-only catalog before modifying ANY persistent data.
-    # A partial or cached Docker checkout must NOT erase the players' progress.
+    # Validated catalog rejects incomplete or inconsistent photo collections.
+    # Never erase all existing players when a release changes its catalog.
     photo_cards = all_cards()
-    if len(photo_cards) != 84:
-        raise RuntimeError(f'Refusing reset: expected 84 photo cards, found {len(photo_cards)}')
+    if len(photo_cards) != 9:
+        raise RuntimeError(f'Expected 9 verified member photographs, got {len(photo_cards)}')
     root = Path(__file__).resolve().parent.parent
     missing = [c['id'] for c in photo_cards if not c.get('image_path')
                or not (root / c['image_path']).is_file()]
     if missing:
         raise RuntimeError('Refusing reset: incomplete card images: ' + ', '.join(missing[:5]))
     log.info('DOLCE EMPIRE running build: %s', BUILD_VERSION)
-    log.info('Loaded %s verified real-photo cards', len(photo_cards))
+    log.info('Loaded %s same-event verified photo cards', len(photo_cards))
     engine,sf=engine_and_session(db_url)
     try:
         await init_database(engine)
-        was_reset = await reset_all_players_once(engine)
-        if was_reset:
-            log.warning('WORLD RESET APPLIED ONCE: %s. All existing players and gameplay cleared.',
-                        PHOTO_ONLY_RESET_KEY)
+        retired = await retire_unverified_cards_once(
+            engine, {c['id']: c['base_income'] for c in photo_cards}
+        )
+        if retired:
+            log.warning('Retired mixed-photo sets once (%s): player accounts and coins kept',
+                        CURATION_RESET_KEY)
         else:
-            log.info('World reset previously applied: %s. Keeping current progress.',
-                     PHOTO_ONLY_RESET_KEY)
+            log.info('Previously retired mixed-photo sets; keeping fresh progress')
         service=Game(sf)
         bot=Bot(token=token)
         dp=Dispatcher()
