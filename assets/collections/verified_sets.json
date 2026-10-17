@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "sets": [
+    {
+      "set_id": "coll_illit_spotlight_epic",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "ILLIT 2025-11-06 event photo series",
+      "source_date": "2025-11-06",
+      "photographer": "theMEGASTUDY",
+      "expected_members": [
+        "YUNAH",
+        "MINJU",
+        "MOKA",
+        "WONHEE",
+        "IROHA"
+      ],
+      "banner_path": "assets/banners/illit/illit_spotlight_epic_banner.png",
+      "source_key": "251106_"
+    },
+    {
+      "set_id": "coll_aespa_spotlight_epic",
+      "group": "aespa",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "aespa 2025-01-28 event photo series",
+      "source_date": "2025-01-28",
+      "photographer": "David Lee",
+      "expected_members": [
+        "KARINA",
+        "WINTER",
+        "GISELLE",
+        "NINGNING"
+      ],
+      "banner_path": "assets/banners/aespa/aespa_spotlight_epic_banner.png",
+      "source_key": "2025.01.28"
+    }
+  ]
+}
