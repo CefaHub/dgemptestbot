@@ -1,0 +1,40 @@
+name: Preview IVE full photo set
+on:
+  push:
+    branches: [feature/ive-amsterdam-full-set]
+    paths:
+      - tools/photo_releases.json
+      - .github/workflows/preview-ive.yml
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=12,<13'
+      - run: python tools/photo_release_pipeline.py build --manifest tools/photo_releases.json
+      - name: Validate complete six-member release
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          folder=Path('output/photo_release_batch')
+          d=json.loads((folder/'release_metadata.json').read_text())
+          assert len(d['cards'])==6 and len(d['sets'])==1
+          assert len({x['source_sha256'] for x in d['sources']})==6
+          for x in d['cards']:
+              with Image.open(folder/x['image_path']) as im: assert im.size==(900,1200)
+          with Image.open(folder/d['sets'][0]['banner_path']) as im: assert im.size==(1600,900)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: IVE-2024-6-photos-1-banner-preview
+          path: output/photo_release_batch
+          if-no-files-found: error
+          retention-days: 14
