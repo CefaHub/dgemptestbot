@@ -369,6 +369,11 @@ def generate(manifest_path, publish=False):
         (ROOT / "assets/collections/verified_sets.json").write_text(
             json.dumps(saved, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+        # When invoked as 'python tools/script.py', Python only puts tools/
+        # on sys.path. Importing the bot package requires the repo root.
+        import sys
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
         from dolce_empire.set_validation import validate_photo_sets
         assert validate_photo_sets(current) == len(current)
         # Consume the release queue ONLY after all assets and catalog checks pass.
