@@ -266,6 +266,14 @@ def generate(manifest_path, publish=False):
         staged = {}
         members = [name for name, _ in group["members"]]
         by_member = {item["member"]: item for item in spec["cards"]}
+        # Original Wikimedia files are often rate-limited after several thumbnail
+        # downloads on the same CI runner. Fetch large originals FIRST, while
+        # keeping final card numbers in the canonical group lineup order.
+        prefetched_originals = {}
+        for member in members:
+            item = by_member[member]
+            if urlsplit(item.get("photo_url", "")).netloc.lower() == "upload.wikimedia.org":
+                prefetched_originals[member] = original_image(item)
         for index, (member, translated) in enumerate(group["members"], 1):
             item = by_member[member]
             source_url = item.get("photo_url") or item.get("local_path")
@@ -275,7 +283,7 @@ def generate(manifest_path, publish=False):
             urls.add(canonical(source_url))
             pages.add(canonical(page))
             print(f'Fetching {member}: {source_url}',flush=True)
-            raw, photo = original_image(item)
+            raw, photo = prefetched_originals.pop(member, None) or original_image(item)
             digest = hashlib.sha256(raw).hexdigest()
             if digest in original_hashes:
                 raise ValueError(f"Duplicate original image bytes reused for {member}")
