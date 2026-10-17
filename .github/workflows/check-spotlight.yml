@@ -2,7 +2,7 @@ name: Test DOLCE EMPIRE and Spotlight assets
 on:
   workflow_dispatch:
   push:
-    branches: [fix/remove-readme-and-duplicate-photo-rarities, main]
+    branches: [feature/real-photo-curation-pipeline, main]
     paths:
       - '.github/workflows/check-spotlight.yml'
       - 'dolce_empire/**'
@@ -10,6 +10,11 @@ on:
       - 'assets/cards/**'
       - 'assets/banners/**'
       - 'tests/**'
+      - 'tools/photo_release_pipeline.py'
+      - 'tools/photo_releases.json'
+      - 'tools/photo_release_plan.json'
+      - 'tools/photo_sources.json'
+      - 'assets/collections/**'
       - 'requirements.txt'
 permissions:
   contents: read
