@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Four different verified real-photo aespa solo stills from the same 2026-02-19 Mise-en-Scène/TV10 photocall, NOT the four already issued in Legendary. New Mythic cards, crop 3:4, no reuse. Publish only after full CI, source downloads and visual dHash uniqueness pass.",
+  "description": "Four different verified real-photo aespa solo stills from the same 2026-02-19 Mise-en-Scène/TV10 photocall, NOT the four already issued in Legendary. New Mythic cards, crop 3:4, no reuse. Publish only after full CI, source downloads and visual dHash uniqueness pass. Retry: Wikimedia thumbnail CDN instead of originals, avoids sequential origin rate-limit.",
   "sets": [
     {
       "group": "aespa",
@@ -11,7 +11,7 @@
       "cards": [
         {
           "member": "KARINA",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Karina_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Karina_at_Mise-en-Scene_event_on_19022026_(1).png/960px-Karina_at_Mise-en-Scene_event_on_19022026_(1).png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Karina_at_Mise-en-Scene_event_on_19022026_(1).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -24,7 +24,7 @@
         },
         {
           "member": "WINTER",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Winter_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Winter_at_Mise-en-Scene_event_on_19022026_(1).png/960px-Winter_at_Mise-en-Scene_event_on_19022026_(1).png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Winter_at_Mise-en-Scene_event_on_19022026_(1).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -37,7 +37,7 @@
         },
         {
           "member": "GISELLE",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png/750px-Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -50,7 +50,7 @@
         },
         {
           "member": "NINGNING",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Ningning_at_Mise-en-Scene_event_on_19022026_(1).png",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Ningning_at_Mise-en-Scene_event_on_19022026_(1).png/960px-Ningning_at_Mise-en-Scene_event_on_19022026_(1).png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Ningning_at_Mise-en-Scene_event_on_19022026_(1).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -64,7 +64,7 @@
       ]
     }
   ],
-  "preview_revision": 3,
+  "preview_revision": 4,
   "last_published_set_ids": [
     "coll_aespa_velvet_light_legendary"
   ]
