@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.18-lesserafim-seattle-r6'
+BUILD_VERSION = '2026.10.18-aespa-royal-haze-r7'
 
 
 def g():
