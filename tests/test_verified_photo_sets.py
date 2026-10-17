@@ -16,7 +16,7 @@ from dolce_empire.db import (
 
 def test_photo_series_fail_closed(monkeypatch, tmp_path):
     verified = all_cards()
-    assert validate_photo_sets(verified) == 9
+    assert validate_photo_sets(verified) == len(verified)
     bad = copy.deepcopy(verified)
     bad[0]['rarity'] = 'mythic'
     with pytest.raises(ValueError, match='Mixed rarity'):
