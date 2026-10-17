@@ -1,7 +1,8 @@
-"""Read-only catalogue of K-pop cards. No third-party photos are bundled."""
+"""Verified same-photo-event K-pop card catalog; reject all mixed releases."""
 import json
 from pathlib import Path
 from functools import lru_cache
+from .set_validation import validate_photo_sets
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -21,8 +22,9 @@ CATALOG_PATH = Path(__file__).resolve().with_name('_catalog.json')
 def all_cards():
     with CATALOG_PATH.open('r', encoding='utf-8') as file:
         cards = json.load(file)
-    if not isinstance(cards, list) or len(cards) < 80:
-        raise ValueError(f'Card catalog is incomplete: {CATALOG_PATH}')
+    if not isinstance(cards, list):
+        raise ValueError(f'Card catalog is not a list: {CATALOG_PATH}')
+    validate_photo_sets(cards)
     return cards
 
 @lru_cache(maxsize=1)
