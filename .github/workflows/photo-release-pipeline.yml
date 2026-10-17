@@ -1,0 +1,74 @@
+name: Preview or publish real K-pop photo releases
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish fully verified new cards to main (permanent game change)'
+        required: false
+        default: false
+        type: boolean
+permissions:
+  contents: write
+jobs:
+  real-photo-releases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install application and tests
+        run: python -m pip install -r requirements.txt pytest pytest-asyncio
+      - name: Verify app and photo generator
+        run: python -m pytest -q
+      - name: Plan all 100 unique slots
+        run: python tools/photo_release_pipeline.py plan
+      - name: Build only completed rights-verified photo sets
+        env:
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, sys
+          from pathlib import Path
+          manifest=json.loads(Path('tools/photo_releases.json').read_text(encoding='utf-8'))
+          if not manifest.get('sets'):
+              if os.environ.get('PUBLISH') == 'true':
+                  raise SystemExit('No new verified photo sets to publish.')
+              print('No new sources yet. 100-slot plan is available as artifact.')
+          else:
+              args=[sys.executable,'tools/photo_release_pipeline.py','build']
+              if os.environ.get('PUBLISH') == 'true':
+                  args.append('--publish')
+              subprocess.run(args,check=True)
+          PY
+      - name: Test released full-member sets after publishing
+        if: inputs.publish
+        run: python -m pytest -q
+      - name: Commit verified artwork and catalog, only when explicitly publishing on main
+        if: inputs.publish && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dolce_empire/_catalog.json data/catalog.json tools/photo_sources.json assets/collections/verified_sets.json assets/cards assets/banners
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish rights-reviewed unique K-pop real photo cards and banners'
+            git push origin HEAD:main
+          fi
+      - name: Require main branch for direct publish
+        if: inputs.publish && github.ref != 'refs/heads/main'
+        run: |
+          echo 'Publish requires main; preview generated, no files pushed.'
+          exit 1
+      - name: Upload real-photo preview and slots list
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dolce-RealPhoto-Release-Preview
+          path: |
+            output/photo_release_plan.json
+            output/photo_release_batch/
+          if-no-files-found: warn
+          retention-days: 14

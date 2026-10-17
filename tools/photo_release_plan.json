@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "card_size": [
+    900,
+    1200
+  ],
+  "banner_size": [
+    1600,
+    900
+  ],
+  "description": "Release plan; NOT a catalog of published photos. Each tier needs a DIFFERENT original photograph for each member.",
+  "groups": [
+    {
+      "slug": "illit",
+      "name": "ILLIT",
+      "members": [
+        [
+          "YUNAH",
+          "Юна"
+        ],
+        [
+          "MINJU",
+          "Минджу"
+        ],
+        [
+          "MOKA",
+          "Мока"
+        ],
+        [
+          "WONHEE",
+          "Вонхи"
+        ],
+        [
+          "IROHA",
+          "Ироха"
+        ]
+      ]
+    },
+    {
+      "slug": "aespa",
+      "name": "aespa",
+      "members": [
+        [
+          "KARINA",
+          "Карина"
+        ],
+        [
+          "WINTER",
+          "Винтер"
+        ],
+        [
+          "GISELLE",
+          "Жизель"
+        ],
+        [
+          "NINGNING",
+          "Ниннин"
+        ]
+      ]
+    },
+    {
+      "slug": "ive",
+      "name": "IVE",
+      "members": [
+        [
+          "YUJIN",
+          "Юджин"
+        ],
+        [
+          "GAEUL",
+          "Гаыль"
+        ],
+        [
+          "REI",
+          "Рей"
+        ],
+        [
+          "WONYOUNG",
+          "Вонён"
+        ],
+        [
+          "LIZ",
+          "Лиз"
+        ],
+        [
+          "LEESEO",
+          "Лисо"
+        ]
+      ]
+    },
+    {
+      "slug": "itzy",
+      "name": "ITZY",
+      "members": [
+        [
+          "YEJI",
+          "Йеджи"
+        ],
+        [
+          "LIA",
+          "Лиа"
+        ],
+        [
+          "RYUJIN",
+          "Рюджин"
+        ],
+        [
+          "CHAERYEONG",
+          "Чэрён"
+        ],
+        [
+          "YUNA",
+          "Юна"
+        ]
+      ]
+    },
+    {
+      "slug": "lesserafim",
+      "name": "LE SSERAFIM",
+      "members": [
+        [
+          "CHAEWON",
+          "Чэвон"
+        ],
+        [
+          "SAKURA",
+          "Сакура"
+        ],
+        [
+          "YUNJIN",
+          "Юнджин"
+        ],
+        [
+          "KAZUHA",
+          "Кадзуха"
+        ],
+        [
+          "EUNCHAE",
+          "Ынче"
+        ]
+      ]
+    }
+  ],
+  "tiers": [
+    {
+      "rarity": "rare",
+      "era": "AURA",
+      "base_income": 100,
+      "color": "#74c7ff"
+    },
+    {
+      "rarity": "epic",
+      "era": "SPOTLIGHT",
+      "base_income": 220,
+      "color": "#dca8ff"
+    },
+    {
+      "rarity": "legendary",
+      "era": "VELVET LIGHT",
+      "base_income": 500,
+      "color": "#ffe5a3"
+    },
+    {
+      "rarity": "mythic",
+      "era": "ROYAL HAZE",
+      "base_income": 1200,
+      "color": "#ff91dc"
+    }
+  ],
+  "rules": {
+    "one_original_photo_one_card": true,
+    "no_reuse_across_rarities": true,
+    "full_group_per_set": true,
+    "original_photo_min_crop": [
+      600,
+      800
+    ],
+    "crop": "cover 3:4 with selectable focal point; never stretch",
+    "license": "Require explicit attribution and distribution permission before publish"
+  }
+}

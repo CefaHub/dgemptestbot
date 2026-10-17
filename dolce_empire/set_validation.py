@@ -9,6 +9,11 @@ SETS_FILE = ROOT / 'assets' / 'collections' / 'verified_sets.json'
 SOURCES_FILE = ROOT / 'tools' / 'photo_sources.json'
 
 
+def canonical_photo_page(page):
+    parsed = urlsplit(page)
+    return (parsed.netloc.lower(), unquote(parsed.path).replace('_', ' ').strip().casefold())
+
+
 def validate_photo_sets(cards):
     manifest = json.loads(SETS_FILE.read_text(encoding='utf-8'))
     source_data = json.loads(SOURCES_FILE.read_text(encoding='utf-8'))
@@ -43,19 +48,39 @@ def validate_photo_sets(cards):
             source = source_index.get(c['id'])
             if source is None or source['member'] != c['idol'].upper():
                 raise ValueError(f'Missing unique member source for {c["id"]}')
-            if source['group'] != group or source['author'] != series['photographer']:
-                raise ValueError(f'Mixed photographers in {group}')
+            if source['group'] != group:
+                raise ValueError(f'Member source does not match group {group}')
+            # Legacy SPOTLIGHT sets are documented single-event photo series.
+            # New curated sets may use different approved photographers, but
+            # must visibly share the SAME editorial collection and one rarity.
+            mode = series.get('source_mode', 'event')
+            if mode == 'event':
+                if source['author'] != series['photographer']:
+                    raise ValueError(f'Mixed photographers in {group}')
+            elif mode == 'curated':
+                if not source.get('author') or not source.get('license'):
+                    raise ValueError(f'Missing credited/rights-approved photo source: {c["id"]}')
+                if source.get('license_review') != 'confirmed':
+                    raise ValueError(f'Unapproved image rights for {c["id"]}')
+            else:
+                raise ValueError(f'Unknown photo source mode: {mode}')
             # Photo identity is global, not specific to a rarity, frame,
             # or set. Never re-issue the SAME source image as another card.
             # Canonicalize Wikimedia file paths so a URL query / encoding
             # change cannot masquerade as a new collectible.
             photo_id = unquote(source['page'].split('File:', 1)[-1]).replace('_', ' ').strip().casefold()
             source_url_path = unquote(urlsplit(source['photo']).path).replace('_', ' ').casefold()
-            if series['source_key'].replace('_', ' ').casefold() not in photo_id:
-                raise ValueError(f'Mixed shooting dates/collections in {group}: {photo_id}')
-            if photo_id in all_source_images or source_url_path in all_source_urls:
+            # Require one event identifier for same-event releases. A named
+            # editorial photo collection is allowed to mix approved sources.
+            if series.get('source_mode', 'event') == 'event':
+                if series['source_key'].replace('_', ' ').casefold() not in photo_id:
+                    raise ValueError(f'Mixed shooting dates/collections in {group}: {photo_id}')
+            # For generic source sites, compare the full page location (not
+            # just a filename which might coincide on unrelated providers).
+            source_page_key = canonical_photo_page(source['page'])
+            if source_page_key in all_source_images or source_url_path in all_source_urls:
                 raise ValueError(f'Reused source photograph across cards or rarities: {photo_id}')
-            all_source_images.add(photo_id)
+            all_source_images.add(source_page_key)
             all_source_urls.add(source_url_path)
             # Optional original-file hashes are strongly recommended for
             # future releases; catch reuploads under a second filename.

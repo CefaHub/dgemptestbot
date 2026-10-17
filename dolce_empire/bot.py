@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.17-unique-photo-r2'
+BUILD_VERSION = '2026.10.17-photo-pipeline-r1'
 
 
 def g():
@@ -143,17 +143,34 @@ async def me(message:Message): await show_home(message)
 
 
 async def show_roll(event):
-    p=await g().profile(user_id(event))
-    remaining='Готовы к использованию' if p['free'] else ('Следующая: '+p['refill_at'].strftime('%H:%M UTC') if p['refill_at'] else 'Через час')
-    msg=(f'🎰 <b>ГАЧА</b>\n\n🆓 Заряды: <b>{p["free"]}/3</b> — {remaining}\n'
-         f'💸 Обычная крутка: <b>{n(p["price"])} 🪙</b>\n'
-         '💎 Премиум-баннер: временно недоступен (нет проверенных сетов других редкостей)\n'
-         f'📈 Платных круток сегодня: <b>{p["paid_count"]}</b>\n\n'
-         'Цена зависит от рекордного дохода в час и растёт на 15% за каждую платную крутку за сутки. '
-         'Бесплатная крутка не дорожает. Сейчас доступны только EPIC-фотокарты из двух цельных сетов.\n\n'
-         'Гаранты других редкостей заработают после выхода проверенных сетов.')
-    await send(event,msg,kb([('🎁 Бесплатная','roll:free')],
-                            [('🪙 Обычная','roll:paid')],back()))
+    p = await g().profile(user_id(event))
+    remaining = ('Готовы к использованию' if p['free'] else
+                 ('Следующая: ' + p['refill_at'].strftime('%H:%M UTC')
+                  if p['refill_at'] else 'Через час'))
+    active_rarities = {c['rarity'] for c in all_cards()}
+    premium_active = len(active_rarities) >= 2
+    premium_line = (
+        f'💎 Премиум-баннер: <b>{n(p["premium_price"])} 🪙</b>\n'
+        if premium_active else
+        '💎 Премиум: временно недоступен (пока одна редкость)\n'
+    )
+    info = (
+        'Премиум меняет шансы редкостей и даёт 70% фокус на группе недели.'
+        if premium_active else
+        'Пока доступны только ' + ', '.join(sorted(x.upper() for x in active_rarities)) + ' карточки.'
+    )
+    msg = (
+        f'🎰 <b>ГАЧА</b>\n\n🆓 Заряды: <b>{p["free"]}/3</b> — {remaining}\n'
+        f'💸 Обычная крутка: <b>{n(p["price"])} 🪙</b>\n'
+        + premium_line +
+        f'📈 Платных круток сегодня: <b>{p["paid_count"]}</b>\n\n'
+        'Цена зависит от рекордного дохода/час и растёт на 15% за платную крутку в сутки. '
+        'Бесплатная крутка не дорожает. ' + info
+    )
+    buy_row = [('🪙 Обычная', 'roll:paid')]
+    if premium_active:
+        buy_row.append(('💎 Премиум', 'roll:premium'))
+    await send(event, msg, kb([('🎁 Бесплатная','roll:free')], buy_row, back()))
 
 
 @router.message(Command('roll'))
@@ -411,7 +428,7 @@ async def show_sets(event, page=0):
                f'🃏 Полный состав: <b>{item["size"]}/{item["size"]}</b>\n'
                f'📖 Коллекция {page+1}/{len(items)}\n'
                f'📷 Фотосерия: {escape(item["photo_series"])}\n'
-               'Карточки доступны в гаче. Это одна серия снимков, не официальный альбом.')
+               'Карточки доступны в гаче. Это отобранные реальные фотографии, не обязательно официальные альбомные снимки.')
     markup=kb(
         [('◀️', f'sets:{(page-1)%len(items)}'),
          ('▶️', f'sets:{(page+1)%len(items)}')],
@@ -778,15 +795,15 @@ async def main():
     # Validated catalog rejects incomplete or inconsistent photo collections.
     # Never erase all existing players when a release changes its catalog.
     photo_cards = all_cards()
-    if len(photo_cards) != 9:
-        raise RuntimeError(f'Expected 9 verified member photographs, got {len(photo_cards)}')
+    if len(photo_cards) < 9:
+        raise RuntimeError(f'Baseline verified photograph set is incomplete: {len(photo_cards)} cards')
     root = Path(__file__).resolve().parent.parent
     missing = [c['id'] for c in photo_cards if not c.get('image_path')
                or not (root / c['image_path']).is_file()]
     if missing:
         raise RuntimeError('Refusing reset: incomplete card images: ' + ', '.join(missing[:5]))
     log.info('DOLCE EMPIRE running build: %s', BUILD_VERSION)
-    log.info('Loaded %s same-event verified photo cards', len(photo_cards))
+    log.info('Loaded %s verified real-photo cards', len(photo_cards))
     engine,sf=engine_and_session(db_url)
     try:
         await init_database(engine)
