@@ -107,6 +107,20 @@ def color(hexvalue):
     return tuple(bytes.fromhex(hexvalue.lstrip("#")))
 
 
+def zoomed_photo(photo, zoom, focus):
+    """Crop away unwanted neighbors while keeping the idol centered."""
+    zoom = float(zoom)
+    if not 1 <= zoom <= 1.6:
+        raise ValueError("Photo zoom must be between 1.0 and 1.6")
+    if zoom == 1:
+        return photo
+    w, h = photo.size
+    cw, ch = int(w / zoom), int(h / zoom)
+    x = max(0, min(w - cw, round(focus[0] * w - cw / 2)))
+    y = max(0, min(h - ch, round(focus[1] * h - ch / 2)))
+    return photo.crop((x, y, x + cw, y + ch))
+
+
 def card_art(photo, group, tier, member, number, total, focus=(0.5, 0.35)):
     """Actual photo fills 3:4; fades only at bottom—no opaque stripe over the face."""
     frame = ImageOps.fit(photo, CARD_SIZE, method=Image.Resampling.LANCZOS, centering=focus)
@@ -269,7 +283,10 @@ def generate(manifest_path, publish=False):
             image_path = f"assets/cards/{group['slug']}/{stem}.png"
             exported = OUT / image_path
             exported.parent.mkdir(parents=True, exist_ok=True)
-            card_art(photo, group, tier, member, index, len(members), focus).save(exported, "PNG", optimize=True)
+            framed_photo = zoomed_photo(photo, item.get("zoom", 1.0), focus)
+            card_art(framed_photo, group, tier, member, index, len(members), focus).save(
+                exported, "PNG", optimize=True
+            )
             staged[member] = (photo, focus)
             pending_cards.append({
                 "id": card_id, "group": group["name"], "idol": member.title(),
@@ -281,7 +298,9 @@ def generate(manifest_path, publish=False):
             })
             pending_sources.append({
                 "id": stem, "group": group["name"], "member": member,
-                "photo": source_url, "page": page, "author": item["photographer"],
+                "photo": source_url, "page": page,
+                "original_source": item.get("original_source", page),
+                "author": item["photographer"],
                 "license": item["license"], "license_url": item["license_url"],
                 "license_review": "confirmed", "source_sha256": digest,
                 "source_dhash": f"{visual:016x}", "rarity": tier["rarity"],
@@ -302,7 +321,35 @@ def generate(manifest_path, publish=False):
     (OUT / "release_metadata.json").write_text(
         json.dumps(additions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    credit_lines = [
+        "# DOLCE EMPIRE — photo source credits",
+        "",
+        "The original photographs are NOT AI-generated.",
+        "Every image below has been cropped, color-adjusted, framed and captioned.",
+        "The photo and derived card/banner art retain the source license shown for each image.",
+        "CC BY-SA requires author attribution, a license link, and compatible share-alike",
+        "licensing for adapted artworks. Permission to use a photograph does not imply",
+        "the photographer or depicted artist endorses DOLCE EMPIRE.",
+        "",
+    ]
+    for source in pending_sources:
+        credit_lines += [
+            "## " + source["group"] + " / " + source["member"] + " / " + source["series"],
+            "- Photo author: " + source["author"],
+            "- Wikimedia page: " + source["page"],
+            "- Original source: " + source["original_source"],
+            "- Source license: " + source["license"],
+            "- License URL: " + source["license_url"],
+            "- Modifications: image crop, contrast, card frame, text and banner composition",
+            "",
+        ]
+    credit_text = "\n".join(credit_lines)
+    (OUT / "PHOTO_CREDITS_NEW_RELEASES.md").write_text(credit_text, encoding="utf-8")
     if publish:
+        credits = ROOT / "assets/PHOTO_CREDITS_NEW_RELEASES.md"
+        existing = credits.read_text(encoding="utf-8") if credits.exists() else ""
+        credits.write_text(existing + ("\n\n" if existing else "") + credit_text,
+                           encoding="utf-8")
         for image in (OUT / "assets").rglob("*.png"):
             destination = ROOT / image.relative_to(OUT)
             destination.parent.mkdir(parents=True, exist_ok=True)
@@ -324,6 +371,14 @@ def generate(manifest_path, publish=False):
         )
         from dolce_empire.set_validation import validate_photo_sets
         assert validate_photo_sets(current) == len(current)
+        # Consume the release queue ONLY after all assets and catalog checks pass.
+        # Future curators can add fresh sets without recycling previously shipped ones.
+        manifest["last_published_set_ids"] = [x["set_id"] for x in pending_sets]
+        manifest["sets"] = []
+        (ROOT / manifest_path).write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8"
+        )
     print(f"Built {len(pending_cards)} unique real-photo 3:4 cards and {len(pending_sets)} 16:9 banners.")
     print("Published to the game catalog." if publish else "Preview only; no live game files changed.")
     return additions
