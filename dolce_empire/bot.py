@@ -9,7 +9,7 @@ from pathlib import Path
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.types import CallbackQuery, Message, InlineKeyboardButton, InlineKeyboardMarkup, BufferedInputFile, FSInputFile, InputMediaPhoto, BotCommand
-from aiogram.exceptions import TelegramAPIError
+from aiogram.exceptions import TelegramAPIError, TelegramBadRequest
 from .db import engine_and_session, init_database, retire_unverified_cards_once, CURATION_RESET_KEY
 from .service import Game, GameError
 from .economy import slot_upgrade_price
@@ -449,6 +449,10 @@ async def show_gallery_image(event, imagepath: Path, caption: str, markup):
                     reply_markup=markup,
                 )
                 return
+            except TelegramBadRequest as exc:
+                if 'message is not modified' in str(exc).lower():
+                    return  # The same card is already on screen; do not spam a copy.
+                log.warning('Unable to edit collection gallery in-place', exc_info=True)
             except TelegramAPIError:
                 log.warning('Unable to edit collection gallery in-place', exc_info=True)
         await event.bot.send_photo(
