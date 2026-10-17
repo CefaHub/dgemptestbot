@@ -111,6 +111,8 @@ class Game:
             options = all_cards()
             starts, selected_groups = [], set()
             for card in options:
+                if len(starts) >= 3:
+                    break
                 if card['group'] not in selected_groups:
                     starts.append(card)
                     selected_groups.add(card['group'])
