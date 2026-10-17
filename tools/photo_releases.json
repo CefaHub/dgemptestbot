@@ -1,26 +1,63 @@
 {
   "version": 1,
-  "description": "Only COMPLETE real-photo sets go here. Empty means no new cards are ready. Do not fabricate or reuse a source photo.",
-  "sets": [],
-  "example_format": {
-    "group": "IVE",
-    "era": "AURA",
-    "rarity": "rare",
-    "source_collection": "A named curated IVE photo series (not an official album unless documented)",
-    "source_mode": "curated",
-    "cards": [
-      {
-        "member": "YUJIN",
-        "photo_url": "https://example.invalid/real-high-resolution-yujin.jpg",
-        "source_page": "https://example.invalid/photo-credit-page",
-        "photographer": "Actual photographer",
-        "license": "Actual verified reuse license",
-        "license_url": "https://example.invalid/license",
-        "license_status": "pending",
-        "focus_x": 0.5,
-        "focus_y": 0.35
-      }
-    ],
-    "note": "The example is not runnable: for a real release provide photos for ALL group members and mark rights verified. No example URL is downloaded."
-  }
+  "description": "Verified 2024 aespa K-Link Festival separate member photographs from distinct Flickr originals. Creative Commons Attribution-ShareAlike 2.0 — transformed artwork and banners must carry same or compatible license.",
+  "sets": [
+    {
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "source_collection": "aespa — K-Link Festival 2024, plumflower snow solo portraits",
+      "source_mode": "curated",
+      "cards": [
+        {
+          "member": "KARINA",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/241005_Karina_at_K-Link_Festival.jpg/1920px-241005_Karina_at_K-Link_Festival.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:241005_Karina_at_K-Link_Festival.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54050929017/",
+          "photographer": "plumflower snow",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.36
+        },
+        {
+          "member": "WINTER",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/241005_Winter_K-Link_Festival.jpg/1920px-241005_Winter_K-Link_Festival.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:241005_Winter_K-Link_Festival.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54052042863/",
+          "photographer": "plumflower snow",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.34
+        },
+        {
+          "member": "GISELLE",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/241005_Giselle_K-Link_Festival.jpg/1920px-241005_Giselle_K-Link_Festival.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:241005_Giselle_K-Link_Festival.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54052121124/",
+          "photographer": "plumflower snow",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.34
+        },
+        {
+          "member": "NINGNING",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/241005_Ningning_K-Link_Festival.jpg/1280px-241005_Ningning_K-Link_Festival.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:241005_Ningning_K-Link_Festival.jpg",
+          "original_source": "https://www.flickr.com/photos/197564772@N02/54052042883/",
+          "photographer": "plumflower snow",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "license_status": "verified",
+          "focus_x": 0.5,
+          "focus_y": 0.43
+        }
+      ]
+    }
+  ]
 }
