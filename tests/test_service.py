@@ -141,3 +141,13 @@ async def test_trade_fails_if_card_sold_before_final_acceptance(env):
     with pytest.raises(GameError):await game.trade_action(1,tid,'confirm')
     assert (await game.trade_details(1,tid))['status']=='accepted'
     assert any(c['id']==card['id'] for c in await game.cards(3))
+
+
+@pytest.mark.asyncio
+async def test_premium_mode_disabled_until_another_verified_rarity_exists(env):
+    game, clock, _ = env
+    await game.start(909, 'Collector')
+    before = (await game.profile(909))['coins']
+    with pytest.raises(GameError, match='Премиум'):
+        await game.roll(909, 'premium')
+    assert (await game.profile(909))['coins'] == before
