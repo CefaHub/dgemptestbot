@@ -33,13 +33,13 @@
         },
         {
           "member": "REI",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg/640px-20240613_IVE_Amsterdam_concert_40_Rei.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg/960px-20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
           "photographer": "Robbie Klinkenberg",
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
           "license_status": "verified",
-          "focus_x": 0.49,
+          "focus_x": 0.5,
           "focus_y": 0.35
         },
         {
@@ -78,5 +78,5 @@
       ]
     }
   ],
-  "preview_revision": 4
+  "preview_revision": 5
 }
