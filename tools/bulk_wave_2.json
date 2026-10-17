@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "status": "new full-member collections",
+  "status": "retired_unverified_photo_sources",
   "note": "Only real member photos from Wikimedia Commons; each source photo reused across AURA/VELVET LIGHT/ROYAL HAZE visual rarity editions. Generated artwork is NOT a new photograph. Photo licensing and personality rights remain subject to review before public commercial use.",
   "groups": [
     {
@@ -2456,5 +2456,6 @@
       "banner_path": "assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png",
       "bonus_income_percent": 5
     }
-  ]
+  ],
+  "deprecation_reason": "Source photos were mixed across events or reused across release rarities; assets remain archived but these sets are not in the game catalog."
 }
