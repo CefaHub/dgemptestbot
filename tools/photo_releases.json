@@ -33,7 +33,7 @@
         },
         {
           "member": "REI",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg/960px-20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg/960px-20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
           "photographer": "Robbie Klinkenberg",
           "license": "CC BY-SA 4.0",
@@ -78,5 +78,5 @@
       ]
     }
   ],
-  "preview_revision": 5
+  "preview_revision": 6
 }
