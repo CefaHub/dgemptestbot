@@ -14,6 +14,7 @@ on:
       - 'tools/photo_releases.json'
       - 'tools/photo_release_plan.json'
       - 'tools/photo_sources.json'
+      - '.github/workflows/photo-release-pipeline.yml'
       - 'assets/collections/**'
       - 'requirements.txt'
 permissions:
