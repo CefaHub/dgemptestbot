@@ -41,6 +41,19 @@ Published as full `coll_lesserafim_spotlight_epic` (five 900x1200 cards and one 
 
 Copyright CC BY 4.0 does not automatically settle publicity / personality-right questions for commercial endorsements or merchandise.
 
+## Published: aespa / ROYAL HAZE MYTHIC / SYNK: PARALLEL LINE Encore, March 15–16, 2025
+
+Four separate original solo photographs by snow plumflower from one aespa concert production. All have verified CC BY-SA 2.0 licenses on Wikimedia Commons and corresponding original Flickr pages. Each is different from the earlier aespa SPOTLIGHT/AURA/VELVET LIGHT images; the pipeline checked canonical URLs, page URLs, exact SHA-256 and perceptual dHash.
+
+- KARINA — https://commons.wikimedia.org/wiki/File:250315-16_aespa_Karina_01.jpg — https://www.flickr.com/photos/197564772@N02/54497656356/
+- WINTER — https://commons.wikimedia.org/wiki/File:250315-16_aespa_Winter_01.jpg — https://www.flickr.com/photos/197564772@N02/54497657726/
+- GISELLE — https://commons.wikimedia.org/wiki/File:250315-16_aespa_Giselle_01.jpg — https://www.flickr.com/photos/197564772@N02/54498009640/
+- NINGNING — https://commons.wikimedia.org/wiki/File:250315-16_aespa_Ningning_01.jpg — https://www.flickr.com/photos/197564772@N02/54498010765/
+
+Published as `coll_aespa_royal_haze_mythic`. Complete set, all images available as PNG 900x1200, matching banner PNG 1600x900. Published commit: https://github.com/CefaHub/dgemptestbot/commit/a793dc66080. GitHub Actions: https://github.com/CefaHub/dgemptestbot/actions/runs/39076112566.
+
+Previous research queue for a 2026 Mise-en-Scene version of MYTHIC is intentionally **superseded**, not published. Do not attempt to reuse its URLs or add a second coll_aespa_royal_haze_mythic entry.
+
 ## Preview-only: LE SSERAFIM / AURA RARE (4 of 5 cards, blocked from game)
 
 The 2025-09-17 Seattle concert by David Lee has an additional four high-resolution, rights-reviewed, previously UNUSED source frames. They were rendered by GitHub Actions into 900x1200 DOLCE EMPIRE AURA rare artwork and saved as a temporary review artifact:
@@ -63,7 +76,7 @@ The 2025-09-17 Seattle concert by David Lee has an additional four high-resoluti
 - [ITZY G-SHOCK photo call 2024-10-23](https://www.youtube.com/watch?v=xRIHgC2ZVoM) has four confirmed distinct member pictures at only ~800x1100 and ~160-200KB per JPEG. Too compressed for the requested premium quality; no full suitable set approved. Do not force upscale.
 - [IVE 40th Golden Disc Awards 2026-01-10 / TV10 footage](https://www.youtube.com/watch?v=7KfCcSxeZJU) has a licensed group recording but not yet six confirmed suitable individual high-quality portraits. Hold pending a coherent six-solo selection.
 - Getty/WireImage editorial event photo galleries require separate paid licenses for resale/promotional use: do not copy watermarked or rights-managed frames as cards.
-- aespa ROYAL HAZE / MYTHIC previous source queue was archived at tools/research/aespa_royal_haze_mythic_blocked.json; full-quality Giselle original returned 429 from Wikimedia and an attempted external proxy returned 404. Do not silently replace with a different source event.
+- Superseded aespa MYTHIC source research: the previously archived 2026 Mise-en-Scene candidate queue hit Wikimedia 429 and a proxy 404. An entirely separate completed 2025 Encore solo-photo set has **now been published** as MYTHIC; archive preserved only for historical evidence, never to be republished under an occupied set ID.
 
 ## Discovery strategy for remaining releases
 
