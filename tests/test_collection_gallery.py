@@ -106,6 +106,43 @@ async def test_photos_edit_in_place_from_banner_to_card_and_back(monkeypatch):
 
 
 @pytest.mark.asyncio
+async def test_repeated_same_photo_does_not_send_a_duplicate(monkeypatch):
+    class NotModified(Exception):
+        pass
+
+    class ExistingPhoto:
+        photo = [object()]
+
+        async def edit_media(self, **kwargs):
+            raise NotModified("Bad Request: message is not modified")
+
+    class CapturingBot:
+        def __init__(self):
+            self.sent = []
+
+        async def send_photo(self, *args, **kwargs):
+            self.sent.append((args, kwargs))
+
+    class PhotoCallback:
+        def __init__(self):
+            self.message = ExistingPhoto()
+            self.bot = CapturingBot()
+            self.from_user = type("User", (), {"id": 123})()
+            self.answers = []
+
+        async def answer(self, *args, **kwargs):
+            self.answers.append((args, kwargs))
+
+    monkeypatch.setattr(bot, "TelegramBadRequest", NotModified)
+    monkeypatch.setattr(bot, "CallbackQuery", PhotoCallback)
+    monkeypatch.setattr(bot, "Message", ExistingPhoto)
+    event = PhotoCallback()
+    await bot.show_set_card(event, 0, 0)
+    assert len(event.answers) == 1
+    assert event.bot.sent == []
+
+
+@pytest.mark.asyncio
 async def test_invalid_pages_and_missing_artwork_fail_closed(tmp_path):
     with pytest.raises(GameError, match="коллекции"):
         bot.collection_cards(-1)
