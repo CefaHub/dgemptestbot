@@ -1,0 +1,34 @@
+name: Preview real photo-card candidates (no catalog changes)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/research/*_candidates.json'
+      - 'tools/photo_candidate_previews.py'
+      - 'tests/test_photo_candidate_previews.py'
+      - '.github/workflows/preview-photo-candidates.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview-real-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow, game dependencies and test tools
+        run: python -m pip install -r requirements.txt pytest pytest-asyncio
+      - name: Run full regression suite including no-incomplete-publishing tests
+        run: python -m pytest -q
+      - name: Render real sourced photos for human review, no publication
+        run: python tools/photo_candidate_previews.py tools/research/lesserafim_aura_rare_candidates.json
+      - name: Upload real-photo card previews and rights/duplicate report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dolce-Photo-Candidate-Review
+          path: output/photo_candidate_previews/
+          if-no-files-found: error
+          retention-days: 14
