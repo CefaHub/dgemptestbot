@@ -13,6 +13,15 @@ from PIL import Image, ImageDraw
 from tools import photo_release_pipeline as pipe
 
 
+def test_cdn_proxy_normalization_preserves_original_photo_identity():
+    original = "https://upload.wikimedia.org/wikipedia/commons/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_%282%29.png"
+    proxy = "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F77%2FGiselle_at_Mise-en-Scene_event_on_19022026_%282%29.png"
+    assert pipe.canonical(original) == pipe.canonical(proxy)
+    assert pipe.canonical(proxy) != pipe.canonical(
+        "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F66%2FAnother_Portrait.png"
+    )
+
+
 def test_release_plan_contains_exactly_100_unique_slots():
     slots = pipe.plan_slots()
     assert len(slots) == 100
