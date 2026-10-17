@@ -16,7 +16,7 @@ import shutil
 import urllib.request
 from io import BytesIO
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urlsplit, parse_qs
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps, ImageStat
 
@@ -32,9 +32,16 @@ USER_AGENT = "DolceEmpirePhotoCurator/1.0 (public attribution, contact CefaHub)"
 
 
 def canonical(url):
-    """Ignore cosmetic query strings and normalize path escaping."""
+    """Normalize source identity; CDN proxy queries contain the ORIGINAL photo path."""
     parsed = urlsplit(url.strip())
-    return parsed.netloc.lower() + unquote(parsed.path).replace("_", " ").casefold().rstrip("/")
+    host = parsed.netloc.lower()
+    if host in {"wsrv.nl", "images.weserv.nl"}:
+        origin = parse_qs(parsed.query).get("url", [""])[0]
+        if origin:
+            if "://" not in origin:
+                origin = "https://" + origin.lstrip("/")
+            return canonical(origin)
+    return host + unquote(parsed.path).replace("_", " ").casefold().rstrip("/")
 
 
 def load_json(path):
