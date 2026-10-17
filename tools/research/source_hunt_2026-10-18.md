@@ -25,19 +25,26 @@ Original source NOT Wikipedia: [TV10 footage of all five members](https://www.yo
 
 Cards and banner shipped in coll_itzy_spotlight_epic. Please do NOT recycle these frames into another rarity.
 
-## Found: LE SSERAFIM / David Lee / Easy Crazy Hot Tour Seattle 2025
+## Published: LE SSERAFIM / Easy Crazy Hot Tour Seattle / 2025-09-17 / SPOTLIGHT EPIC
 
-[David Lee's Flickr photo stream](https://www.flickr.com/photos/davidjlee/55157242918), taken 2025-09-17, original photographs rather than fan redraws. Several individual 2025 concert photos appear to be CC BY 4.0, and photos of all five members exist for the same evening. Example image IDs:
-- Chaewon: https://www.flickr.com/photos/davidjlee/54797154470
-- Sakura: https://www.flickr.com/photos/davidjlee/55157242918
-- Yunjin: https://www.flickr.com/photos/davidjlee/54849516999
-- Kazuha: https://www.flickr.com/photos/davidjlee/54795963297
-- Eunchae: https://www.flickr.com/photos/davidjlee/54846344638
+Original photographer: [David Lee's Flickr photostream](https://www.flickr.com/photos/davidjlee/), not stock imagery and not AI. Five DIFFERENT photos taken at the same Climate Pledge Arena show on September 17, 2025. Each full-size file is over 1500 pixels wide and above the project's minimum photo resolution. Wikimedia Commons copies were confirmed CC BY 4.0 by FlickreviewR 2 on March 30, 2026; keep exact Flickr source links and derivative-work attribution.
 
-**Status: RESEARCH ONLY**. Lighting is concert-dark, some shots include other members at the edge, and images need close-up visual review/crop acceptance. No licensing assumptions for additional photos without a per-file license check.
+Selected unique portrait sources and documented subject categories:
+
+- CHAEWON — https://www.flickr.com/photos/davidjlee/54797154470/ — Commons photo https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54797154470).jpg
+- SAKURA — https://www.flickr.com/photos/davidjlee/54848411767/ — Commons photo https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54848411767).jpg
+- YUNJIN — https://www.flickr.com/photos/davidjlee/54849516999/ — Commons photo https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54849516999).jpg
+- KAZUHA — https://www.flickr.com/photos/davidjlee/54795963297/ — Commons photo https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54795963297).jpg
+- EUNCHAE — https://www.flickr.com/photos/davidjlee/54846344638/ — Commons photo https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_(54846344638).jpg
+
+Published as full `coll_lesserafim_spotlight_epic` (five 900x1200 cards and one 1600x900 banner) by successful GitHub Actions run https://github.com/CefaHub/dgemptestbot/actions/runs/39072867344. The successful release required fixing an existing new-player starter-pack bug: more than three represented artist groups must still result in EXACTLY three distinct starting cards. Regression test added.
+
+Copyright CC BY 4.0 does not automatically settle publicity / personality-right questions for commercial endorsements or merchandise.
 
 ## Rejected or incomplete candidates
 
+- [CHEN CY's IVE 2025-11-02 Seoul concert album](https://www.flickr.com/photos/196829184@N04/albums/72177720330066795/) includes separate portraits of all six IVE members, but individual photos say **All rights reserved**. Do not copy without permission.
+- ILLIT Canada Goose Dec 2024 has all five members but extracted solo images measure about 460–500 × 660 pixels. Reject as too small for the 3:4 quality threshold.
 - [Damon Billian's Seattle 2025 LE SSERAFIM Flickr album](https://www.flickr.com/photos/damonbillian/albums/72177720329107122/) has 123 photographs from one concert and the complete lineup, but reviewed individual images were marked **All rights reserved**. Do not redistribute in game without explicit permission.
 - [ITZY G-SHOCK photo call 2024-10-23](https://www.youtube.com/watch?v=xRIHgC2ZVoM) has four confirmed distinct member pictures at only ~800x1100 and ~160-200KB per JPEG. Too compressed for the requested premium quality; no full suitable set approved. Do not force upscale.
 - [IVE 40th Golden Disc Awards 2026-01-10 / TV10 footage](https://www.youtube.com/watch?v=7KfCcSxeZJU) has a licensed group recording but not yet six confirmed suitable individual high-quality portraits. Hold pending a coherent six-solo selection.
