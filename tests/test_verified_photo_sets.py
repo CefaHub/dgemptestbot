@@ -35,7 +35,7 @@ def test_photo_series_fail_closed(monkeypatch, tmp_path):
     tmp.write_text(json.dumps(sources), encoding='utf-8')
     from dolce_empire import set_validation
     monkeypatch.setattr(set_validation, 'SOURCES_FILE', tmp)
-    with pytest.raises(ValueError, match='(reused|Mixed)'):
+    with pytest.raises(ValueError, match='(Reused|Mixed)'):
         validate_photo_sets(verified)
 
 
