@@ -1,6 +1,6 @@
 """Database schema. PostgreSQL recommended for production; SQLite for local tests."""
 from datetime import datetime, timezone
-from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, String, UniqueConstraint, Index, Text, delete, select, text
+from sqlalchemy import BigInteger, DateTime, ForeignKey, Integer, String, UniqueConstraint, Index, Text, delete, select, text, or_, update
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
@@ -124,6 +124,57 @@ async def reset_all_players_once(engine, key: str = PHOTO_ONLY_RESET_KEY) -> boo
         await conn.execute(
             ResetMarker.__table__.insert().values(key=key, applied_at=utcnow())
         )
+        return True
+
+
+CURATION_RESET_KEY = 'retire_unverified_photo_sets_2026_10_17_v1'
+
+
+async def retire_unverified_cards_once(engine, valid_definitions, key: str = CURATION_RESET_KEY):
+    """Retire bad photo sets atomically while retaining players and their coins.
+
+    Clear old collectibles/discovery and related open trades/listings; never
+    reset an entire user account. Marker makes process safe on every restart.
+    """
+    if not valid_definitions:
+        raise ValueError('Refusing to retire collectibles without verified replacements')
+    valid_ids = set(valid_definitions)
+    async with engine.begin() as conn:
+        if conn.dialect.name == 'postgresql':
+            await conn.execute(text('SELECT pg_advisory_xact_lock(20261017009)'))
+        exists = await conn.scalar(select(ResetMarker.key).where(ResetMarker.key == key))
+        if exists is not None:
+            return False
+        invalid_ids = select(OwnedCard.id).where(
+            OwnedCard.definition_id.not_in(sorted(valid_ids))
+        )
+        # Listings FK -> owned_cards, so remove those first.
+        await conn.execute(delete(Listing).where(Listing.card_id.in_(invalid_ids)))
+        await conn.execute(delete(Trade).where(or_(
+            Trade.sender_card_id.in_(invalid_ids),
+            Trade.receiver_card_id.in_(invalid_ids),
+        )))
+        await conn.execute(delete(Discovery).where(
+            Discovery.definition_id.not_in(sorted(valid_ids))
+        ))
+        await conn.execute(delete(OwnedCard).where(
+            OwnedCard.definition_id.not_in(sorted(valid_ids))
+        ))
+        # Recalculate peak studio income excluding all removed studio slots;
+        # old retired Mythic cards must not inflate future gacha prices.
+        rows = await conn.execute(select(OwnedCard.owner_id, OwnedCard.definition_id,
+                                         OwnedCard.level, OwnedCard.awakening)
+                                  .where(OwnedCard.slot.is_not(None)))
+        incomes = {}
+        for uid, cid, level, awakening in rows:
+            base = valid_definitions[cid]
+            earned = base * (100 + (level - 1) * 6) * (100 + awakening * 20) // 10000
+            incomes[uid] = incomes.get(uid, 0) + earned
+        await conn.execute(update(Player).values(peak_income=0))
+        for uid, amount in incomes.items():
+            await conn.execute(update(Player).where(Player.id == uid)
+                               .values(peak_income=amount))
+        await conn.execute(ResetMarker.__table__.insert().values(key=key, applied_at=utcnow()))
         return True
 
 
