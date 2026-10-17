@@ -35,6 +35,21 @@
       ],
       "banner_path": "assets/banners/aespa/aespa_spotlight_epic_banner.png",
       "source_key": "2025.01.28"
+    },
+    {
+      "set_id": "coll_aespa_aura_rare",
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "source_collection": "aespa — K-Link Festival 2024, plumflower snow solo portraits",
+      "source_mode": "curated",
+      "expected_members": [
+        "KARINA",
+        "WINTER",
+        "GISELLE",
+        "NINGNING"
+      ],
+      "banner_path": "assets/banners/aespa/aespa_aura_rare_banner.png"
     }
   ]
 }
