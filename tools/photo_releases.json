@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "description": "Only COMPLETE real-photo sets go here. Empty means no new cards are ready. Do not fabricate or reuse a source photo.",
+  "sets": [],
+  "example_format": {
+    "group": "IVE",
+    "era": "AURA",
+    "rarity": "rare",
+    "source_collection": "A named curated IVE photo series (not an official album unless documented)",
+    "source_mode": "curated",
+    "cards": [
+      {
+        "member": "YUJIN",
+        "photo_url": "https://example.invalid/real-high-resolution-yujin.jpg",
+        "source_page": "https://example.invalid/photo-credit-page",
+        "photographer": "Actual photographer",
+        "license": "Actual verified reuse license",
+        "license_url": "https://example.invalid/license",
+        "license_status": "pending",
+        "focus_x": 0.5,
+        "focus_y": 0.35
+      }
+    ],
+    "note": "The example is not runnable: for a real release provide photos for ALL group members and mark rights verified. No example URL is downloaded."
+  }
+}
