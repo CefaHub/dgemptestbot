@@ -405,6 +405,7 @@ def collection_gallery():
     data = json.loads(manifest.read_text(encoding='utf-8'))
     return [
         {
+            'id': row['set_id'],
             'group': row['group'],
             'series': row['era'],
             'rarity': row['rarity'],
@@ -414,6 +415,76 @@ def collection_gallery():
         }
         for row in data['sets']
     ]
+
+
+def collection_cards(set_index: int):
+    """Only the complete original real-photo cards registered in the live catalog."""
+    items = collection_gallery()
+    if not 0 <= set_index < len(items):
+        raise GameError('Такой коллекции нет.')
+    selected = items[set_index]
+    cards = sorted(
+        (card for card in all_cards() if card['collection_id'] == selected['id']),
+        key=lambda card: card['card_number'],
+    )
+    if (len(cards) != selected['size']
+            or [c['card_number'] for c in cards] != list(range(1, selected['size']+1))
+            or len({c['image_path'] for c in cards}) != len(cards)):
+        raise GameError('Фотокарточки этой коллекции пока недоступны.')
+    return cards
+
+
+async def show_gallery_image(event, imagepath: Path, caption: str, markup):
+    """One-photo message; arrows edit it in place instead of spamming chat."""
+    if not imagepath.is_file():
+        raise GameError('Фото временно недоступно. Попробуй позже.')
+    if isinstance(event, CallbackQuery):
+        await event.answer()
+        if isinstance(event.message, Message) and event.message.photo:
+            try:
+                await event.message.edit_media(
+                    media=InputMediaPhoto(
+                        media=FSInputFile(imagepath), caption=caption, parse_mode='HTML'
+                    ),
+                    reply_markup=markup,
+                )
+                return
+            except TelegramAPIError:
+                log.warning('Unable to edit collection gallery in-place', exc_info=True)
+        await event.bot.send_photo(
+            user_id(event), FSInputFile(imagepath), caption=caption,
+            parse_mode='HTML', reply_markup=markup,
+        )
+    else:
+        await event.answer_photo(
+            FSInputFile(imagepath), caption=caption,
+            parse_mode='HTML', reply_markup=markup,
+        )
+
+
+async def show_set_card(event, set_index: int, card_index: int = 0):
+    """Look at every distinct published portrait in a verified collection."""
+    cards = collection_cards(set_index)
+    if not 0 <= card_index < len(cards):
+        raise GameError('Такой карточки в коллекции нет.')
+    card, item = cards[card_index], collection_gallery()[set_index]
+    caption = (
+        f'🃏 <b>{escape(card["idol"])} · {escape(item["group"])}</b>\\n'
+        f'{RARITY_EMOJIS[card["rarity"]]} <b>{RARITY_TITLES[card["rarity"]]}</b> '
+        f'· {escape(item["series"])}\\n'
+        f'📸 Фото {card_index+1}/{len(cards)} в коллекции\\n'
+        '🎰 Карточка доступна в гаче.\\n'
+        '📚 Собери весь сет, чтобы получить бонус к доходу.'
+    )
+    markup = kb(
+        [('◀️', f'setcard:{set_index}:{(card_index-1)%len(cards)}'),
+         ('▶️', f'setcard:{set_index}:{(card_index+1)%len(cards)}')],
+        [('🖼 К баннеру', f'sets:{set_index}'), ('🎰 Гача', 'nav:roll')],
+        back(),
+    )
+    imagepath = Path(__file__).resolve().parent.parent / card['image_path']
+    await show_gallery_image(event, imagepath, caption, markup)
+
 
 async def show_sets(event, page=0):
     """Paginated gallery of all full-member K-pop collection releases."""
@@ -432,33 +503,12 @@ async def show_sets(event, page=0):
     markup=kb(
         [('◀️', f'sets:{(page-1)%len(items)}'),
          ('▶️', f'sets:{(page+1)%len(items)}')],
+        [('🃏 Посмотреть карты сета', f'setcard:{page}:0')],
         [('🎰 Крутить','nav:roll'),('📚 Альбомы','nav:albums')],
         back(),
     )
     imagepath=Path(__file__).resolve().parent.parent / item['banner']
-    if isinstance(event, CallbackQuery):
-        await event.answer()
-        if isinstance(event.message, Message) and event.message.photo and imagepath.is_file():
-            try:
-                await event.message.edit_media(
-                    media=InputMediaPhoto(media=FSInputFile(imagepath),caption=caption,parse_mode='HTML'),
-                    reply_markup=markup,
-                )
-                return
-            except TelegramAPIError:
-                log.warning('Unable to edit collection photo in-place',exc_info=True)
-        if imagepath.is_file():
-            await event.bot.send_photo(user_id(event),FSInputFile(imagepath),
-                                       caption=caption,parse_mode='HTML',reply_markup=markup)
-        else:
-            await event.bot.send_message(user_id(event),caption,
-                                         parse_mode='HTML',reply_markup=markup)
-    else:
-        if imagepath.is_file():
-            await event.answer_photo(FSInputFile(imagepath),caption=caption,
-                                     parse_mode='HTML',reply_markup=markup)
-        else:
-            await event.answer(caption,parse_mode='HTML',reply_markup=markup)
+    await show_gallery_image(event, imagepath, caption, markup)
 
 
 async def show_market(event):
@@ -647,6 +697,14 @@ async def sets_callback(c: CallbackQuery):
     if not index.isdecimal():
         raise GameError('Неверный номер коллекции.')
     await show_sets(c,int(index))
+
+
+@router.callback_query(F.data.startswith('setcard:'))
+async def setcard_callback(c: CallbackQuery):
+    parts = (c.data or '').split(':')
+    if len(parts) != 3 or not all(part.isdecimal() for part in parts[1:]):
+        raise GameError('Неверный номер фотокарточки.')
+    await show_set_card(c, int(parts[1]), int(parts[2]))
 
 
 @router.callback_query(F.data.startswith('spotlight:'))
