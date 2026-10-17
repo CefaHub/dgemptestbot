@@ -32,6 +32,8 @@ def validate_photo_sets(cards):
         if sorted(c['card_number'] for c in members) != list(range(1, len(expected) + 1)):
             raise ValueError(f'Invalid card numbering in {group}')
         for c in members:
+            if c.get('set_id') != series['set_id'] or c.get('source_collection') != series['source_collection']:
+                raise ValueError(f'Card not tagged with its verified source series: {c["id"]}')
             if c['id'] in allowed_ids or c.get('card_total') != len(expected):
                 raise ValueError(f'Duplicate or incomplete card in {group}')
             source = source_index.get(c['id'])
