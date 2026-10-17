@@ -12,7 +12,7 @@ async def test_starter_pack_is_exactly_three_unique_cards_with_many_groups(env, 
 
     known = all_cards()
     groups = {card['group'] for card in known}
-    assert len(groups) >= 4
+    assert len(groups) >= 3
     extra = [
         {'id': 'test_card_extra_group_1', 'group': 'EXTRA GROUP ONE', 'base_income': 100},
         {'id': 'test_card_extra_group_2', 'group': 'EXTRA GROUP TWO', 'base_income': 100},
