@@ -2,7 +2,7 @@ name: Preview aespa Mise-en-Scene Legendary
 on:
   push:
     branches: [feature/aespa-miseenscene-legendary]
-    paths: ['tools/photo_releases.json', '.github/workflows/preview-aespa-legendary.yml']
+    paths: ['tools/photo_releases.json', 'tools/photo_release_pipeline.py', '.github/workflows/preview-aespa-legendary.yml']
 permissions:
   contents: read
 jobs:
