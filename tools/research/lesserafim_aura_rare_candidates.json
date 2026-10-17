@@ -1,0 +1,67 @@
+{
+  "status": "research_preview_only_not_published",
+  "set_id": "coll_lesserafim_aura_rare",
+  "group": "LE SSERAFIM",
+  "era": "AURA",
+  "rarity": "rare",
+  "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+  "source_mode": "curated",
+  "missing_members": [
+    "YUNJIN"
+  ],
+  "cards": [
+    {
+      "member": "CHAEWON",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797153830/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.36,
+      "zoom": 1
+    },
+    {
+      "member": "SAKURA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797069478/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.34,
+      "zoom": 1
+    },
+    {
+      "member": "KAZUHA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54796820566/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.36,
+      "zoom": 1
+    },
+    {
+      "member": "EUNCHAE",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg/1280px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54846336944/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.43,
+      "zoom": 1
+    }
+  ],
+  "notes": "Four different high-resolution real photos confirmed from artist-specific Wikimedia categories; author David Lee, Flickr originals, CC BY 4.0 verified by FlickreviewR. No previous images reused. No Yunjin solo alternative from same concert yet: do not label duo/group image as solo, do not publish an incomplete album. Preview generated photo cards for quality review only."
+}
