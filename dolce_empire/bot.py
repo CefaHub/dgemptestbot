@@ -469,11 +469,11 @@ async def show_set_card(event, set_index: int, card_index: int = 0):
         raise GameError('Такой карточки в коллекции нет.')
     card, item = cards[card_index], collection_gallery()[set_index]
     caption = (
-        f'🃏 <b>{escape(card["idol"])} · {escape(item["group"])}</b>\\n'
+        f'🃏 <b>{escape(card["idol"])} · {escape(item["group"])}</b>\n'
         f'{RARITY_EMOJIS[card["rarity"]]} <b>{RARITY_TITLES[card["rarity"]]}</b> '
-        f'· {escape(item["series"])}\\n'
-        f'📸 Фото {card_index+1}/{len(cards)} в коллекции\\n'
-        '🎰 Карточка доступна в гаче.\\n'
+        f'· {escape(item["series"])}\n'
+        f'📸 Фото {card_index+1}/{len(cards)} в коллекции\n'
+        '🎰 Карточка доступна в гаче.\n'
         '📚 Собери весь сет, чтобы получить бонус к доходу.'
     )
     markup = kb(
