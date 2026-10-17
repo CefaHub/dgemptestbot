@@ -55,7 +55,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add dolce_empire/_catalog.json data/catalog.json tools/photo_sources.json assets/collections/verified_sets.json assets/cards assets/banners assets/PHOTO_CREDITS_NEW_RELEASES.md
+          git add dolce_empire/_catalog.json data/catalog.json tools/photo_sources.json tools/photo_releases.json assets/collections/verified_sets.json assets/cards assets/banners assets/PHOTO_CREDITS_NEW_RELEASES.md
           if ! git diff --cached --quiet; then
             git commit -m 'Publish rights-reviewed unique K-pop real photo cards and banners'
             git push origin HEAD:main
