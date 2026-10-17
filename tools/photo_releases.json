@@ -37,7 +37,7 @@
         },
         {
           "member": "GISELLE",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png/750px-Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
+          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png/640px-Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -64,7 +64,7 @@
       ]
     }
   ],
-  "preview_revision": 4,
+  "preview_revision": 5,
   "last_published_set_ids": [
     "coll_aespa_velvet_light_legendary"
   ]
