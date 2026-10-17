@@ -256,5 +256,81 @@
     "card_number": 4,
     "card_total": 4,
     "image_path": "assets/cards/aespa/aespa_aura_rare_ningning_04.png"
+  },
+  {
+    "id": "card_aespa_velvet_light_legendary_karina_01",
+    "group": "aespa",
+    "idol": "Karina",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Карина",
+      "karina"
+    ],
+    "collection_id": "coll_aespa_velvet_light_legendary",
+    "set_id": "coll_aespa_velvet_light_legendary",
+    "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+    "series": "VELVET LIGHT",
+    "card_number": 1,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_velvet_light_legendary_karina_01.png"
+  },
+  {
+    "id": "card_aespa_velvet_light_legendary_winter_02",
+    "group": "aespa",
+    "idol": "Winter",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Винтер",
+      "winter"
+    ],
+    "collection_id": "coll_aespa_velvet_light_legendary",
+    "set_id": "coll_aespa_velvet_light_legendary",
+    "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+    "series": "VELVET LIGHT",
+    "card_number": 2,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_velvet_light_legendary_winter_02.png"
+  },
+  {
+    "id": "card_aespa_velvet_light_legendary_giselle_03",
+    "group": "aespa",
+    "idol": "Giselle",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Жизель",
+      "giselle"
+    ],
+    "collection_id": "coll_aespa_velvet_light_legendary",
+    "set_id": "coll_aespa_velvet_light_legendary",
+    "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+    "series": "VELVET LIGHT",
+    "card_number": 3,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_velvet_light_legendary_giselle_03.png"
+  },
+  {
+    "id": "card_aespa_velvet_light_legendary_ningning_04",
+    "group": "aespa",
+    "idol": "Ningning",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Ниннин",
+      "ningning"
+    ],
+    "collection_id": "coll_aespa_velvet_light_legendary",
+    "set_id": "coll_aespa_velvet_light_legendary",
+    "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+    "series": "VELVET LIGHT",
+    "card_number": 4,
+    "card_total": 4,
+    "image_path": "assets/cards/aespa/aespa_velvet_light_legendary_ningning_04.png"
   }
 ]

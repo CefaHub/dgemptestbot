@@ -50,6 +50,21 @@
         "NINGNING"
       ],
       "banner_path": "assets/banners/aespa/aespa_aura_rare_banner.png"
+    },
+    {
+      "set_id": "coll_aespa_velvet_light_legendary",
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "source_collection": "aespa — Mise-en-Scène 2026 / TV10 photo call",
+      "source_mode": "curated",
+      "expected_members": [
+        "KARINA",
+        "WINTER",
+        "GISELLE",
+        "NINGNING"
+      ],
+      "banner_path": "assets/banners/aespa/aespa_velvet_light_legendary_banner.png"
     }
   ]
 }
