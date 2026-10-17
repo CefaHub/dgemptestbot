@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Four different verified real-photo aespa solo stills from the same 2026-02-19 Mise-en-Scène/TV10 photocall, NOT the four already issued in Legendary. New Mythic cards, crop 3:4, no reuse. Publish only after full CI, source downloads and visual dHash uniqueness pass. Retry: Wikimedia thumbnail CDN instead of originals, avoids sequential origin rate-limit.",
+  "description": "Four different verified real-photo aespa solo stills from the same 2026-02-19 Mise-en-Scène/TV10 photocall, NOT the four already issued in Legendary. New Mythic cards, crop 3:4, no reuse. Publish only after full CI, source downloads and visual dHash uniqueness pass. Retry: Wikimedia thumbnail CDN instead of originals, avoids sequential origin rate-limit. Third attempt: Giselle original high resolution via read-through image CDN, because Commons does not provide >=600px thumbnail for this file; original Wikmedia source remains documented.",
   "sets": [
     {
       "group": "aespa",
@@ -37,7 +37,7 @@
         },
         {
           "member": "GISELLE",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Giselle_at_Mise-en-Scene_event_on_19022026_(2).png/640px-Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
+          "photo_url": "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F77%2FGiselle_at_Mise-en-Scene_event_on_19022026_%282%29.png",
           "source_page": "https://commons.wikimedia.org/wiki/File:Giselle_at_Mise-en-Scene_event_on_19022026_(2).png",
           "original_source": "https://www.youtube.com/watch?v=tTfirIcoPs0",
           "photographer": "티비텐 TV10",
@@ -64,7 +64,7 @@
       ]
     }
   ],
-  "preview_revision": 5,
+  "preview_revision": 6,
   "last_published_set_ids": [
     "coll_aespa_velvet_light_legendary"
   ]
