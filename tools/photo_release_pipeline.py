@@ -227,7 +227,12 @@ def generate(manifest_path, publish=False):
     urls = {canonical(s.get("photo", "")) for s in previous_sources["cards"] if s.get("photo")}
     pages = {canonical(s.get("page", "")) for s in previous_sources["cards"] if s.get("page")}
     original_hashes = {s.get("source_sha256") for s in previous_sources["cards"] if s.get("source_sha256")}
-    photo_hashes = []
+    # Compare against *earlier releases*, not just candidates in this batch.
+    # Prevent the same original being re-encoded and republished as Mythic.
+    photo_hashes = [
+        (int(s["source_dhash"], 16), s.get("id", "older release"))
+        for s in previous_sources["cards"] if s.get("source_dhash")
+    ]
     set_ids = {s["set_id"] for s in already_sets}
     pending_cards, pending_sets, pending_sources = [], [], []
     if OUT.exists():
