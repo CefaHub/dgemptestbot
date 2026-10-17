@@ -13,18 +13,62 @@ import json
 import sys
 from pathlib import Path
 
+from PIL import Image, ImageDraw
+
 try:
     from .photo_release_pipeline import (
         ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
-        perceptual_hash, zoomed_photo, card_art, load_json,
+        perceptual_hash, zoomed_photo, card_art, load_json, font,
     )
 except ImportError:  # Direct CLI invocation from tools/ as a script.
     from photo_release_pipeline import (
         ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
-        perceptual_hash, zoomed_photo, card_art, load_json,
+        perceptual_hash, zoomed_photo, card_art, load_json, font,
     )
 
 PREVIEW_DIR = ROOT / "output" / "photo_candidate_previews"
+
+
+def write_review_sheet(output_dir, group, tier, member_ids, entries, missing):
+    """Visual review shows only sourced photographs; unknown slots remain empty."""
+    slot_w, slot_h, gap = 280, 374, 24
+    margin = 54
+    canvas_width = max(1250, margin * 2 + len(member_ids) * slot_w + (len(member_ids) - 1) * gap)
+    board = Image.new("RGB", (canvas_width, 720), (14, 19, 36))
+    d = ImageDraw.Draw(board)
+    d.text((margin, 37), "DOLCE EMPIRE  /  PHOTO RELEASE REVIEW",
+           font=font(31, True), fill=(248, 248, 255))
+    d.text((margin, 89), f"{group['name']}  /  {tier['era']}  /  {tier['rarity'].upper()}",
+           font=font(26, True), fill=(180, 203, 242))
+    d.text((margin, 135), f"{len(entries)} / {len(member_ids)} original photographs verified",
+           font=font(21), fill=(220, 228, 245))
+    first_x = (canvas_width - (len(member_ids) * slot_w + (len(member_ids) - 1) * gap)) // 2
+    files_by_member = {row["member"]: row["file"] for row in entries}
+    for index, member in enumerate(member_ids):
+        x, y = first_x + index * (slot_w + gap), 194
+        d.rounded_rectangle((x, y, x + slot_w, y + slot_h), radius=12,
+                            fill=(39, 47, 68), outline=(91, 103, 137), width=3)
+        if member in files_by_member:
+            card_path = output_dir / files_by_member[member]
+            with Image.open(card_path) as photo:
+                thumb = photo.convert("RGB").resize((slot_w - 8, slot_h - 8), Image.Resampling.LANCZOS)
+                board.paste(thumb, (x + 4, y + 4))
+        else:
+            # Do NOT invent or replicate a portrait to fill a missing place.
+            d.text((x + slot_w // 2, y + 140), "NO VERIFIED PHOTO",
+                   anchor="mm", font=font(18, True), fill=(255, 163, 170))
+            d.text((x + slot_w // 2, y + 184), member,
+                   anchor="mm", font=font(26, True), fill=(251, 243, 245))
+            d.text((x + slot_w // 2, y + 230), "NOT RELEASED",
+                   anchor="mm", font=font(17), fill=(210, 216, 232))
+        d.text((x + slot_w // 2, y + slot_h + 24), member,
+               anchor="mm", font=font(21, True), fill=(250, 250, 255))
+    d.text((margin, 665),
+           "RESEARCH ONLY  /  NOT IN GACHA  /  NO AI IMAGES  /  NO REUSED PORTRAITS",
+           font=font(20, True), fill=(255, 170, 184))
+    target = output_dir / "CONTACT_SHEET.png"
+    board.save(target, format="PNG", optimize=True)
+    return target
 
 
 def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
@@ -103,8 +147,10 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
         })
         print(f"Prepared candidate card: {member} from real source image.")
 
+    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, missing)
     report = {
         "publication": "BLOCKED: incomplete research-only candidates; game catalog unchanged",
+        "contact_sheet": contact_sheet.name,
         "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
         "members_missing": missing,
         "cards": preview,
