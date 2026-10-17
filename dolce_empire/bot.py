@@ -410,7 +410,8 @@ async def show_sets(event, page=0):
                f'{RARITY_EMOJIS[item["rarity"]]} Редкость: <b>{RARITY_TITLES[item["rarity"]]}</b>\n'
                f'🃏 Полный состав: <b>{item["size"]}/{item["size"]}</b>\n'
                f'📖 Коллекция {page+1}/{len(items)}\n'
-               'Все карточки доступны через гачу. Полный альбом даёт бонус к доходу.')
+               f'📷 Фотосерия: {escape(item["photo_series"])}\n'
+               'Карточки доступны в гаче. Это одна серия снимков, не официальный альбом.')
     markup=kb(
         [('◀️', f'sets:{(page-1)%len(items)}'),
          ('▶️', f'sets:{(page+1)%len(items)}')],
