@@ -288,5 +288,7 @@
       "banner_path": "assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png",
       "bonus_income_percent": 5
     }
-  ]
+  ],
+  "status": "retired_unverified_photo_sources",
+  "deprecation_reason": "Source photos were mixed across events or reused across release rarities; assets remain archived but these sets are not in the game catalog."
 }

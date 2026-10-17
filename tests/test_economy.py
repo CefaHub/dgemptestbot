@@ -21,29 +21,28 @@ def test_pity_and_refill():
     assert refill_charges(0,now-timedelta(hours=4),now)==(3,None)
 
 def test_catalog_transliterations_and_sets():
-    assert len(all_cards())>=80
-    assert any(x['idol']=='Eunchae' for x in search_cards('ынче'))
-    assert any(x['idol']=='Chaewon' for x in search_cards('чэвон'))
-    assert len(album_sets())>=12
+    assert len(all_cards()) == 9
+    assert any(x['idol']=='Yunah' for x in search_cards('юна'))
+    assert any(x['idol']=='Karina' for x in search_cards('карина'))
+    assert len(album_sets()) == 2
 
-def test_photo_only_rarity_rolls_and_complete_catalog():
+
+def test_verified_photo_sets_and_active_rarities():
     from pathlib import Path
-    rarities = {card['rarity'] for card in all_cards()}
-    assert rarities == {'rare', 'epic', 'legendary', 'mythic'}
-    assert len(all_cards()) == 84
-    for c in all_cards():
-        assert c.get('image_path') and Path(c['image_path']).is_file(), c['id']
+    from dolce_empire.set_validation import validate_photo_sets
+    cards = all_cards()
+    assert validate_photo_sets(cards) == 9
+    rarities = {card['rarity'] for card in cards}
+    assert rarities == {'epic'}
     from collections import Counter
-    sets = Counter((c['group'], c['era'], c['rarity']) for c in all_cards())
-    assert len(sets) == 17
-    assert all(count in (4,5,6) for count in sets.values())
-    for premium in (False, True):
+    groups = Counter((c['group'],c['era'],c['rarity']) for c in cards)
+    assert groups == {('ILLIT','SPOTLIGHT','epic'):5,('aespa','SPOTLIGHT','epic'):4}
+    for premium in (False,True):
         for value in range(0,200,7):
-            result = rarity_roll(lambda n, value=value: value % n, premium=premium,
-                                 available_rarities=rarities)
-            assert result in rarities
-    assert rarity_roll(lambda n: 0, pity_mythic=149,
-                       available_rarities=rarities) == 'mythic'
+            assert rarity_roll(lambda n, value=value:value % n,
+                               premium=premium,available_rarities=rarities) == 'epic'
+    assert all(Path(c['image_path']).is_file() for c in cards)
+
 
 
 def test_income_cap():
@@ -60,5 +59,5 @@ def test_catalog_independent_of_data_volume(monkeypatch, tmp_path):
     from dolce_empire import catalog as module
     module.all_cards.cache_clear()
     monkeypatch.setattr(module, 'ROOT', tmp_path)
-    assert len(module.all_cards()) >= 80
+    assert len(module.all_cards()) == 9
     module.all_cards.cache_clear()
