@@ -38,9 +38,10 @@ jobs:
           from pathlib import Path
           manifest=json.loads(Path('tools/photo_releases.json').read_text(encoding='utf-8'))
           if not manifest.get('sets'):
-              if os.environ.get('PUBLISH') == 'true':
-                  raise SystemExit('No new verified photo sets to publish.')
-              print('No new sources yet. 100-slot plan is available as artifact.')
+              # No pending rights-approved full sets is a valid state:
+              # don't make an empty research queue look like a failed release.
+              print('No fully reviewed photo sets are queued; leaving catalog unchanged.')
+              print('100-slot plan is available as an artifact.')
           else:
               args=[sys.executable,'tools/photo_release_pipeline.py','build']
               if os.environ.get('PUBLISH') == 'true':
