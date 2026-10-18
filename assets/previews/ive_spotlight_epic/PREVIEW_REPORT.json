@@ -1,0 +1,131 @@
+{
+  "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
+  "contact_sheet": "CONTACT_SHEET.png",
+  "group": "IVE",
+  "era": "SPOTLIGHT",
+  "rarity": "epic",
+  "members_missing": [],
+  "cards": [
+    {
+      "member": "YUJIN",
+      "file": "ive_spotlight_epic_yujin_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_15_Yujin.jpg",
+      "source_sha256": "d89a89722738ba8f2ba6ce7af668688756d54b4b5a59690822f7e92f6d343369",
+      "source_dhash": "ededcccf4756f6c1",
+      "original_pixels": [
+        960,
+        2106
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        2106
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "GAEUL",
+      "file": "ive_spotlight_epic_gaeul_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_37_Gaeul.jpg",
+      "source_sha256": "5802503053cdfa972e968d9abdd07740ff0dd25f28c5f0d1ccc0eb1d49487def",
+      "source_dhash": "8b489b3d3f264ddc",
+      "original_pixels": [
+        960,
+        1959
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1959
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "REI",
+      "file": "ive_spotlight_epic_rei_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_03.jpg",
+      "source_sha256": "3691d7030071559a9be1b975a6151f5eb4c859accd2f4b1090898c6d14d8a92c",
+      "source_dhash": "d02d2a2a3a9f9f3a",
+      "original_pixels": [
+        1920,
+        1901
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        1920,
+        1901
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "WONYOUNG",
+      "file": "ive_spotlight_epic_wonyoung_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_10_Wonyoung.jpg",
+      "source_sha256": "92a84850f544b9762c435da120a4e2487d3e6bf92cf1693181499e5f407eb0bb",
+      "source_dhash": "a1c9cddc9fa694c0",
+      "original_pixels": [
+        960,
+        1337
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1337
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "LIZ",
+      "file": "ive_spotlight_epic_liz_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_29_Liz.jpg",
+      "source_sha256": "171bd70b6d28eb53c8de11511f8b55bacaa8dbea70b3cac0cd631045bca8bbc2",
+      "source_dhash": "2caa1c9d9cd6b2b1",
+      "original_pixels": [
+        960,
+        1756
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1756
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "LEESEO",
+      "file": "ive_spotlight_epic_leeseo_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_18_Leeseo.jpg",
+      "source_sha256": "36fb260577dc6d21406bdc97e131fb5f39d41975014c236976e8f27a9205b25a",
+      "source_dhash": "2527f61e1b0c494d",
+      "original_pixels": [
+        960,
+        2360
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        2360
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    }
+  ],
+  "note": "Check image sharpness and solo crop manually; never release a missing-member set."
+}
