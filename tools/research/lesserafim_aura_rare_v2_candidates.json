@@ -53,7 +53,7 @@
     },
     {
       "member": "EUNCHAE",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg/1280px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54796820736/",
       "photographer": "David Lee",
@@ -64,7 +64,8 @@
       "focus_y": 0.36,
       "zoom": 1,
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
-      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog."
+      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog.",
+      "photo_delivery_note": "Licensed same-origin 1280x1024 Wikimedia derivative of 3632x2906 original because upstream high-res returned 404/429 from runner; original file and Commons author preserved via source_page and Flickr provenance. Review sharpness after 3:4 crop."
     },
     {
       "member": "YUNJIN",
@@ -89,14 +90,14 @@
       "solo_review_status": "pending"
     }
   ],
-  "notes": "Revised candidate uses two new photo originals: CHAEWON Flickr 54797054189 and EUNCHAE Flickr 54796820736, both solo images from David Lee's 2025 Seattle concert with CC BY 4.0 photo pages. YUNJIN's duet crop 54795963477 remains pending individual visual review, including single face and shared look; set stays research-only, not published. Her original 54849516999 and Eunchae 54846344638 are already issued as EPIC and must never be reused. Other source pages and licensing require full release checks.",
+  "notes": "Revised candidate uses two new photo originals: CHAEWON Flickr 54797054189 and EUNCHAE Flickr 54796820736, both solo images from David Lee's 2025 Seattle concert with CC BY 4.0 photo pages. YUNJIN's duet crop 54795963477 remains pending individual visual review, including single face and shared look; set stays research-only, not published. Her original 54849516999 and Eunchae 54846344638 are already issued as EPIC and must never be reused. Other source pages and licensing require full release checks. Retest Eunchae via verified 1280px Commons thumbnail (same original photo), original source caused CDN errors in GitHub Actions; no different photo substituted.",
   "review_goal": "Review all five finished 3:4 cards and their shared 16:9 banner; crop right-hand YUNJIN from a dual-portrait source with no second person visible. Verify file/visual hashes, sharpness, album-level style and photo rights, then approve the FULL set only. Do not publish research candidates automatically.",
   "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
   "collection_review_status": "pending",
   "reuse_exclusions": [
     "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg"
   ],
-  "candidate_revision": 3,
+  "candidate_revision": 4,
   "replaced_multi_subject_sources": [
     {
       "member": "CHAEWON",
