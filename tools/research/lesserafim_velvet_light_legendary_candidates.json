@@ -13,7 +13,7 @@
   "cards": [
     {
       "member": "CHAEWON",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516989%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516989%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516989%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516989%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54849516989/",
       "photographer": "David Lee",
@@ -31,11 +31,12 @@
         0.98
       ],
       "source_selection_note": "Foreground solo upper-body crop. A second person's arm is at the far left; ensure final image excludes it.",
-      "source_review_status": "photo_provenance_verified_visual_pending"
+      "source_review_status": "photo_provenance_verified_visual_pending",
+      "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 1920px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
     {
       "member": "SAKURA",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157242918%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157242918%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157242918%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157242918%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/55157242918/",
       "photographer": "David Lee",
@@ -53,11 +54,12 @@
         0.98
       ],
       "source_selection_note": "Foreground center-right. Background member at far left must disappear entirely after crop.",
-      "source_review_status": "photo_provenance_verified_visual_pending"
+      "source_review_status": "photo_provenance_verified_visual_pending",
+      "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 960px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
     {
       "member": "YUNJIN",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54795963477/",
       "photographer": "David Lee",
@@ -75,11 +77,12 @@
         0.82
       ],
       "source_selection_note": "Black-and-white original. Intended left-side singer; ensure the right-side short-haired singer is excluded. Need visual verification of portrait sharpness.",
-      "source_review_status": "photo_provenance_verified_visual_pending"
+      "source_review_status": "photo_provenance_verified_visual_pending",
+      "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 1920px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
     {
       "member": "KAZUHA",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516969%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516969%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516969%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516969%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54849516969/",
       "photographer": "David Lee",
@@ -91,11 +94,12 @@
       "focus_y": 0.3,
       "solo_review_status": "not_required",
       "source_selection_note": "Clear color solo waist-up in black outfit with red LED stage background.",
-      "source_review_status": "photo_provenance_verified_visual_pending"
+      "source_review_status": "photo_provenance_verified_visual_pending",
+      "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 960px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
     {
       "member": "EUNCHAE",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344623%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344623%29.jpg/3840px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344623%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344623%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54846344623/",
       "photographer": "David Lee",
@@ -113,7 +117,8 @@
         0.96
       ],
       "source_selection_note": "Black-and-white solo trial of foreground singer on right. Background member on left must be fully absent after crop.",
-      "source_review_status": "photo_provenance_verified_visual_pending"
+      "source_review_status": "photo_provenance_verified_visual_pending",
+      "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 3840px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     }
   ],
   "notes": "RESEARCH ONLY. Five NEW distinct Flickr original IDs not present in already published Spotlight Epic or Aura Rare. CC BY 4.0 per Wikimedia Commons FlickreviewR 2. Photographer David Lee. Must inspect final solo crops on contact sheet and image resolution, verify no other performer is visible, check hashes against all published cards. No publish until approved."
