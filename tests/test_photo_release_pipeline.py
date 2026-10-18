@@ -58,6 +58,7 @@ def photo_sandbox(tmp_path, monkeypatch):
         img.save(local, quality=95)
         records.append({
             "member": member, "local_path": f"photos/inbox/{member.lower()}.jpg",
+            "photo_session_id": "test_aespa_single_photo_session",
             "source_page": f"https://example.test/aespa/{member.lower()}",
             "photographer": "Test fixture", "license": "CC0",
             "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -67,7 +68,9 @@ def photo_sandbox(tmp_path, monkeypatch):
     manifest = {
         "sets": [{
             "group": "aespa", "era": "AURA", "rarity": "rare",
-            "source_collection": "Test editorial selection (not an official album)",
+            "source_collection": "Test single-shoot collection (not an official album)",
+            "photo_session_id": "test_aespa_single_photo_session",
+            "collection_review_status": "approved",
             "source_mode": "curated", "cards": records,
         }]
     }
@@ -84,6 +87,8 @@ def test_pipeline_generates_four_real_source_crops_and_one_wide_banner(photo_san
     assert len(package["sets"]) == 1
     assert len(package["sources"]) == 4
     assert len({s["source_sha256"] for s in package["sources"]}) == 4
+    assert {s["photo_session_id"] for s in package["sources"]} == {"test_aespa_single_photo_session"}
+    assert package["sets"][0]["photo_session_id"] == "test_aespa_single_photo_session"
     for item in package["cards"]:
         exported = pipe.OUT / item["image_path"]
         with Image.open(exported) as image:
@@ -206,3 +211,36 @@ def test_reencoded_photo_cannot_reappear_as_higher_rarity(photo_sandbox):
     (root / "tools/photo_sources.json").write_text(json.dumps(old_source))
     with pytest.raises(ValueError, match="near-identical"):
         pipe.generate("tools/photo_releases.json")
+
+
+def test_set_rejects_missing_shared_photo_session(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0].pop("photo_session_id")
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="photo_session_id"):
+        pipe.generate("tools/photo_releases.json")
+
+
+def test_set_rejects_mixed_member_photo_sessions(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["cards"][2]["photo_session_id"] = "different_photo_session"
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="Mixed photo sessions"):
+        pipe.generate("tools/photo_releases.json")
+
+
+def test_set_rejects_unreviewed_shoot_even_with_verified_rights(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["collection_review_status"] = "pending"
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="review approval"):
+        pipe.generate("tools/photo_releases.json")
+
+
+def test_zoom_cannot_destroy_original_image_resolution(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["cards"][0]["zoom"] = 1.4
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="Zoom leaves too few pixels"):
+        pipe.generate("tools/photo_releases.json")
+
