@@ -20,7 +20,7 @@ logging.basicConfig(level=os.getenv('LOG_LEVEL','INFO'))
 log=logging.getLogger('dolce_empire')
 router=Router()
 service: Game | None=None
-BUILD_VERSION = '2026.10.18-aespa-royal-haze-r7'
+BUILD_VERSION = '2026.10.18-card-gallery-r8'
 
 
 def g():
@@ -116,6 +116,7 @@ async def help_cmd(message:Message):
 /album — коллекции
 /spotlight — новые EPIC-сеты ILLIT и aespa
 /sets — баннеры сетов и просмотр каждой фотокарточки
+/gallery — все опубликованные карточки на GitHub
 /daily — ежедневная награда
 /quests — задания
 /market — рынок (фиксированные цены)
@@ -893,6 +894,7 @@ async def main():
                     BotCommand(command='album', description='📚 Коллекции'),
                     BotCommand(command='spotlight', description='✨ Новые EPIC-сеты'),
                     BotCommand(command='sets', description='🌟 Листать новые сеты'),
+                    BotCommand(command='gallery', description='🖼 Все фото на GitHub'),
                     BotCommand(command='market', description='🛒 Рынок'),
                     BotCommand(command='trades', description='🤝 Обмены'),
                     BotCommand(command='quests', description='🎁 Задания'),
