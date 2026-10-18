@@ -1,0 +1,136 @@
+{
+  "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
+  "contact_sheet": "CONTACT_SHEET.png",
+  "group": "IVE",
+  "era": "AURA",
+  "rarity": "rare",
+  "members_missing": [],
+  "cards": [
+    {
+      "member": "YUJIN",
+      "file": "ive_aura_rare_yujin_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_33_Yujin.jpg",
+      "source_sha256": "d317212dea0b0842113319a640744f18017f1009252057eaef2fb958998d2465",
+      "source_dhash": "0acd683a1d0d0d4c",
+      "original_pixels": [
+        960,
+        1798
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1798
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "GAEUL",
+      "file": "ive_aura_rare_gaeul_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_38_Gaeul.jpg",
+      "source_sha256": "fbabedd8899dccdd85cfa25658362863c4a980160b08edecbc612bb4ab8e18c9",
+      "source_dhash": "6d2908480c2016f3",
+      "original_pixels": [
+        1280,
+        1494
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        1280,
+        1494
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "REI",
+      "file": "ive_aura_rare_rei_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
+      "source_sha256": "0fafc8f159f992ac851f81d5b59e9badc0508d020010bf514e6cd13f811462b7",
+      "source_dhash": "89cbcd0f1f9c1020",
+      "original_pixels": [
+        1280,
+        1353
+      ],
+      "solo_region": [
+        0.01,
+        0,
+        0.5,
+        1
+      ],
+      "crop_pixels": [
+        627,
+        1353
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "WONYOUNG",
+      "file": "ive_aura_rare_wonyoung_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_08_Wonyoung.jpg",
+      "source_sha256": "20fb7b0d29e2c645cc48bee5b62a465fa09296e71932e2555ef9ce2571f1c4f0",
+      "source_dhash": "93938fcd5c9632a6",
+      "original_pixels": [
+        960,
+        1601
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1601
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "LIZ",
+      "file": "ive_aura_rare_liz_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_12_Liz.jpg",
+      "source_sha256": "2a539d208df0b4c2b5a58d1b3696dd7aec772e08687637b19b76b3d706d65f38",
+      "source_dhash": "ae6dc7cf4f9a8b9b",
+      "original_pixels": [
+        960,
+        1483
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1483
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "LEESEO",
+      "file": "ive_aura_rare_leeseo_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_35_Leeseo.jpg",
+      "source_sha256": "ae7679d9a6330433f664b741d8ad9bd6ec6b2dd64bbe4e1bf90c2a606c7c15ce",
+      "source_dhash": "b3f379b5994d31b3",
+      "original_pixels": [
+        960,
+        1684
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1684
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    }
+  ],
+  "note": "Check image sharpness and solo crop manually; never release a missing-member set."
+}
