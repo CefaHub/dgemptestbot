@@ -214,6 +214,34 @@ def preview(candidate, target):
     (target / "review_report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
+    credits = [
+        "# DOLCE EMPIRE — unpublished real-photo preview",
+        "",
+        "RESEARCH ONLY — NOT RELEASED IN THE GAME.",
+        "",
+        "These are genuine photographs, not AI-generated idol faces.",
+        "Photos are cropped, color-adjusted where appropriate, framed,",
+        "and captioned into draft 3:4 cards and a matching 16:9 banner.",
+        "Licensing of the photographs does not imply artist endorsement.",
+        "Do not publish or redistribute artwork without required credits.",
+        "",
+    ]
+    for member in members:
+        row = cards[member]
+        credits.extend([
+            "## " + member,
+            "- Photographer: " + str(row["photographer"]),
+            "- Original photo page: " + str(row["source_page"]),
+            "- Original provider page: " + str(row.get("original_source", row["source_page"])),
+            "- Photo license: " + str(row["license"]),
+            "- License URL: " + str(row["license_url"]),
+            "- Adaptations: solo crop where specified, 3:4 crop, adjustments, card frame and typography",
+            "- Quality review: pending; not approved for game release",
+            "",
+        ])
+    (target / "SOURCE_CREDITS_DRAFT.md").write_text(
+        "\n".join(credits) + "\n", encoding="utf-8"
+    )
     print(
         f"Research preview: {report['previewed']}/{len(members)} images prepared, "
         f"{failures} failed, {sum(bool(r['warnings']) for r in results)} need review; "
