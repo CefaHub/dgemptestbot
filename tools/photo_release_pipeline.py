@@ -150,6 +150,9 @@ def zoomed_photo(photo, zoom, focus):
         return photo
     w, h = photo.size
     cw, ch = int(w / zoom), int(h / zoom)
+    usable_w, usable_h = min(cw, int(ch * 3/4)), min(ch, int(cw * 4/3))
+    if usable_w < 600 or usable_h < 800:
+        raise ValueError(f"Zoom leaves too few pixels for 3:4 photo quality: {(cw, ch)}")
     x = max(0, min(w - cw, round(focus[0] * w - cw / 2)))
     y = max(0, min(h - ch, round(focus[1] * h - ch / 2)))
     return photo.crop((x, y, x + cw, y + ch))
