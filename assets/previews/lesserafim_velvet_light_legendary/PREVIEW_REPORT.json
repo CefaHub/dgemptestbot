@@ -1,0 +1,131 @@
+{
+  "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
+  "contact_sheet": "CONTACT_SHEET.png",
+  "group": "LE SSERAFIM",
+  "era": "VELVET LIGHT",
+  "rarity": "legendary",
+  "members_missing": [],
+  "cards": [
+    {
+      "member": "CHAEWON",
+      "file": "lesserafim_velvet_light_legendary_chaewon_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516989%29.jpg",
+      "source_sha256": "f991716fa0512ad4003401055e24ada586e37f5c9219f0ee2cf91511659eb310",
+      "source_dhash": "272e36165fcbebcf",
+      "original_pixels": [
+        1920,
+        2400
+      ],
+      "solo_region": [
+        0.12,
+        0,
+        0.73,
+        0.98
+      ],
+      "crop_pixels": [
+        1172,
+        2352
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "SAKURA",
+      "file": "lesserafim_velvet_light_legendary_sakura_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157242918%29.jpg",
+      "source_sha256": "305dac3c6013c1c4e1962cc92ecce8a930e57ec52b55bacaee3ecff0de0f140e",
+      "source_dhash": "561f2f0706161b9b",
+      "original_pixels": [
+        960,
+        1440
+      ],
+      "solo_region": [
+        0.37,
+        0,
+        1,
+        0.98
+      ],
+      "crop_pixels": [
+        605,
+        1411
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "YUNJIN",
+      "file": "lesserafim_velvet_light_legendary_yunjin_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
+      "source_sha256": "13b0b85926ce390b20ab03aeeea6bd0fe6cb459d30f312272278544cf37c7060",
+      "source_dhash": "1228342d20684c4c",
+      "original_pixels": [
+        1920,
+        2400
+      ],
+      "solo_region": [
+        0.04,
+        0.13,
+        0.42,
+        0.82
+      ],
+      "crop_pixels": [
+        729,
+        1656
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "KAZUHA",
+      "file": "lesserafim_velvet_light_legendary_kazuha_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516969%29.jpg",
+      "source_sha256": "eff4568d8ac9945f10e5339594a61f0e7f72ab160967ac8364ee76209318f610",
+      "source_dhash": "589c3456461e8c16",
+      "original_pixels": [
+        960,
+        1200
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1200
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "EUNCHAE",
+      "file": "lesserafim_velvet_light_legendary_eunchae_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846344623%29.jpg",
+      "source_sha256": "a8d19e478d3e3e2ace03e945af7889fbfc72834e45cf1a887fa04ebedb1df881",
+      "source_dhash": "c71fcfd69b994ee5",
+      "original_pixels": [
+        3840,
+        2560
+      ],
+      "solo_region": [
+        0.31,
+        0.06,
+        0.75,
+        0.96
+      ],
+      "crop_pixels": [
+        1690,
+        2304
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    }
+  ],
+  "note": "Check image sharpness and solo crop manually; never release a missing-member set."
+}
