@@ -19,7 +19,8 @@
       "license_status": "verified",
       "focus_x": 0.5,
       "focus_y": 0.36,
-      "zoom": 1
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
     },
     {
       "member": "SAKURA",
@@ -32,7 +33,8 @@
       "license_status": "verified",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "zoom": 1
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
     },
     {
       "member": "KAZUHA",
@@ -45,7 +47,8 @@
       "license_status": "verified",
       "focus_x": 0.5,
       "focus_y": 0.35,
-      "zoom": 1
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
     },
     {
       "member": "EUNCHAE",
@@ -58,7 +61,8 @@
       "license_status": "verified",
       "focus_x": 0.5,
       "focus_y": 0.42,
-      "zoom": 1
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
     },
     {
       "member": "YUNJIN",
@@ -78,9 +82,16 @@
         0.74
       ],
       "solo_crop_review": "Reference 2025 Seattle photo of Huh Yun-jin and Kim Chae-won; crop right-hand solo portrait to exclude other face; check preview before publishing",
-      "preview_note": "Cropped artist solo on RIGHT from a two-person photograph; preview-only pending confirmation no second face remains. Never promote without separate visual approval."
+      "preview_note": "Cropped artist solo on RIGHT from a two-person photograph; preview-only pending confirmation no second face remains. Never promote without separate visual approval.",
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "solo_review_status": "pending"
     }
   ],
-  "notes": "Five source-verified David Lee Seattle alternatives. Four previously reviewed photographs and ONE experimental YUNJIN solo crop from a two-performer original (Flickr 54795963477). This is a contact-sheet preview only; do not publish until visually checked for a second person's face, identity, sharpness and minimum crop quality. The existing YUNJIN EPIC photo is not reused.",
-  "review_goal": "Verify a single visible face in the cropped YUNJIN card and cohesive five-member 3:4 contact sheet. This candidate stays outside the gacha."
+  "notes": "Five source-verified David Lee Seattle alternatives. Four previously reviewed photographs and ONE experimental YUNJIN solo crop from a two-performer original (Flickr 54795963477). This is a contact-sheet preview only; do not publish until visually checked for a second person's face, identity, sharpness and minimum crop quality. The existing YUNJIN EPIC photo is not reused. Another YUNJIN original (Flickr 54849516999) is already used by her EPIC card and must NEVER be reissued as RARE.",
+  "review_goal": "Verify a single visible face in the cropped YUNJIN card and cohesive five-member 3:4 contact sheet. This candidate stays outside the gacha. Audit each member against already-published EPIC artwork and approve all five cards together before copying into the live release manifest.",
+  "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+  "collection_review_status": "pending",
+  "reuse_exclusions": [
+    "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg"
+  ]
 }
