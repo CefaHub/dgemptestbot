@@ -10,7 +10,7 @@
   "cards": [
     {
       "member": "CHAEWON",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54797054189/",
       "photographer": "David Lee",
@@ -21,7 +21,8 @@
       "focus_y": 0.36,
       "zoom": 1,
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
-      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog."
+      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog.",
+      "source_delivery_note": "Wikimedia canonical 960px derivative of same 1674x2092 licensed David Lee original, chosen to avoid intermittent upload-origin 404; no substitution."
     },
     {
       "member": "SAKURA",
@@ -97,7 +98,7 @@
   "reuse_exclusions": [
     "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg"
   ],
-  "candidate_revision": 6,
+  "candidate_revision": 7,
   "replaced_multi_subject_sources": [
     {
       "member": "CHAEWON",
