@@ -248,6 +248,11 @@ def check_complete_release(spec, existing_sets):
         raise ValueError(f"{set_id} must contain all {len(expected)} unique group members")
     if not spec.get("source_collection", "").strip():
         raise ValueError("Document a shared visual collection/concept for the whole set")
+    session_id = str(spec.get("photo_session_id", "")).strip()
+    if not session_id or len(session_id) > 180:
+        raise ValueError("A complete set needs a documented photo_session_id")
+    if spec.get("collection_review_status") != "approved":
+        raise ValueError("A full same-session photo set needs explicit review approval")
     if spec.get("source_mode", "curated") != "curated":
         raise ValueError("This pipeline publishes curated mixed-source concepts only")
     for row in cards:
