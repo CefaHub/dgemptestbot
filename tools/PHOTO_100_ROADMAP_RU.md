@@ -1,10 +1,12 @@
-# DOLCE EMPIRE — реальный план 100 уникальных фотокарточек
+# DOLCE EMPIRE — план 100 уникальных фотокарточек
 
-Проверенный исходный статус (18.10.2026): **31/100 выпущено**, **69 ещё нужно подготовить**. План учитывает 5 групп × 4 редкости; не означает, что изображения уже созданы или доступны.
+Актуально на **18.10.2026** по опубликованным `data/catalog.json` и `assets/collections/verified_sets.json`: **36/100 карточек**, **8 полных сетов**; осталось **64 уникальных кадров в 12 полных сетах**.
 
-## Уже выпущено (7 полных сетов, 31 карта)
+Это **базовый план** на 100 карточек. Запрос пользователя о ещё 100 НОВЫХ фотографиях после выпущенных — отдельная последующая партия, без какого-либо повторного использования старых фото. Здесь не утверждается, что невыпущенные фотографии уже получены.
 
-| Группа | Эра | Редкость | Карточек |
+## Опубликованные коллекции (8 сетов, 36 карточек)
+
+| Группа | Серия | Редкость | Карт |
 |---|---|---|---:|
 | ILLIT | SPOTLIGHT | EPIC | 5 |
 | aespa | SPOTLIGHT | EPIC | 4 |
@@ -13,40 +15,41 @@
 | ITZY | SPOTLIGHT | EPIC | 5 |
 | LE SSERAFIM | SPOTLIGHT | EPIC | 5 |
 | aespa | ROYAL HAZE | MYTHIC | 4 |
+| LE SSERAFIM | AURA | RARE | 5 |
 
-## Остаток до 100: 13 полных наборов, 69 карточек
+**LE SSERAFIM / AURA / RARE уже выпущена**, старые исследовательские превью этой серии остаются архивными. Повторная публикация тех же фотографий в новой редкости запрещена.
 
-| Очередь | Группа | Эра | Редкость | Карты | Статус |
+## Неопубликованная очередь (12 полных сетов, 64 карт)
+
+| № | Группа | Серия | Редкость | Карт | Блокер/дальнейшее действие |
 |---:|---|---|---|---:|---|
-| 1 | LE SSERAFIM | AURA | RARE | 5 | **5/5 превью создано; НЕ опубликовано — нужен визуальный контроль соло-кропа YUNJIN** |
-| 2 | ITZY | AURA | RARE | 5 | Не собран |
-| 3 | IVE | AURA | RARE | 6 | Не собран |
-| 4 | ILLIT | AURA | RARE | 5 | Не собран |
-| 5 | ILLIT | VELVET LIGHT | LEGENDARY | 5 | Не собран |
-| 6 | IVE | SPOTLIGHT | EPIC | 6 | Не собран |
-| 7 | ITZY | VELVET LIGHT | LEGENDARY | 5 | Не собран |
-| 8 | LE SSERAFIM | VELVET LIGHT | LEGENDARY | 5 | Не собран |
-| 9 | IVE | VELVET LIGHT | LEGENDARY | 6 | Не собран |
-| 10 | ILLIT | ROYAL HAZE | MYTHIC | 5 | Не собран |
-| 11 | ITZY | ROYAL HAZE | MYTHIC | 5 | Не собран |
-| 12 | LE SSERAFIM | ROYAL HAZE | MYTHIC | 5 | Не собран |
-| 13 | IVE | ROYAL HAZE | MYTHIC | 6 | Не собран |
+| 1 | ITZY | AURA | RARE | 5 | Подобрана единая фотосессия ITZY G-SHOCK 23.10.2024. Исследовательские PNG для RYUJIN и CHAERYEONG собраны; исходники LIA и YUNA известны, но 404 у медиа-сервера; YEJI — пока нет подтверждённого исходника с правами. Сет не публиковать до 5/5 без повторов. |
+| 2 | IVE | AURA | RARE | 6 | Нужны шесть уникальных соло-фото из одной серии |
+| 3 | ILLIT | AURA | RARE | 5 | Нужны пять уникальных фото из одной серии |
+| 4 | IVE | SPOTLIGHT | EPIC | 6 | Нужны шесть уникальных фото из одной серии |
+| 5 | ILLIT | VELVET LIGHT | LEGENDARY | 5 | Нужны пять отдельных фото, не повторяющих EPIC |
+| 6 | ITZY | VELVET LIGHT | LEGENDARY | 5 | Нужны пять отдельных фото, не повторяющих RARE/EPIC |
+| 7 | LE SSERAFIM | VELVET LIGHT | LEGENDARY | 5 | Нужны пять отдельных фото, не повторяющих RARE/EPIC |
+| 8 | IVE | VELVET LIGHT | LEGENDARY | 6 | Нужны шесть отдельных фото, не повторяющих RARE/EPIC |
+| 9 | ILLIT | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
+| 10 | ITZY | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
+| 11 | LE SSERAFIM | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
+| 12 | IVE | ROYAL HAZE | MYTHIC | 6 | Нужны шесть уникальных фото, отдельная серия |
 
-### Фотографии каждой оставшейся коллекции
+### Полный состав каждой будущей серии
 
-1. **LE SSERAFIM · AURA · RARE** (5): CHAEWON (Чэвон), SAKURA (Сакура), YUNJIN (Юнджин), KAZUHA (Кадзуха), EUNCHAE (Ынче). ID: `coll_lesserafim_aura_rare`.
-2. **ITZY · AURA · RARE** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна). ID: `coll_itzy_aura_rare`.
-3. **IVE · AURA · RARE** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо). ID: `coll_ive_aura_rare`.
-4. **ILLIT · AURA · RARE** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха). ID: `coll_illit_aura_rare`.
-5. **ILLIT · VELVET LIGHT · LEGENDARY** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха). ID: `coll_illit_velvet_light_legendary`.
-6. **IVE · SPOTLIGHT · EPIC** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо). ID: `coll_ive_spotlight_epic`.
-7. **ITZY · VELVET LIGHT · LEGENDARY** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна). ID: `coll_itzy_velvet_light_legendary`.
-8. **LE SSERAFIM · VELVET LIGHT · LEGENDARY** (5): CHAEWON (Чэвон), SAKURA (Сакура), YUNJIN (Юнджин), KAZUHA (Кадзуха), EUNCHAE (Ынче). ID: `coll_lesserafim_velvet_light_legendary`.
-9. **IVE · VELVET LIGHT · LEGENDARY** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо). ID: `coll_ive_velvet_light_legendary`.
-10. **ILLIT · ROYAL HAZE · MYTHIC** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха). ID: `coll_illit_royal_haze_mythic`.
-11. **ITZY · ROYAL HAZE · MYTHIC** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна). ID: `coll_itzy_royal_haze_mythic`.
-12. **LE SSERAFIM · ROYAL HAZE · MYTHIC** (5): CHAEWON (Чэвон), SAKURA (Сакура), YUNJIN (Юнджин), KAZUHA (Кадзуха), EUNCHAE (Ынче). ID: `coll_lesserafim_royal_haze_mythic`.
-13. **IVE · ROYAL HAZE · MYTHIC** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо). ID: `coll_ive_royal_haze_mythic`.
+1. **coll_itzy_aura_rare** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна).
+2. **coll_ive_aura_rare** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо).
+3. **coll_illit_aura_rare** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха).
+4. **coll_ive_spotlight_epic** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо).
+5. **coll_illit_velvet_light_legendary** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха).
+6. **coll_itzy_velvet_light_legendary** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна).
+7. **coll_lesserafim_velvet_light_legendary** (5): CHAEWON (Чэвон), SAKURA (Сакура), YUNJIN (Юнджин), KAZUHA (Кадзуха), EUNCHAE (Ынче).
+8. **coll_ive_velvet_light_legendary** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо).
+9. **coll_illit_royal_haze_mythic** (5): YUNAH (Юна), MINJU (Минджу), MOKA (Мока), WONHEE (Вонхи), IROHA (Ироха).
+10. **coll_itzy_royal_haze_mythic** (5): YEJI (Йеджи), LIA (Лиа), RYUJIN (Рюджин), CHAERYEONG (Чэрён), YUNA (Юна).
+11. **coll_lesserafim_royal_haze_mythic** (5): CHAEWON (Чэвон), SAKURA (Сакура), YUNJIN (Юнджин), KAZUHA (Кадзуха), EUNCHAE (Ынче).
+12. **coll_ive_royal_haze_mythic** (6): YUJIN (Юджин), GAEUL (Гаыль), REI (Рей), WONYOUNG (Вонён), LIZ (Лиз), LEESEO (Лисо).
 
 ## Непреложные правила публикации
 
@@ -58,13 +61,18 @@
 - У каждой фотографии проверить и сохранить ссылку на исходник, автора, лицензию, разрешение на переработку и атрибуцию. Учитывать также права изображённых людей.
 - Все файлы и каталог проходят проверки **до** публикации; не добавлять в гачу незавершённые наборы и нельзя утверждать, что карточки опубликованы, пока GitHub Actions не создал коммит с PNG.
 
-## Следующая партия
+## Ближайшая работа
 
-Пробный набор: **LE SSERAFIM / AURA / RARE — 5 фото одной серии Easy Crazy Hot Tour, Seattle, 17.09.2025 (David Lee)**. Источники — Wikimedia Commons с подтверждённой CC BY 4.0. Пятый кадр с несколькими людьми должен пройти обязательный ручной контроль после кропа: в карточке остаётся ровно одна участница; если кадр не подходит, отклонить весь набор, не выпускать его частично.
+**ITZY / AURA / RARE**: найдено четыре исследовательских оригинала с G-SHOCK 23.10.2024 (LIA, RYUJIN, CHAERYEONG, YUNA), но часть исходников низкого качества или недоступна в CI, а для YEJI пока не подтверждён подходящий снимок той же серии с правами. Поэтому это **не завершённый сет**, новых игровых карточек из него пока нет.
 
-## Зафиксированный прогресс 18.10.2026 — первый пакет
+Для снимков, где исходная лицензия не допускает использование или права не проверены, публикация должна быть заблокирована. Нельзя заменить пропущенную участницу чужим кадром, сгенерированным портретом или повтором ранее выпущенного.
 
-- Проведён поиск пяти новых кадров с проверяемыми лицензиями CC BY 4.0 из одной концертной фотосерии Seattle 2025 (David Lee); **не использованы** ранее опубликованные фото.
-- Для YUNJIN подготовлен отдельный кадр-источник и адаптирован `solo_region` с запретом автопубликации до проверки результата: исходник с двумя артистками, в превью оставлен кроп справа. Для новой редкости это допустимо **только если после кропа действительно осталась одна участница без чужого лица**.
-- GitHub Actions [просмотр пяти 900×1200 фотокарточек / контакт-лист](https://github.com/CefaHub/dgemptestbot/actions/runs/39081839879) — **Success**, доступен артефакт `Dolce-Photo-Candidate-Review` (10.3 MB), внутри папка `solo_review_v2` и `CONTACT_SHEET.png`.
-- Публикация новых карточек **не подтверждена и намеренно отложена**. Живой каталог: 31/100. Следующая стадия — подтвердить видимость и качество соло-кропа, затем полный релиз 5 карточек + баннера одной коллекции или заменить проблемный снимок.
+## Проверка
+
+- `python tools/photo_production.py status` — текущий живой прогресс.
+- `python tools/photo_production.py validate` — структура каталога и запланированных коллекций.
+- `python -m pytest -q` — проверка фото, экономики, полных сетов и дублей.
+- `python -m tools.preview_ci --manifest tools/research/<name>_candidates.json` — ручное **непубликуемое** превью исследовательского кандидата.
+- `tools/photo_release_pipeline.py` — строгая сборка и публикация только после проверки полного сета.
+
+Старые отчёты, где указано 31/100 и 69 оставшихся, относятся к состоянию **до публикации** LE SSERAFIM AURA RARE.
