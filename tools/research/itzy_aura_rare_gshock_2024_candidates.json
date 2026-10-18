@@ -1,0 +1,100 @@
+{
+  "status": "research_preview_only_not_published",
+  "candidate_revision": 1,
+  "set_id": "coll_itzy_aura_rare",
+  "group": "ITZY",
+  "era": "AURA",
+  "rarity": "rare",
+  "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
+  "source_collection": "ITZY x G-SHOCK Starfield Suwon photocall, 2024-10-23 — TV10 xRIHgC2ZVoM",
+  "source_mode": "curated",
+  "collection_review_status": "pending",
+  "expected_members": [
+    "YEJI",
+    "LIA",
+    "RYUJIN",
+    "CHAERYEONG",
+    "YUNA"
+  ],
+  "missing_members": [
+    "YEJI"
+  ],
+  "missing_source_notes": {
+    "YEJI": "The 2024-10-23 G-SHOCK Yeji photos can be found elsewhere, but no original with independently verified commercial reuse rights and 600×800 native crop has been selected. DO NOT substitute a photo from a different event, AI upscale, or a duplicated group frame."
+  },
+  "cards": [
+    {
+      "member": "LIA",
+      "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/241023_ITZY_Lia.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Lia.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "티비텐 TV10",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        833,
+        1166
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "solo_review_status": "pending"
+    },
+    {
+      "member": "RYUJIN",
+      "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/241023_ITZY_Ryujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Ryujin.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        806,
+        1129
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "solo_review_status": "pending"
+    },
+    {
+      "member": "CHAERYEONG",
+      "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/241023_ITZY_Chaeryeong.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Chaeryeong.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        836,
+        1170
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "solo_review_status": "pending"
+    },
+    {
+      "member": "YUNA",
+      "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/241023_ITZY_Yuna.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Yuna.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        836,
+        1170
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "solo_review_status": "pending"
+    }
+  ],
+  "notes": "All four source pages depict separate original files from the same 2024-10-23 ITZY G-SHOCK event. Source credits per Wikimedia Commons; native resolutions 806–836 wide, adequate for 600×800 crop, but not premium-grade compared with HD photos. Full album publication BLOCKED until YEJI source and visual cohesion review. Author names reproduce each Commons source page. Existing ITZY EPIC uses 2025-11-10 BARRIE, not this set."
+}
