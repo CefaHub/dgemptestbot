@@ -312,6 +312,7 @@ def generate(manifest_path, publish=False):
     OUT.mkdir(parents=True)
     for spec in batches:
         group, tier, set_id = check_complete_release(spec, set_ids)
+        session_id = spec["photo_session_id"]
         set_ids.add(set_id)
         slug = tier["era"].lower().replace(" ", "_")
         staged = {}
