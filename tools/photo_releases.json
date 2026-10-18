@@ -1,85 +1,8 @@
 {
   "version": 1,
-  "description": "LE SSERAFIM AURA RARE: five unique CC BY 4.0 original photographs from David Lee's same 2025-09-17 Seattle Easy Crazy Hot Tour photo series. Member YUNJIN is sourced from separate duo original and cropped to a solo portrait; publication must reject cropped artwork if a second face remains. Attribution and original source URLs preserved.",
-  "sets": [
-    {
-      "group": "LE SSERAFIM",
-      "era": "AURA",
-      "rarity": "rare",
-      "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour, Seattle 2025-09-17 / David Lee — five distinct real photos",
-      "source_mode": "curated",
-      "cards": [
-        {
-          "member": "CHAEWON",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
-          "photographer": "David Lee",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "original_source": "https://www.flickr.com/photos/davidjlee/54797054189/",
-          "focus_x": 0.51,
-          "focus_y": 0.32
-        },
-        {
-          "member": "SAKURA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
-          "photographer": "David Lee",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "original_source": "https://www.flickr.com/photos/davidjlee/54797069478/",
-          "focus_x": 0.51,
-          "focus_y": 0.3
-        },
-        {
-          "member": "YUNJIN",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
-          "photographer": "David Lee",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "original_source": "https://www.flickr.com/photos/davidjlee/54795963477/",
-          "focus_x": 0.5,
-          "focus_y": 0.07,
-          "solo_region": [
-            0.415,
-            0.01,
-            0.905,
-            0.74
-          ],
-          "solo_crop_review": "Reference 2025 Seattle photo of Huh Yun-jin and Kim Chae-won; crop right-hand solo portrait to exclude other face; check preview before publishing"
-        },
-        {
-          "member": "KAZUHA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054074%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054074%29.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054074%29.jpg",
-          "photographer": "David Lee",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "original_source": "https://www.flickr.com/photos/davidjlee/54797054074/",
-          "focus_x": 0.5,
-          "focus_y": 0.31
-        },
-        {
-          "member": "EUNCHAE",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg/1280px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
-          "photographer": "David Lee",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/",
-          "license_status": "verified",
-          "original_source": "https://www.flickr.com/photos/davidjlee/54796820736/",
-          "focus_x": 0.37,
-          "focus_y": 0.33
-        }
-      ]
-    }
-  ],
-  "preview_revision": 14,
+  "description": "Release queue intentionally empty pending human review of LE SSERAFIM AURA Yunjin cropped duet source; separate 5-photo candidate contact sheet in tools/research/lesserafim_aura_rare_v2_candidates.json. Do not publish before approval and complete image/source verification.",
+  "sets": [],
+  "preview_revision": 15,
   "last_published_set_ids": [
     "coll_aespa_royal_haze_mythic"
   ]
