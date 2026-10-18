@@ -139,6 +139,29 @@ async def help_cmd(message:Message):
     await message.answer(text,parse_mode='HTML')
 
 
+GITHUB_GALLERY_URL = 'https://github.com/CefaHub/dgemptestbot/blob/main/GALLERY.md'
+
+
+@router.message(Command('gallery'))
+async def gallery_cmd(message: Message):
+    """Browse the released real-photo gallery, including cards the player does not own."""
+    card_count = len(all_cards())
+    set_count = len(collection_gallery())
+    groups = sorted({card['group'] for card in all_cards()}, key=str.casefold)
+    details = (f'🖼 <b>Галерея DOLCE EMPIRE</b>\n\n'
+               f'✅ Настоящих фотокарточек: <b>{card_count}</b>\n'
+               f'📚 Выпущенных полных сетов: <b>{set_count}</b>\n'
+               f'🎤 Группы: {escape(", ".join(groups))}\n\n'
+               'Смотри оригинальные PNG на GitHub или листай каждый сет прямо в боте.')
+    buttons = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text='📷 Открыть все карточки на GitHub',
+                              url=GITHUB_GALLERY_URL)],
+        [InlineKeyboardButton(text='🌟 Листать сеты в боте',
+                              callback_data='nav:sets')],
+    ])
+    await message.answer(details, reply_markup=buttons, parse_mode='HTML')
+
+
 @router.message(Command('me'))
 async def me(message:Message): await show_home(message)
 
