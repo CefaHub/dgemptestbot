@@ -104,12 +104,23 @@ def test_release_must_have_complete_group(photo_sandbox):
 
 
 
+
+def test_non_solo_original_cannot_publish_without_human_crop_approval(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["cards"][0]["solo_region"] = [0.05, 0.02, 0.72, 1.0]
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="Unapproved solo crop"):
+        pipe.generate("tools/photo_releases.json")
+
+
+
 def test_optional_solo_region_preserves_quality_and_source_provenance(photo_sandbox):
     root, manifest = photo_sandbox
     # Source-wide crop is larger than a portrait; a centered subject-only
     # selection must still leave at least 600x800 physical pixels.
     row = manifest["sets"][0]["cards"][0]
     row["solo_region"] = [0.05, 0.02, 0.72, 1.0]
+    row["solo_review_status"] = "approved"
     (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
     release = pipe.generate("tools/photo_releases.json")
     assert release["sources"][0]["solo_region"] == [0.05, 0.02, 0.72, 1.0]
