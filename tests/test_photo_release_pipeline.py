@@ -151,6 +151,7 @@ def test_invalid_solo_region_fails_closed(photo_sandbox, region):
 def test_too_small_solo_crop_is_not_upscaled(photo_sandbox):
     root, manifest = photo_sandbox
     manifest["sets"][0]["cards"][0]["solo_region"] = [0.03, 0, 0.2, 0.30]
+    manifest["sets"][0]["cards"][0]["solo_review_status"] = "approved"
     (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="too small"):
         pipe.generate("tools/photo_releases.json")
