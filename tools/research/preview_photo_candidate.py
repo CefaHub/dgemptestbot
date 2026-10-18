@@ -29,8 +29,8 @@ THUMB_SIZE = (270, 360)
 SESSION_WARN_SATURATION = 9.0
 
 
-def validate_candidate(data, previously_released):
-    """Ensure a complete and unpublished single-shoot candidate BEFORE downloads."""
+def validate_candidate(data, previously_released, allow_incomplete=False):
+    """Require full sets by default; optionally inspect unpublished partial research."""
     if data.get("status") != "research_preview_only_not_published":
         raise ValueError("Research candidates must remain explicitly unpublished")
     group = pipe.GROUPS.get(data.get("group"))
@@ -47,10 +47,24 @@ def validate_candidate(data, previously_released):
         raise ValueError("A real shared photo session ID is required")
     expected_members = [member for member, _ in group["members"]]
     candidate_cards = data.get("cards")
-    if (not isinstance(candidate_cards, list)
-            or len(candidate_cards) != len(expected_members)
-            or {row["member"] for row in candidate_cards} != set(expected_members)):
+    if not isinstance(candidate_cards, list) or not all(
+        isinstance(row, dict) and isinstance(row.get("member"), str)
+        for row in candidate_cards
+    ):
         raise ValueError("A complete, non-duplicated member lineup is required")
+    candidates = [row["member"] for row in candidate_cards]
+    missing_members = sorted(set(expected_members) - set(candidates))
+    if (len(candidates) != len(set(candidates))
+            or not set(candidates).issubset(expected_members)
+            or (missing_members and not allow_incomplete)):
+        raise ValueError("A complete, non-duplicated member lineup is required")
+    if missing_members and (
+        not allow_incomplete
+        or sorted(data.get("missing_members", [])) != missing_members
+    ):
+        raise ValueError("Partial preview must explicitly identify missing group members")
+    if allow_incomplete and not candidate_cards:
+        raise ValueError("Cannot preview a set without any real sourced photo")
     if data.get("collection_review_status") == "approved":
         raise ValueError("Research preview should not pre-approve an unreleased set")
     if not str(data.get("source_collection", "")).strip():
@@ -82,14 +96,15 @@ def checked_sources():
     )
 
 
-def preview(candidate, target):
-    """Build draft contact sheet and report; NEVER call generate(..., publish=True)."""
+def preview(candidate, target, allow_incomplete=False):
+    """Build real-photo contact sheet; missing members are blank, never faked."""
     candidate = Path(candidate)
     target = Path(target)
     data = json.loads(candidate.read_text(encoding="utf-8"))
     existing = pipe.load_json(ROOT / "assets/collections/verified_sets.json")["sets"]
     group, tier, members = validate_candidate(
-        data, {entry["set_id"] for entry in existing}
+        data, {entry["set_id"] for entry in existing},
+        allow_incomplete=allow_incomplete,
     )
     source_urls, source_pages, raw_hashes, visual_hashes = checked_sources()
 
@@ -97,6 +112,17 @@ def preview(candidate, target):
     tiles, results, banner_images = [], [], []
     cards = {row["member"]: row for row in data["cards"]}
     for idx, member in enumerate(members, 1):
+        if member not in cards:
+            info = {
+                "member": member,
+                "source_page": None,
+                "photo_session_id": data["photo_session_id"],
+                "status": "missing_source",
+                "warnings": ["No verified image available; member remains unreleased."],
+            }
+            results.append(info)
+            tiles.append((member, None, info))
+            continue
         row = cards[member]
         info = {
             "member": member,
@@ -186,9 +212,12 @@ def preview(candidate, target):
             sheet.paste(ImageOps.fit(image, THUMB_SIZE), (x, y))
         else:
             dr.rectangle((x, y, x + THUMB_SIZE[0], y + THUMB_SIZE[1]), fill="#302e3b")
-            dr.text((x + 10, y + 160), "IMAGE FAILED QC", fill="#ff938b", font=pipe.font(17, True))
+            label = "AWAITING PHOTO" if info["status"] == "missing_source" else "IMAGE FAILED QC"
+            dr.text((x + 10, y + 160), label, fill="#ff938b", font=pipe.font(17, True))
         dr.text((x + 4, y + THUMB_SIZE[1] + 7), member, fill="white", font=pipe.font(21, True))
-        badge = "ERROR" if info["status"] == "error" else "REVIEW NEEDED"
+        badge = ("ERROR" if info["status"] == "error"
+                 else "NOT SOURCED" if info["status"] == "missing_source"
+                 else "REVIEW NEEDED")
         dr.text((x + 4, y + THUMB_SIZE[1] + 37), badge, fill="#ffba74", font=pipe.font(17))
     sheet.save(target / "contact_sheet_DRAFT.jpg", quality=92, subsampling=0)
     if len(banner_images) == len(members):
@@ -200,14 +229,17 @@ def preview(candidate, target):
             {member: focus for member, _, focus in banner_images},
         ).save(target / "banner_DRAFT.png", format="PNG")
     failures = sum(item["status"] == "error" for item in results)
+    missing = sum(item["status"] == "missing_source" for item in results)
     report = {
         "set_id": data["set_id"],
         "photo_session_id": data["photo_session_id"],
         "published": False,
         "review_status": "pending",
         "members_expected": len(members),
-        "previewed": len(members) - failures,
+        "previewed": len(members) - failures - missing,
         "failed": failures,
+        "missing": missing,
+        "missing_members": [item["member"] for item in results if item["status"] == "missing_source"],
         "user_approval_required": True,
         "records": results,
     }
@@ -227,6 +259,9 @@ def preview(candidate, target):
         "",
     ]
     for member in members:
+        if member not in cards:
+            credits.extend(["## " + member, "- No verified original photograph has been selected.", ""])
+            continue
         row = cards[member]
         credits.extend([
             "## " + member,
@@ -244,7 +279,8 @@ def preview(candidate, target):
     )
     print(
         f"Research preview: {report['previewed']}/{len(members)} images prepared, "
-        f"{failures} failed, {sum(bool(r['warnings']) for r in results)} need review; "
+        f"{failures} failed, {missing} missing, "
+        f"{sum(bool(r['warnings']) for r in results)} need review; "
         "zero game cards published."
     )
     for item in results:
@@ -259,6 +295,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", default="tools/research/lesserafim_aura_rare_v2_candidates.json")
     parser.add_argument("--output", default="output/research_preview/lesserafim_aura_rare")
+    parser.add_argument("--allow-incomplete", action="store_true",
+                        help="Preview incomplete researched sets with blank slots, NEVER publish")
     args = parser.parse_args()
     candidate = ROOT / args.candidate
     output = ROOT / args.output
@@ -266,7 +304,7 @@ def main():
         parser.error("Research candidates must be under tools/research")
     if not output.resolve().is_relative_to((ROOT / "output").resolve()):
         parser.error("Preview images must stay inside output/")
-    report = preview(candidate, output)
+    report = preview(candidate, output, allow_incomplete=args.allow_incomplete)
     if report["failed"]:
         raise SystemExit(1)
 
