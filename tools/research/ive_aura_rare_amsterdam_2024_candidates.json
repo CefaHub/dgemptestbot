@@ -42,18 +42,24 @@
     },
     {
       "member": "REI",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
-      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg/1280px-20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "license_status": "verified",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "focus_x": 0.5,
+      "focus_x": 0.48,
       "focus_y": 0.24,
       "solo_review_status": "pending",
-      "source_note": "Own-work photographer uploaded directly to Wikimedia Commons, from one Amsterdam Ziggo Dome concert 13 June 2024; verify full-face solo crop and native pixel quality before release. Original native 851×1732 (no 800px thumb exists, Wikimedia rejects nonstandard thumb size)."
+      "source_note": "Rei is LEFT seated singer in 1280x1353 licensed original-derived thumbnail. Manual subject placement: crop left 49%, leaving right-hand Gaeul completely out of final 3:4 frame. Native crop must remain >=600x800. Single-concert original source CC BY-SA 4.0 by Robbie Klinkenberg.",
+      "solo_region": [
+        0.01,
+        0,
+        0.5,
+        1
+      ]
     },
     {
       "member": "WONYOUNG",
@@ -101,5 +107,5 @@
       "source_note": "Own-work photographer uploaded directly to Wikimedia Commons, from one Amsterdam Ziggo Dome concert 13 June 2024; verify full-face solo crop and native pixel quality before release."
     }
   ],
-  "notes": "Full six-member set from one 2024-06-13 show; the author's original Wikimedia Commons uploads are licensed CC BY-SA 4.0. Research only until individual 900×1200 crops visually reviewed and hash/licensing checks pass. Final rendered cards, banners and credit derivative art must preserve share-alike/attribution. Never publish partial group."
+  "notes": "Full six-member set from one 2024-06-13 show; the author's original Wikimedia Commons uploads are licensed CC BY-SA 4.0. Research only until individual 900×1200 crops visually reviewed and hash/licensing checks pass. Final rendered cards, banners and credit derivative art must preserve share-alike/attribution. Never publish partial group. Rei original solo 40 limited by Wikimedia 429 and poor sharpness; replaced with DIFFERENT licensed file 16 from same event and left-solo-region preview pending visual approval."
 }
