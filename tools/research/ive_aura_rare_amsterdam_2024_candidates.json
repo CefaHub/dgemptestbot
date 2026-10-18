@@ -42,7 +42,7 @@
     },
     {
       "member": "REI",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg/800px-20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
       "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
@@ -53,7 +53,7 @@
       "focus_x": 0.5,
       "focus_y": 0.24,
       "solo_review_status": "pending",
-      "source_note": "Own-work photographer uploaded directly to Wikimedia Commons, from one Amsterdam Ziggo Dome concert 13 June 2024; verify full-face solo crop and native pixel quality before release."
+      "source_note": "Own-work photographer uploaded directly to Wikimedia Commons, from one Amsterdam Ziggo Dome concert 13 June 2024; verify full-face solo crop and native pixel quality before release. Original native 851×1732 (no 800px thumb exists, Wikimedia rejects nonstandard thumb size)."
     },
     {
       "member": "WONYOUNG",
