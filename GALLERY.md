@@ -2,7 +2,7 @@
 
 > Автоматически создано из **опубликованного** каталога игры. Исследовательские превью и незавершённые наборы сюда не попадают.
 
-**Опубликовано: 41 карточек в 9 полных коллекциях.**
+**Опубликовано: 47 карточек в 10 полных коллекциях.**
 
 Нажми на фотографию, чтобы открыть оригинальный PNG 900×1200. Баннеры каждого сета — 1600×900.
 
@@ -17,6 +17,7 @@
 - [aespa — ROYAL HAZE / MYTHIC](#coll_aespa_royal_haze_mythic)
 - [LE SSERAFIM — AURA / RARE](#coll_lesserafim_aura_rare)
 - [LE SSERAFIM — VELVET LIGHT / LEGENDARY](#coll_lesserafim_velvet_light_legendary)
+- [IVE — AURA / RARE](#coll_ive_aura_rare)
 
 ## ILLIT — SPOTLIGHT · EPIC
 
@@ -134,6 +135,19 @@
 | **Chaewon** | **Sakura** | **Yunjin** | **Kazuha** | **Eunchae** |
 
 *Фотосерия: LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs.*
+
+## IVE — AURA · RARE
+
+<a id="coll_ive_aura_rare"></a>
+
+**6/6 участниц** · [Открыть баннер](assets/banners/ive/ive_aura_rare_banner.png)
+
+| 1 | 2 | 3 | 4 | 5 | 6 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| [<img src="assets/cards/ive/ive_aura_rare_yujin_01.png" width="175" alt="Yujin IVE rare">](assets/cards/ive/ive_aura_rare_yujin_01.png) | [<img src="assets/cards/ive/ive_aura_rare_gaeul_02.png" width="175" alt="Gaeul IVE rare">](assets/cards/ive/ive_aura_rare_gaeul_02.png) | [<img src="assets/cards/ive/ive_aura_rare_rei_03.png" width="175" alt="Rei IVE rare">](assets/cards/ive/ive_aura_rare_rei_03.png) | [<img src="assets/cards/ive/ive_aura_rare_wonyoung_04.png" width="175" alt="Wonyoung IVE rare">](assets/cards/ive/ive_aura_rare_wonyoung_04.png) | [<img src="assets/cards/ive/ive_aura_rare_liz_05.png" width="175" alt="Liz IVE rare">](assets/cards/ive/ive_aura_rare_liz_05.png) | [<img src="assets/cards/ive/ive_aura_rare_leeseo_06.png" width="175" alt="Leeseo IVE rare">](assets/cards/ive/ive_aura_rare_leeseo_06.png) |
+| **Yujin** | **Gaeul** | **Rei** | **Wonyoung** | **Liz** | **Leeseo** |
+
+*Фотосерия: IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg.*
 
 ---
 

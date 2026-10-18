@@ -322,3 +322,61 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY 4.0
 - License URL: https://creativecommons.org/licenses/by/4.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+# DOLCE EMPIRE — photo source credits
+
+The original photographs are NOT AI-generated.
+Every image below has been cropped, color-adjusted, framed and captioned.
+The photo and derived card/banner art retain the source license shown for each image.
+CC BY-SA requires author attribution, a license link, and compatible share-alike
+licensing for adapted artworks. Permission to use a photograph does not imply
+the photographer or depicted artist endorses DOLCE EMPIRE.
+
+## IVE / YUJIN / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_33_Yujin.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_33_Yujin.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## IVE / GAEUL / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_38_Gaeul.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_38_Gaeul.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## IVE / REI / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_16_Rei_and_Gaeul.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## IVE / WONYOUNG / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_08_Wonyoung.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_08_Wonyoung.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## IVE / LIZ / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_12_Liz.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_12_Liz.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## IVE / LEESEO / AURA
+- Photo author: Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_35_Leeseo.jpg
+- Original source: https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_35_Leeseo.jpg
+- Source license: CC BY-SA 4.0
+- License URL: https://creativecommons.org/licenses/by-sa/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition

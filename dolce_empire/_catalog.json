@@ -788,5 +788,119 @@
     "card_number": 5,
     "card_total": 5,
     "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_eunchae_05.png"
+  },
+  {
+    "id": "card_ive_aura_rare_yujin_01",
+    "group": "IVE",
+    "idol": "Yujin",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Юджин",
+      "yujin"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 1,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_yujin_01.png"
+  },
+  {
+    "id": "card_ive_aura_rare_gaeul_02",
+    "group": "IVE",
+    "idol": "Gaeul",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Гаыль",
+      "gaeul"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 2,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_gaeul_02.png"
+  },
+  {
+    "id": "card_ive_aura_rare_rei_03",
+    "group": "IVE",
+    "idol": "Rei",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Рей",
+      "rei"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 3,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_rei_03.png"
+  },
+  {
+    "id": "card_ive_aura_rare_wonyoung_04",
+    "group": "IVE",
+    "idol": "Wonyoung",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Вонён",
+      "wonyoung"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 4,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_wonyoung_04.png"
+  },
+  {
+    "id": "card_ive_aura_rare_liz_05",
+    "group": "IVE",
+    "idol": "Liz",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Лиз",
+      "liz"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 5,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_liz_05.png"
+  },
+  {
+    "id": "card_ive_aura_rare_leeseo_06",
+    "group": "IVE",
+    "idol": "Leeseo",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Лисо",
+      "leeseo"
+    ],
+    "collection_id": "coll_ive_aura_rare",
+    "set_id": "coll_ive_aura_rare",
+    "source_collection": "IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg",
+    "series": "AURA",
+    "card_number": 6,
+    "card_total": 6,
+    "image_path": "assets/cards/ive/ive_aura_rare_leeseo_06.png"
   }
 ]
