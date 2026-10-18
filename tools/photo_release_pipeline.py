@@ -261,6 +261,10 @@ def check_complete_release(spec, existing_sets):
         for name in ("focus_x", "focus_y"):
             if not 0 <= float(row.get(name, 0.5)) <= 1:
                 raise ValueError(f"Invalid {name} for {row['member']}")
+        # A cut-out from a multi-person photograph needs human artwork review
+        # before the automatic publisher is permitted to add it to the game.
+        if row.get("solo_region") is not None and row.get("solo_review_status") != "approved":
+            raise ValueError(f"Unapproved solo crop for {row['member']}; preview and review before release")
         # Fail early on malformed cutouts: full-image cropping is the default.
         region = row.get("solo_region")
         if region is not None and (
