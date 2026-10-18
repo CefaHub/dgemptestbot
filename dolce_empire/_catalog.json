@@ -598,5 +598,100 @@
     "card_number": 4,
     "card_total": 4,
     "image_path": "assets/cards/aespa/aespa_royal_haze_mythic_ningning_04.png"
+  },
+  {
+    "id": "card_lesserafim_aura_rare_chaewon_01",
+    "group": "LE SSERAFIM",
+    "idol": "Chaewon",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Чэвон",
+      "chaewon"
+    ],
+    "collection_id": "coll_lesserafim_aura_rare",
+    "set_id": "coll_lesserafim_aura_rare",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+    "series": "AURA",
+    "card_number": 1,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_chaewon_01.png"
+  },
+  {
+    "id": "card_lesserafim_aura_rare_sakura_02",
+    "group": "LE SSERAFIM",
+    "idol": "Sakura",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Сакура",
+      "sakura"
+    ],
+    "collection_id": "coll_lesserafim_aura_rare",
+    "set_id": "coll_lesserafim_aura_rare",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+    "series": "AURA",
+    "card_number": 2,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_sakura_02.png"
+  },
+  {
+    "id": "card_lesserafim_aura_rare_yunjin_03",
+    "group": "LE SSERAFIM",
+    "idol": "Yunjin",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Юнджин",
+      "yunjin"
+    ],
+    "collection_id": "coll_lesserafim_aura_rare",
+    "set_id": "coll_lesserafim_aura_rare",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+    "series": "AURA",
+    "card_number": 3,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_yunjin_03.png"
+  },
+  {
+    "id": "card_lesserafim_aura_rare_kazuha_04",
+    "group": "LE SSERAFIM",
+    "idol": "Kazuha",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Кадзуха",
+      "kazuha"
+    ],
+    "collection_id": "coll_lesserafim_aura_rare",
+    "set_id": "coll_lesserafim_aura_rare",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+    "series": "AURA",
+    "card_number": 4,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_kazuha_04.png"
+  },
+  {
+    "id": "card_lesserafim_aura_rare_eunchae_05",
+    "group": "LE SSERAFIM",
+    "idol": "Eunchae",
+    "era": "AURA",
+    "rarity": "rare",
+    "base_income": 100,
+    "aliases": [
+      "Ынче",
+      "eunchae"
+    ],
+    "collection_id": "coll_lesserafim_aura_rare",
+    "set_id": "coll_lesserafim_aura_rare",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+    "series": "AURA",
+    "card_number": 5,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_eunchae_05.png"
   }
 ]

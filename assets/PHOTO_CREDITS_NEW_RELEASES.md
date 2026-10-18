@@ -222,3 +222,53 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY-SA 2.0
 - License URL: https://creativecommons.org/licenses/by-sa/2.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+# DOLCE EMPIRE — photo source credits
+
+The original photographs are NOT AI-generated.
+Every image below has been cropped, color-adjusted, framed and captioned.
+The photo and derived card/banner art retain the source license shown for each image.
+CC BY-SA requires author attribution, a license link, and compatible share-alike
+licensing for adapted artworks. Permission to use a photograph does not imply
+the photographer or depicted artist endorses DOLCE EMPIRE.
+
+## LE SSERAFIM / CHAEWON / AURA
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54797054189/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / SAKURA / AURA
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54797069478/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / YUNJIN / AURA
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54797054829/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / KAZUHA / AURA
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54797069863/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition
+
+## LE SSERAFIM / EUNCHAE / AURA
+- Photo author: David Lee
+- Wikimedia page: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg
+- Original source: https://www.flickr.com/photos/davidjlee/54796820736/
+- Source license: CC BY 4.0
+- License URL: https://creativecommons.org/licenses/by/4.0/
+- Modifications: image crop, contrast, card frame, text and banner composition

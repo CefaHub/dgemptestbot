@@ -112,6 +112,23 @@
         "NINGNING"
       ],
       "banner_path": "assets/banners/aespa/aespa_royal_haze_mythic_banner.png"
+    },
+    {
+      "set_id": "coll_lesserafim_aura_rare",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+      "source_mode": "curated",
+      "expected_members": [
+        "CHAEWON",
+        "SAKURA",
+        "YUNJIN",
+        "KAZUHA",
+        "EUNCHAE"
+      ],
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "banner_path": "assets/banners/lesserafim/lesserafim_aura_rare_banner.png"
     }
   ]
 }
