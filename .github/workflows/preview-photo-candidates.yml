@@ -5,9 +5,16 @@ on:
     paths:
       - 'tools/research/*_candidates.json'
       - 'tools/photo_candidate_previews.py'
+      - 'tools/preview_ci.py'
       - 'tests/test_photo_candidate_previews.py'
+      - 'tests/test_preview_ci.py'
       - '.github/workflows/preview-photo-candidates.yml'
   workflow_dispatch:
+    inputs:
+      manifest:
+        description: 'Optional unpublished candidate JSON path'
+        required: false
+        type: string
 permissions:
   contents: read
 jobs:
@@ -16,6 +23,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -23,22 +32,20 @@ jobs:
         run: python -m pip install -r requirements.txt pytest pytest-asyncio
       - name: Run full regression suite including no-incomplete-publishing tests
         run: python -m pytest -q
-      - name: Render real sourced photos for human review, no publication
+      - name: Preview only changed unpublished sourced collections
+        env:
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          REVIEW_MANIFEST: ${{ inputs.manifest }}
         run: |
-          python tools/photo_candidate_previews.py tools/research/lesserafim_aura_rare_candidates.json
-          python - <<'PY'
-          from pathlib import Path
-          from tools.photo_candidate_previews import prepare_candidates
-          report = prepare_candidates(
-              "tools/research/lesserafim_aura_rare_v2_candidates.json",
-              output_dir=Path("output/photo_candidate_previews/solo_review_v2"),
-          )
-          print("Five-image candidate contact sheet, NOT published:", report["contact_sheet"])
-          PY
-      - name: Upload real-photo card previews and rights/duplicate report
+          if [ -n "$REVIEW_MANIFEST" ]; then
+            python -m tools.preview_ci --manifest "$REVIEW_MANIFEST"
+          else
+            python -m tools.preview_ci
+          fi
+      - name: Upload previews only if created; never publish to game
         uses: actions/upload-artifact@v4
         with:
           name: Dolce-Photo-Candidate-Review
           path: output/photo_candidate_previews/
-          if-no-files-found: error
+          if-no-files-found: ignore
           retention-days: 14
