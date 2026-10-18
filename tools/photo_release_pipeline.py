@@ -14,9 +14,10 @@ import hashlib
 import json
 import shutil
 import urllib.request
+from urllib.error import HTTPError
 from io import BytesIO
 from pathlib import Path
-from urllib.parse import unquote, urlsplit, parse_qs
+from urllib.parse import unquote, urlsplit, parse_qs, quote
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont, ImageOps, ImageStat
 
@@ -73,13 +74,34 @@ def original_image(row):
         parsed = urlsplit(url)
         if parsed.scheme != "https" or not parsed.hostname:
             raise ValueError("A direct HTTPS original photo URL is required")
-        request = urllib.request.Request(
-            url, headers={"User-Agent": USER_AGENT, "Accept": "image/jpeg,image/png,image/webp"}
-        )
-        with urllib.request.urlopen(request, timeout=35) as response:
-            if response.headers.get("Content-Length") and int(response.headers["Content-Length"]) > 20_000_000:
-                raise ValueError("Original image exceeds 20 MB")
-            raw = response.read(20_000_001)
+        def fetch_image(fetch_url):
+            request = urllib.request.Request(
+                fetch_url, headers={
+                    "User-Agent": USER_AGENT,
+                    "Accept": "image/jpeg,image/png,image/webp",
+                }
+            )
+            with urllib.request.urlopen(request, timeout=35) as response:
+                if (response.headers.get("Content-Length")
+                        and int(response.headers["Content-Length"]) > 20_000_000):
+                    raise ValueError("Original image exceeds 20 MB")
+                return response.read(20_000_001)
+
+        try:
+            raw = fetch_image(url)
+        except HTTPError as exc:
+            # Wikimedia throttles GitHub Actions runners. A CDN proxy may
+            # retrieve the exact same existing photo, not an alternative
+            # photograph. Only proxy known Wikimedia photo origins.
+            if exc.code not in (429, 503) or parsed.hostname not in (
+                "upload.wikimedia.org", "thumb.wikimedia.org"
+            ):
+                raise
+            from urllib.parse import urlunsplit
+            original = urlunsplit((parsed.scheme, parsed.netloc, parsed.path,
+                                   parsed.query, ""))
+            cdn_url = "https://wsrv.nl/?url=" + quote(original.removeprefix("https://"), safe="")
+            raw = fetch_image(cdn_url)
     if len(raw) > 20_000_000:
         raise ValueError("Original image exceeds 20 MB")
     try:
