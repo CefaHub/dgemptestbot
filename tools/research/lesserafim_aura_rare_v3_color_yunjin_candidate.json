@@ -1,0 +1,108 @@
+{
+  "status": "research_preview_only_not_published",
+  "set_id": "coll_lesserafim_aura_rare",
+  "group": "LE SSERAFIM",
+  "era": "AURA",
+  "rarity": "rare",
+  "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+  "source_mode": "curated",
+  "missing_members": [],
+  "cards": [
+    {
+      "member": "CHAEWON",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054189%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797054189/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.36,
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog."
+    },
+    {
+      "member": "SAKURA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797069478/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.34,
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
+    },
+    {
+      "member": "KAZUHA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797069863/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee"
+    },
+    {
+      "member": "EUNCHAE",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg/1280px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820736%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54796820736/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.48,
+      "focus_y": 0.36,
+      "zoom": 1,
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "source_selection_note": "Individually framed solo photograph from David Lee's Seattle Easy Crazy Hot Tour; distinct original unused in existing Dolce Empire catalog.",
+      "photo_delivery_note": "Licensed same-origin 1280x1024 Wikimedia derivative of 3632x2906 original because upstream high-res returned 404/429 from runner; original file and Commons author preserved via source_page and Flickr provenance. Review sharpness after 3:4 crop."
+    },
+    {
+      "member": "YUNJIN",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797054829/",
+      "focus_x": 0.5,
+      "focus_y": 0.45,
+      "solo_crop_review": "Alternative wide color original for visual inspection; confirm Yunjin is alone and occupies enough frame width before selecting any solo crop.",
+      "preview_note": "Cropped artist solo on RIGHT from a two-person photograph; preview-only pending confirmation no second face remains. Never promote without separate visual approval.",
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "solo_review_status": "pending"
+    }
+  ],
+  "notes": "Alternative fifth image from David Lee's licensed Seattle concert Flickr ID 54797054829; 5480x3082 original, 1920px preview rendition. Image composition and subject exclusivity are UNVERIFIED. Do not replace current Yunjin photo or publish without full visual contact sheet review.",
+  "review_goal": "Evaluate whether YUNJIN color original 54797054829 can yield a clean solo 3:4 crop matching the other four concert portraits; if group shot, REJECT rather than falsely labeling solo.",
+  "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+  "collection_review_status": "pending",
+  "reuse_exclusions": [
+    "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg"
+  ],
+  "candidate_revision": 5,
+  "replaced_multi_subject_sources": [
+    {
+      "member": "CHAEWON",
+      "reason": "Other person visible at left edge of prior photograph",
+      "source_id": "54797153830"
+    },
+    {
+      "member": "EUNCHAE",
+      "reason": "Prior wide photograph includes two other performers",
+      "source_id": "54846409880"
+    }
+  ],
+  "variant": "yunjin_color_full_frame_unreviewed"
+}
