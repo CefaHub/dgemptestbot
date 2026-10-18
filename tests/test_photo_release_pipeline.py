@@ -103,6 +103,48 @@ def test_release_must_have_complete_group(photo_sandbox):
         pipe.generate("tools/photo_releases.json")
 
 
+
+def test_optional_solo_region_preserves_quality_and_source_provenance(photo_sandbox):
+    root, manifest = photo_sandbox
+    # Source-wide crop is larger than a portrait; a centered subject-only
+    # selection must still leave at least 600x800 physical pixels.
+    row = manifest["sets"][0]["cards"][0]
+    row["solo_region"] = [0.05, 0.02, 0.72, 1.0]
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    release = pipe.generate("tools/photo_releases.json")
+    assert release["sources"][0]["solo_region"] == [0.05, 0.02, 0.72, 1.0]
+    raw, full = pipe.original_image(row)
+    assert pipe.solo_region(full, row["solo_region"]).size[0] >= 600
+    path = pipe.OUT / release["cards"][0]["image_path"]
+    with Image.open(path) as img:
+        assert img.size == (900, 1200)
+
+
+@pytest.mark.parametrize("region", [
+    [0.1, 0.2, 0.1, 1.0],
+    [0.8, 0.0, 0.2, 0.9],
+    [-0.1, 0.0, 0.9, 1.0],
+    [0, 0, 2, 1],
+    [0, 0, 1],
+    [0, "oops", 0.5, 1],
+    [0, 0, True, 1],
+])
+def test_invalid_solo_region_fails_closed(photo_sandbox, region):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["cards"][0]["solo_region"] = region
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="solo_region"):
+        pipe.generate("tools/photo_releases.json")
+
+
+def test_too_small_solo_crop_is_not_upscaled(photo_sandbox):
+    root, manifest = photo_sandbox
+    manifest["sets"][0]["cards"][0]["solo_region"] = [0.03, 0, 0.2, 0.30]
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="too small"):
+        pipe.generate("tools/photo_releases.json")
+
+
 def test_release_duplicate_original_is_rejected(photo_sandbox):
     root, manifest = photo_sandbox
     manifest["sets"][0]["cards"][1]["local_path"] = manifest["sets"][0]["cards"][0]["local_path"]
