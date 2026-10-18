@@ -71,7 +71,7 @@ def write_review_sheet(output_dir, group, tier, member_ids, entries, missing):
     return target
 
 
-def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
+def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=False):
     manifest_path = Path(manifest_path)
     if not manifest_path.is_absolute():
         manifest_path = ROOT / manifest_path
@@ -119,6 +119,12 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
         previous_urls.add(canonical(photo_url))
         previous_pages.add(canonical(source_page))
         raw, original = original_image(row)
+        if archive_originals:
+            # Preserve the exact licensed source bytes *inside the CI artifact*.
+            # Avoid changing source identity if Wikimedia later rate-limits release CI.
+            originals = output_dir / "source_originals"
+            originals.mkdir(parents=True, exist_ok=True)
+            (originals / f"{member.lower()}.bin").write_bytes(raw)
         image = solo_region(original, row.get("solo_region"))
         sha = hashlib.sha256(raw).hexdigest()
         if sha in previous_sha:
@@ -146,6 +152,7 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
             "source_dhash": f"{visual:016x}", "original_pixels": list(original.size),
             "solo_region": row.get("solo_region"), "crop_pixels": list(image.size),
             "preview_pixels": list(CARD_SIZE),
+            "archived_source": f"source_originals/{member.lower()}.bin" if archive_originals else None,
         })
         print(f"Prepared candidate card: {member} from real source image.")
 
