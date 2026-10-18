@@ -1,0 +1,56 @@
+name: Publish LEGENDARY real photo preview PNGs to GitHub
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-legendary-previews.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  upload-real-photo-previews:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout catalog
+        uses: actions/checkout@v4
+      - name: Download five actual card renders from successful research artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/photo-cards"
+          gh run download 39148628488 --repo CefaHub/dgemptestbot --name Dolce-Photo-Candidate-Review --dir "$RUNNER_TEMP/photo-cards"
+      - name: Validate and stage images (never publish to gacha)
+        run: |
+          python -m pip install Pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import os, shutil, json
+          directory = Path(os.environ["RUNNER_TEMP"]) / "photo-cards" / "lesserafim_velvet_light_legendary_candidates"
+          dest = Path("assets/previews/lesserafim_velvet_light_legendary")
+          expected = ("chaewon", "sakura", "yunjin", "kazuha", "eunchae")
+          cards = sorted(directory.glob("*_PREVIEW.png"))
+          assert len(cards) == 5, [x.name for x in cards]
+          assert {n for n in expected if any(f"_{n}_" in p.name for p in cards)} == set(expected)
+          for card in cards:
+              with Image.open(card) as im:
+                  assert im.size == (900, 1200), (card, im.size)
+          assert (directory / "CONTACT_SHEET.png").exists()
+          report = json.loads((directory / "PREVIEW_REPORT.json").read_text())
+          assert report["publication"].startswith("BLOCKED")
+          assert len(report["cards"]) == 5 and not report["members_missing"]
+          dest.mkdir(parents=True, exist_ok=True)
+          for f in [*cards, directory / "CONTACT_SHEET.png", directory / "PREVIEW_REPORT.json"]:
+              shutil.copy2(f, dest / f.name)
+          print("Staged five real image previews; NO game catalog changes.")
+          PY
+      - name: Commit card previews browsable on GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/previews/lesserafim_velvet_light_legendary
+          if ! git diff --cached --quiet; then
+            git commit -m "Add five unique LE SSERAFIM legendary real photo previews"
+            git push origin HEAD:main
+          fi
