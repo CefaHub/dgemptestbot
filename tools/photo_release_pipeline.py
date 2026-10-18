@@ -470,6 +470,12 @@ def generate(manifest_path, publish=False):
             sys.path.insert(0, str(ROOT))
         from dolce_empire.set_validation import validate_photo_sets
         assert validate_photo_sets(current) == len(current)
+        # Keep the human-browsable GitHub gallery in the SAME release commit.
+        # The generator fails on incomplete sets or missing real-photo PNGs.
+        from tools.generate_gallery import generate_gallery
+        (ROOT / "GALLERY.md").write_text(
+            generate_gallery(ROOT), encoding="utf-8"
+        )
         # Consume the release queue ONLY after all assets and catalog checks pass.
         # Future curators can add fresh sets without recycling previously shipped ones.
         manifest["last_published_set_ids"] = [x["set_id"] for x in pending_sets]
