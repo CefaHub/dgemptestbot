@@ -114,6 +114,33 @@ def color(hexvalue):
     return tuple(bytes.fromhex(hexvalue.lstrip("#")))
 
 
+def solo_region(photo, region):
+    """Strict optional source crop for an actual one-person portrait.
+
+    The cutout must still have at least 600x800 usable pixels for 3:4.
+    Keep attribution and source SHA for the *whole original photograph*,
+    while visual duplicate checks apply to the final person-only region.
+    """
+    if region is None:
+        return photo
+    if (not isinstance(region, (list, tuple)) or len(region) != 4
+            or any(isinstance(value, bool) or not isinstance(value, (float, int))
+                   for value in region)):
+        raise ValueError("solo_region must be [left, top, right, bottom] fractions")
+    left, top, right, bottom = map(float, region)
+    if not (0 <= left < right <= 1 and 0 <= top < bottom <= 1):
+        raise ValueError("solo_region must be ordered coordinates from 0 to 1")
+    w, h = photo.size
+    crop = photo.crop((
+        round(left * w), round(top * h), round(right * w), round(bottom * h)
+    ))
+    usable_w = min(crop.width, int(crop.height * 3/4))
+    usable_h = min(crop.height, int(crop.width * 4/3))
+    if usable_w < 600 or usable_h < 800:
+        raise ValueError(f"Solo region is too small for 3:4 photo quality: {crop.size}")
+    return crop
+
+
 def zoomed_photo(photo, zoom, focus):
     """Crop away unwanted neighbors while keeping the idol centered."""
     zoom = float(zoom)
@@ -234,6 +261,16 @@ def check_complete_release(spec, existing_sets):
         for name in ("focus_x", "focus_y"):
             if not 0 <= float(row.get(name, 0.5)) <= 1:
                 raise ValueError(f"Invalid {name} for {row['member']}")
+        # Fail early on malformed cutouts: full-image cropping is the default.
+        region = row.get("solo_region")
+        if region is not None and (
+            not isinstance(region, list) or len(region) != 4 or
+            any(isinstance(value, bool) or not isinstance(value, (int, float))
+                for value in region) or
+            not (0 <= region[0] < region[2] <= 1 and
+                 0 <= region[1] < region[3] <= 1)
+        ):
+            raise ValueError(f"Invalid solo_region for {row['member']}")
     return group, tier, set_id
 
 
@@ -283,7 +320,8 @@ def generate(manifest_path, publish=False):
             urls.add(canonical(source_url))
             pages.add(canonical(page))
             print(f'Fetching {member}: {source_url}',flush=True)
-            raw, photo = prefetched_originals.pop(member, None) or original_image(item)
+            raw, original = prefetched_originals.pop(member, None) or original_image(item)
+            photo = solo_region(original, item.get("solo_region"))
             digest = hashlib.sha256(raw).hexdigest()
             if digest in original_hashes:
                 raise ValueError(f"Duplicate original image bytes reused for {member}")
@@ -321,6 +359,7 @@ def generate(manifest_path, publish=False):
                 "license_review": "confirmed", "source_sha256": digest,
                 "source_dhash": f"{visual:016x}", "rarity": tier["rarity"],
                 "series": tier["era"], "number": index, "total": len(members),
+                "solo_region": item.get("solo_region"),
             })
         banner_path = f"assets/banners/{group['slug']}/{group['slug']}_{slug}_{tier['rarity']}_banner.png"
         banner_file = OUT / banner_path
