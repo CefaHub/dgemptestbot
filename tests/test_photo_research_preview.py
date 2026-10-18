@@ -125,3 +125,71 @@ def test_research_preview_produces_five_card_images_and_banner_without_publishin
         "Cropped image originates" in warning
         for member in result["records"] for warning in member["warnings"]
     )
+
+
+def test_itzy_gshock_partial_research_is_explicitly_unpublished():
+    data = json.loads(
+        (pipe.ROOT / "tools/research/itzy_aura_rare_gshock_2024_candidates.json")
+        .read_text(encoding="utf-8")
+    )
+    assert data["set_id"] == "coll_itzy_aura_rare"
+    assert data["collection_review_status"] == "pending"
+    with pytest.raises(ValueError, match="complete, non-duplicated"):
+        preview.validate_candidate(data, set())
+    group, tier, lineup = preview.validate_candidate(
+        data, set(), allow_incomplete=True
+    )
+    assert group["name"] == "ITZY" and tier["rarity"] == "rare"
+    assert lineup == ["YEJI", "LIA", "RYUJIN", "CHAERYEONG", "YUNA"]
+    assert data["missing_members"] == ["YEJI"]
+    assert len(data["cards"]) == 4
+    assert len({row["source_page"] for row in data["cards"]}) == 4
+    assert all(
+        row["photo_session_id"] == data["photo_session_id"]
+        and row["license_status"] == "verified"
+        for row in data["cards"]
+    )
+
+
+def test_partial_research_can_never_skip_declaring_missing_members():
+    data = json.loads(
+        (pipe.ROOT / "tools/research/itzy_aura_rare_gshock_2024_candidates.json")
+        .read_text(encoding="utf-8")
+    )
+    data["missing_members"] = []
+    with pytest.raises(ValueError, match="explicitly identify missing"):
+        preview.validate_candidate(data, set(), allow_incomplete=True)
+
+
+def test_itzy_partial_preview_renders_only_four_actual_sources(tmp_path, monkeypatch):
+    data = json.loads(
+        (pipe.ROOT / "tools/research/itzy_aura_rare_gshock_2024_candidates.json")
+        .read_text(encoding="utf-8")
+    )
+    (tmp_path / "assets/collections").mkdir(parents=True)
+    (tmp_path / "assets/collections/verified_sets.json").write_text('{"sets":[]}')
+    path = tmp_path / "itzy_candidate.json"
+    path.write_text(json.dumps(data))
+    output = tmp_path / "output/itzy_preview"
+    monkeypatch.setattr(preview, "ROOT", tmp_path)
+    monkeypatch.setattr(preview, "checked_sources", lambda: (set(), set(), set(), []))
+    order = [name for name, _ in pipe.GROUPS["ITZY"]["members"]]
+    def fake_original(row):
+        i = order.index(row["member"])
+        return f"fixture {i}".encode(), Image.new("RGB", (1200, 1600), (70+i*29, 90, 140))
+    monkeypatch.setattr(pipe, "original_image", fake_original)
+    fingerprint = iter([0x1111111111111111 * (n + 1) for n in range(4)])
+    monkeypatch.setattr(pipe, "perceptual_hash", lambda image: next(fingerprint))
+    report = preview.preview(path, output, allow_incomplete=True)
+    assert report["published"] is False
+    assert report["previewed"] == 4
+    assert report["missing"] == 1 and report["missing_members"] == ["YEJI"]
+    assert report["failed"] == 0
+    assert len(list(output.glob("*_DRAFT.png"))) == 4
+    assert not (output / "banner_DRAFT.png").exists()
+    assert (output / "contact_sheet_DRAFT.jpg").is_file()
+    assert (output / "review_report.json").is_file()
+    assert (output / "SOURCE_CREDITS_DRAFT.md").is_file()
+    credits = (output / "SOURCE_CREDITS_DRAFT.md").read_text(encoding="utf-8")
+    assert credits.count("- Photo license:") == 4
+    assert "No verified original photograph" in credits
