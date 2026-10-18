@@ -256,6 +256,8 @@ def check_complete_release(spec, existing_sets):
     if spec.get("source_mode", "curated") != "curated":
         raise ValueError("This pipeline publishes curated mixed-source concepts only")
     for row in cards:
+        if row.get("photo_session_id") != session_id:
+            raise ValueError(f"Mixed photo sessions in one set: {row['member']}")
         for field in ("source_page", "photographer", "license", "license_url"):
             if not str(row.get(field, "")).strip():
                 raise ValueError(f"Missing {field} for {row['member']}")
