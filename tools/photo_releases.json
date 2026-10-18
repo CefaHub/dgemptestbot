@@ -105,8 +105,9 @@
       ]
     }
   ],
-  "preview_revision": 16,
+  "preview_revision": 17,
   "last_published_set_ids": [
     "coll_aespa_royal_haze_mythic"
-  ]
+  ],
+  "release_ci_verified": "Main regression suite passed at commit 22744561c8d62b7b1ba34068d2b5e4269d5b0e93; previous publish was blocked by obsolete candidate test, now fixed. 5-card full dry run already passed; publish unchanged sources."
 }
