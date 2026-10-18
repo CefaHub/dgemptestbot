@@ -6,6 +6,7 @@ on:
     paths:
       - 'tools/research/lesserafim_aura_rare_v2_candidates.json'
       - 'tools/research/preview_photo_candidate.py'
+      - 'tools/photo_release_pipeline.py'
       - '.github/workflows/photo-research-preview.yml'
 permissions:
   contents: read
