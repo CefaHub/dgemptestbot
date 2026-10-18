@@ -1,0 +1,56 @@
+name: Dry-run complete LE SSERAFIM AURA RARE full photo release
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/research/lesserafim_aura_rare_ready_preview.json'
+      - '.github/workflows/lesserafim-release-dryrun.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dry-run-full-set:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install production photo renderer
+        run: python -m pip install Pillow
+      - name: Strict production build WITHOUT publishing to the game
+        run: |
+          python tools/photo_release_pipeline.py build \
+            --manifest tools/research/lesserafim_aura_rare_ready_preview.json
+      - name: Validate produced 5 cards and their sole banner
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          out=Path('output/photo_release_batch')
+          data=json.loads((out/'release_metadata.json').read_text())
+          assert len(data['cards'])==5 and len(data['sets'])==1
+          assert len(data['sources'])==5
+          assert len({c['image_path'] for c in data['cards']})==5
+          assert len({s['source_sha256'] for s in data['sources']})==5
+          assert len({s['source_dhash'] for s in data['sources']})==5
+          assert all(s['photo_session_id']==data['sets'][0]['photo_session_id'] for s in data['sources'])
+          for item in data['cards']:
+              with Image.open(out/item['image_path']) as img:
+                  assert img.size==(900,1200)
+          with Image.open(out/data['sets'][0]['banner_path']) as img:
+              assert img.size==(1600,900)
+          live=json.loads(Path('dolce_empire/_catalog.json').read_text())
+          assert len(live)==31, 'Dry-run must not mutate the playable catalog'
+          print('PREVIEW 5 CARDS + 1 BANNER VERIFIED; NO GAME CHANGES')
+          PY
+      - name: Upload rendered previews with credits, never publish
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: DolceEmpire-LESSERAFIM-5-RARE-PREPUBLICATION
+          path: output/photo_release_batch/
+          if-no-files-found: warn
+          retention-days: 14
