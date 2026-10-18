@@ -693,5 +693,100 @@
     "card_number": 5,
     "card_total": 5,
     "image_path": "assets/cards/lesserafim/lesserafim_aura_rare_eunchae_05.png"
+  },
+  {
+    "id": "card_lesserafim_velvet_light_legendary_chaewon_01",
+    "group": "LE SSERAFIM",
+    "idol": "Chaewon",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Чэвон",
+      "chaewon"
+    ],
+    "collection_id": "coll_lesserafim_velvet_light_legendary",
+    "set_id": "coll_lesserafim_velvet_light_legendary",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs",
+    "series": "VELVET LIGHT",
+    "card_number": 1,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_chaewon_01.png"
+  },
+  {
+    "id": "card_lesserafim_velvet_light_legendary_sakura_02",
+    "group": "LE SSERAFIM",
+    "idol": "Sakura",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Сакура",
+      "sakura"
+    ],
+    "collection_id": "coll_lesserafim_velvet_light_legendary",
+    "set_id": "coll_lesserafim_velvet_light_legendary",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs",
+    "series": "VELVET LIGHT",
+    "card_number": 2,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_sakura_02.png"
+  },
+  {
+    "id": "card_lesserafim_velvet_light_legendary_yunjin_03",
+    "group": "LE SSERAFIM",
+    "idol": "Yunjin",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Юнджин",
+      "yunjin"
+    ],
+    "collection_id": "coll_lesserafim_velvet_light_legendary",
+    "set_id": "coll_lesserafim_velvet_light_legendary",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs",
+    "series": "VELVET LIGHT",
+    "card_number": 3,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_yunjin_03.png"
+  },
+  {
+    "id": "card_lesserafim_velvet_light_legendary_kazuha_04",
+    "group": "LE SSERAFIM",
+    "idol": "Kazuha",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Кадзуха",
+      "kazuha"
+    ],
+    "collection_id": "coll_lesserafim_velvet_light_legendary",
+    "set_id": "coll_lesserafim_velvet_light_legendary",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs",
+    "series": "VELVET LIGHT",
+    "card_number": 4,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_kazuha_04.png"
+  },
+  {
+    "id": "card_lesserafim_velvet_light_legendary_eunchae_05",
+    "group": "LE SSERAFIM",
+    "idol": "Eunchae",
+    "era": "VELVET LIGHT",
+    "rarity": "legendary",
+    "base_income": 500,
+    "aliases": [
+      "Ынче",
+      "eunchae"
+    ],
+    "collection_id": "coll_lesserafim_velvet_light_legendary",
+    "set_id": "coll_lesserafim_velvet_light_legendary",
+    "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs",
+    "series": "VELVET LIGHT",
+    "card_number": 5,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_velvet_light_legendary_eunchae_05.png"
   }
 ]

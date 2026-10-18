@@ -2,7 +2,7 @@
 
 > Автоматически создано из **опубликованного** каталога игры. Исследовательские превью и незавершённые наборы сюда не попадают.
 
-**Опубликовано: 36 карточек в 8 полных коллекциях.**
+**Опубликовано: 41 карточек в 9 полных коллекциях.**
 
 Нажми на фотографию, чтобы открыть оригинальный PNG 900×1200. Баннеры каждого сета — 1600×900.
 
@@ -16,6 +16,7 @@
 - [LE SSERAFIM — SPOTLIGHT / EPIC](#coll_lesserafim_spotlight_epic)
 - [aespa — ROYAL HAZE / MYTHIC](#coll_aespa_royal_haze_mythic)
 - [LE SSERAFIM — AURA / RARE](#coll_lesserafim_aura_rare)
+- [LE SSERAFIM — VELVET LIGHT / LEGENDARY](#coll_lesserafim_velvet_light_legendary)
 
 ## ILLIT — SPOTLIGHT · EPIC
 
@@ -120,6 +121,19 @@
 | **Chaewon** | **Sakura** | **Yunjin** | **Kazuha** | **Eunchae** |
 
 *Фотосерия: LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames.*
+
+## LE SSERAFIM — VELVET LIGHT · LEGENDARY
+
+<a id="coll_lesserafim_velvet_light_legendary"></a>
+
+**5/5 участниц** · [Открыть баннер](assets/banners/lesserafim/lesserafim_velvet_light_legendary_banner.png)
+
+| 1 | 2 | 3 | 4 | 5 |
+| :---: | :---: | :---: | :---: | :---: |
+| [<img src="assets/cards/lesserafim/lesserafim_velvet_light_legendary_chaewon_01.png" width="175" alt="Chaewon LE SSERAFIM legendary">](assets/cards/lesserafim/lesserafim_velvet_light_legendary_chaewon_01.png) | [<img src="assets/cards/lesserafim/lesserafim_velvet_light_legendary_sakura_02.png" width="175" alt="Sakura LE SSERAFIM legendary">](assets/cards/lesserafim/lesserafim_velvet_light_legendary_sakura_02.png) | [<img src="assets/cards/lesserafim/lesserafim_velvet_light_legendary_yunjin_03.png" width="175" alt="Yunjin LE SSERAFIM legendary">](assets/cards/lesserafim/lesserafim_velvet_light_legendary_yunjin_03.png) | [<img src="assets/cards/lesserafim/lesserafim_velvet_light_legendary_kazuha_04.png" width="175" alt="Kazuha LE SSERAFIM legendary">](assets/cards/lesserafim/lesserafim_velvet_light_legendary_kazuha_04.png) | [<img src="assets/cards/lesserafim/lesserafim_velvet_light_legendary_eunchae_05.png" width="175" alt="Eunchae LE SSERAFIM legendary">](assets/cards/lesserafim/lesserafim_velvet_light_legendary_eunchae_05.png) |
+| **Chaewon** | **Sakura** | **Yunjin** | **Kazuha** | **Eunchae** |
+
+*Фотосерия: LE SSERAFIM — Easy Crazy Hot Tour Seattle (17 Sep 2025), David Lee, five alternate original photographs.*
 
 ---
 
