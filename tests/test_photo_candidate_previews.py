@@ -42,7 +42,9 @@ def test_four_real_candidates_preview_without_publishing(preview_input):
     # source URLs to remain unissued forever.
     pending = json.loads((previews.ROOT / "tools/photo_releases.json").read_text(encoding="utf-8"))["sets"]
     published = json.loads((previews.ROOT / "assets/collections/verified_sets.json").read_text(encoding="utf-8"))["sets"]
-    if any(item["set_id"] == "coll_lesserafim_aura_rare" for item in pending + published):
+    if any(item.get("set_id") == "coll_lesserafim_aura_rare" or
+           (item.get("group"), item.get("era"), item.get("rarity")) ==
+           ("LE SSERAFIM", "AURA", "rare") for item in pending + published):
         pytest.skip("Superseded four-card mock; full unique five-card release is queued or published")
     live_catalog = previews.ROOT / "dolce_empire/_catalog.json"
     live_sets = previews.ROOT / "assets/collections/verified_sets.json"
