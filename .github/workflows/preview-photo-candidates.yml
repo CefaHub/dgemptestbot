@@ -24,7 +24,17 @@ jobs:
       - name: Run full regression suite including no-incomplete-publishing tests
         run: python -m pytest -q
       - name: Render real sourced photos for human review, no publication
-        run: python tools/photo_candidate_previews.py tools/research/lesserafim_aura_rare_candidates.json
+        run: |
+          python tools/photo_candidate_previews.py tools/research/lesserafim_aura_rare_candidates.json
+          python - <<'PY'
+          from pathlib import Path
+          from tools.photo_candidate_previews import prepare_candidates
+          report = prepare_candidates(
+              "tools/research/lesserafim_aura_rare_v2_candidates.json",
+              output_dir=Path("output/photo_candidate_previews/solo_review_v2"),
+          )
+          print("Five-image candidate contact sheet, NOT published:", report["contact_sheet"])
+          PY
       - name: Upload real-photo card previews and rights/duplicate report
         uses: actions/upload-artifact@v4
         with:
