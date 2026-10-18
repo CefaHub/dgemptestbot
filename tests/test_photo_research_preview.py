@@ -107,6 +107,12 @@ def test_research_preview_produces_five_card_images_and_banner_without_publishin
     assert len(list(output.glob("*_DRAFT.png"))) == 6
     assert (output / "contact_sheet_DRAFT.jpg").is_file()
     assert (output / "review_report.json").is_file()
+    credits = (output / "SOURCE_CREDITS_DRAFT.md").read_text(encoding="utf-8")
+    assert "CC BY 4.0" in credits
+    assert "David Lee" in credits
+    assert "not approved for game release" in credits
+    assert credits.count("Photo license:") == 5
+    assert credits.count("Original photo page:") == 5
     with Image.open(output / "banner_DRAFT.png") as banner:
         assert banner.size == pipe.BANNER_SIZE
     for image in output.glob("0*_DRAFT.png"):
