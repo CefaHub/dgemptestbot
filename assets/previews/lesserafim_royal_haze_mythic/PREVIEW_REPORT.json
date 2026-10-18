@@ -1,0 +1,111 @@
+{
+  "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
+  "contact_sheet": "CONTACT_SHEET.png",
+  "group": "LE SSERAFIM",
+  "era": "ROYAL HAZE",
+  "rarity": "mythic",
+  "members_missing": [],
+  "cards": [
+    {
+      "member": "CHAEWON",
+      "file": "lesserafim_royal_haze_mythic_chaewon_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849585225%29.jpg",
+      "source_sha256": "53dfab5d7e0d5eda9ee272fbf049e5a2a7e82a061163f6a68d8b7b54001861ea",
+      "source_dhash": "cd64693b96c34d0b",
+      "original_pixels": [
+        960,
+        1200
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1200
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "SAKURA",
+      "file": "lesserafim_royal_haze_mythic_sakura_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157085401%29.jpg",
+      "source_sha256": "105a648a0a422aee5aecb46630fea608f69a6feb43c715e135b454ce87c4d684",
+      "source_dhash": "9f8111d171305414",
+      "original_pixels": [
+        1920,
+        1280
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        1920,
+        1280
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "YUNJIN",
+      "file": "lesserafim_royal_haze_mythic_yunjin_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963857%29.jpg",
+      "source_sha256": "d87765a14ec276c8d2c7bf7bd7f0811e2ce2ee8e6560c7a19b07a75690982977",
+      "source_dhash": "382880c1454d0f9f",
+      "original_pixels": [
+        960,
+        1200
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1200
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "KAZUHA",
+      "file": "lesserafim_royal_haze_mythic_kazuha_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336949%29.jpg",
+      "source_sha256": "d28eb26f7d15a3907d7546af5883dc477c4fb2b1975a403aab0ef4e338cf5acf",
+      "source_dhash": "9f9f9f938b6bcfd3",
+      "original_pixels": [
+        960,
+        1200
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        960,
+        1200
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    },
+    {
+      "member": "EUNCHAE",
+      "file": "lesserafim_royal_haze_mythic_eunchae_PREVIEW.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
+      "source_sha256": "584fd15a2978083145903007db94a057fc94254412af0cbe21e3339b5739f03f",
+      "source_dhash": "1c1898303b353536",
+      "original_pixels": [
+        1920,
+        1280
+      ],
+      "solo_region": null,
+      "crop_pixels": [
+        1920,
+        1280
+      ],
+      "preview_pixels": [
+        900,
+        1200
+      ]
+    }
+  ],
+  "note": "Check image sharpness and solo crop manually; never release a missing-member set."
+}
