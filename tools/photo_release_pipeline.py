@@ -355,7 +355,7 @@ def generate(manifest_path, publish=False):
             card_art(framed_photo, group, tier, member, index, len(members), focus).save(
                 exported, "PNG", optimize=True
             )
-            staged[member] = (photo, focus)
+            staged[member] = (framed_photo, focus)
             pending_cards.append({
                 "id": card_id, "group": group["name"], "idol": member.title(),
                 "era": tier["era"], "rarity": tier["rarity"],
@@ -374,6 +374,7 @@ def generate(manifest_path, publish=False):
                 "source_dhash": f"{visual:016x}", "rarity": tier["rarity"],
                 "series": tier["era"], "number": index, "total": len(members),
                 "solo_region": item.get("solo_region"),
+                "photo_session_id": session_id,
             })
         banner_path = f"assets/banners/{group['slug']}/{group['slug']}_{slug}_{tier['rarity']}_banner.png"
         banner_file = OUT / banner_path
@@ -384,6 +385,7 @@ def generate(manifest_path, publish=False):
             "set_id": set_id, "group": group["name"], "era": tier["era"],
             "rarity": tier["rarity"], "source_collection": spec["source_collection"],
             "source_mode": "curated", "expected_members": members,
+            "photo_session_id": session_id,
             "banner_path": banner_path,
         })
     additions = {"cards": pending_cards, "sets": pending_sets, "sources": pending_sources}
