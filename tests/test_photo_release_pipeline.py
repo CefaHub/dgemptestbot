@@ -100,6 +100,27 @@ def test_pipeline_generates_four_real_source_crops_and_one_wide_banner(photo_san
     assert json.loads((root / "dolce_empire/_catalog.json").read_text()) == []
 
 
+def test_publish_also_updates_gallery_in_the_same_release(photo_sandbox, monkeypatch):
+    """One CI publish must commit the card assets, source ledger and updated index."""
+    from dolce_empire import set_validation
+    from tools.generate_gallery import generate_gallery
+
+    root, manifest = photo_sandbox
+    monkeypatch.setattr(set_validation, "ROOT", root)
+    monkeypatch.setattr(
+        set_validation, "SETS_FILE", root / "assets/collections/verified_sets.json"
+    )
+    monkeypatch.setattr(
+        set_validation, "SOURCES_FILE", root / "tools/photo_sources.json"
+    )
+    package = pipe.generate("tools/photo_releases.json", publish=True)
+    assert len(package["cards"]) == 4
+    assert (root / "GALLERY.md").read_text(encoding="utf-8") == generate_gallery(root)
+    assert (root / "GALLERY.md").read_text(encoding="utf-8").count('<img src="assets/cards/') == 4
+    assert json.loads((root / "tools/photo_releases.json").read_text())["sets"] == []
+    assert len(json.loads((root / "data/catalog.json").read_text())) == 4
+
+
 def test_release_must_have_complete_group(photo_sandbox):
     root, manifest = photo_sandbox
     manifest["sets"][0]["cards"].pop()
