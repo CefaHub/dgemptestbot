@@ -1,0 +1,87 @@
+{
+  "status": "research_incomplete_not_published",
+  "set_id": "coll_itzy_aura_rare",
+  "group": "ITZY",
+  "era": "AURA",
+  "rarity": "rare",
+  "source_collection": "ITZY at G-SHOCK fansign, 23 October 2024 — original K-POPIT camera source",
+  "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+  "collection_review_status": "pending",
+  "source_mode": "curated",
+  "notes": "Four Commons images from one K-POPIT licensed G-SHOCK 2024-10-23 event. YEJI source not yet rights-cleared and suitable; kpopping fan gallery is not proof of redistribution license. No publication until five valid unique solo originals pass visual and rights QA. No image URL is fabricated.",
+  "missing_members": [
+    "YEJI"
+  ],
+  "cards": [
+    {
+      "member": "YEJI",
+      "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+      "source_page": "",
+      "original_source": "",
+      "photographer": "",
+      "license": "",
+      "license_url": "",
+      "license_status": "pending",
+      "solo_review_status": "pending",
+      "photo_url": "",
+      "focus_x": 0.5,
+      "focus_y": 0.35
+    },
+    {
+      "member": "LIA",
+      "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Lia.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "pending",
+      "solo_review_status": "pending",
+      "photo_url": "",
+      "focus_x": 0.5,
+      "focus_y": 0.35
+    },
+    {
+      "member": "RYUJIN",
+      "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Ryujin.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "pending",
+      "solo_review_status": "pending",
+      "photo_url": "",
+      "focus_x": 0.5,
+      "focus_y": 0.35
+    },
+    {
+      "member": "CHAERYEONG",
+      "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Chaeryeong.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "pending",
+      "solo_review_status": "pending",
+      "photo_url": "",
+      "focus_x": 0.5,
+      "focus_y": 0.35
+    },
+    {
+      "member": "YUNA",
+      "photo_session_id": "itzy_gshock_2024_10_23_kpopit",
+      "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Yuna.jpg",
+      "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+      "photographer": "K-POPIT 케이팝잇",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "license_status": "pending",
+      "solo_review_status": "pending",
+      "photo_url": "",
+      "focus_x": 0.5,
+      "focus_y": 0.35
+    }
+  ]
+}
