@@ -74,7 +74,7 @@ def main():
         return
     for index, path in enumerate(candidates, start=1):
         output = ROOT / "output" / "photo_candidate_previews" / path.stem
-        report = prepare_candidates(path, output_dir=output)
+        report = prepare_candidates(path, output_dir=output, archive_originals=True)
         print(f"PREVIEW ONLY: {path.name}: {len(report['cards'])} source-backed candidates; "
               f"missing {len(report['members_missing'])}; stored at {output}")
 
