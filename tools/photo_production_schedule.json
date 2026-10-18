@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "target_catalog_cards": 100,
+  "description": "Production order for the 13 unpublished complete member sets in the initial 100-slot DOLCE EMPIRE plan. Status is derived dynamically from live catalog; scheduling does not publish assets.",
+  "rules": {
+    "full_group_only": true,
+    "one_source_collection_per_set": true,
+    "unique_original_across_all_rarities": true,
+    "no_ai_generated_idol_photos": true,
+    "min_source_crop": [
+      600,
+      800
+    ],
+    "card_size": [
+      900,
+      1200
+    ],
+    "banner_size": [
+      1600,
+      900
+    ],
+    "rights_review_required": true,
+    "publish_only_complete_verified_sets": true
+  },
+  "queue": [
+    {
+      "priority": 1,
+      "set_id": "coll_lesserafim_aura_rare",
+      "note": "Исследование 5 фото готово; соло-кроп YUNJIN ожидает визуального подтверждения"
+    },
+    {
+      "priority": 2,
+      "set_id": "coll_itzy_aura_rare",
+      "note": "Нужна подтверждённая единая фотосессия всех пяти участниц"
+    },
+    {
+      "priority": 3,
+      "set_id": "coll_ive_aura_rare",
+      "note": "Нужны шесть уникальных соло-фото из одной серии"
+    },
+    {
+      "priority": 4,
+      "set_id": "coll_illit_aura_rare",
+      "note": "Нужны пять уникальных фото из одной серии"
+    },
+    {
+      "priority": 5,
+      "set_id": "coll_ive_spotlight_epic",
+      "note": "Нужны шесть уникальных фото из одной серии"
+    },
+    {
+      "priority": 6,
+      "set_id": "coll_illit_velvet_light_legendary",
+      "note": "Нужны пять отдельных фото, не повторяющих EPIC"
+    },
+    {
+      "priority": 7,
+      "set_id": "coll_itzy_velvet_light_legendary",
+      "note": "Нужны пять отдельных фото, не повторяющих RARE/EPIC"
+    },
+    {
+      "priority": 8,
+      "set_id": "coll_lesserafim_velvet_light_legendary",
+      "note": "Нужны пять отдельных фото, не повторяющих RARE/EPIC"
+    },
+    {
+      "priority": 9,
+      "set_id": "coll_ive_velvet_light_legendary",
+      "note": "Нужны шесть отдельных фото, не повторяющих RARE/EPIC"
+    },
+    {
+      "priority": 10,
+      "set_id": "coll_illit_royal_haze_mythic",
+      "note": "Нужны пять уникальных фото, отдельная серия"
+    },
+    {
+      "priority": 11,
+      "set_id": "coll_itzy_royal_haze_mythic",
+      "note": "Нужны пять уникальных фото, отдельная серия"
+    },
+    {
+      "priority": 12,
+      "set_id": "coll_lesserafim_royal_haze_mythic",
+      "note": "Нужны пять уникальных фото, отдельная серия"
+    },
+    {
+      "priority": 13,
+      "set_id": "coll_ive_royal_haze_mythic",
+      "note": "Нужны шесть уникальных фото, отдельная серия"
+    }
+  ]
+}
