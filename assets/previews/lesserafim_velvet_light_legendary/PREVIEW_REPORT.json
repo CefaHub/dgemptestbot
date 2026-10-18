@@ -61,20 +61,20 @@
       "file": "lesserafim_velvet_light_legendary_yunjin_PREVIEW.png",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
       "source_sha256": "13b0b85926ce390b20ab03aeeea6bd0fe6cb459d30f312272278544cf37c7060",
-      "source_dhash": "1228342d20684c4c",
+      "source_dhash": "920a381525704c4c",
       "original_pixels": [
         1920,
         2400
       ],
       "solo_region": [
         0.04,
-        0.13,
+        0.08,
         0.42,
         0.82
       ],
       "crop_pixels": [
         729,
-        1656
+        1776
       ],
       "preview_pixels": [
         900,
