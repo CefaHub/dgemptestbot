@@ -1,7 +1,7 @@
 {
   "version": 1,
   "target_catalog_cards": 100,
-  "description": "Production order for the 13 unpublished complete member sets in the initial 100-slot DOLCE EMPIRE plan. Status is derived dynamically from live catalog; scheduling does not publish assets.",
+  "description": "Historical order for the initial 100 unique photo slots. Published sets remain listed as provenance but are automatically excluded from the dynamic pending queue. As of 2026-10-18, 36 cards in 8 sets published, 64 cards in 12 sets remain.",
   "rules": {
     "full_group_only": true,
     "one_source_collection_per_set": true,
@@ -26,7 +26,7 @@
     {
       "priority": 1,
       "set_id": "coll_lesserafim_aura_rare",
-      "note": "Исследование 5 фото готово; соло-кроп YUNJIN ожидает визуального подтверждения"
+      "note": "ОПУБЛИКОВАНО: LE SSERAFIM AURA RARE, 5 уникальных фото и баннер 18.10.2026. Сет исключается из текущей очереди инструментом status; старые исследования не переиздавать."
     },
     {
       "priority": 2,
