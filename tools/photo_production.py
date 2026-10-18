@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Auditable production schedule for 100 distinct DOLCE EMPIRE photo slots.
+"""Auditable production schedule for complete K-pop photo collections (~100 initial slots).
 
 This tool NEVER fabricates photographs, grants image rights, or writes game data.
 It reads the LIVE published catalog and works only on unpublished *complete*
@@ -81,8 +81,13 @@ def read_status(root=ROOT):
 
     planned = build_plan(plan)
     target_count = sum(len(s["cards"]) for s in planned.values())
-    if target_count != schedule.get("target_catalog_cards") or target_count != 100:
-        raise ProductionError(f"Slot count must be exactly 100, got {target_count}")
+    # 100 is a planning guideline, not a cut-off inside a full group.
+    # Validate a declared target against complete sets, never a magic number.
+    if target_count <= 0 or target_count != schedule.get("target_catalog_cards"):
+        raise ProductionError(
+            f"Target must equal the sum of COMPLETE planned sets: "
+            f"declared={schedule.get('target_catalog_cards')}, actual={target_count}"
+        )
     if published_cards != mirror:
         raise ProductionError("The deployed and mirror catalogs differ; fix before planning")
     if len({row["id"] for row in published_cards}) != len(published_cards):
@@ -97,7 +102,7 @@ def read_status(root=ROOT):
     published_by_set = {}
     for row in published_cards:
         if row["id"] not in {x["card_id"] for x in planned.get(row["set_id"], {}).get("cards", [])}:
-            raise ProductionError(f"Live card outside canonical 100 slots: {row['id']}")
+            raise ProductionError(f"Live card outside planned complete sets: {row['id']}")
         published_by_set.setdefault(row["set_id"], []).append(row)
     if set(published_by_set) != set(published_set_ids):
         raise ProductionError("Live catalog and verified release manifest disagree")
@@ -216,7 +221,7 @@ def main(argv=None):
     except (ProductionError, KeyError, TypeError, json.JSONDecodeError) as exc:
         parser.exit(1, f"Invalid photo production state: {exc}\n")
     if args.command == "validate":
-        print("DOLCE EMPIRE: 100 unique slots / complete published sets / queue OK")
+        print(f"DOLCE EMPIRE: {report['target_cards']} planned unique photos / complete published sets / queue OK")
         return
     if args.json:
         print(json.dumps(report, ensure_ascii=False, indent=2))
