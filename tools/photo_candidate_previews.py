@@ -18,12 +18,12 @@ from PIL import Image, ImageDraw
 try:
     from .photo_release_pipeline import (
         ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
-        perceptual_hash, zoomed_photo, card_art, load_json, font,
+        perceptual_hash, zoomed_photo, solo_region, card_art, load_json, font,
     )
 except ImportError:  # Direct CLI invocation from tools/ as a script.
     from photo_release_pipeline import (
         ROOT, GROUPS, TIERS, CARD_SIZE, canonical, original_image,
-        perceptual_hash, zoomed_photo, card_art, load_json, font,
+        perceptual_hash, zoomed_photo, solo_region, card_art, load_json, font,
     )
 
 PREVIEW_DIR = ROOT / "output" / "photo_candidate_previews"
@@ -118,7 +118,8 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
             raise ValueError(f"Previously published photograph cannot be reused: {member}")
         previous_urls.add(canonical(photo_url))
         previous_pages.add(canonical(source_page))
-        raw, image = original_image(row)
+        raw, original = original_image(row)
+        image = solo_region(original, row.get("solo_region"))
         sha = hashlib.sha256(raw).hexdigest()
         if sha in previous_sha:
             raise ValueError(f"Duplicate original file bytes: {member}")
@@ -142,14 +143,15 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR):
         preview.append({
             "member": member, "file": destination.name,
             "source_page": source_page, "source_sha256": sha,
-            "source_dhash": f"{visual:016x}", "original_pixels": list(image.size),
+            "source_dhash": f"{visual:016x}", "original_pixels": list(original.size),
+            "solo_region": row.get("solo_region"), "crop_pixels": list(image.size),
             "preview_pixels": list(CARD_SIZE),
         })
         print(f"Prepared candidate card: {member} from real source image.")
 
     contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, missing)
     report = {
-        "publication": "BLOCKED: incomplete research-only candidates; game catalog unchanged",
+        "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
         "contact_sheet": contact_sheet.name,
         "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
         "members_missing": missing,
