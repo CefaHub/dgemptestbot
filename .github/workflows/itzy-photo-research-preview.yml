@@ -1,0 +1,36 @@
+name: ITZY G-SHOCK real-photo research preview (never publish)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/research/itzy_aura_rare_gshock_2024_candidates.json'
+      - 'tools/research/preview_photo_candidate.py'
+      - '.github/workflows/itzy-photo-research-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  itzy-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install real-photo renderer
+        run: python -m pip install Pillow
+      - name: Research preview only (never publish missing YEJI)
+        run: |
+          python tools/research/preview_photo_candidate.py \
+            --candidate tools/research/itzy_aura_rare_gshock_2024_candidates.json \
+            --output output/research_preview/itzy_aura_rare \
+            --allow-incomplete
+      - name: Upload source audit and preview (not game artwork)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: DolceEmpire-ITZY-AURA-RARE-INCOMPLETE-RESEARCH
+          path: output/research_preview/itzy_aura_rare/
+          if-no-files-found: warn
+          retention-days: 14
