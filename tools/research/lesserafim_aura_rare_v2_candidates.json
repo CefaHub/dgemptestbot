@@ -1,0 +1,85 @@
+{
+  "status": "research_preview_only_not_published",
+  "set_id": "coll_lesserafim_aura_rare",
+  "group": "LE SSERAFIM",
+  "era": "AURA",
+  "rarity": "rare",
+  "source_collection": "LE SSERAFIM — Easy Crazy Hot Tour Seattle, September 17 2025, David Lee — alternate original frames",
+  "source_mode": "curated",
+  "missing_members": [],
+  "cards": [
+    {
+      "member": "CHAEWON",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797153830/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.36,
+      "zoom": 1
+    },
+    {
+      "member": "SAKURA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069478%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797069478/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.34,
+      "zoom": 1
+    },
+    {
+      "member": "KAZUHA",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797069863%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797069863/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.35,
+      "zoom": 1
+    },
+    {
+      "member": "EUNCHAE",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846409880%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846409880%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846409880%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54846409880/",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "focus_x": 0.5,
+      "focus_y": 0.42,
+      "zoom": 1
+    },
+    {
+      "member": "YUNJIN",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854795963477%29.jpg",
+      "photographer": "David Lee",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_status": "verified",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54795963477/",
+      "focus_x": 0.5,
+      "focus_y": 0.07,
+      "solo_region": [
+        0.415,
+        0.01,
+        0.905,
+        0.74
+      ],
+      "solo_crop_review": "Reference 2025 Seattle photo of Huh Yun-jin and Kim Chae-won; crop right-hand solo portrait to exclude other face; check preview before publishing",
+      "preview_note": "Cropped artist solo on RIGHT from a two-person photograph; preview-only pending confirmation no second face remains. Never promote without separate visual approval."
+    }
+  ],
+  "notes": "Five source-verified David Lee Seattle alternatives. Four previously reviewed photographs and ONE experimental YUNJIN solo crop from a two-performer original (Flickr 54795963477). This is a contact-sheet preview only; do not publish until visually checked for a second person's face, identity, sharpness and minimum crop quality. The existing YUNJIN EPIC photo is not reused."
+}
