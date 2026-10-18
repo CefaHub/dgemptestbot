@@ -44,7 +44,7 @@
     },
     {
       "member": "YUNJIN",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
       "original_source": "https://www.flickr.com/photos/davidjlee/54797054149/",
       "photographer": "David Lee",
@@ -54,13 +54,13 @@
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
       "solo_review_status": "pending",
       "source_review_status": "pending_visual_subject_confirmation",
-      "focus_x": 0.46,
+      "focus_x": 0.5,
       "focus_y": 0.18,
-      "notes": "YUNJIN is central dark wavy hair singer in white costume; crop 35% width from 1920px licensed concert photo, excluding neighbors' faces. Check visually before approving.",
+      "notes": "Native original 3218x2574; 20%-width exact Yunjin portrait crop = ~644 native pixels. Should omit adjacent members' faces. Explicitly pending visual verification, no upscaling.",
       "solo_region": [
-        0.285,
+        0.365,
         0.04,
-        0.635,
+        0.565,
         0.96
       ]
     },
@@ -97,5 +97,5 @@
       "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha."
     }
   ],
-  "notes": "MYTHIC unpublished. 4 members visually promising. For YUNJIN, 54797054149 wide source is multicrowd; test solo 1920px crop, do not publish until verified single face."
+  "notes": "Retry using Wikimedia original native 3218px wide so tight 644px portrait crop stays above 600px native threshold; only publish after viewing no other faces."
 }
