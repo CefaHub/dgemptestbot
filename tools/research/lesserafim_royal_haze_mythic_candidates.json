@@ -56,11 +56,11 @@
       "source_review_status": "pending_visual_subject_confirmation",
       "focus_x": 0.5,
       "focus_y": 0.18,
-      "notes": "Native original 3218x2574; 20%-width exact Yunjin portrait crop = ~644 native pixels. Should omit adjacent members' faces. Explicitly pending visual verification, no upscaling.",
+      "notes": "FINAL crop trial: source 3218 px native * (0.543-0.355)=605 px; removes right neighbor's face, leaves Yunjin center and only nonface background fragments. No upscaling. Visually approve only if other face absent.",
       "solo_region": [
-        0.365,
+        0.355,
         0.04,
-        0.565,
+        0.543,
         0.96
       ]
     },
