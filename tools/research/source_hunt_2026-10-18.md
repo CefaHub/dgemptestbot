@@ -1,5 +1,7 @@
 # DOLCE EMPIRE — external real-photo sourcing notes (2026-10-18)
 
+> **Current release status (18 Oct 2026): 36/100 playable real-photo cards in 8 complete sets. LE SSERAFIM AURA RARE (5 cards) has been published. The section below describing 4/5 preview is preserved solely as historical research chronology, NOT current availability. Do not repeat those images. Next unpublished target: ITZY AURA RARE; YEJI licensed solo still missing.**
+
 Source research is not limited to Wikimedia. Search Google and original photographer / videographer sources first, then verify individual photograph rights and resolution before releasing any new set.
 
 ## Rules (non-negotiable)
@@ -54,7 +56,7 @@ Published as `coll_aespa_royal_haze_mythic`. Complete set, all images available 
 
 Previous research queue for a 2026 Mise-en-Scene version of MYTHIC is intentionally **superseded**, not published. Do not attempt to reuse its URLs or add a second coll_aespa_royal_haze_mythic entry.
 
-## Preview-only: LE SSERAFIM / AURA RARE (4 of 5 cards, blocked from game)
+## Historical preview stage, BEFORE the 18 Oct release: LE SSERAFIM / AURA RARE (formerly 4 of 5)
 
 The 2025-09-17 Seattle concert by David Lee has an additional four high-resolution, rights-reviewed, previously UNUSED source frames. They were rendered by GitHub Actions into 900x1200 DOLCE EMPIRE AURA rare artwork and saved as a temporary review artifact:
 
