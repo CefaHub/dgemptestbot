@@ -50,6 +50,11 @@ def validate_photo_sets(cards):
                 raise ValueError(f'Missing unique member source for {c["id"]}')
             if source['group'] != group:
                 raise ValueError(f'Member source does not match group {group}')
+            # Old released sets predate explicit session IDs, but every new
+            # set with one must keep precisely the same session on each card.
+            session_id = series.get('photo_session_id')
+            if session_id and source.get('photo_session_id') != session_id:
+                raise ValueError(f'Mixed photo sessions in published collection: {c["id"]}')
             # Legacy SPOTLIGHT sets are documented single-event photo series.
             # New curated sets may use different approved photographers, but
             # must visibly share the SAME editorial collection and one rarity.
