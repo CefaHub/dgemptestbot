@@ -97,5 +97,6 @@
       "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha."
     }
   ],
-  "notes": "Retry using Wikimedia original native 3218px wide so tight 644px portrait crop stays above 600px native threshold; only publish after viewing no other faces."
+  "notes": "Retry using Wikimedia original native 3218px wide so tight 644px portrait crop stays above 600px native threshold; only publish after viewing no other faces. Preserve exact original bytes and source SHA-256 inside private workflow artifact for deterministic final 5-member publication; no image substitutions.",
+  "source_archive_revision": 1
 }
