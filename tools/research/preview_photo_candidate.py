@@ -94,7 +94,7 @@ def preview(candidate, target):
     source_urls, source_pages, raw_hashes, visual_hashes = checked_sources()
 
     target.mkdir(parents=True, exist_ok=True)
-    tiles, results = [], []
+    tiles, results, banner_images = [], [], []
     cards = {row["member"]: row for row in data["cards"]}
     for idx, member in enumerate(members, 1):
         row = cards[member]
@@ -153,6 +153,7 @@ def preview(candidate, target):
             if row.get("solo_review_status") != "approved":
                 info["warnings"].append("Solo portrait is not approved for publishing")
             tiles.append((member, artwork, info))
+            banner_images.append((member, final, focus))
         except Exception as exc:
             info["status"] = "error"
             info["error"] = f"{type(exc).__name__}: {exc}"
@@ -190,6 +191,14 @@ def preview(candidate, target):
         badge = "ERROR" if info["status"] == "error" else "REVIEW NEEDED"
         dr.text((x + 4, y + THUMB_SIZE[1] + 37), badge, fill="#ffba74", font=pipe.font(17))
     sheet.save(target / "contact_sheet_DRAFT.jpg", quality=92, subsampling=0)
+    if len(banner_images) == len(members):
+        # Banner derives from exactly the five individual approved-for-preview
+        # crops; it is never a fresh unrelated photo source or synthetic face.
+        pipe.banner_art(
+            [(member, photo) for member, photo, _ in banner_images],
+            group, tier,
+            {member: focus for member, _, focus in banner_images},
+        ).save(target / "banner_DRAFT.png", format="PNG")
     failures = sum(item["status"] == "error" for item in results)
     report = {
         "set_id": data["set_id"],
