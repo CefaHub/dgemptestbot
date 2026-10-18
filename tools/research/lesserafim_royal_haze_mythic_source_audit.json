@@ -1,0 +1,68 @@
+{
+  "status": "research_incomplete_blocked_no_publish",
+  "set_id": "coll_lesserafim_royal_haze_mythic",
+  "group": "LE SSERAFIM",
+  "era": "ROYAL HAZE",
+  "rarity": "mythic",
+  "source_collection": "LE SSERAFIM Easy Crazy Hot Tour Seattle Sept 17 2025 David Lee — unused frames",
+  "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+  "collection_review_status": "pending",
+  "expected_members": [
+    "CHAEWON",
+    "SAKURA",
+    "YUNJIN",
+    "KAZUHA",
+    "EUNCHAE"
+  ],
+  "missing_members": [
+    "YUNJIN"
+  ],
+  "candidates": [
+    {
+      "member": "CHAEWON",
+      "flickr_photo_id": "54797153830",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54797153830/",
+      "photographer": "David Lee",
+      "expected_license": "CC BY 4.0 (individual page to verify)",
+      "license_status": "pending_individual_file_check",
+      "crop_review": "pending",
+      "source_uniqueness": "not_in_playable_catalog_source_ledger"
+    },
+    {
+      "member": "SAKURA",
+      "flickr_photo_id": "54796820966",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820966%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54796820966/",
+      "photographer": "David Lee",
+      "expected_license": "CC BY 4.0 (individual page to verify)",
+      "license_status": "pending_individual_file_check",
+      "crop_review": "pending",
+      "source_uniqueness": "not_in_playable_catalog_source_ledger"
+    },
+    {
+      "member": "KAZUHA",
+      "flickr_photo_id": "54796820566",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54796820566/",
+      "photographer": "David Lee",
+      "expected_license": "CC BY 4.0 (individual page to verify)",
+      "license_status": "pending_individual_file_check",
+      "crop_review": "pending",
+      "source_uniqueness": "not_in_playable_catalog_source_ledger"
+    },
+    {
+      "member": "EUNCHAE",
+      "flickr_photo_id": "54846336944",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
+      "original_source": "https://www.flickr.com/photos/davidjlee/54846336944/",
+      "photographer": "David Lee",
+      "expected_license": "CC BY 4.0 (individual page to verify)",
+      "license_status": "pending_individual_file_check",
+      "crop_review": "pending",
+      "source_uniqueness": "not_in_playable_catalog_source_ledger"
+    }
+  ],
+  "blocked_reason": "Only 4 of 5 unused photo originals currently identified; need genuinely different YUNJIN photo from same event, then 900x1200 full set preview, visual QA and release.",
+  "rule": "Never add 4 cards without 5th; 100 is approximate and never overrides complete lineup."
+}
