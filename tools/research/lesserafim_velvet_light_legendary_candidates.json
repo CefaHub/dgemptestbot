@@ -1,6 +1,6 @@
 {
   "status": "research_preview_only_not_published",
-  "candidate_revision": 1,
+  "candidate_revision": 2,
   "set_id": "coll_lesserafim_velvet_light_legendary",
   "group": "LE SSERAFIM",
   "era": "VELVET LIGHT",
@@ -45,7 +45,7 @@
       "license_status": "verified",
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
       "focus_x": 0.47,
-      "focus_y": 0.32,
+      "focus_y": 0,
       "solo_review_status": "pending",
       "solo_region": [
         0.37,
@@ -53,7 +53,7 @@
         1,
         0.98
       ],
-      "source_selection_note": "Foreground center-right. Background member at far left must disappear entirely after crop.",
+      "source_selection_note": "Cropped to Sakura only, with top-aligned 3:4 portrait to preserve FULL forehead and face; left-side second performer excluded.",
       "source_review_status": "photo_provenance_verified_visual_pending",
       "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 960px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
@@ -68,15 +68,15 @@
       "license_status": "verified",
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
       "focus_x": 0.5,
-      "focus_y": 0.3,
+      "focus_y": 0,
       "solo_review_status": "pending",
       "solo_region": [
         0.04,
-        0.13,
+        0.08,
         0.42,
         0.82
       ],
-      "source_selection_note": "Black-and-white original. Intended left-side singer; ensure the right-side short-haired singer is excluded. Need visual verification of portrait sharpness.",
+      "source_selection_note": "Black-and-white original. Left-side singer Yunjin only; raised top margin and TOP-ALIGN photo framing after visual QA showed previous card accidentally lost her face.",
       "source_review_status": "photo_provenance_verified_visual_pending",
       "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 1920px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     },
@@ -121,5 +121,5 @@
       "source_delivery_note": "Original CC BY 4.0 photo on Flickr and Commons; unmodified 3840px Wikimedia derivative. Native pixel resolution verified in renderer; no photo substitution."
     }
   ],
-  "notes": "RESEARCH ONLY. Five NEW distinct Flickr original IDs not present in already published Spotlight Epic or Aura Rare. CC BY 4.0 per Wikimedia Commons FlickreviewR 2. Photographer David Lee. Must inspect final solo crops on contact sheet and image resolution, verify no other performer is visible, check hashes against all published cards. No publish until approved."
+  "notes": "RESEARCH ONLY. Five NEW distinct Flickr original IDs not present in already published Spotlight Epic or Aura Rare. CC BY 4.0 per Wikimedia Commons FlickreviewR 2. Photographer David Lee. Must inspect final solo crops on contact sheet and image resolution, verify no other performer is visible, check hashes against all published cards. No publish until approved. Visual inspection of first five-card contact sheet found serious face clipping on Sakura and Yunjin; fix top alignment and solo crop before next review."
 }
