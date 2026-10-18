@@ -244,3 +244,57 @@ def test_zoom_cannot_destroy_original_image_resolution(photo_sandbox):
     with pytest.raises(ValueError, match="Zoom leaves too few pixels"):
         pipe.generate("tools/photo_releases.json")
 
+
+
+def test_wikimedia_429_uses_same_photo_cdn_proxy(monkeypatch):
+    """429 on Wikimedia must never swap in another member's photograph."""
+    from io import BytesIO
+    from urllib.error import HTTPError
+    from urllib.parse import urlsplit
+    buffer = BytesIO()
+    Image.new("RGB", (1200, 1600), (112, 78, 35)).save(buffer, "JPEG", quality=95)
+    payload = buffer.getvalue()
+    class FakeResponse(BytesIO):
+        def __init__(self, data):
+            super().__init__(data)
+            self.headers = {"Content-Length": str(len(data))}
+    calls = []
+    def get(request, timeout):
+        url = request.full_url
+        calls.append(url)
+        if len(calls) == 1:
+            raise HTTPError(url, 429, "Too Many Requests", {}, None)
+        assert urlsplit(url).hostname == "wsrv.nl"
+        assert "upload.wikimedia.org" in url
+        return FakeResponse(payload)
+    monkeypatch.setattr(pipe.urllib.request, "urlopen", get)
+    original = "https://upload.wikimedia.org/wikipedia/commons/1/17/Unique_Photo.jpg"
+    raw, image = pipe.original_image({"photo_url": original})
+    assert raw == payload and image.size == (1200, 1600)
+    assert len(calls) == 2 and calls[0] == original
+
+
+def test_unrelated_source_429_is_not_proxied(monkeypatch):
+    from urllib.error import HTTPError
+    calls = []
+    def get(request, timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url, 429, "Too Many Requests", {}, None)
+    monkeypatch.setattr(pipe.urllib.request, "urlopen", get)
+    with pytest.raises(HTTPError):
+        pipe.original_image({"photo_url": "https://photos.example.org/photo.jpg"})
+    assert calls == ["https://photos.example.org/photo.jpg"]
+
+
+def test_wikimedia_missing_photo_404_is_never_substituted(monkeypatch):
+    from urllib.error import HTTPError
+    calls = []
+    def get(request, timeout):
+        calls.append(request.full_url)
+        raise HTTPError(request.full_url, 404, "Not found", {}, None)
+    monkeypatch.setattr(pipe.urllib.request, "urlopen", get)
+    with pytest.raises(HTTPError):
+        pipe.original_image({
+            "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/missing.jpg"
+        })
+    assert len(calls) == 1
