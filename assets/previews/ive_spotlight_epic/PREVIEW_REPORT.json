@@ -49,17 +49,17 @@
     {
       "member": "REI",
       "file": "ive_spotlight_epic_rei_PREVIEW.png",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_22.jpg",
-      "source_sha256": "290270d03e9a99a00b0e8f0cf7a31a94f2d4f613e5be055f9e326b0537170609",
-      "source_dhash": "853a337b13725b53",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_24.jpg",
+      "source_sha256": "34ee94a81e1a06167aae774444bf87f365cb8979e1db73c1f159bc98d36965f1",
+      "source_dhash": "46c231a49fde4d32",
       "original_pixels": [
         1920,
-        2560
+        1781
       ],
       "solo_region": null,
       "crop_pixels": [
         1920,
-        2560
+        1781
       ],
       "preview_pixels": [
         900,
