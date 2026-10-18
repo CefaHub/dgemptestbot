@@ -49,6 +49,36 @@ def sandbox_copy(tmp_path):
     return tmp_path
 
 
+def test_approximate_goal_can_expand_by_whole_member_sets(tmp_path):
+    """100 is not a card-count cap: 116 cards across 24 complete sets is valid."""
+    root = sandbox_copy(tmp_path)
+    plan_path = root / production.PLAN_PATH
+    schedule_path = root / production.SCHEDULE_PATH
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    schedule = json.loads(schedule_path.read_text(encoding="utf-8"))
+    extra = copy.deepcopy(next(g for g in plan["groups"] if g["slug"] == "aespa"))
+    extra["slug"] = "newcomers"
+    extra["name"] = "NEWCOMERS"
+    plan["groups"].append(extra)
+    for tier in plan["tiers"]:
+        era = tier["era"].lower().replace(" ", "_")
+        schedule["queue"].append({
+            "priority": len(schedule["queue"]) + 1,
+            "set_id": f'coll_newcomers_{era}_{tier["rarity"]}',
+            "note": "New full 4-member collection; not a partial quota filler",
+        })
+    schedule["target_catalog_cards"] = 116
+    plan_path.write_text(json.dumps(plan), encoding="utf-8")
+    schedule_path.write_text(json.dumps(schedule), encoding="utf-8")
+    report = production.read_status(root)
+    assert report["target_cards"] == 116
+    assert report["published_cards"] + report["remaining_cards"] == 116
+    assert report["remaining_sets"] + report["published_sets"] == 24
+    extra_sets = [item for item in report["queue"] if item["group"] == "NEWCOMERS"]
+    assert len(extra_sets) == 4
+    assert all(len(x["cards"]) == 4 and x["size"] == 4 for x in extra_sets)
+
+
 def test_partial_release_is_never_treated_as_published(tmp_path):
     root = sandbox_copy(tmp_path)
     status = production.read_status(root)
