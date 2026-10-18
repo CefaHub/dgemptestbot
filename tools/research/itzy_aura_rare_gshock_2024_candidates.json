@@ -1,6 +1,6 @@
 {
   "status": "research_preview_only_not_published",
-  "candidate_revision": 2,
+  "candidate_revision": 3,
   "set_id": "coll_itzy_aura_rare",
   "group": "ITZY",
   "era": "AURA",
@@ -26,7 +26,7 @@
     {
       "member": "LIA",
       "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/241023_ITZY_Lia.jpg/800px-241023_ITZY_Lia.jpg",
+      "photo_url": "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fdb%2F241023_ITZY_Lia.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Lia.jpg",
       "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
       "photographer": "티비텐 TV10",
@@ -40,7 +40,7 @@
       "focus_x": 0.5,
       "focus_y": 0.35,
       "solo_review_status": "pending",
-      "source_delivery_note": "800px Wikimedia rendition of the SAME Commons file; original URL returned 404 on GitHub runner. No source change or substituted photo."
+      "source_delivery_note": "Transparent image CDN fetching the exact original Wikimedia Commons filename, with NO resize or substitution. Canonical identity maps to same Commons image. Research-only until source metadata verified."
     },
     {
       "member": "RYUJIN",
@@ -81,7 +81,7 @@
     {
       "member": "YUNA",
       "photo_session_id": "itzy_gshock_suwon_photocall_2024_10_23_tv10",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/241023_ITZY_Yuna.jpg",
+      "photo_url": "https://wsrv.nl/?url=upload.wikimedia.org%2Fwikipedia%2Fcommons%2F0%2F06%2F241023_ITZY_Yuna.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Yuna.jpg",
       "original_source": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
       "photographer": "K-POPIT 케이팝잇",
@@ -94,8 +94,9 @@
       ],
       "focus_x": 0.5,
       "focus_y": 0.35,
-      "solo_review_status": "pending"
+      "solo_review_status": "pending",
+      "source_delivery_note": "Transparent image CDN fetching the exact original Wikimedia Commons filename, with NO resize or substitution. Canonical identity maps to same Commons image. Research-only until source metadata verified."
     }
   ],
-  "notes": "All four source pages depict separate original files from the same 2024-10-23 ITZY G-SHOCK event. Source credits per Wikimedia Commons; native resolutions 806–836 wide, adequate for 600×800 crop, but not premium-grade compared with HD photos. Full album publication BLOCKED until YEJI source and visual cohesion review. Author names reproduce each Commons source page. Existing ITZY EPIC uses 2025-11-10 BARRIE, not this set. Lia original image endpoint was temporarily unavailable on GitHub runner, so the verified 800px thumbnail of the same Commons source is used for rendering; quality remains for review, no new photo identity."
+  "notes": "All four source pages depict separate original files from the same 2024-10-23 ITZY G-SHOCK event. Source credits per Wikimedia Commons; native resolutions 806–836 wide, adequate for 600×800 crop, but not premium-grade compared with HD photos. Full album publication BLOCKED until YEJI source and visual cohesion review. Author names reproduce each Commons source page. Existing ITZY EPIC uses 2025-11-10 BARRIE, not this set. Lia original image endpoint was temporarily unavailable on GitHub runner, so the verified 800px thumbnail of the same Commons source is used for rendering; quality remains for review, no new photo identity. The direct original image endpoints of LIA and YUNA intermittently fail on GitHub runners; temporary transparent same-original proxy is used in research previews without upscaling."
 }
