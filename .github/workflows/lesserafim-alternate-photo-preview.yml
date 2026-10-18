@@ -1,0 +1,34 @@
+name: LE SSERAFIM alternate-color solo source preview (never publish)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/research/lesserafim_aura_rare_v3_color_yunjin_candidate.json'
+      - '.github/workflows/lesserafim-alternate-photo-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  alt-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install real-photo renderer
+        run: python -m pip install Pillow
+      - name: Preview alternate Yunjin without publishing
+        run: |
+          python tools/research/preview_photo_candidate.py \
+            --candidate tools/research/lesserafim_aura_rare_v3_color_yunjin_candidate.json \
+            --output output/research_preview/lesserafim_alt_yunjin
+      - name: Upload alternative review contact sheet
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: DolceEmpire-LE_SSERAFIM-ALTERNATE_YUNJIN-RESEARCH
+          path: output/research_preview/lesserafim_alt_yunjin/
+          if-no-files-found: warn
+          retention-days: 14
