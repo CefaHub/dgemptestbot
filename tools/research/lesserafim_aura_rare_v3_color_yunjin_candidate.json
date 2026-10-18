@@ -69,29 +69,35 @@
     },
     {
       "member": "YUNJIN",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg/3840px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054829%29.jpg",
       "photographer": "David Lee",
       "license": "CC BY 4.0",
       "license_url": "https://creativecommons.org/licenses/by/4.0/",
       "license_status": "verified",
       "original_source": "https://www.flickr.com/photos/davidjlee/54797054829/",
-      "focus_x": 0.5,
-      "focus_y": 0.45,
-      "solo_crop_review": "Alternative wide color original for visual inspection; confirm Yunjin is alone and occupies enough frame width before selecting any solo crop.",
+      "focus_x": 0.56,
+      "focus_y": 0.27,
+      "solo_crop_review": "Trial upper-body crop from high-resolution 3840×2160 original, excludes another performer's hand at bottom. Must visually verify one-person framing.",
       "preview_note": "Cropped artist solo on RIGHT from a two-person photograph; preview-only pending confirmation no second face remains. Never promote without separate visual approval.",
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
-      "solo_review_status": "pending"
+      "solo_review_status": "pending",
+      "solo_region": [
+        0.38,
+        0,
+        0.72,
+        0.55
+      ]
     }
   ],
-  "notes": "Alternative fifth image from David Lee's licensed Seattle concert Flickr ID 54797054829; 5480x3082 original, 1920px preview rendition. Image composition and subject exclusivity are UNVERIFIED. Do not replace current Yunjin photo or publish without full visual contact sheet review.",
+  "notes": "Alternative fifth image from David Lee's licensed Seattle concert Flickr ID 54797054829; 5480x3082 original, 1920px preview rendition. Image composition and subject exclusivity are UNVERIFIED. Do not replace current Yunjin photo or publish without full visual contact sheet review. v6: 3840px same licensed original and tentative upper-body solo_region to remove other performer's hand; never automatic approval.",
   "review_goal": "Evaluate whether YUNJIN color original 54797054829 can yield a clean solo 3:4 crop matching the other four concert portraits; if group shot, REJECT rather than falsely labeling solo.",
   "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
   "collection_review_status": "pending",
   "reuse_exclusions": [
     "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849516999%29.jpg"
   ],
-  "candidate_revision": 5,
+  "candidate_revision": 6,
   "replaced_multi_subject_sources": [
     {
       "member": "CHAEWON",
