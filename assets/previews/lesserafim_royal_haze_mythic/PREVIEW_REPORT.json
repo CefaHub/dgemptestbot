@@ -50,16 +50,21 @@
       "member": "YUNJIN",
       "file": "lesserafim_royal_haze_mythic_yunjin_PREVIEW.png",
       "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
-      "source_sha256": "db72e18eb08b27dc8a7cdf08c1e0b5f79d5153e8fc5352505c74688525de8ce7",
-      "source_dhash": "5226a6274f4bda92",
+      "source_sha256": "7c947149ad319ab87d3a558333460f5e9b0e7a78c45a38ff94c8f30313df916f",
+      "source_dhash": "312131626e828696",
       "original_pixels": [
-        1280,
-        1024
+        1920,
+        1536
       ],
-      "solo_region": null,
+      "solo_region": [
+        0.285,
+        0.04,
+        0.635,
+        0.96
+      ],
       "crop_pixels": [
-        1280,
-        1024
+        672,
+        1414
       ],
       "preview_pixels": [
         900,
