@@ -1,5 +1,5 @@
 {
-  "status": "research_preview_only_not_published",
+  "status": "research_rejected_all_photos_already_published",
   "set_id": "coll_itzy_aura_rare",
   "group": "ITZY",
   "era": "AURA",
@@ -7,7 +7,7 @@
   "source_collection": "ITZY at BARRIE photo call in Seongsu-dong, Seoul, 10 Nov 2025, photo stills by TV10",
   "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
   "source_mode": "curated",
-  "collection_review_status": "pending",
+  "collection_review_status": "rejected_all_five_origins_already_used_in_spotlight_epic",
   "missing_members": [],
   "cards": [
     {
@@ -23,8 +23,8 @@
       "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "solo_review_status": "pending",
-      "source_review_status": "source_license_verified_photo_crop_pending",
+      "solo_review_status": "rejected",
+      "source_review_status": "rejected_duplicate_original_published_as_itzy_spotlight_epic",
       "source_note": "Separate original 2025-11-10 BARRIE photo-call still frame of this member, not used previously in DOLCE EMPIRE. See Commons original 1500-1600 pixels wide."
     },
     {
@@ -40,8 +40,8 @@
       "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "solo_review_status": "pending",
-      "source_review_status": "source_license_verified_photo_crop_pending",
+      "solo_review_status": "rejected",
+      "source_review_status": "rejected_duplicate_original_published_as_itzy_spotlight_epic",
       "source_note": "Separate original 2025-11-10 BARRIE photo-call still frame of this member, not used previously in DOLCE EMPIRE. See Commons original 1500-1600 pixels wide."
     },
     {
@@ -57,8 +57,8 @@
       "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "solo_review_status": "pending",
-      "source_review_status": "source_license_verified_photo_crop_pending",
+      "solo_review_status": "rejected",
+      "source_review_status": "rejected_duplicate_original_published_as_itzy_spotlight_epic",
       "source_note": "Separate original 2025-11-10 BARRIE photo-call still frame of this member, not used previously in DOLCE EMPIRE. See Commons original 1500-1600 pixels wide."
     },
     {
@@ -74,8 +74,8 @@
       "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "solo_review_status": "pending",
-      "source_review_status": "source_license_verified_photo_crop_pending",
+      "solo_review_status": "rejected",
+      "source_review_status": "rejected_duplicate_original_published_as_itzy_spotlight_epic",
       "source_note": "Separate original 2025-11-10 BARRIE photo-call still frame of this member, not used previously in DOLCE EMPIRE. See Commons original 1500-1600 pixels wide."
     },
     {
@@ -91,10 +91,10 @@
       "photo_session_id": "itzy_barrie_2025_11_10_tv10_photo_call",
       "focus_x": 0.5,
       "focus_y": 0.34,
-      "solo_review_status": "pending",
-      "source_review_status": "source_license_verified_photo_crop_pending",
+      "solo_review_status": "rejected",
+      "source_review_status": "rejected_duplicate_original_published_as_itzy_spotlight_epic",
       "source_note": "Separate original 2025-11-10 BARRIE photo-call still frame of this member, not used previously in DOLCE EMPIRE. See Commons original 1500-1600 pixels wide."
     }
   ],
-  "notes": "Five DISTINCT real-photo extracted frames from ONE CC BY 4.0 2025-11-10 official photo call video, each uploaded and license-reviewed separately on Wikimedia Commons. Five different original stills, all >1500 native width. Strict preview-only until rendered 900x1200 visual contact sheet checked, source hashes checked globally and 5/5 approved. Source video license review by Paper9oll Jul 8 2026. No generated idol portraits."
+  "notes": "REJECTED: all FIVE source pages were previously published as ITZY / SPOTLIGHT / EPIC. Preview CI correctly blocked at YEJI with 'Previously published photograph cannot be reused'. Research sources preserved as a negative example, but ABSOLUTELY no re-skin or reuse in AURA RARE, irrespective of CDN resolution changes."
 }
