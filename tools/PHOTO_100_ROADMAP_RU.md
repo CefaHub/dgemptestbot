@@ -36,7 +36,7 @@
 
 ### Проверки исходников 19.10.2026
 
-- **ILLIT AURA RARE:** Commons Canada Goose содержит кадры пяти участниц, но извлечённые оригинальные портреты менее 600×800. Отклонено до появления полноценной высококачественной серии.
+- **ILLIT AURA RARE:** Commons Canada Goose содержит кадры пяти участниц, но извлечённые оригинальные портреты менее 600×800. Проверен видеопервоисточник K-POPIT от 11.12.2024 с подтверждённой Commons лицензией CC BY 3.0; исследовательский workflow [проверил доступ к видео](../assets/previews/illit_aura_rare_video_research/VIDEO_SOURCE_AUDIT.json), но YouTube потребовал авторизацию («Sign in to confirm you’re not a bot»). **Новых пяти полноразмерных соло-фотографий не получено**. Скриншот одной групповой фотографии и его пять кропов нельзя выдавать за 5 разных исходников.
 - **ITZY AURA RARE:** пять очень хороших BARRIE-портретов от 10.11.2025 — это ИМЕННО оригиналы, уже выпущенные как ITZY SPOTLIGHT EPIC. CI остановил повтор по странице YEJI. `tools/research/itzy_aura_rare_barrie_2025_candidates.json` помечен `research_rejected_all_photos_already_published`. Переназвать редкость, изменить crop, взять 1280px вместо 960px — **не новая карточка**, не делаем.
 - **IVE VELVET LIGHT LEGENDARY:** исходники одного CC BY-SA 4.0 концерта амстердамского фотографа Robbie Klinkenberg исследованы в 12 фото; отчёт и контакт-лист — [проверка IVE](../assets/previews/ive_velvet_light_legendary_source_research/ALL_SOURCE_OPTIONS.jpg). Соло REI в файле #32 имеет только 557px нативной ширины; фото #22/#24 многолюдные, отдельного чёткого кадра REI не подтверждено. Полный набор не разрешён к публикации.
 
