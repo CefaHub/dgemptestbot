@@ -1,0 +1,33 @@
+name: Source real ITZY G-SHOCK frames for complete RARE photo set
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/itzy-gshock-real-video-photo-scout.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  real-frames-contact-sheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install video frame extraction tools
+        run: |
+          python -m pip install Pillow yt-dlp
+          ffmpeg -version | head -n 1
+      - name: Review CC-BY-3.0 authenticated-by-Commons original real video
+        run: python -m tools.research.itzy_gshock_video_scout
+      - name: Commit only source review contact sheet and status to GitHub
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/previews/itzy_aura_rare_gshock_video/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Research original licensed ITZY G-SHOCK five-member photo frames'
+            git push origin HEAD:main
+          fi
