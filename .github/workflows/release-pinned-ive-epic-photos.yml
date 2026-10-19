@@ -2,7 +2,9 @@ name: Publish reviewed IVE EPIC six-photo full collection
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/release-pinned-ive-epic-photos.yml']
+    paths:
+      - '.github/workflows/release-pinned-ive-epic-photos.yml'
+      - 'tools/publish_pinned_ive_epic_photo_set.py'
 permissions:
   contents: write
 concurrency:
