@@ -102,5 +102,7 @@
       "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
     }
   ],
-  "notes": "Four licensed native-size unused original photographs for VISUAL PREVIEW only; DO NOT count as issued cards. YUJIN original options are multi-member or reused; REI #32 is 557px wide and fails >=600px native source threshold, while #16 and #40 were published in other rarities. The four currently linked concert photos also require manual QUALITY and SOLO reviews; reject blurred or unattractive images. Never release fewer than all six group members or mix source sessions."
+  "notes": "Four licensed native-size unused original photographs for VISUAL PREVIEW only; DO NOT count as issued cards. YUJIN original options are multi-member or reused; REI #32 is 557px wide and fails >=600px native source threshold, while #16 and #40 were published in other rarities. The four currently linked concert photos also require manual QUALITY and SOLO reviews; reject blurred or unattractive images. Never release fewer than all six group members or mix source sessions.",
+  "candidate_revision": 2,
+  "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved."
 }
