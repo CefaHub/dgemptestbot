@@ -902,5 +902,100 @@
     "card_number": 6,
     "card_total": 6,
     "image_path": "assets/cards/ive/ive_aura_rare_leeseo_06.png"
+  },
+  {
+    "id": "card_lesserafim_royal_haze_mythic_chaewon_01",
+    "group": "LE SSERAFIM",
+    "idol": "Chaewon",
+    "era": "ROYAL HAZE",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "Чэвон",
+      "chaewon"
+    ],
+    "collection_id": "coll_lesserafim_royal_haze_mythic",
+    "set_id": "coll_lesserafim_royal_haze_mythic",
+    "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+    "series": "ROYAL HAZE",
+    "card_number": 1,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_royal_haze_mythic_chaewon_01.png"
+  },
+  {
+    "id": "card_lesserafim_royal_haze_mythic_sakura_02",
+    "group": "LE SSERAFIM",
+    "idol": "Sakura",
+    "era": "ROYAL HAZE",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "Сакура",
+      "sakura"
+    ],
+    "collection_id": "coll_lesserafim_royal_haze_mythic",
+    "set_id": "coll_lesserafim_royal_haze_mythic",
+    "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+    "series": "ROYAL HAZE",
+    "card_number": 2,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_royal_haze_mythic_sakura_02.png"
+  },
+  {
+    "id": "card_lesserafim_royal_haze_mythic_yunjin_03",
+    "group": "LE SSERAFIM",
+    "idol": "Yunjin",
+    "era": "ROYAL HAZE",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "Юнджин",
+      "yunjin"
+    ],
+    "collection_id": "coll_lesserafim_royal_haze_mythic",
+    "set_id": "coll_lesserafim_royal_haze_mythic",
+    "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+    "series": "ROYAL HAZE",
+    "card_number": 3,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_royal_haze_mythic_yunjin_03.png"
+  },
+  {
+    "id": "card_lesserafim_royal_haze_mythic_kazuha_04",
+    "group": "LE SSERAFIM",
+    "idol": "Kazuha",
+    "era": "ROYAL HAZE",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "Кадзуха",
+      "kazuha"
+    ],
+    "collection_id": "coll_lesserafim_royal_haze_mythic",
+    "set_id": "coll_lesserafim_royal_haze_mythic",
+    "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+    "series": "ROYAL HAZE",
+    "card_number": 4,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_royal_haze_mythic_kazuha_04.png"
+  },
+  {
+    "id": "card_lesserafim_royal_haze_mythic_eunchae_05",
+    "group": "LE SSERAFIM",
+    "idol": "Eunchae",
+    "era": "ROYAL HAZE",
+    "rarity": "mythic",
+    "base_income": 1200,
+    "aliases": [
+      "Ынче",
+      "eunchae"
+    ],
+    "collection_id": "coll_lesserafim_royal_haze_mythic",
+    "set_id": "coll_lesserafim_royal_haze_mythic",
+    "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+    "series": "ROYAL HAZE",
+    "card_number": 5,
+    "card_total": 5,
+    "image_path": "assets/cards/lesserafim/lesserafim_royal_haze_mythic_eunchae_05.png"
   }
 ]

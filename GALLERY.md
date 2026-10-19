@@ -2,7 +2,7 @@
 
 > Автоматически создано из **опубликованного** каталога игры. Исследовательские превью и незавершённые наборы сюда не попадают.
 
-**Опубликовано: 47 карточек в 10 полных коллекциях.**
+**Опубликовано: 52 карточек в 11 полных коллекциях.**
 
 Нажми на фотографию, чтобы открыть оригинальный PNG 900×1200. Баннеры каждого сета — 1600×900.
 
@@ -18,6 +18,7 @@
 - [LE SSERAFIM — AURA / RARE](#coll_lesserafim_aura_rare)
 - [LE SSERAFIM — VELVET LIGHT / LEGENDARY](#coll_lesserafim_velvet_light_legendary)
 - [IVE — AURA / RARE](#coll_ive_aura_rare)
+- [LE SSERAFIM — ROYAL HAZE / MYTHIC](#coll_lesserafim_royal_haze_mythic)
 
 ## ILLIT — SPOTLIGHT · EPIC
 
@@ -148,6 +149,19 @@
 | **Yujin** | **Gaeul** | **Rei** | **Wonyoung** | **Liz** | **Leeseo** |
 
 *Фотосерия: IVE — Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg.*
+
+## LE SSERAFIM — ROYAL HAZE · MYTHIC
+
+<a id="coll_lesserafim_royal_haze_mythic"></a>
+
+**5/5 участниц** · [Открыть баннер](assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png)
+
+| 1 | 2 | 3 | 4 | 5 |
+| :---: | :---: | :---: | :---: | :---: |
+| [<img src="assets/cards/lesserafim/lesserafim_royal_haze_mythic_chaewon_01.png" width="175" alt="Chaewon LE SSERAFIM mythic">](assets/cards/lesserafim/lesserafim_royal_haze_mythic_chaewon_01.png) | [<img src="assets/cards/lesserafim/lesserafim_royal_haze_mythic_sakura_02.png" width="175" alt="Sakura LE SSERAFIM mythic">](assets/cards/lesserafim/lesserafim_royal_haze_mythic_sakura_02.png) | [<img src="assets/cards/lesserafim/lesserafim_royal_haze_mythic_yunjin_03.png" width="175" alt="Yunjin LE SSERAFIM mythic">](assets/cards/lesserafim/lesserafim_royal_haze_mythic_yunjin_03.png) | [<img src="assets/cards/lesserafim/lesserafim_royal_haze_mythic_kazuha_04.png" width="175" alt="Kazuha LE SSERAFIM mythic">](assets/cards/lesserafim/lesserafim_royal_haze_mythic_kazuha_04.png) | [<img src="assets/cards/lesserafim/lesserafim_royal_haze_mythic_eunchae_05.png" width="175" alt="Eunchae LE SSERAFIM mythic">](assets/cards/lesserafim/lesserafim_royal_haze_mythic_eunchae_05.png) |
+| **Chaewon** | **Sakura** | **Yunjin** | **Kazuha** | **Eunchae** |
+
+*Фотосерия: LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames.*
 
 ---
 

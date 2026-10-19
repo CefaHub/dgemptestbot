@@ -164,6 +164,23 @@
       ],
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
       "banner_path": "assets/banners/ive/ive_aura_rare_banner.png"
+    },
+    {
+      "set_id": "coll_lesserafim_royal_haze_mythic",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "source_collection": "LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames",
+      "source_mode": "curated",
+      "expected_members": [
+        "CHAEWON",
+        "SAKURA",
+        "YUNJIN",
+        "KAZUHA",
+        "EUNCHAE"
+      ],
+      "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
+      "banner_path": "assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png"
     }
   ]
 }

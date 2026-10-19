@@ -380,3 +380,14 @@ the photographer or depicted artist endorses DOLCE EMPIRE.
 - Source license: CC BY-SA 4.0
 - License URL: https://creativecommons.org/licenses/by-sa/4.0/
 - Modifications: image crop, contrast, card frame, text and banner composition
+
+
+## LE SSERAFIM / ROYAL HAZE / MYTHIC (5 photos)
+
+Photographer: David Lee, Seattle 17 September 2025, **CC BY 4.0**. Individual source photos were verified from Wikimedia Commons and Flickr. Real-photo crops, frames, captions and a banner have been created. No endorsement is implied. This release promotes five previously rendered, visually approved and **Git-SHA-pinned** photo PNGs unchanged because public image CDNs return HTTP 429 to CI. The recorded original photo SHA256/dHash come from the immutable research preview report, not a second download.
+
+- CHAEWON: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849585225%29.jpg | original https://www.flickr.com/photos/davidjlee/54849585225/ | CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); modifications: card crop, framing, lettering and banner composition.
+- SAKURA: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157085401%29.jpg | original https://www.flickr.com/photos/davidjlee/55157085401/ | CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); modifications: card crop, framing, lettering and banner composition.
+- YUNJIN: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg | original https://www.flickr.com/photos/davidjlee/54797054149/ | CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); modifications: card crop, framing, lettering and banner composition.
+- KAZUHA: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336949%29.jpg | original https://www.flickr.com/photos/davidjlee/54846336949/ | CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); modifications: card crop, framing, lettering and banner composition.
+- EUNCHAE: https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg | original https://www.flickr.com/photos/davidjlee/54846336944/ | CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); modifications: card crop, framing, lettering and banner composition.
