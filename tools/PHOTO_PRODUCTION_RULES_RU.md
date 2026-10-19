@@ -1,10 +1,10 @@
 # DOLCE EMPIRE — производство уникальных реальных фотокарточек
 
-Дата сверки: 2026-10-18. Актуальные количества определяются командой `python tools/photo_production.py status`, а не этим файлом.
+Дата сверки: 2026-10-19. Актуальные количества определяются командой `python tools/photo_production.py status`, а не этим файлом.
 
 ## 1. Цель и текущий остаток
 
-Актуальный срез каталога на 18.10.2026 (сверен с `data/catalog.json` и `assets/collections/verified_sets.json`): **36 выпущенных карточек, 8 полных коллекций**, до базовых 100 осталось **64 фото в 12 полных альбомах**. Восьмой альбом — **LE SSERAFIM / AURA / RARE** — уже опубликован; его нельзя повторно превращать в превью или повторно заливать в каталог.
+Актуальный срез каталога на 19.10.2026 (сверен с `data/catalog.json` и `assets/collections/verified_sets.json`): **58 выпущенных карточек, 12 полных коллекций**, до базовых 100 осталось **42 фото в 8 полных альбомах**. Последний игровой релиз — **IVE / SPOTLIGHT / EPIC**, 6 фото. Уже опубликованные IVE AURA/EPIC и LE SSERAFIM AURA/EPIC/LEGENDARY/MYTHIC нельзя повторно выдавать за новые кадры.
 
 План 100 фотографий — базовая очередь из 5 групп (ILLIT, aespa, IVE, ITZY, LE SSERAFIM) по четырём редкостям. Просьба **«ещё 100 новых фотографий поверх выпущенных»** означает отдельный этап расширения, а не существующую квоту: его нельзя имитировать переименованием или повторной обработкой старых кадров.
 
@@ -32,22 +32,20 @@
 
 Индексы `NN` идут в утверждённом порядке участниц из `tools/photo_release_plan.json`, не в порядке поиска фото.
 
-## 4. Следующие 64 фото в 12 неопубликованных наборах
+## 4. Следующие 42 фото в 8 неопубликованных наборах
 
 | Приоритет | Полный альбом | Фото |
 |---|---|---:|
 | 01 | ITZY — AURA — RARE | 5 |
-| 02 | IVE — AURA — RARE | 6 |
-| 03 | ILLIT — AURA — RARE | 5 |
-| 04 | IVE — SPOTLIGHT — EPIC | 6 |
-| 05 | ILLIT — VELVET LIGHT — LEGENDARY | 5 |
-| 06 | ITZY — VELVET LIGHT — LEGENDARY | 5 |
-| 07 | LE SSERAFIM — VELVET LIGHT — LEGENDARY | 5 |
-| 08 | IVE — VELVET LIGHT — LEGENDARY | 6 |
-| 09 | ILLIT — ROYAL HAZE — MYTHIC | 5 |
-| 10 | ITZY — ROYAL HAZE — MYTHIC | 5 |
-| 11 | LE SSERAFIM — ROYAL HAZE — MYTHIC | 5 |
-| 12 | IVE — ROYAL HAZE — MYTHIC | 6 |
+| 02 | ILLIT — AURA — RARE | 5 |
+| 03 | ILLIT — VELVET LIGHT — LEGENDARY | 5 |
+| 04 | ITZY — VELVET LIGHT — LEGENDARY | 5 |
+| 05 | IVE — VELVET LIGHT — LEGENDARY | 6 |
+| 06 | ILLIT — ROYAL HAZE — MYTHIC | 5 |
+| 07 | ITZY — ROYAL HAZE — MYTHIC | 5 |
+| 08 | IVE — ROYAL HAZE — MYTHIC | 6 |
+
+Текущий исследовательский архив IVE VELVET LIGHT LEGENDARY содержит четыре ещё не опубликованных исходника. Превью ждут визуальной проверки; REI и YUJIN не заполнены, полный шестикарточный сет **не опубликован**. Подробнее — `tools/research/ive_velvet_light_legendary_amsterdam_2024_candidates.json`.
 
 Ближайшая исследовательская очередь — **ITZY / AURA / RARE**. Кандидатура одной фотосессии G-SHOCK 23.10.2024 содержит четыре проверяемых исходника, но без лицензированного качественного соло-кадра YEJI и без финального контроля резкости всей пятёрки **публикация запрещена**. Нельзя подменять YEJI фотографией с другого мероприятия или апскейлом.
 
