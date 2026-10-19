@@ -17,18 +17,8 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "assets/previews/ive_velvet_light_legendary_source_research"
 SHOOT = "20240613 IVE Amsterdam concert"
 CANDIDATES = [
-    ("YUJIN OPTION 1", "25 Leeseo and Yujin"),
-    ("YUJIN OPTION 2", "25.5 Leeseo and Yujin"),
-    ("YUJIN OPTION 3", "36 Wonyoung and Yujin"),
-    ("GAEUL", "39 Gaeul"),
-    ("REI OPTION 1", "21"),
-    ("REI OPTION 2", "22"),
-    ("REI OPTION 3", "24"),
-    ("REI OPTION 4", "17"),
-    ("REI OPTION 5", "42"),
-    ("WONYOUNG", "27 Wonyoung"),
-    ("LIZ", "23 Liz"),
-    ("LEESEO", "26 Leeseo"),
+    ("REI SOLO CROP POSSIBILITY", "24"),
+    ("YUJIN TWO-PERSON CROP POSSIBILITY", "36 Wonyoung and Yujin"),
 ]
 
 
