@@ -1,0 +1,31 @@
+name: Inspect original IVE LEGENDARY photo options
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ive-legendary-original-photo-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect-photographs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-image review tool
+        run: python -m pip install Pillow
+      - name: Inspect 12 distinct real photographs from one licensed concert
+        run: python -m tools.research.ive_legendary_photo_scout
+      - name: Save contact sheet to GitHub (not the live game)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/previews/ive_velvet_light_legendary_source_research
+          if ! git diff --cached --quiet; then
+            git commit -m 'Inspect unused original IVE LEGENDARY photo alternatives'
+            git push origin HEAD:main
+          fi
