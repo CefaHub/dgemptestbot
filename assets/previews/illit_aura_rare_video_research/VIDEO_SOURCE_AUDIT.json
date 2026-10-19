@@ -1,0 +1,21 @@
+{
+  "video": "https://www.youtube.com/watch?v=rQYc_Zn9cIc",
+  "date": "2024-12-11",
+  "artist": "K-POPIT 케이팝잇",
+  "commons_license_reference": "https://commons.wikimedia.org/wiki/File:250221_ILLIT.png",
+  "license": "CC BY 3.0",
+  "status": "blocked_video_original_unavailable",
+  "expected": [
+    "YUNAH",
+    "MINJU",
+    "MOKA",
+    "WONHEE",
+    "IROHA"
+  ],
+  "minimum_individual_native_crop": [
+    600,
+    800
+  ],
+  "source_note": "YouTube video may not be available to datacenter IPs; if blocked no images may be substituted.",
+  "error": "WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one\nWARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing\nERROR: [youtube] rQYc_Zn9cIc: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+}
