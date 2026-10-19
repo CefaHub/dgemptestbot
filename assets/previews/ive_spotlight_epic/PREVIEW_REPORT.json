@@ -24,7 +24,8 @@
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/yujin.bin"
     },
     {
       "member": "GAEUL",
@@ -44,27 +45,29 @@
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/gaeul.bin"
     },
     {
       "member": "REI",
       "file": "ive_spotlight_epic_rei_PREVIEW.png",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_24.jpg",
-      "source_sha256": "34ee94a81e1a06167aae774444bf87f365cb8979e1db73c1f159bc98d36965f1",
-      "source_dhash": "46c231a49fde4d32",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+      "source_sha256": "89c3885fb1d8737d91b5e38be4b88d13f3d84a53cfef02c5bb671729a4130834",
+      "source_dhash": "8e9e9a9a99599430",
       "original_pixels": [
-        1920,
-        1781
+        851,
+        1732
       ],
       "solo_region": null,
       "crop_pixels": [
-        1920,
-        1781
+        851,
+        1732
       ],
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/rei.bin"
     },
     {
       "member": "WONYOUNG",
@@ -84,7 +87,8 @@
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/wonyoung.bin"
     },
     {
       "member": "LIZ",
@@ -104,7 +108,8 @@
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/liz.bin"
     },
     {
       "member": "LEESEO",
@@ -124,7 +129,8 @@
       "preview_pixels": [
         900,
         1200
-      ]
+      ],
+      "archived_source": "source_originals/leeseo.bin"
     }
   ],
   "note": "Check image sharpness and solo crop manually; never release a missing-member set."
