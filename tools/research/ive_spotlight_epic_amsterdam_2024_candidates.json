@@ -43,19 +43,19 @@
     },
     {
       "member": "REI",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/20240613_IVE_Amsterdam_concert_24.jpg/1920px-20240613_IVE_Amsterdam_concert_24.jpg",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_24.jpg",
-      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_24.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_40_Rei.jpg",
       "photographer": "Robbie Klinkenberg (Redalert2fan)",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "license_status": "verified",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
       "solo_review_status": "pending",
-      "source_review_status": "unverified_individual_identity",
+      "source_review_status": "single_member_titled_original_visual_pending",
       "focus_x": 0.5,
-      "focus_y": 0.3,
-      "source_note": "PHOTO 24: other original same show, inspect actual 3:4 contact sheet for single REI; do not approve if group, wrong member, or bad quality."
+      "focus_y": 0.1,
+      "source_note": "Distinct original #40 labeled REI by photographer, 851 x 1732 native pixels. Satisfies >=600x800 center portrait source criterion without upscaling, BUT must judge visible sharpness at full 900x1200 preview. Research only until 6/6 review."
     },
     {
       "member": "WONYOUNG",
@@ -106,5 +106,6 @@
       "source_note": "Different original photo from published RARE set, same photographer and concert. Full-face 3:4 crop to inspect."
     }
   ],
-  "notes": "UNPUBLISHED. Candidate photo22 REI crop cannot meet native 600x800 and single-subject requirement at stable Wikimedia 1920 derivative. Evaluate original photo24 next; previous files03 and22 rejected."
+  "notes": "New candidate revision: Rei now source #40 SOLO original, not photo #24 with group members. Complete six individuals from June 13 2024 Amsterdam CC BY-SA 4.0 source session. No publish until art and sharpness approved.",
+  "candidate_revision": 1
 }
