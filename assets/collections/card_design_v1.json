@@ -1,0 +1,483 @@
+{
+  "schema": "dolce_master_card_design_v1",
+  "template": "tools/card_master_template.py",
+  "original_assets": "available through the parent git revision",
+  "member_count": 52,
+  "set_count": 11,
+  "central_portrait_unchanged_pixels": [
+    370,
+    175,
+    530,
+    860
+  ],
+  "images": {
+    "assets/cards/illit/illit_spotlight_epic_yunah_01.png": {
+      "before_sha256": "eb84d5a1ec03e349162251c91c0f7e0b6ac06740d243f483b45669ead559692f",
+      "after_sha256": "526027e2c8e139c727f03652a6c96e74abe3af41c06bf2d5eb113ef55e090bfc",
+      "id": "card_illit_spotlight_epic_yunah_01",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Yunah"
+    },
+    "assets/cards/illit/illit_spotlight_epic_minju_02.png": {
+      "before_sha256": "12654383452b284f370c1ed243c67d3dac5a2a7d270a2cb072001a46a2eeace7",
+      "after_sha256": "78a25e1bff152019ce98e2b54abacc925732e2d181b254e932ccc136bc3c5432",
+      "id": "card_illit_spotlight_epic_minju_02",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Minju"
+    },
+    "assets/cards/illit/illit_spotlight_epic_moka_03.png": {
+      "before_sha256": "0e592d23a48381df77533f471f5b0b0dfa3ab055e5ee4dd00203422ea6f7a37c",
+      "after_sha256": "3250aab6e20ec1c3819e45303cb7493c2f69dfad73e73396b93379d8e14dfe51",
+      "id": "card_illit_spotlight_epic_moka_03",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Moka"
+    },
+    "assets/cards/illit/illit_spotlight_epic_wonhee_04.png": {
+      "before_sha256": "0f8579ba4e22169e78ae360fb7cd2e94487606d6244812ef99933633f01aa5bb",
+      "after_sha256": "a4712a13a1afd9471835767e3a99879a09272a2d89e62f82337f49465a61b8c8",
+      "id": "card_illit_spotlight_epic_wonhee_04",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Wonhee"
+    },
+    "assets/cards/illit/illit_spotlight_epic_iroha_05.png": {
+      "before_sha256": "4244b569a31ec5232979132785ef24af59c96b5545e9f0c2f627e8b1813f9877",
+      "after_sha256": "29b9852a7c020679938a2d5686298660dab2d992342150f8edca69c1145f8321",
+      "id": "card_illit_spotlight_epic_iroha_05",
+      "group": "ILLIT",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Iroha"
+    },
+    "assets/cards/aespa/aespa_spotlight_epic_karina_01.png": {
+      "before_sha256": "55e250f04be9f9b48f00c4a1f8b73c92667cfdbffd2718327b9357e3e8bbae19",
+      "after_sha256": "882b0e08a11f03ef142abaacd06ca497d714ee4d63f8dcca46f34906886a6c50",
+      "id": "card_aespa_spotlight_epic_karina_01",
+      "group": "aespa",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Karina"
+    },
+    "assets/cards/aespa/aespa_spotlight_epic_winter_02.png": {
+      "before_sha256": "d17c7b6cb389be6ee98f0a2fadd0cebe371fbd36d8af5d1a26de1d468febf51c",
+      "after_sha256": "7a6e9465245ad55b1bb417c239a0fd864064772d9ef3efc410b762c2695aaf6b",
+      "id": "card_aespa_spotlight_epic_winter_02",
+      "group": "aespa",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Winter"
+    },
+    "assets/cards/aespa/aespa_spotlight_epic_giselle_03.png": {
+      "before_sha256": "e02aa968244fe78218c3dad1a974cd024997b1566350d8ab93c87a97f77584be",
+      "after_sha256": "dd4f74ba30a55e2ad6f1c49391cae649c1cf19fe1c235928a95510d03e60d860",
+      "id": "card_aespa_spotlight_epic_giselle_03",
+      "group": "aespa",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Giselle"
+    },
+    "assets/cards/aespa/aespa_spotlight_epic_ningning_04.png": {
+      "before_sha256": "dc96a2337b1ef084bdcb61610e5179c3f47c534c6e77ff1420d7ccf359307689",
+      "after_sha256": "0fa3a2a7b966f023baf2df7152a5f3a108f7268e6980a043ce47169c98afc2f2",
+      "id": "card_aespa_spotlight_epic_ningning_04",
+      "group": "aespa",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Ningning"
+    },
+    "assets/cards/aespa/aespa_aura_rare_karina_01.png": {
+      "before_sha256": "b3a2997fec762c3b027a3bcd88445c7f3d41f96b346015d5407ad9acd80ed78d",
+      "after_sha256": "1f730ed05747cd519191d493a5d29d1ef5690444530a6c5331ac165793f1bbc0",
+      "id": "card_aespa_aura_rare_karina_01",
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Karina"
+    },
+    "assets/cards/aespa/aespa_aura_rare_winter_02.png": {
+      "before_sha256": "c1c875e1e92cabcdb094f503b09e60543d29665dde8784448a6848e58165e5bc",
+      "after_sha256": "cd75ac20ea91ad589974dca74e9103130fa6df4db5ba28418b2eb6117f3144d1",
+      "id": "card_aespa_aura_rare_winter_02",
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Winter"
+    },
+    "assets/cards/aespa/aespa_aura_rare_giselle_03.png": {
+      "before_sha256": "8d1d16e87c65fecf9e3dd835e18fcc26e71036a03b647f8882bd7b67e2ad951f",
+      "after_sha256": "54d7432c5bfc0f69f530b2b360328e9869c552042d14d49c61fd3e50d7d2b9de",
+      "id": "card_aespa_aura_rare_giselle_03",
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Giselle"
+    },
+    "assets/cards/aespa/aespa_aura_rare_ningning_04.png": {
+      "before_sha256": "3d958532f092201ced15a1286567be37cb189897d7df24c2eda2e004b5d49e06",
+      "after_sha256": "9307cf829645042d17f061f66ff7f8b95ce418d9987bc01c25079d9ced7fe72c",
+      "id": "card_aespa_aura_rare_ningning_04",
+      "group": "aespa",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Ningning"
+    },
+    "assets/cards/aespa/aespa_velvet_light_legendary_karina_01.png": {
+      "before_sha256": "70199a391e5076cc8bb337684da21ba72d86259fd7b65a1df6bf163f5a13b9c8",
+      "after_sha256": "08fcff54d89e75ce0b4ef37931f70be4e10ffc994589a1e64f2ce3d36089e467",
+      "id": "card_aespa_velvet_light_legendary_karina_01",
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Karina"
+    },
+    "assets/cards/aespa/aespa_velvet_light_legendary_winter_02.png": {
+      "before_sha256": "d208f22405a975b36b52736533a32b8a567fcde76dbc96c74666ca0a20284bc1",
+      "after_sha256": "2aba38be82b4623404c824df313077994a5699bc8465e4175878ad5ec1e9348d",
+      "id": "card_aespa_velvet_light_legendary_winter_02",
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Winter"
+    },
+    "assets/cards/aespa/aespa_velvet_light_legendary_giselle_03.png": {
+      "before_sha256": "a5dcb9cbff94f3c4dc4f65b6177d028c4c152ab80c76865d4d07f0b02de413ef",
+      "after_sha256": "9e6f1dd66fd3de400da06f8771cda8be123d44101822cd65ab27554ab79f759d",
+      "id": "card_aespa_velvet_light_legendary_giselle_03",
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Giselle"
+    },
+    "assets/cards/aespa/aespa_velvet_light_legendary_ningning_04.png": {
+      "before_sha256": "92529be53c26b08766fbd6372977cf7a8e15d8c10487e2ecd9a2d6ebc4d215f3",
+      "after_sha256": "808cb0739dab73127c9ac4a6b400fd1d9587409b8cae450f8bdfce3568405d08",
+      "id": "card_aespa_velvet_light_legendary_ningning_04",
+      "group": "aespa",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Ningning"
+    },
+    "assets/cards/itzy/itzy_spotlight_epic_yeji_01.png": {
+      "before_sha256": "132f32da9b1cfbba9df4561cb92de971f432849cae4dcabf705eca54ecc92afe",
+      "after_sha256": "ac2a46117c12107367eabfc53f341ed87904e98b394ffefa87bdf6d91c4e65ec",
+      "id": "card_itzy_spotlight_epic_yeji_01",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Yeji"
+    },
+    "assets/cards/itzy/itzy_spotlight_epic_lia_02.png": {
+      "before_sha256": "f3818e8a23d67b07a6d64ade5809b8e0841b5b5f1276eae87d39d07230c8eba5",
+      "after_sha256": "14d7119a514a69080a5294afabeb8192d41b4c45d5f8af4c656a68601bd85a89",
+      "id": "card_itzy_spotlight_epic_lia_02",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Lia"
+    },
+    "assets/cards/itzy/itzy_spotlight_epic_ryujin_03.png": {
+      "before_sha256": "4af4145f134593ac5e9493f8aaf7c0bdef348d410af6c52de5aff614e31a6c6e",
+      "after_sha256": "83db8989d6e71d8147bf546dc8ed1da31803f21b8fa10b23c9ee167d6d066989",
+      "id": "card_itzy_spotlight_epic_ryujin_03",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Ryujin"
+    },
+    "assets/cards/itzy/itzy_spotlight_epic_chaeryeong_04.png": {
+      "before_sha256": "bb4dc1a48c5cd978ea1b34738f7f757ff3db52fdfabf9d644ecfe7a5f5ea3c93",
+      "after_sha256": "e2971618e7545dc9c274b4af6fd13c201dfbd0131433b40341d72bed81acdc45",
+      "id": "card_itzy_spotlight_epic_chaeryeong_04",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Chaeryeong"
+    },
+    "assets/cards/itzy/itzy_spotlight_epic_yuna_05.png": {
+      "before_sha256": "bff73f647492b260733d180779690dca519d78626d05f3bd088b5979655ed5c7",
+      "after_sha256": "de56999e9bf1eb0989d0835b7fda991e1a343286b8c5f5900e53cca30e1760f1",
+      "id": "card_itzy_spotlight_epic_yuna_05",
+      "group": "ITZY",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Yuna"
+    },
+    "assets/cards/lesserafim/lesserafim_spotlight_epic_chaewon_01.png": {
+      "before_sha256": "1cbf133d7e2aecda2add0811b89034da9d41bba1e15cece0a2e7d9e6a817d2a1",
+      "after_sha256": "457014b51a1a06b4fef0ae990e22afa762578fc13a4e8ca956e3bf249868285f",
+      "id": "card_lesserafim_spotlight_epic_chaewon_01",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Chaewon"
+    },
+    "assets/cards/lesserafim/lesserafim_spotlight_epic_sakura_02.png": {
+      "before_sha256": "65effbf2a877271473c7599078f5c9ea79c96f2d17bce4be5396c0a82b12f80c",
+      "after_sha256": "8ca8c84d6157742a760403763ae111ad200b8fc5a70222f7e5a3ef1f95df0ff1",
+      "id": "card_lesserafim_spotlight_epic_sakura_02",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Sakura"
+    },
+    "assets/cards/lesserafim/lesserafim_spotlight_epic_yunjin_03.png": {
+      "before_sha256": "1eb27dfe9bde84b11e3573ce85eae504c8bf32436bb9d782835aaee3efb62331",
+      "after_sha256": "b7bdb8e6c35d7df07c79d8f506e96053ddc003a78b155661d1892ada0eb7749a",
+      "id": "card_lesserafim_spotlight_epic_yunjin_03",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Yunjin"
+    },
+    "assets/cards/lesserafim/lesserafim_spotlight_epic_kazuha_04.png": {
+      "before_sha256": "1e5a5dee3b2fd2a093d1b702b9fb6af7dca50be2e09f5b28ea000e51e6d634ff",
+      "after_sha256": "d4286de19037063cfaa031dec21b0a84cb9f14569152355abbd5887e5b38f6af",
+      "id": "card_lesserafim_spotlight_epic_kazuha_04",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Kazuha"
+    },
+    "assets/cards/lesserafim/lesserafim_spotlight_epic_eunchae_05.png": {
+      "before_sha256": "c8d604e6177c62722caf1473b7f6651bd771d006882abfcce16b5edcb5d8ab03",
+      "after_sha256": "476fec6ac21cf0553a47ab4776b53a7a56b370caec59640c7273b63ade0e5057",
+      "id": "card_lesserafim_spotlight_epic_eunchae_05",
+      "group": "LE SSERAFIM",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Eunchae"
+    },
+    "assets/cards/aespa/aespa_royal_haze_mythic_karina_01.png": {
+      "before_sha256": "e6d16d7280c6e84ff03ba43b2b03a75b058d3e6d77d8a6e6d0d7de6ceb98c04f",
+      "after_sha256": "99b5c8df3cf2832d3ff34ddf30aacec433d5f15bf8eb741dc7ab0ec5092f5159",
+      "id": "card_aespa_royal_haze_mythic_karina_01",
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Karina"
+    },
+    "assets/cards/aespa/aespa_royal_haze_mythic_winter_02.png": {
+      "before_sha256": "0af00cc4682b094f35e1a7a870543897c6905a0309adb8f34473e390eaa0c0fe",
+      "after_sha256": "690f35114a70d21a22fdcc5ba72d4183e987ff93b9c5d4bde943bfd2a0e4e118",
+      "id": "card_aespa_royal_haze_mythic_winter_02",
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Winter"
+    },
+    "assets/cards/aespa/aespa_royal_haze_mythic_giselle_03.png": {
+      "before_sha256": "d504c68405336e3a577da456a243229bf7aeeba7434f44ec855d3d60c1a96a7b",
+      "after_sha256": "f796387f4264c26367c361abbb9dd07f190ab19f5a4fc5cfaf62014cae2a4c3e",
+      "id": "card_aespa_royal_haze_mythic_giselle_03",
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Giselle"
+    },
+    "assets/cards/aespa/aespa_royal_haze_mythic_ningning_04.png": {
+      "before_sha256": "28390b821aadf8857ae593e060ea82c36bb22de082182d64911c7a2932551dbd",
+      "after_sha256": "83f19b8c37541e418f3e5650d24bc00d1afe9c4830cd2c0bedfe482b77b456bc",
+      "id": "card_aespa_royal_haze_mythic_ningning_04",
+      "group": "aespa",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Ningning"
+    },
+    "assets/cards/lesserafim/lesserafim_aura_rare_chaewon_01.png": {
+      "before_sha256": "f482eeb5322bc9d2b1643e27efe5a140e88afcc029eccc098390811abe3bfd81",
+      "after_sha256": "d19db7e0c8a6f08bb65020ac3fe214a2cac2e0d687ed6eafa165012e8675a978",
+      "id": "card_lesserafim_aura_rare_chaewon_01",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Chaewon"
+    },
+    "assets/cards/lesserafim/lesserafim_aura_rare_sakura_02.png": {
+      "before_sha256": "14f499295bf9e7ec808f8e141ce915066b0800caa53e61925edd4c318a97590f",
+      "after_sha256": "588294f5c36f7f298a8beb7581bcda19c989cd694681be8a98b049357e1d37ef",
+      "id": "card_lesserafim_aura_rare_sakura_02",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Sakura"
+    },
+    "assets/cards/lesserafim/lesserafim_aura_rare_yunjin_03.png": {
+      "before_sha256": "fce35f8ccf8883e83034a29cb11cbd6ceb65371b0dc7ff8ffb58dcb80aac5a3a",
+      "after_sha256": "2dcba1caffa77ea7e530c0551414bc988167fe289ccaf63d9bff4652a7ab3eb9",
+      "id": "card_lesserafim_aura_rare_yunjin_03",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Yunjin"
+    },
+    "assets/cards/lesserafim/lesserafim_aura_rare_kazuha_04.png": {
+      "before_sha256": "3cdf37e6af3852c7407ef7185eeb99b89ca026fb0c8d3eb5504cfd780385235a",
+      "after_sha256": "bba04fa3f6c5dc18b13b9e7eed55252bb3c79174ac7bd596dacfba745c36447b",
+      "id": "card_lesserafim_aura_rare_kazuha_04",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Kazuha"
+    },
+    "assets/cards/lesserafim/lesserafim_aura_rare_eunchae_05.png": {
+      "before_sha256": "a2ded0230fd184d87cec513647d499288b9676f5d62703553b36302cb5b3efce",
+      "after_sha256": "650e90f7f7376f8f1774fc5c56fd953d85b0d0c0e9d663819ed22f4cb5872046",
+      "id": "card_lesserafim_aura_rare_eunchae_05",
+      "group": "LE SSERAFIM",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Eunchae"
+    },
+    "assets/cards/lesserafim/lesserafim_velvet_light_legendary_chaewon_01.png": {
+      "before_sha256": "7a0b036b408b924d5e036a821ea0e16870dd31481bfc0b76a9a53319f795a1c7",
+      "after_sha256": "c43740ae74d4f092f0a0652b62b6a00bb10c7e3f3d5898ee996a21aa19dcaf68",
+      "id": "card_lesserafim_velvet_light_legendary_chaewon_01",
+      "group": "LE SSERAFIM",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Chaewon"
+    },
+    "assets/cards/lesserafim/lesserafim_velvet_light_legendary_sakura_02.png": {
+      "before_sha256": "463a0db24aee6cb5a4d45a17a6bb74011ecff61475e92304efa5a6eb5285a29a",
+      "after_sha256": "a1ff198eae85a2193231f4ed2afc9033b26cd74a533921aceb67ab064c5256ad",
+      "id": "card_lesserafim_velvet_light_legendary_sakura_02",
+      "group": "LE SSERAFIM",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Sakura"
+    },
+    "assets/cards/lesserafim/lesserafim_velvet_light_legendary_yunjin_03.png": {
+      "before_sha256": "bc8d20263831aa9eec298ebe5f195247de15e49b2274c12403cbc375bff756d6",
+      "after_sha256": "36f7565fb37b97aa975f1738051351e6b3099551aeefccc76f2f78ea658db806",
+      "id": "card_lesserafim_velvet_light_legendary_yunjin_03",
+      "group": "LE SSERAFIM",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Yunjin"
+    },
+    "assets/cards/lesserafim/lesserafim_velvet_light_legendary_kazuha_04.png": {
+      "before_sha256": "f78109dea5078342acc149eaf789410808cc56357427eb789aebf63ca4b36699",
+      "after_sha256": "0eec20ae0abba6f346ce3ad8c32a56a32922cf672fbf648d05e3e716c4adac85",
+      "id": "card_lesserafim_velvet_light_legendary_kazuha_04",
+      "group": "LE SSERAFIM",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Kazuha"
+    },
+    "assets/cards/lesserafim/lesserafim_velvet_light_legendary_eunchae_05.png": {
+      "before_sha256": "1cac57d4a0ce529ce3b4a1fa7299976c2fdd6d255cc6e522c73b98e3913c3c6f",
+      "after_sha256": "6141cb2beff064d78820ef5a8a5ae8d3012ef6c8daa929a8a3fa24c4ab44f224",
+      "id": "card_lesserafim_velvet_light_legendary_eunchae_05",
+      "group": "LE SSERAFIM",
+      "era": "VELVET LIGHT",
+      "rarity": "legendary",
+      "member": "Eunchae"
+    },
+    "assets/cards/ive/ive_aura_rare_yujin_01.png": {
+      "before_sha256": "4003c5e05a763857db808d9ad6a4544d8fa57a492d5206b4f44be574e188ab75",
+      "after_sha256": "5cb6bae544460036a2987e19dd2c8f209f7f00324a984f8d725909f1323e9eea",
+      "id": "card_ive_aura_rare_yujin_01",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Yujin"
+    },
+    "assets/cards/ive/ive_aura_rare_gaeul_02.png": {
+      "before_sha256": "d9118da652e52c523aeae316483c64b0b002ba45131f749900eb18c69f674de3",
+      "after_sha256": "62cf55a5b1ecb14532c04b2bcbe58f10001f6e9828d9da544b4998df5a040090",
+      "id": "card_ive_aura_rare_gaeul_02",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Gaeul"
+    },
+    "assets/cards/ive/ive_aura_rare_rei_03.png": {
+      "before_sha256": "eb20125ebb431501f20de51df3a0a0c004280f799f4544ab77b7ddee6cd4fc7e",
+      "after_sha256": "bbcb1fc2b19ef939a047a7410066ae016266f18ebfb9d88eab298f1ea8139c74",
+      "id": "card_ive_aura_rare_rei_03",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Rei"
+    },
+    "assets/cards/ive/ive_aura_rare_wonyoung_04.png": {
+      "before_sha256": "d4094a39ae1cc22d824555dd70708e30fed64a1e8aa149d4c07b5efa62d13db0",
+      "after_sha256": "57a76e998aebf4d2f36fd52f900f5a723fc2b005a0d9c6aa4006bdf72ccbc936",
+      "id": "card_ive_aura_rare_wonyoung_04",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Wonyoung"
+    },
+    "assets/cards/ive/ive_aura_rare_liz_05.png": {
+      "before_sha256": "345d2f54b83e0fe78d5bfc3965c9c390162608e8434b8f995583984eb127035e",
+      "after_sha256": "2836e40d1b9e18f265856ac357d28ea184614cd72e35cfba3591391679312c05",
+      "id": "card_ive_aura_rare_liz_05",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Liz"
+    },
+    "assets/cards/ive/ive_aura_rare_leeseo_06.png": {
+      "before_sha256": "46897220e22c4f6fe6ab30df5e86b760081abd0319f55793e94a1ae85ad75cb8",
+      "after_sha256": "3624bab7b716129e31a6d914bbc38065c7502af508a6ca897226bda7d2620fe6",
+      "id": "card_ive_aura_rare_leeseo_06",
+      "group": "IVE",
+      "era": "AURA",
+      "rarity": "rare",
+      "member": "Leeseo"
+    },
+    "assets/cards/lesserafim/lesserafim_royal_haze_mythic_chaewon_01.png": {
+      "before_sha256": "bb2602c7c4213cded89539ec6fa753be97099a2af47cedbad002582122cebdaa",
+      "after_sha256": "2a312a51bb79e6afea6c15936d0cf8da3e6aec67ea0d0948214a0251d069104c",
+      "id": "card_lesserafim_royal_haze_mythic_chaewon_01",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Chaewon"
+    },
+    "assets/cards/lesserafim/lesserafim_royal_haze_mythic_sakura_02.png": {
+      "before_sha256": "65751df5e0d8b749c0bfc35494449fdaa1e09bf5dfee68666ff1f4e72e16ab74",
+      "after_sha256": "38369cf9ddbed549462d599e0e025103f1539ae557790256ef51160fc9b73aa1",
+      "id": "card_lesserafim_royal_haze_mythic_sakura_02",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Sakura"
+    },
+    "assets/cards/lesserafim/lesserafim_royal_haze_mythic_yunjin_03.png": {
+      "before_sha256": "e54aadbe26028a321979d12db89ca0f71c0b44e73a257d674a3c50b9f08fab11",
+      "after_sha256": "e8ab56c609a806f4ca1691ee7f6e22c0554b09a7a182871a2b4a31935107109b",
+      "id": "card_lesserafim_royal_haze_mythic_yunjin_03",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Yunjin"
+    },
+    "assets/cards/lesserafim/lesserafim_royal_haze_mythic_kazuha_04.png": {
+      "before_sha256": "b1dec827afb3767934dbdeb8376d446edb4ac3e37347d6502960525d62586dde",
+      "after_sha256": "195dab2704877a99d1c420e3dda16e3c90a81a297db1e8aa8cf3e506723b0e05",
+      "id": "card_lesserafim_royal_haze_mythic_kazuha_04",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Kazuha"
+    },
+    "assets/cards/lesserafim/lesserafim_royal_haze_mythic_eunchae_05.png": {
+      "before_sha256": "4b8b0061aaa0d8796efec6b8c13dfab0086421b494571f302c3e43d5458c9b24",
+      "after_sha256": "ee6e28da03e0679678f07909a532282599bfeff123a33120a85e0e1eb81cf265",
+      "id": "card_lesserafim_royal_haze_mythic_eunchae_05",
+      "group": "LE SSERAFIM",
+      "era": "ROYAL HAZE",
+      "rarity": "mythic",
+      "member": "Eunchae"
+    }
+  }
+}
