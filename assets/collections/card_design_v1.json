@@ -2,8 +2,8 @@
   "schema": "dolce_master_card_design_v1",
   "template": "tools/card_master_template.py",
   "original_assets": "available through the parent git revision",
-  "member_count": 52,
-  "set_count": 11,
+  "member_count": 58,
+  "set_count": 12,
   "central_portrait_unchanged_pixels": [
     370,
     175,
@@ -478,6 +478,66 @@
       "era": "ROYAL HAZE",
       "rarity": "mythic",
       "member": "Eunchae"
+    },
+    "assets/cards/ive/ive_spotlight_epic_yujin_01.png": {
+      "before_sha256": null,
+      "after_sha256": "2cc2b682841623ad724598d04bb19abb05ac051c0efba4d3e6b827cd9f85fa59",
+      "id": "card_ive_spotlight_epic_yujin_01",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Yujin",
+      "template_native": true
+    },
+    "assets/cards/ive/ive_spotlight_epic_gaeul_02.png": {
+      "before_sha256": null,
+      "after_sha256": "c2ef498df80fc2ca46805dc43a3b7eba6a39527c4c166d1e8253a22944b59023",
+      "id": "card_ive_spotlight_epic_gaeul_02",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Gaeul",
+      "template_native": true
+    },
+    "assets/cards/ive/ive_spotlight_epic_rei_03.png": {
+      "before_sha256": null,
+      "after_sha256": "5d872d1680134cc58beb994bde5859ec39f67a1f39e8c4275d3bab999fdb6ede",
+      "id": "card_ive_spotlight_epic_rei_03",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Rei",
+      "template_native": true
+    },
+    "assets/cards/ive/ive_spotlight_epic_wonyoung_04.png": {
+      "before_sha256": null,
+      "after_sha256": "9914f6cd262c243ba162448f269f5b79ef72af7a89ab936d54b7c4e1dcbe1953",
+      "id": "card_ive_spotlight_epic_wonyoung_04",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Wonyoung",
+      "template_native": true
+    },
+    "assets/cards/ive/ive_spotlight_epic_liz_05.png": {
+      "before_sha256": null,
+      "after_sha256": "47c8db6861d67babf9aa14f6aa40b7977d3eca773dd63e8b13f18392c2de22e0",
+      "id": "card_ive_spotlight_epic_liz_05",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Liz",
+      "template_native": true
+    },
+    "assets/cards/ive/ive_spotlight_epic_leeseo_06.png": {
+      "before_sha256": null,
+      "after_sha256": "73b89a4ce31d8c68da2edf6aa40af3e337bee224bbb0cbe9791c7c5d3a173ccd",
+      "id": "card_ive_spotlight_epic_leeseo_06",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "member": "Leeseo",
+      "template_native": true
     }
   }
 }

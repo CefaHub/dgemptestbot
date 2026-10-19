@@ -181,6 +181,24 @@
       ],
       "photo_session_id": "lesserafim_easy_crazy_hot_seattle_2025_09_17_david_lee",
       "banner_path": "assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png"
+    },
+    {
+      "set_id": "coll_ive_spotlight_epic",
+      "group": "IVE",
+      "era": "SPOTLIGHT",
+      "rarity": "epic",
+      "source_collection": "IVE Show What I Have World Tour, Ziggo Dome Amsterdam — alternative original photographs taken 13 June 2024 by Robbie Klinkenberg",
+      "source_mode": "curated",
+      "expected_members": [
+        "YUJIN",
+        "GAEUL",
+        "REI",
+        "WONYOUNG",
+        "LIZ",
+        "LEESEO"
+      ],
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "banner_path": "assets/banners/ive/ive_spotlight_epic_banner.png"
     }
   ]
 }

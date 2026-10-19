@@ -2,7 +2,7 @@
 
 > Автоматически создано из **опубликованного** каталога игры. Исследовательские превью и незавершённые наборы сюда не попадают.
 
-**Опубликовано: 52 карточек в 11 полных коллекциях.**
+**Опубликовано: 58 карточек в 12 полных коллекциях.**
 
 Нажми на фотографию, чтобы открыть оригинальный PNG 900×1200. Баннеры каждого сета — 1600×900.
 
@@ -19,6 +19,7 @@
 - [LE SSERAFIM — VELVET LIGHT / LEGENDARY](#coll_lesserafim_velvet_light_legendary)
 - [IVE — AURA / RARE](#coll_ive_aura_rare)
 - [LE SSERAFIM — ROYAL HAZE / MYTHIC](#coll_lesserafim_royal_haze_mythic)
+- [IVE — SPOTLIGHT / EPIC](#coll_ive_spotlight_epic)
 
 ## ILLIT — SPOTLIGHT · EPIC
 
@@ -162,6 +163,19 @@
 | **Chaewon** | **Sakura** | **Yunjin** | **Kazuha** | **Eunchae** |
 
 *Фотосерия: LE SSERAFIM Easy Crazy Hot Tour, Climate Pledge Arena Seattle 17 Sep 2025, David Lee — five unreleased original concert frames.*
+
+## IVE — SPOTLIGHT · EPIC
+
+<a id="coll_ive_spotlight_epic"></a>
+
+**6/6 участниц** · [Открыть баннер](assets/banners/ive/ive_spotlight_epic_banner.png)
+
+| 1 | 2 | 3 | 4 | 5 | 6 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| [<img src="assets/cards/ive/ive_spotlight_epic_yujin_01.png" width="175" alt="Yujin IVE epic">](assets/cards/ive/ive_spotlight_epic_yujin_01.png) | [<img src="assets/cards/ive/ive_spotlight_epic_gaeul_02.png" width="175" alt="Gaeul IVE epic">](assets/cards/ive/ive_spotlight_epic_gaeul_02.png) | [<img src="assets/cards/ive/ive_spotlight_epic_rei_03.png" width="175" alt="Rei IVE epic">](assets/cards/ive/ive_spotlight_epic_rei_03.png) | [<img src="assets/cards/ive/ive_spotlight_epic_wonyoung_04.png" width="175" alt="Wonyoung IVE epic">](assets/cards/ive/ive_spotlight_epic_wonyoung_04.png) | [<img src="assets/cards/ive/ive_spotlight_epic_liz_05.png" width="175" alt="Liz IVE epic">](assets/cards/ive/ive_spotlight_epic_liz_05.png) | [<img src="assets/cards/ive/ive_spotlight_epic_leeseo_06.png" width="175" alt="Leeseo IVE epic">](assets/cards/ive/ive_spotlight_epic_leeseo_06.png) |
+| **Yujin** | **Gaeul** | **Rei** | **Wonyoung** | **Liz** | **Leeseo** |
+
+*Фотосерия: IVE Show What I Have World Tour, Ziggo Dome Amsterdam — alternative original photographs taken 13 June 2024 by Robbie Klinkenberg.*
 
 ---
 
