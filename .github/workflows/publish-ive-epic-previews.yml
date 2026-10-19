@@ -19,7 +19,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "$RUNNER_TEMP/photo-cards"
-          gh run download 39170008556 --repo CefaHub/dgemptestbot --name Dolce-Photo-Candidate-Review --dir "$RUNNER_TEMP/photo-cards"
+          gh run download 39232272192 --repo CefaHub/dgemptestbot --name Dolce-Photo-Candidate-Review --dir "$RUNNER_TEMP/photo-cards"
       - name: Validate and stage images (never publish to gacha)
         run: |
           python -m pip install Pillow
