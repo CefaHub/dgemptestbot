@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/review-standardized-card-designs.yml'
+      - 'data/catalog.json'
+      - 'assets/cards/**'
+      - 'tools/card_design_contact_sheet.py'
   workflow_dispatch:
 permissions:
   contents: write
