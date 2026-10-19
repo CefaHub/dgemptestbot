@@ -17,10 +17,39 @@
     "LEESEO"
   ],
   "missing_members": [
-    "YUJIN",
     "REI"
   ],
   "cards": [
+    {
+      "member": "YUJIN",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg/1920px-20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "original_dimensions": [
+        2773,
+        4000
+      ],
+      "preview_source_dimensions": [
+        1920,
+        2770
+      ],
+      "solo_region": [
+        0.54,
+        0.17,
+        0.94,
+        0.86
+      ],
+      "focus_x": 0.43,
+      "focus_y": 0.35,
+      "solo_review_status": "pending",
+      "source_review_status": "group_photo_separated_preview_approval_pending",
+      "source_note": "YUJIN is at RIGHT of Leeseo in original #25.5; 1920px source-derived thumbnail is cropped to right-side Yujin, leaving >600x800 usable pixels. Human QA must inspect no Leeseo limbs/faces remain and face stays sharp. Different original from already published YUJIN #33 (RARE) and #15 (EPIC). No automatic approval."
+    },
     {
       "member": "GAEUL",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
@@ -64,7 +93,7 @@
     {
       "member": "LIZ",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/20240613_IVE_Amsterdam_concert_34_Liz.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/20240613_IVE_Amsterdam_concert_34_Liz.jpg/960px-20240613_IVE_Amsterdam_concert_34_Liz.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_34_Liz.jpg",
       "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_34_Liz.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
@@ -79,12 +108,13 @@
       "focus_y": 0.25,
       "solo_review_status": "pending",
       "source_review_status": "preview_only_visual_sharpness_pending",
-      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required.",
+      "delivery_note": "Unmodified Wikimedia-generated preview thumbnail of SAME Commons original file used because full original returned HTTP 429 and Wikimedia CDN proxy returned 404. Native original dimensions remain documented; do not treat thumbnail as a different photograph."
     },
     {
       "member": "LEESEO",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/20240613_IVE_Amsterdam_concert_26_Leeseo.jpg/900px-20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
       "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
@@ -99,10 +129,11 @@
       "focus_y": 0.25,
       "solo_review_status": "pending",
       "source_review_status": "preview_only_visual_sharpness_pending",
-      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required.",
+      "delivery_note": "Unmodified Wikimedia-generated preview thumbnail of SAME Commons original file used because full original returned HTTP 429 and Wikimedia CDN proxy returned 404. Native original dimensions remain documented; do not treat thumbnail as a different photograph."
     }
   ],
-  "notes": "Four licensed native-size unused original photographs for VISUAL PREVIEW only; DO NOT count as issued cards. YUJIN original options are multi-member or reused; REI #32 is 557px wide and fails >=600px native source threshold, while #16 and #40 were published in other rarities. The four currently linked concert photos also require manual QUALITY and SOLO reviews; reject blurred or unattractive images. Never release fewer than all six group members or mix source sessions.",
-  "candidate_revision": 2,
+  "notes": "RESEARCH ONLY. 5 potential sources including YUJIN cropped from ORIGINAL #25.5; only REI has no distinct suitably resolved solo image. Liz and Leeseo are alternate delivery URLs to identical underlying Commons originals. All five require visual sharpness, member identification, no-neighbor checks and global duplicates audit. Do not publish until complete 6/6 series approved.",
+  "candidate_revision": 3,
   "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved."
 }
