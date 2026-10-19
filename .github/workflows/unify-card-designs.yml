@@ -1,0 +1,45 @@
+name: Standardize ALL published real-photo card designs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/unify-card-designs.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: unified-card-design-release
+  cancel-in-progress: false
+jobs:
+  normalize-entire-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install game and image-test dependencies
+        run: python -m pip install -r requirements.txt pytest pytest-asyncio
+      - name: Confirm full current original catalog is valid
+        run: |
+          python -m pytest -q
+          python tools/photo_production.py validate
+      - name: Normalize ALL already issued cards to one master design
+        run: python -m tools.unify_card_designs
+      - name: Validate new artwork, all 52 real photo credits and complete groups
+        run: |
+          python -m pytest -q
+          python tools/photo_production.py validate
+          python tools/generate_gallery.py --check
+      - name: Commit all changed PNGs in one release
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cards assets/collections/card_design_v1.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Unify all real-photo card designs into the same complete-collection template"
+            git push origin HEAD:main
+          fi
