@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "LE SSERAFIM Royal Haze MYTHIC full 5-member real-photo release after visual review of individual CC-BY David Lee Seattle frames. Native Yunjin crop (3218px original x19%=605px) excludes other performers' faces; no reused published source. Atomic publication, source hashing, credit and banner in photo_release_pipeline.",
+  "description": "Complete 5-member LE SSERAFIM MYTHIC Seattle 2025 David Lee ORIGINAL real photos, direct owner Flickr original (not Wikimedia thumbnails which are blocked by HTTP 429 on GitHub runners). No repeats, full-set-only, source visual approvals documented by prior CONTACT_SHEET; final output must pass pipeline and all tests.",
   "sets": [
     {
       "group": "LE SSERAFIM",
@@ -13,7 +13,7 @@
       "cards": [
         {
           "member": "CHAEWON",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849585225%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849585225%29.jpg",
+          "photo_url": "https://live.staticflickr.com/65535/54849585225_c9c681923c_o.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854849585225%29.jpg",
           "original_source": "https://www.flickr.com/photos/davidjlee/54849585225/",
           "photographer": "David Lee",
@@ -27,11 +27,12 @@
           "focus_y": 0.17,
           "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha.",
           "visual_review_status": "approved",
-          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png."
+          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png.",
+          "fetch_note": "Exact full-resolution original from CC BY 4.0 author Flickr /sizes/o/; same photographer same original photo ID as Commons research preview. Source bytes differ from resized preview; new hashes must be checked."
         },
         {
           "member": "SAKURA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157085401%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157085401%29.jpg",
+          "photo_url": "https://live.staticflickr.com/65535/55157085401_5d234bd4ab_o.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_Sakura._le_sserafim_%2855157085401%29.jpg",
           "original_source": "https://www.flickr.com/photos/davidjlee/55157085401/",
           "photographer": "David Lee",
@@ -45,11 +46,12 @@
           "focus_y": 0.17,
           "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha.",
           "visual_review_status": "approved",
-          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png."
+          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png.",
+          "fetch_note": "Exact full-resolution original from CC BY 4.0 author Flickr /sizes/o/; same photographer same original photo ID as Commons research preview. Source bytes differ from resized preview; new hashes must be checked."
         },
         {
           "member": "YUNJIN",
-          "photo_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
+          "photo_url": "https://live.staticflickr.com/65535/54797054149_1ce7eccea1_o.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797054149%29.jpg",
           "original_source": "https://www.flickr.com/photos/davidjlee/54797054149/",
           "photographer": "David Lee",
@@ -69,11 +71,12 @@
             0.96
           ],
           "visual_review_status": "approved",
-          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png."
+          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png.",
+          "fetch_note": "Exact full-resolution original from CC BY 4.0 author Flickr /sizes/o/; same photographer same original photo ID as Commons research preview. Source bytes differ from resized preview; new hashes must be checked."
         },
         {
           "member": "KAZUHA",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336949%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336949%29.jpg",
+          "photo_url": "https://live.staticflickr.com/65535/54846336949_2c70b6904a_o.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336949%29.jpg",
           "original_source": "https://www.flickr.com/photos/davidjlee/54846336949/",
           "photographer": "David Lee",
@@ -87,11 +90,12 @@
           "focus_y": 0.17,
           "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha.",
           "visual_review_status": "approved",
-          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png."
+          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png.",
+          "fetch_note": "Exact full-resolution original from CC BY 4.0 author Flickr /sizes/o/; same photographer same original photo ID as Commons research preview. Source bytes differ from resized preview; new hashes must be checked."
         },
         {
           "member": "EUNCHAE",
-          "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg/1920px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
+          "photo_url": "https://live.staticflickr.com/65535/54846336944_6aeb44a095_o.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg",
           "original_source": "https://www.flickr.com/photos/davidjlee/54846336944/",
           "photographer": "David Lee",
@@ -105,7 +109,8 @@
           "focus_y": 0.17,
           "notes": "Image from same Flickr/Commons concert. Verify that requested member alone is recognizable and crop is >=600x800, plus check global duplicate hashes before gacha.",
           "visual_review_status": "approved",
-          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png."
+          "visual_review_evidence": "Final real-source CONTACT_SHEET.png inspected after 3218px original Yunjin tight 605px native crop, no second discernible face; all 5 performers are represented in individual card portraits. Assets/previews/lesserafim_royal_haze_mythic/CONTACT_SHEET.png.",
+          "fetch_note": "Exact full-resolution original from CC BY 4.0 author Flickr /sizes/o/; same photographer same original photo ID as Commons research preview. Source bytes differ from resized preview; new hashes must be checked."
         }
       ]
     }
