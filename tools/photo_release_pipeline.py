@@ -454,6 +454,9 @@ def generate(manifest_path, publish=False):
             sys.path.insert(0, str(ROOT))
         from dolce_empire.set_validation import validate_photo_sets
         assert validate_photo_sets(current) == len(current)
+        # Pin each new canonical-template PNG in the global verified artwork ledger.
+        from tools.card_design_ledger import extend_record
+        extend_record(ROOT)
         # Keep the human-browsable GitHub gallery in the SAME release commit.
         # The generator fails on incomplete sets or missing real-photo PNGs.
         from tools.generate_gallery import generate_gallery
