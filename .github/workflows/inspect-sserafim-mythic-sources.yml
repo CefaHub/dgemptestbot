@@ -1,0 +1,68 @@
+name: Inspect unused LE SSERAFIM Seattle photo sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-sserafim-mythic-sources.yml'
+permissions:
+  contents: write
+jobs:
+  render-real-photo-research-sheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow
+        run: python -m pip install Pillow
+      - name: Fetch real-source photographs and create selection contact sheet
+        run: |
+          python - <<'PY'
+          import urllib.request, io, os
+          from PIL import Image, ImageDraw, ImageFont, ImageOps
+          from pathlib import Path
+          candidates = [
+            ("CHAEWON 54797153830","https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854797153830%29.jpg"),
+            ("SAKURA? 54796820966","https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820966%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820966%29.jpg"),
+            ("KAZUHA 54796820566","https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854796820566%29.jpg"),
+            ("EUNCHAE? 54846336944","https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg/960px-Easy_Crazy_Hot_Tour_in_Seattle_-_le_sserafim_%2854846336944%29.jpg"),
+            ("UNKNOWN 54797054559","https://live.staticflickr.com/65535/54797054559_9ef690ec98_b.jpg"),
+            ("UNKNOWN 54797069468","https://live.staticflickr.com/65535/54797069468_00c423aff3_b.jpg"),
+            ("UNKNOWN 54797154315","https://live.staticflickr.com/65535/54797154315_a8b5cd5c0f_b.jpg"),
+          ]
+          cols, cw, ch = 4, 350, 410
+          rows = (len(candidates)+cols-1)//cols
+          sheet=Image.new('RGB',(cols*cw, rows*ch),(16,20,35))
+          font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',18)
+          draw=ImageDraw.Draw(sheet)
+          out=Path('assets/previews/lesserafim_mythic_source_research')
+          out.mkdir(parents=True,exist_ok=True)
+          for index,(name,url) in enumerate(candidates):
+            x=(index%cols)*cw;y=(index//cols)*ch
+            try:
+              req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (DolceEmpire photo source research)'})
+              with urllib.request.urlopen(req,timeout=40) as resp: raw=resp.read(15000001)
+              with Image.open(io.BytesIO(raw)) as photo:
+                photo=ImageOps.exif_transpose(photo).convert('RGB')
+                width,height=photo.size
+                thumb=ImageOps.contain(photo,(330,348),method=Image.Resampling.LANCZOS)
+                sheet.paste(thumb,(x+(cw-thumb.width)//2,y+15+(350-thumb.height)//2))
+                draw.text((x+8,y+367),name,font=font,fill=(245,245,250))
+                draw.text((x+8,y+389),f'{width}x{height}',font=font,fill=(140,203,255))
+            except Exception as exc:
+              print('SOURCE FAILED',name,url,str(exc),flush=True)
+              draw.text((x+8,y+55),name,font=font,fill=(255,105,105))
+              draw.text((x+8,y+90),str(exc)[:28],font=font,fill=(255,105,105))
+          sheet.save(out/'CONTACT_SHEET.png',optimize=True)
+          PY
+      - name: Commit review image, not to the game catalog
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/previews/lesserafim_mythic_source_research/CONTACT_SHEET.png
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preview seven candidate unused LE SSERAFIM source photographs'
+            git push origin HEAD:main
+          fi
