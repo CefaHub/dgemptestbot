@@ -17,7 +17,8 @@
     "LEESEO"
   ],
   "missing_members": [
-    "REI"
+    "REI",
+    "WONYOUNG"
   ],
   "cards": [
     {
@@ -40,26 +41,6 @@
       "source_review_status": "preview_only_visual_sharpness_pending",
       "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required.",
       "delivery_note": "Source original 948x3048 must be downloaded without upscaling. Arbitrary 900px thumb is not a supported Wikimedia size; revert to original, retry early in batch after previous Wikimedia 429."
-    },
-    {
-      "member": "WONYOUNG",
-      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
-      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
-      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
-      "license": "CC BY-SA 4.0",
-      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "license_status": "verified",
-      "native_dimensions": [
-        1000,
-        1609
-      ],
-      "focus_x": 0.5,
-      "focus_y": 0.25,
-      "solo_review_status": "pending",
-      "source_review_status": "preview_only_visual_sharpness_pending",
-      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
     },
     {
       "member": "YUJIN",
@@ -133,7 +114,23 @@
       "delivery_note": "Unmodified Wikimedia-generated preview thumbnail of SAME Commons original file used because full original returned HTTP 429 and Wikimedia CDN proxy returned 404. Native original dimensions remain documented; do not treat thumbnail as a different photograph."
     }
   ],
-  "notes": "RESEARCH ONLY. 5 potential sources including YUJIN cropped from ORIGINAL #25.5; only REI has no distinct suitably resolved solo image. Liz and Leeseo are alternate delivery URLs to identical underlying Commons originals. All five require visual sharpness, member identification, no-neighbor checks and global duplicates audit. Do not publish until complete 6/6 series approved. 20 Oct visual QA: rejected previous YUJIN and LIZ layouts for cropped heads; revised focus in v4. Staged source download order prioritizes fragile original-only Leeseo and Wonyoung Wikimedia URLs; do not report successful preview before CI provides image files.",
-  "candidate_revision": 4,
-  "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved."
+  "notes": "V5 visual QA: WONYOUNG #27 explicitly rejected due low-quality small figure and dark lighting; REI remains missing due native resolution and duplicate other source photos. YUJIN and LIZ revised preview crops now preserve hair/face. Remaining GAEUL and LEESEO require manual visual review and original availability. Four research candidates only (YUJIN/GAEUL/LIZ/LEESEO), two true source gaps. Do not publish partial set.",
+  "candidate_revision": 5,
+  "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved.",
+  "rejected_candidates": [
+    {
+      "member": "WONYOUNG",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "reason": "Manual visual review of complete 900x1200 preview: subject occupies too little of card, low detail/sharpness and dark magenta stage lighting. Reject for premium LEGENDARY quality; no AI upscale, reuse, or automatic approval.",
+      "review_status": "rejected_low_visual_quality",
+      "preview_artifact": "https://github.com/CefaHub/dgemptestbot/actions/runs/39321979569/artifacts/12220162785"
+    },
+    {
+      "member": "REI",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_32_Rei.jpg",
+      "reason": "Native original 557x1280; fails >=600px width and cannot meet minimum native 3:4 area. #16 and #40 already published in other rarities; group shots #22/#24 not clean individual portraits.",
+      "review_status": "rejected_source_resolution"
+    }
+  ]
 }
