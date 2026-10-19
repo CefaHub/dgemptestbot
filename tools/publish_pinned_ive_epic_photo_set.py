@@ -29,7 +29,7 @@ ART_BLOBS = {
     "GAEUL": "609baaa8a9681b1b3c87beb82a6be5bef5b8cc5c",
     "REI": "3172fc4c1dd859f69c3111b27be5cc6a273cbf17",
     "WONYOUNG": "5febe594190066682cd16629dd946439731b0979",
-    "LIZ": "2520e1dd8268d75d3dd8cd49e06019f0219691c",
+    "LIZ": "2520e1dd8268d75d3dd8cd49e06019f0219691c3",
     "LEESEO": "31168beb4141e2ca8a034b63edf40ca931ea7dee",
 }
 RESEARCH = Path("tools/research/ive_spotlight_epic_amsterdam_2024_candidates.json")
