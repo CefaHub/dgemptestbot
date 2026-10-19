@@ -1,8 +1,8 @@
 # DOLCE EMPIRE — фотокарточки: полный состав, ориентир ~100
 
-**Актуально: 18 октября 2026 года.** Цель **около 100**, не фиксированное ограничение. **Никогда не обрывать коллекцию на 2–3 участницах ради ровного числа**: публиковать только полный состав группы и всю одну серию одной редкости; выход за 100 допустим.
+**Актуально: 19 октября 2026 года.** Цель **около 100**, не фиксированное ограничение. **Никогда не обрывать коллекцию на 2–3 участницах ради ровного числа**: публиковать только полный состав группы и всю одну серию одной редкости; выход за 100 допустим.
 
-**Сейчас выпущено: 47 полноценных игровых фото в 10 наборах.** Начальная очередь рассчитана на 100 фото как сумму 20 *полных* альбомов; в ней осталось 53 фото в 10 наборах. Следующее расширение может вывести итог за 100; оно не должно урезать состав.
+**Сейчас выпущено: 52 полноценных игровых фото в 11 наборах.** Начальная очередь рассчитана на 100 фото как сумму 20 *полных* альбомов; в ней осталось 48 фото в 9 наборах. Следующее расширение может вывести итог за 100; оно не должно урезать состав.
 
 ## Опубликованные альбомы
 
@@ -18,6 +18,7 @@
 | LE SSERAFIM | AURA | RARE | 5 |
 | LE SSERAFIM | VELVET LIGHT | LEGENDARY | 5 |
 | IVE | AURA | RARE | 6 |
+| LE SSERAFIM | ROYAL HAZE | MYTHIC | 5 |
 
 ## Неопубликованные полные альбомы
 
@@ -31,8 +32,7 @@
 | 6 | IVE | VELVET LIGHT | LEGENDARY | 6 | Нужны шесть отдельных фото, не повторяющих RARE/EPIC |
 | 7 | ILLIT | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
 | 8 | ITZY | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
-| 9 | LE SSERAFIM | ROYAL HAZE | MYTHIC | 5 | Нужны пять уникальных фото, отдельная серия |
-| 10 | IVE | ROYAL HAZE | MYTHIC | 6 | Нужны шесть уникальных фото, отдельная серия |
+| 9 | IVE | ROYAL HAZE | MYTHIC | 6 | Нужны шесть уникальных фото, отдельная серия |
 
 ## Жёсткие критерии качества
 
@@ -44,7 +44,9 @@
 
 ## Последний релиз
 
-IVE AURA RARE: **6 из 6 фотографий** — YUJIN, GAEUL, REI, WONYOUNG, LIZ, LEESEO. Одна концертная серия из 42 фотографий Robbie Klinkenberg (Амстердам, 13.06.2024), CC BY-SA 4.0. [Карточки на GitHub](https://github.com/CefaHub/dgemptestbot/tree/main/assets/cards/ive) · [Баннер](https://github.com/CefaHub/dgemptestbot/blob/main/assets/banners/ive/ive_aura_rare_banner.png).
+LE SSERAFIM ROYAL HAZE MYTHIC: **5 из 5 фотографий** — CHAEWON, SAKURA, YUNJIN, KAZUHA, EUNCHAE. Действительно выпущены на GitHub 19.10.2026, без повторов оригиналов и без генеративных портретов. [Карточки](https://github.com/CefaHub/dgemptestbot/tree/main/assets/cards/lesserafim) · [Баннер](https://github.com/CefaHub/dgemptestbot/blob/main/assets/banners/lesserafim/lesserafim_royal_haze_mythic_banner.png).
+
+Ранее выпущен IVE AURA RARE: **6 из 6 фотографий** — YUJIN, GAEUL, REI, WONYOUNG, LIZ, LEESEO. Одна концертная серия из 42 фотографий Robbie Klinkenberg (Амстердам, 13.06.2024), CC BY-SA 4.0. [Карточки на GitHub](https://github.com/CefaHub/dgemptestbot/tree/main/assets/cards/ive) · [Баннер](https://github.com/CefaHub/dgemptestbot/blob/main/assets/banners/ive/ive_aura_rare_banner.png).
 
 ## Изменяемость цели
 
