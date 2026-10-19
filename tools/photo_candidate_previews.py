@@ -12,6 +12,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from urllib.error import URLError
 
 from PIL import Image, ImageDraw
 
@@ -104,6 +105,7 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     preview = []
+    unavailable = []
 
     for row in cards:
         member = row["member"]
@@ -118,7 +120,21 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
             raise ValueError(f"Previously published photograph cannot be reused: {member}")
         previous_urls.add(canonical(photo_url))
         previous_pages.add(canonical(source_page))
-        raw, original = original_image(row)
+        try:
+            raw, original = original_image(row)
+        except (URLError, TimeoutError) as exc:
+            # Wikimedia often blocks GitHub runners (429), and third-party
+            # image proxies can return 404. Keep genuine completed previews
+            # instead of aborting the entire RESEARCH report. This exception
+            # is intentionally not used by the PUBLISH pipeline.
+            unavailable.append({
+                "member": member,
+                "source_page": source_page,
+                "error": str(exc)[:250],
+                "status": "download_unavailable_not_verified",
+            })
+            print(f"PREVIEW SOURCE UNAVAILABLE: {member}: {exc}", flush=True)
+            continue
         if archive_originals:
             # Preserve the exact licensed source bytes *inside the CI artifact*.
             # Avoid changing source identity if Wikimedia later rate-limits release CI.
@@ -156,14 +172,17 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         })
         print(f"Prepared candidate card: {member} from real source image.")
 
-    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, missing)
+    unfilled = missing + [row["member"] for row in unavailable]
+    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, unfilled)
     report = {
         "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
         "contact_sheet": contact_sheet.name,
         "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
-        "members_missing": missing,
+        "members_missing": unfilled,
+        "members_declared_missing": missing,
+        "members_source_unavailable": unavailable,
         "cards": preview,
-        "note": "Check image sharpness and solo crop manually; never release a missing-member set.",
+        "note": "Check image sharpness and solo crop manually; never release a missing-member set. Unavailable downloads are NOT verified cards and must not be published.",
     }
     (output_dir / "PREVIEW_REPORT.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
