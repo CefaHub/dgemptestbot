@@ -181,32 +181,16 @@ def zoomed_photo(photo, zoom, focus):
 
 
 def card_art(photo, group, tier, member, number, total, focus=(0.5, 0.35)):
-    """Actual photo fills 3:4; fades only at bottom—no opaque stripe over the face."""
-    frame = ImageOps.fit(photo, CARD_SIZE, method=Image.Resampling.LANCZOS, centering=focus)
-    frame = ImageEnhance.Contrast(frame).enhance(1.025)
-    frame = frame.convert("RGBA")
-    accent = color(tier["color"])
-    shade = Image.new("RGBA", CARD_SIZE, (0, 0, 0, 0))
-    pixels = ImageDraw.Draw(shade, "RGBA")
-    for y in range(810, 1200):
-        alpha = int(238 * ((y - 810) / 390) ** 1.30)
-        pixels.line((0, y, 899, y), fill=(9, 11, 29, alpha))
-    pixels.rounded_rectangle((22, 22, 877, 1177), radius=30, outline=accent + (255,), width=7)
-    pixels.rounded_rectangle((37, 37, 861, 1161), radius=27, outline=(255, 255, 255, 160), width=2)
-    pixels.rounded_rectangle((61, 62, 310, 108), radius=12, fill=(12, 12, 31, 200))
-    pixels.text((79, 75), "DOLCE EMPIRE", fill=(255, 255, 255, 255), font=font(20, True))
-    pixels.rounded_rectangle((635, 62, 829, 108), radius=12, fill=(12, 12, 31, 215))
-    pixels.text((731, 86), tier["rarity"].upper(), anchor="mm",
-                font=font(23, True), fill=accent + (255,))
-    label = member.upper()
-    size = min(73, int(720 / max(1, len(label)) * 1.4))
-    pixels.text((450, 1033), label, anchor="mm", font=font(size, True),
-                fill=(255, 255, 255, 255), stroke_width=1, stroke_fill=(13, 12, 28, 255))
-    pixels.text((450, 1100), f"{group['name']}  /  {tier['era']}", anchor="mm",
-                font=font(26, True), fill=accent + (255,))
-    pixels.text((450, 1141), f"{number:02d}/{total:02d}   •   {tier['rarity'].upper()}", anchor="mm",
-                font=font(22, True), fill=(245, 245, 255, 255))
-    return Image.alpha_composite(frame, shade).convert("RGB")
+    """Render using the SAME master frame as all 52 previously issued cards."""
+    try:
+        from .card_master_template import render_master
+    except ImportError:
+        from card_master_template import render_master
+    return render_master(
+        photo, name=member, group=group["name"], era=tier["era"],
+        rarity=tier["rarity"], number=number, total=total,
+        legacy=False, focus=focus,
+    )
 
 
 def banner_art(photos, group, tier, focuses):
