@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/ive-legendary-original-photo-research.yml'
+      - 'tools/research/ive_legendary_photo_scout.py'
   workflow_dispatch:
 permissions:
   contents: write
