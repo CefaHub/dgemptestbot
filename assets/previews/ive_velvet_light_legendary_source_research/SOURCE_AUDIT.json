@@ -1,0 +1,127 @@
+{
+  "status": "research_only_not_published",
+  "source_collection": "IVE Show What I Have World Tour, Amsterdam 13 June 2024",
+  "author": "Robbie Klinkenberg / Redalert2fan",
+  "license": "CC BY-SA 4.0",
+  "expected_members": [
+    "YUJIN",
+    "GAEUL",
+    "REI",
+    "WONYOUNG",
+    "LIZ",
+    "LEESEO"
+  ],
+  "next_step": "Human visual identity/quality check, reject photos reused in RARE and EPIC, crop only real single subjects with minimum 600x800 source pixels.",
+  "candidates": [
+    {
+      "label": "YUJIN OPTION 1",
+      "filename": "20240613 IVE Amsterdam concert 25 Leeseo and Yujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_25_Leeseo_and_Yujin.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/20240613_IVE_Amsterdam_concert_25_Leeseo_and_Yujin.jpg/960px-20240613_IVE_Amsterdam_concert_25_Leeseo_and_Yujin.jpg",
+      "status": "loaded_needs_identity_and_crop_review",
+      "image_dimensions": [
+        960,
+        1280
+      ]
+    },
+    {
+      "label": "YUJIN OPTION 2",
+      "filename": "20240613 IVE Amsterdam concert 25.5 Leeseo and Yujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg/960px-20240613_IVE_Amsterdam_concert_25.5_Leeseo_and_Yujin.jpg",
+      "status": "loaded_needs_identity_and_crop_review",
+      "image_dimensions": [
+        960,
+        1385
+      ]
+    },
+    {
+      "label": "YUJIN OPTION 3",
+      "filename": "20240613 IVE Amsterdam concert 36 Wonyoung and Yujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg/960px-20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Too many requests (f061ab2)"
+    },
+    {
+      "label": "GAEUL",
+      "filename": "20240613 IVE Amsterdam concert 39 Gaeul.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_39_Gaeul.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/20240613_IVE_Amsterdam_concert_39_Gaeul.jpg/960px-20240613_IVE_Amsterdam_concert_39_Gaeul.jpg",
+      "status": "loaded_needs_identity_and_crop_review",
+      "error": "HTTP Error 429: Too many requests (f061ab2)",
+      "image_dimensions": [
+        960,
+        1817
+      ]
+    },
+    {
+      "label": "REI OPTION 1",
+      "filename": "20240613 IVE Amsterdam concert 21.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_21.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/20240613_IVE_Amsterdam_concert_21.jpg/960px-20240613_IVE_Amsterdam_concert_21.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Too many requests (f061ab2)"
+    },
+    {
+      "label": "REI OPTION 2",
+      "filename": "20240613 IVE Amsterdam concert 22.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_22.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/20240613_IVE_Amsterdam_concert_22.jpg/960px-20240613_IVE_Amsterdam_concert_22.jpg",
+      "status": "loaded_needs_identity_and_crop_review",
+      "error": "HTTP Error 429: Too many requests (f061ab2)",
+      "image_dimensions": [
+        960,
+        1280
+      ]
+    },
+    {
+      "label": "REI OPTION 3",
+      "filename": "20240613 IVE Amsterdam concert 24.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_24.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/20240613_IVE_Amsterdam_concert_24.jpg/960px-20240613_IVE_Amsterdam_concert_24.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    },
+    {
+      "label": "REI OPTION 4",
+      "filename": "20240613 IVE Amsterdam concert 17.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_17.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/20240613_IVE_Amsterdam_concert_17.jpg/960px-20240613_IVE_Amsterdam_concert_17.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    },
+    {
+      "label": "REI OPTION 5",
+      "filename": "20240613 IVE Amsterdam concert 42.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_42.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/20240613_IVE_Amsterdam_concert_42.jpg/960px-20240613_IVE_Amsterdam_concert_42.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    },
+    {
+      "label": "WONYOUNG",
+      "filename": "20240613 IVE Amsterdam concert 27 Wonyoung.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg/960px-20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    },
+    {
+      "label": "LIZ",
+      "filename": "20240613 IVE Amsterdam concert 23 Liz.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_23_Liz.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/20240613_IVE_Amsterdam_concert_23_Liz.jpg/960px-20240613_IVE_Amsterdam_concert_23_Liz.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    },
+    {
+      "label": "LEESEO",
+      "filename": "20240613 IVE Amsterdam concert 26 Leeseo.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/20240613_IVE_Amsterdam_concert_26_Leeseo.jpg/960px-20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "status": "pending",
+      "error": "HTTP Error 429: Your request does not comply with our robot policy, https://w.wiki/4wJS. Please contact noc@wikimedia.org for further information (0fa5166)"
+    }
+  ]
+}
