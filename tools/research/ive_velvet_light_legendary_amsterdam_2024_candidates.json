@@ -1,0 +1,106 @@
+{
+  "status": "research_preview_only_not_published",
+  "set_id": "coll_ive_velvet_light_legendary",
+  "group": "IVE",
+  "era": "VELVET LIGHT",
+  "rarity": "legendary",
+  "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+  "source_collection": "IVE Show What I Have World Tour, Ziggo Dome Amsterdam, 13 June 2024 — Robbie Klinkenberg — unused original photos",
+  "source_mode": "curated",
+  "collection_review_status": "pending",
+  "expected_members": [
+    "YUJIN",
+    "GAEUL",
+    "REI",
+    "WONYOUNG",
+    "LIZ",
+    "LEESEO"
+  ],
+  "missing_members": [
+    "YUJIN",
+    "REI"
+  ],
+  "cards": [
+    {
+      "member": "GAEUL",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/20240613_IVE_Amsterdam_concert_39_Gaeul.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_39_Gaeul.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_39_Gaeul.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        1422,
+        2692
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.25,
+      "solo_review_status": "pending",
+      "source_review_status": "preview_only_visual_sharpness_pending",
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+    },
+    {
+      "member": "WONYOUNG",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_27_Wonyoung.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        1000,
+        1609
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.25,
+      "solo_review_status": "pending",
+      "source_review_status": "preview_only_visual_sharpness_pending",
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+    },
+    {
+      "member": "LIZ",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/20240613_IVE_Amsterdam_concert_34_Liz.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_34_Liz.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_34_Liz.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        1190,
+        2500
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.25,
+      "solo_review_status": "pending",
+      "source_review_status": "preview_only_visual_sharpness_pending",
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+    },
+    {
+      "member": "LEESEO",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "native_dimensions": [
+        948,
+        3048
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.25,
+      "solo_review_status": "pending",
+      "source_review_status": "preview_only_visual_sharpness_pending",
+      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
+    }
+  ],
+  "notes": "Four licensed native-size unused original photographs for VISUAL PREVIEW only; DO NOT count as issued cards. YUJIN original options are multi-member or reused; REI #32 is 557px wide and fails >=600px native source threshold, while #16 and #40 were published in other rarities. The four currently linked concert photos also require manual QUALITY and SOLO reviews; reject blurred or unattractive images. Never release fewer than all six group members or mix source sessions."
+}
