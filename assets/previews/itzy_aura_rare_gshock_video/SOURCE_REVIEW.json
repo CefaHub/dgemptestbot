@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED_video_not_available_without_signin",
+  "purpose": "Identify five UNIQUE solo 3:4 high quality frames from ONE group appearance",
+  "group": "ITZY",
+  "members": [
+    "YEJI",
+    "LIA",
+    "RYUJIN",
+    "CHAERYEONG",
+    "YUNA"
+  ],
+  "event": "ITZY x G-SHOCK launch, Starfield Suwon, 23 Oct 2024",
+  "video": "https://www.youtube.com/watch?v=xRIHgC2ZVoM",
+  "author": "K-POPIT 케이팝잇",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "license_evidence": "https://commons.wikimedia.org/wiki/File:241023_ITZY_Chaeryeong.jpg",
+  "published_set": "none; must visually inspect and approve five different frames",
+  "blocking_reason": "WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one\nWARNING: [youtube] No title found in player responses; falling back to title from initial data. Other metadata may also be missing\nERROR: [youtube] xRIHgC2ZVoM: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+}
