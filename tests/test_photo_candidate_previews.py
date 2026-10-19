@@ -95,3 +95,29 @@ def test_candidate_manifest_status_must_prevent_publication(preview_input):
     source["status"] = "publish"
     with pytest.raises(ValueError, match="preview-only"):
         previews.prepare_candidates(write(source), output_dir=output)
+
+
+def test_network_blocked_source_leaves_empty_slot_not_fake_card(preview_input, monkeypatch):
+    """A transient Commons 429 must not erase verified previews or synthesize art."""
+    from urllib.error import HTTPError
+    source, write, output = preview_input
+    # Explicitly use unique unissued test pages to exercise networking recovery.
+    for row in source["cards"]:
+        row["photo_url"] = f"https://example.invalid/unique/{row['member']}.jpg"
+        row["source_page"] = f"https://example.invalid/attribution/{row['member']}.html"
+    existing = previews.original_image
+
+    def blocked_sakura(row):
+        if row["member"] == "SAKURA":
+            raise HTTPError(row["photo_url"], 429, "Wikimedia quota", {}, None)
+        return existing(row)
+
+    monkeypatch.setattr(previews, "original_image", blocked_sakura)
+    result = previews.prepare_candidates(write(source), output_dir=output)
+    assert {row["member"] for row in result["cards"]} == {"CHAEWON", "KAZUHA", "EUNCHAE"}
+    assert set(result["members_missing"]) == {"SAKURA", "YUNJIN"}
+    assert result["members_source_unavailable"][0]["member"] == "SAKURA"
+    assert result["members_source_unavailable"][0]["status"] == "download_unavailable_not_verified"
+    assert (output / "CONTACT_SHEET.png").is_file()
+    assert not (output / "lesserafim_aura_rare_sakura_PREVIEW.png").exists()
+    assert "BLOCKED" in result["publication"]
