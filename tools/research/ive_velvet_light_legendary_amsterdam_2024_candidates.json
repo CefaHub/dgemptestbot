@@ -143,7 +143,7 @@
     }
   ],
   "notes": "V6: Added unused WONYOUNG #36 LEFT SOLO crop (source photo depicts WONYOUNG and YUJIN; final crop may contain WONYOUNG only) and swapped LEESEO inaccessible #26 to distinct solo original #07. Both CC BY-SA 4.0 Robbie Klinkenberg photos from same concert, visual QA pending. Now five research candidates (YUJIN, GAEUL, WONYOUNG, LIZ, LEESEO); REI remains missing (existing #16/#40 used; #32 below native-quality threshold). No release until all six unique images and cards pass review. V7: use authentic official Commons thumbnails of new #36 Wonyoung and #07 Leeseo originals to bypass origin CDN 429. Both remain pending visual review. V8: restored Leeseo #07 ORIGINAL URL because Commons explicitly rejected unlisted 800px thumbnail size (HTTP 400); current queued retry cannot auto certify quality.",
-  "candidate_revision": 8,
+  "candidate_revision": 9,
   "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved.",
   "rejected_candidates": [
     {
@@ -166,5 +166,6 @@
       "reason": "Original #26 exists and is CC BY-SA 4.0 but GitHub Actions could not download it due repeated 429/404. Alternative #07 is now trialed in V6. This is a download blocker, not a judgment about photographic quality.",
       "review_status": "source_unavailable_in_ci_alternative_trial"
     }
-  ]
+  ],
+  "preview_cache_policy": "Research CI now saves exact downloaded Commons image bytes (URL + source page keyed, SHA256 integrity checked) to an Actions cache across runs. Cache is never a release approval and cannot fill a missing REI photo. No AI images or duplicate originals."
 }
