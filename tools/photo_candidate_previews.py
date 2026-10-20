@@ -32,6 +32,57 @@ PREVIEW_DIR = ROOT / "output" / "photo_candidate_previews"
 SOURCE_CACHE = ROOT / "output" / "photo_source_cache"
 
 
+def preflight_unissued_originals(rows, existing):
+    """Reject a WHOLE photo session before any downloads or card renders.
+
+    Explicit metadata cannot prove image content, but it can prevent wasting
+    a batch on a known duplicate or on a provably undersized native solo crop.
+    Unknown dimensions still require full image inspection later.
+    """
+    used_photos = {canonical(x["photo"]) for x in existing if x.get("photo")}
+    used_pages = {canonical(x["page"]) for x in existing if x.get("page")}
+    used_family = {canonical(x["origin_photo_page"]) for x in existing
+                   if x.get("origin_photo_page")}
+    # Treat the source page of a published *original* as the root identity.
+    used_family.update(used_pages)
+    seen_photos, seen_pages, seen_family = set(), set(), set()
+    for row in rows:
+        name = row.get("member", "?")
+        url = canonical(row.get("photo_url", ""))
+        page = canonical(row.get("source_page", ""))
+        family = canonical(row.get("origin_photo_page", row.get("source_page", "")))
+        if (not url or not page or url in seen_photos or page in seen_pages
+                or url in used_photos or page in used_pages):
+            raise ValueError(f"Full session rejects reused original/page: {name}")
+        if family in seen_family or (family in used_family):
+            raise ValueError(f"Full session rejects reused original photo family: {name}")
+        seen_photos.add(url)
+        seen_pages.add(page)
+        seen_family.add(family)
+        shape = row.get("native_dimensions", row.get("original_dimensions"))
+        if shape is None:
+            continue
+        if (not isinstance(shape, (list, tuple)) or len(shape) != 2
+                or any(isinstance(n, bool) or not isinstance(n, int) or n <= 0
+                       for n in shape)):
+            raise ValueError(f"Invalid real-source dimensions: {name}")
+        w, h = shape
+        region = row.get("solo_region")
+        if region is not None:
+            if (not isinstance(region, (list, tuple)) or len(region) != 4
+                    or any(not isinstance(n, (float, int)) or isinstance(n, bool)
+                           for n in region)
+                    or not (0 <= region[0] < region[2] <= 1 and
+                            0 <= region[1] < region[3] <= 1)):
+                raise ValueError(f"Invalid solo crop coordinates: {name}")
+            w = round(w * (region[2] - region[0]))
+            h = round(h * (region[3] - region[1]))
+        if min(w, int(h * 3 / 4)) < 600 or min(h, int(w * 4 / 3)) < 800:
+            raise ValueError(f"Full session rejects undersized original 3:4 crop: {name}")
+    return True
+
+
+
 def download_or_restore_original(row):
     """Reuse exact source bytes previously fetched by CI; NEVER substitute art.
 
@@ -143,6 +194,7 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         raise ValueError("Complete set must contain one common verified photo session.")
 
     existing = load_json(ROOT / "tools/photo_sources.json")["cards"]
+    preflight_unissued_originals(cards, existing)
     previous_urls = {canonical(x["photo"]) for x in existing if x.get("photo")}
     previous_pages = {canonical(x["page"]) for x in existing if x.get("page")}
     previous_sha = {x["source_sha256"] for x in existing if x.get("source_sha256")}
