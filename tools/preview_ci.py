@@ -11,10 +11,11 @@ import os
 import subprocess
 from pathlib import Path
 
-from tools.photo_candidate_previews import ROOT, GROUPS, prepare_candidates
+from tools.photo_candidate_previews import ROOT, GROUPS, prepare_candidates, preflight_unissued_originals
 
 RESEARCH = ROOT / "tools" / "research"
 PUBLISHED = ROOT / "assets" / "collections" / "verified_sets.json"
+SOURCES = ROOT / "tools" / "photo_sources.json"
 
 
 def released_ids(path=PUBLISHED):
@@ -56,6 +57,12 @@ def eligible_manifests(paths, published, research=RESEARCH):
                 or any(not row.get(k) for row in cards for k in (
                     "source_page", "photo_url", "photographer", "license", "license_url"))):
             print(f"Skip incomplete/unverified set (NO preview): {path.name}")
+            continue
+        try:
+            sources = json.loads(SOURCES.read_text(encoding="utf-8"))["cards"]
+            preflight_unissued_originals(cards, sources)
+        except ValueError as error:
+            print(f"Skip invalid or repeated full set (NO preview): {path.name}: {error}")
             continue
         chosen.append(path)
     return sorted(set(chosen))
