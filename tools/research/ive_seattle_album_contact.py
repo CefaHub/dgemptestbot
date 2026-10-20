@@ -72,7 +72,7 @@ def fetch_sample(url, timeout=20):
     return picture, hashlib.sha256(raw).hexdigest()
 
 
-def render_sheet(rows, thumbs, output):
+def render_sheet(rows, thumbs, output, offset=0):
     # A visual inventory of every indexed original, no card frames or member tags.
     cell_w, cell_h = 215, 280
     pad, header = 10, 85
@@ -95,11 +95,11 @@ def render_sheet(rows, thumbs, output):
             px = x + (cell_w - picture.width) // 2
             py = y + (cell_h - 37 - picture.height) // 2
             canvas.paste(picture, (px, py))
-            d.text((x + 5, y + cell_h - 29), f"#{index+1:02d} FLICKR {row['id']}",
+            d.text((x + 5, y + cell_h - 29), f"#{offset+index+1:02d} FLICKR {row['id']}",
                    font=_font(13), fill=(234, 246, 252))
         else:
             d.rectangle((x, y, x+cell_w-1, y+cell_h-37), fill=(42, 48, 65))
-            d.text((x+5, y+cell_h-45), f"#{index+1:02d} UNAVAILABLE",
+            d.text((x+5, y+cell_h-45), f"#{offset+index+1:02d} UNAVAILABLE",
                    font=_font(13), fill=(255, 176, 183))
     canvas.save(output, "JPEG", quality=76, optimize=True)
     return canvas.size
@@ -126,6 +126,8 @@ def research(manifest, output=OUT, fetch=fetch_sample):
             print(f"Source {index+1}/{len(rows)} unavailable: {exc}", flush=True)
     sheet_path = output / "CONTACT_SHEET_FULL_INDEX.jpg"
     dimensions = render_sheet(rows, images, sheet_path)
+    if len(rows) > 25:
+        render_sheet(rows[25:], images, output / "CONTACT_SHEET_LAST_12.jpg", offset=25)
     report = {
         "source_album": manifest["album_url"],
         "claimed_total_album_photos": manifest["claimed_total_album_photos"],
@@ -163,6 +165,17 @@ def main():
         for i in range(0, len(block), 256):
             print("DOLCE64 " + block[i:i+256], flush=True)
         print("DOLCE_IVE_CONTACT_BASE64_END", flush=True)
+        final_sheet = OUT / "CONTACT_SHEET_LAST_12.jpg"
+        if final_sheet.is_file():
+            with Image.open(final_sheet) as im:
+                im.thumbnail((1150, 1400))
+                buf = io.BytesIO()
+                im.save(buf, "JPEG", quality=63)
+            encoded = base64.b64encode(buf.getvalue()).decode("ascii")
+            print("DOLCE_IVE_LAST12_BASE64_BEGIN", flush=True)
+            for i in range(0, len(encoded), 256):
+                print("DOLCE64LAST " + encoded[i:i+256], flush=True)
+            print("DOLCE_IVE_LAST12_BASE64_END", flush=True)
 
 
 if __name__ == "__main__":
