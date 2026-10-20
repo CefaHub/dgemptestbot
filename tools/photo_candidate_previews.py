@@ -41,7 +41,7 @@ def write_review_sheet(output_dir, group, tier, member_ids, entries, missing):
            font=font(31, True), fill=(248, 248, 255))
     d.text((margin, 89), f"{group['name']}  /  {tier['era']}  /  {tier['rarity'].upper()}",
            font=font(26, True), fill=(180, 203, 242))
-    d.text((margin, 135), f"{len(entries)} / {len(member_ids)} original photographs verified",
+    d.text((margin, 135), f"{len(entries)} / {len(member_ids)} source images downloaded  /  visual QA pending",
            font=font(21), fill=(220, 228, 245))
     first_x = (canvas_width - (len(member_ids) * slot_w + (len(member_ids) - 1) * gap)) // 2
     files_by_member = {row["member"]: row["file"] for row in entries}
@@ -104,6 +104,20 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
     previous_hashes = [(int(x["source_dhash"], 16), x["id"]) for x in existing if x.get("source_dhash")]
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    # IMPORTANT: research previews can be rebuilt in the same directory.
+    # If a source is blocked on the next CI run, its PREVIOUS candidate PNG
+    # must not accidentally be shipped inside the newly uploaded artifact.
+    # Delete only this album's generated filenames, never user input files.
+    prefix = f"{group['slug']}_{tier['era'].lower().replace(' ', '_')}_{tier['rarity']}_"
+    for stale in output_dir.glob(prefix + "*_PREVIEW.png"):
+        stale.unlink()
+    (output_dir / "CONTACT_SHEET.png").unlink(missing_ok=True)
+    (output_dir / "PREVIEW_REPORT.json").unlink(missing_ok=True)
+    original_dir = output_dir / "source_originals"
+    for member in members:
+        (original_dir / f"{member.lower()}.bin").unlink(missing_ok=True)
+
     preview = []
     unavailable = []
 
