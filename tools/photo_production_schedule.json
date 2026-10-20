@@ -1,7 +1,7 @@
 {
   "version": 1,
   "target_catalog_cards": 100,
-  "description": "Historical order for the initial 100 unique photo slots. Published sets remain listed as provenance but are automatically excluded from the dynamic pending queue. As of 2026-10-18, 36 cards in 8 sets published, 64 cards in 12 sets remain.",
+  "description": "Initial 100-card plan: as of 2026-10-20, 58 published cards in 12 complete sets, 42 not-yet-published in 8 sets. Reject entire candidate session unless all group members have independently licensed, accessible, unique, quality originals BEFORE rendering.",
   "rules": {
     "full_group_only": true,
     "one_source_collection_per_set": true,
@@ -20,7 +20,10 @@
       900
     ],
     "rights_review_required": true,
-    "publish_only_complete_verified_sets": true
+    "publish_only_complete_verified_sets": true,
+    "full_sources_required_before_any_preview_or_card": true,
+    "no_partial_candidate_sets_even_for_research": true,
+    "reject_unavailable_original_entire_set": true
   },
   "queue": [
     {
@@ -66,7 +69,7 @@
     {
       "priority": 9,
       "set_id": "coll_ive_velvet_light_legendary",
-      "note": "Нужны шесть отдельных фото, не повторяющих RARE/EPIC"
+      "note": "The previous Amsterdam 2024 4/6 candidate selection was CANCELLED and its manifest DELETED on 2026-10-20 by owner instruction. Search a different complete 6/6 verified, accessible, non-repeating licensed photo session before downloading or rendering any cards."
     },
     {
       "priority": 10,
