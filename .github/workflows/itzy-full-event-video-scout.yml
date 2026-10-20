@@ -40,6 +40,8 @@ jobs:
           assert report['catalog_updated'] is False
           assert report['all_five_member_portraits_verified'] is False
           print('Source scout:', report['status'], 'frames:', report.get('frames_sampled', 0))
+          if report.get('status') != 'whole_event_sampled_waiting_all_five_solo_qa':
+              raise SystemExit('No usable video source frames; reject entire video session, DO NOT select ANY photos')
           PY
       - name: Upload research contact sheets (NO incomplete album PNGs)
         if: always()
