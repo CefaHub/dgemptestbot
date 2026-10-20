@@ -1,6 +1,7 @@
-"""Proof that partial real-photo reviews cannot mutate the playable album catalog."""
+"""Strict full-set-only photo candidate QA; incomplete groups produce ZERO cards."""
 import json
-from pathlib import Path
+from io import BytesIO
+from urllib.error import HTTPError
 
 import pytest
 from PIL import Image
@@ -10,187 +11,178 @@ from tools import photo_candidate_previews as previews
 
 @pytest.fixture
 def preview_input(tmp_path, monkeypatch):
-    original = json.loads(
-        (previews.ROOT / "tools/research/lesserafim_aura_rare_candidates.json").read_text(encoding="utf-8")
-    )
+    # Fresh fictional ITZY photo URLs: NEVER reuse historical/published sources.
+    members = [name for name, _ in previews.GROUPS["ITZY"]["members"]]
+    assert len(members) == 5
+    session = "itzy_one_unpublished_session"
+    source = {
+        "status": "research_preview_only_not_published",
+        "set_id": "coll_itzy_aura_rare",
+        "group": "ITZY",
+        "era": "AURA",
+        "rarity": "rare",
+        "source_collection": "Fictional shared photo session for deterministic tests",
+        "photo_session_id": session,
+        "missing_members": [],
+        "cards": [
+            {
+                "member": member,
+                "photo_session_id": session,
+                "photo_url": f"https://example.invalid/unique-itzy-photo/{member}.png",
+                "source_page": f"https://example.invalid/attribution/itzy/{member}",
+                "photographer": "Licensed photographer",
+                "license": "CC BY 4.0",
+                "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                "license_status": "verified",
+                "focus_x": 0.5,
+                "focus_y": 0.3,
+            }
+            for member in members
+        ],
+    }
+    colors = {name: idx + 1 for idx, name in enumerate(members)}
+    hash_values = [0, 0xffffffffffffffff, 0xaaaaaaaaaaaaaaaa,
+                   0x5555555555555555, 0x0f0f0f0f0f0f0f0f]
+
     def fake_original(row):
-        index = {"CHAEWON": 1, "SAKURA": 2, "KAZUHA": 3, "EUNCHAE": 4}[row["member"]]
-        picture = Image.new("RGB", (1200, 1600), (index, 100, 150))
-        return (row["member"] + "-unique-source").encode(), picture
+        pixel = colors[row["member"]]
+        picture = Image.new("RGB", (1200, 1600), (pixel, 100, 150))
+        b = BytesIO()
+        picture.save(b, "PNG")
+        return b.getvalue(), picture
 
-    distinct_hash = {1: 0x0000000000000000, 2: 0xFFFFFFFFFFFFFFFF,
-                     3: 0xAAAAAAAAAAAAAAAA, 4: 0x5555555555555555}
     monkeypatch.setattr(previews, "original_image", fake_original)
-    monkeypatch.setattr(
-        previews, "perceptual_hash",
-        lambda picture: distinct_hash[picture.getpixel((0, 0))[0]]
-    )
+    monkeypatch.setattr(previews, "perceptual_hash",
+                        lambda photo: hash_values[photo.getpixel((0, 0))[0] - 1])
+    monkeypatch.setattr(previews, "SOURCE_CACHE", tmp_path / "cache")
 
-    def write_manifest(item):
-        destination = tmp_path / "candidates.json"
-        destination.write_text(json.dumps(item, ensure_ascii=False), encoding="utf-8")
-        return destination
+    def write_manifest(spec):
+        dst = tmp_path / "new_itzy_candidates.json"
+        dst.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+        return dst
 
-    return original, write_manifest, tmp_path / "previews"
+    return source, write_manifest, tmp_path / "renders", members
 
 
-def test_four_real_candidates_preview_without_publishing(preview_input):
-    source, write, output = preview_input
-    # This historical four-photo mock preview is superseded by a complete
-    # five-member set once an approved release is queued or published.
-    # Preserve duplicate protection in the renderer; do not require old
-    # source URLs to remain unissued forever.
-    pending = json.loads((previews.ROOT / "tools/photo_releases.json").read_text(encoding="utf-8"))["sets"]
-    published = json.loads((previews.ROOT / "assets/collections/verified_sets.json").read_text(encoding="utf-8"))["sets"]
-    if any(item.get("set_id") == "coll_lesserafim_aura_rare" or
-           (item.get("group"), item.get("era"), item.get("rarity")) ==
-           ("LE SSERAFIM", "AURA", "rare") for item in pending + published):
-        pytest.skip("Superseded four-card mock; full unique five-card release is queued or published")
-    live_catalog = previews.ROOT / "dolce_empire/_catalog.json"
-    live_sets = previews.ROOT / "assets/collections/verified_sets.json"
-    before = (live_catalog.read_bytes(), live_sets.read_bytes())
-    result = previews.prepare_candidates(write(source), output_dir=output)
-    assert result["members_missing"] == ["YUNJIN"]
-    assert len(result["cards"]) == 4
-    assert "BLOCKED" in result["publication"]
-    for row in result["cards"]:
-        with Image.open(output / row["file"]) as image:
+def test_full_five_member_set_preview_not_published(preview_input):
+    source, write, out, members = preview_input
+    game = previews.ROOT / "dolce_empire/_catalog.json"
+    sets = previews.ROOT / "assets/collections/verified_sets.json"
+    before = (game.read_bytes(), sets.read_bytes())
+    report = previews.prepare_candidates(write(source), output_dir=out)
+    assert {item["member"] for item in report["cards"]} == set(members)
+    assert report["members_missing"] == []
+    assert report["publication"].startswith("BLOCKED")
+    assert (out / "CONTACT_SHEET.png").is_file()
+    for item in report["cards"]:
+        with Image.open(out / item["file"]) as image:
             assert image.size == (900, 1200)
-    assert (output / "PREVIEW_REPORT.json").is_file()
-    assert result["contact_sheet"] == "CONTACT_SHEET.png"
-    with Image.open(output / result["contact_sheet"]) as sheet:
-        assert sheet.size[0] >= 1250
-        assert sheet.size[1] == 720
-        # YUNJIN is member 3/5: inspect a blank area in the THIRD card slot.
-        # The other source cards remain genuine photographs, never copied into it.
-        margin = (sheet.width - (5 * 280 + 4 * 24)) // 2
-        third_slot_x = margin + 2 * (280 + 24)
-        assert sheet.getpixel((third_slot_x + 30, 500)) == (39, 47, 68)
-    assert (live_catalog.read_bytes(), live_sets.read_bytes()) == before
+    with Image.open(out / "CONTACT_SHEET.png") as image:
+        assert image.width >= 1250
+    assert (game.read_bytes(), sets.read_bytes()) == before
 
 
-def test_reused_photo_between_candidates_is_rejected(preview_input):
-    source, write, output = preview_input
-    source["cards"][1]["photo_url"] = source["cards"][0]["photo_url"]
+def test_even_one_missing_member_is_rejected_before_any_download(preview_input, monkeypatch):
+    source, write, out, members = preview_input
+    source["cards"].pop()
+
+    def no_network(_):
+        raise AssertionError("Do not acquire ANY photo for an incomplete group")
+
+    monkeypatch.setattr(previews, "original_image", no_network)
+    with pytest.raises(ValueError, match="Incomplete set rejected"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
+
+
+def test_explicit_missing_member_is_rejected(preview_input):
+    source, write, out, members = preview_input
+    source["missing_members"] = [members[-1]]
+    source["cards"].pop()
+    with pytest.raises(ValueError, match="Incomplete set rejected"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
+
+
+def test_same_session_required_for_all_members(preview_input):
+    source, write, out, members = preview_input
+    source["cards"][-1]["photo_session_id"] = "another_event"
+    with pytest.raises(ValueError, match="one common verified photo session"):
+        previews.prepare_candidates(write(source), output_dir=out)
+
+
+def test_duplicate_source_url_rejected(preview_input):
+    source, write, out, _ = preview_input
+    source["cards"][-1]["photo_url"] = source["cards"][0]["photo_url"]
     with pytest.raises(ValueError, match="Previously published photograph"):
-        previews.prepare_candidates(write(source), output_dir=output)
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not list(out.glob("*_PREVIEW.png"))
 
 
-def test_unverified_rights_are_rejected(preview_input):
-    source, write, output = preview_input
+def test_unverified_license_rejected(preview_input):
+    source, write, out, _ = preview_input
     source["cards"][0]["license_status"] = "pending"
     with pytest.raises(ValueError, match="Unverified photo rights"):
-        previews.prepare_candidates(write(source), output_dir=output)
+        previews.prepare_candidates(write(source), output_dir=out)
 
 
-def test_incomplete_group_coverage_is_reported_not_filled(preview_input):
-    source, write, output = preview_input
-    source["missing_members"] = []
-    with pytest.raises(ValueError, match="partition the full group"):
-        previews.prepare_candidates(write(source), output_dir=output)
-
-
-def test_candidate_manifest_status_must_prevent_publication(preview_input):
-    source, write, output = preview_input
+def test_nonpreview_manifest_rejected(preview_input):
+    source, write, out, _ = preview_input
     source["status"] = "publish"
     with pytest.raises(ValueError, match="preview-only"):
-        previews.prepare_candidates(write(source), output_dir=output)
+        previews.prepare_candidates(write(source), output_dir=out)
 
 
-def test_network_blocked_source_leaves_empty_slot_not_fake_card(preview_input, monkeypatch):
-    """A transient Commons 429 must not erase verified previews or synthesize art."""
-    from urllib.error import HTTPError
-    source, write, output = preview_input
-    # Explicitly use unique unissued test pages to exercise networking recovery.
-    for row in source["cards"]:
-        row["photo_url"] = f"https://example.invalid/unique/{row['member']}.jpg"
-        row["source_page"] = f"https://example.invalid/attribution/{row['member']}.html"
-    existing = previews.original_image
+def test_network_429_rolls_back_entire_set_and_old_artifacts(preview_input, monkeypatch):
+    source, write, out, members = preview_input
+    member_blocked = members[-1]  # Failure occurs AFTER first four valid originals.
+    orig = previews.original_image
 
-    def blocked_sakura(row):
-        if row["member"] == "SAKURA":
-            raise HTTPError(row["photo_url"], 429, "Wikimedia quota", {}, None)
-        return existing(row)
+    def one_blocked(row):
+        if row["member"] == member_blocked:
+            raise HTTPError(row["photo_url"], 429, "Wikimedia throttled", {}, None)
+        return orig(row)
 
-    monkeypatch.setattr(previews, "original_image", blocked_sakura)
-    # Simulate older successful research artifacts in the same folder.
-    # An unavailable source MUST NOT leave a stale "ready" card in the ZIP.
-    output.mkdir(parents=True, exist_ok=True)
-    old_png = output / "lesserafim_aura_rare_sakura_PREVIEW.png"
-    old_png.write_bytes(b"stale-card-from-previous-run")
-    old_original_dir = output / "source_originals"
-    old_original_dir.mkdir()
-    (old_original_dir / "sakura.bin").write_bytes(b"stale-source")
-    (output / "PREVIEW_REPORT.json").write_text('{"old": true}')
-    result = previews.prepare_candidates(write(source), output_dir=output)
-    assert {row["member"] for row in result["cards"]} == {"CHAEWON", "KAZUHA", "EUNCHAE"}
-    assert set(result["members_missing"]) == {"SAKURA", "YUNJIN"}
-    assert result["members_source_unavailable"][0]["member"] == "SAKURA"
-    assert result["members_source_unavailable"][0]["status"] == "download_unavailable_not_verified"
-    assert (output / "CONTACT_SHEET.png").is_file()
-    assert not old_png.exists()
-    assert not (old_original_dir / "sakura.bin").exists()
-    assert json.loads((output / "PREVIEW_REPORT.json").read_text())["members_missing"]
-    assert "BLOCKED" in result["publication"]
+    monkeypatch.setattr(previews, "original_image", one_blocked)
+    out.mkdir()
+    (out / "itzy_aura_rare_yeji_PREVIEW.png").write_bytes(b"obsolete")
+    (out / "CONTACT_SHEET.png").write_bytes(b"old-sheet")
+    with pytest.raises(ValueError, match="Full-set source unavailable"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not list(out.glob("*_PREVIEW.png")), "No 4/5, ever"
+    assert not (out / "CONTACT_SHEET.png").exists()
+    assert not (out / "PREVIEW_REPORT.json").exists()
 
 
-def test_photo_source_cache_reuses_only_exact_verified_image_bytes(preview_input, monkeypatch, tmp_path):
-    """A rate-limited second run may reuse a real earlier source, never a fake image."""
-    from io import BytesIO
-    source, write, output = preview_input
-    for row in source["cards"]:
-        row["photo_url"] = f"https://example.invalid/cache/{row['member']}.png"
-        row["source_page"] = f"https://example.invalid/credits/{row['member']}"
-    monkeypatch.setattr(previews, "SOURCE_CACHE", tmp_path / "sources")
-    member_color = {"CHAEWON": 1, "SAKURA": 2, "KAZUHA": 3, "EUNCHAE": 4}
+def test_cached_exact_photo_bytes_reused_on_full_set(preview_input, monkeypatch):
+    source, write, out, _ = preview_input
+    first = previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
+    assert len(first["cards"]) == 5
 
-    def valid_source(row):
-        img = Image.new("RGB", (1200, 1600), (member_color[row["member"]], 100, 150))
-        buffer = BytesIO()
-        img.save(buffer, "PNG")
-        return buffer.getvalue(), img
+    def no_network(_):
+        raise AssertionError("Verified cached photos should not be redownloaded")
 
-    monkeypatch.setattr(previews, "original_image", valid_source)
-    first = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
-    assert len(first["cards"]) == 4
-
-    def unexpected_network(_row):
-        raise AssertionError("Same source must be restored from verified local cache")
-
-    monkeypatch.setattr(previews, "original_image", unexpected_network)
-    second = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
-    assert len(second["cards"]) == 4
-    assert {r["member"]: r["source_sha256"] for r in second["cards"]} == {
-        r["member"]: r["source_sha256"] for r in first["cards"]
+    monkeypatch.setattr(previews, "original_image", no_network)
+    second = previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
+    assert len(second["cards"]) == 5
+    assert {r["member"]: r["source_sha256"] for r in first["cards"]} == {
+        r["member"]: r["source_sha256"] for r in second["cards"]
     }
-    assert all((output / "source_originals" / f"{name.lower()}.bin").is_file()
-               for name in member_color)
 
 
-def test_tampered_source_cache_refetches_real_image(preview_input, monkeypatch, tmp_path):
-    """Never treat tampered PNG or mismatched SHA as an approved source."""
-    from io import BytesIO
-    source, write, output = preview_input
-    for row in source["cards"]:
-        row["photo_url"] = f"https://example.invalid/fresh/{row['member']}.png"
-        row["source_page"] = f"https://example.invalid/rights/{row['member']}"
-    monkeypatch.setattr(previews, "SOURCE_CACHE", tmp_path / "sources")
-    member_color = {"CHAEWON": 1, "SAKURA": 2, "KAZUHA": 3, "EUNCHAE": 4}
+def test_corrupted_cache_refetches_and_no_invented_card(preview_input, monkeypatch):
+    source, write, out, _ = preview_input
+    previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
+    cached = next((out.parent / "cache").glob("*.bin"))
+    cached.write_bytes(b"forged-source")
     fetched = []
+    prev = previews.original_image
 
-    def network(row):
+    def spy(row):
         fetched.append(row["member"])
-        im = Image.new("RGB", (1200, 1600), (member_color[row["member"]], 100, 150))
-        b = BytesIO()
-        im.save(b, "PNG")
-        return b.getvalue(), im
+        return prev(row)
 
-    monkeypatch.setattr(previews, "original_image", network)
-    original = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
-    assert len(original["cards"]) == 4
-    cached = next((tmp_path / "sources").glob("*.bin"))
-    cached.write_bytes(b"fake-photo-not-same-sha")
-    fetched.clear()
-    again = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
-    assert len(again["cards"]) == 4
-    assert len(fetched) == 1, "Only corrupted source must be reacquired"
+    monkeypatch.setattr(previews, "original_image", spy)
+    result = previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
+    assert len(result["cards"]) == 5
+    assert len(fetched) == 1
