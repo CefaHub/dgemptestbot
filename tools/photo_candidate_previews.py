@@ -10,6 +10,7 @@ Research renders are still not published to the game catalog.
 import hashlib
 import json
 import sys
+from tempfile import TemporaryDirectory
 from io import BytesIO
 from pathlib import Path
 from urllib.error import URLError
@@ -198,45 +199,55 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
             raise ValueError(f"Invalid focus for {member}")
         prepared.append((row, raw, original.size, image, sha, visual, focus))
 
-    # All source bytes, copyrights, member identities, native crop sizes and
-    # duplicates have passed. ONLY NOW render any card or review artifact.
-    preview = []
-    for row, raw, original_size, image, sha, visual, focus in prepared:
-        member = row["member"]
-        if archive_originals:
-            originals = output_dir / "source_originals"
-            originals.mkdir(parents=True, exist_ok=True)
-            (originals / f"{member.lower()}.bin").write_bytes(raw)
-        index = members.index(member) + 1
-        artwork = card_art(
-            zoomed_photo(image, row.get("zoom", 1.0), focus),
-            group, tier, member, index, len(members), focus,
-        )
-        output_name = f"{group['slug']}_{tier['era'].lower().replace(' ', '_')}_{tier['rarity']}_{member.lower()}_PREVIEW.png"
-        destination = output_dir / output_name
-        artwork.save(destination, "PNG", optimize=True)
-        preview.append({
-            "member": member, "file": destination.name,
-            "source_page": row["source_page"], "source_sha256": sha,
-            "source_dhash": f"{visual:016x}", "original_pixels": list(original_size),
-            "solo_region": row.get("solo_region"), "crop_pixels": list(image.size),
-            "preview_pixels": list(CARD_SIZE),
-            "archived_source": f"source_originals/{member.lower()}.bin" if archive_originals else None,
-        })
-        print(f"Prepared complete-set candidate: {member} from original image.")
+    # Stage EVERYTHING until the last card and contact sheet have rendered.
+    # A Pillow error on member #5 must never leave a 4/5 output artifact.
+    with TemporaryDirectory(prefix="dolce_full_album_", dir=output_dir.parent) as stage_name:
+        staging = Path(stage_name)
+        # All source bytes, copyrights, member identities, native crop sizes and
+        # duplicates have passed. ONLY NOW render any card or review artifact.
+        preview = []
+        for row, raw, original_size, image, sha, visual, focus in prepared:
+            member = row["member"]
+            if archive_originals:
+                originals = staging / "source_originals"
+                originals.mkdir(parents=True, exist_ok=True)
+                (originals / f"{member.lower()}.bin").write_bytes(raw)
+            index = members.index(member) + 1
+            artwork = card_art(
+                zoomed_photo(image, row.get("zoom", 1.0), focus),
+                group, tier, member, index, len(members), focus,
+            )
+            output_name = f"{group['slug']}_{tier['era'].lower().replace(' ', '_')}_{tier['rarity']}_{member.lower()}_PREVIEW.png"
+            destination = staging / output_name
+            artwork.save(destination, "PNG", optimize=True)
+            preview.append({
+                "member": member, "file": destination.name,
+                "source_page": row["source_page"], "source_sha256": sha,
+                "source_dhash": f"{visual:016x}", "original_pixels": list(original_size),
+                "solo_region": row.get("solo_region"), "crop_pixels": list(image.size),
+                "preview_pixels": list(CARD_SIZE),
+                "archived_source": f"source_originals/{member.lower()}.bin" if archive_originals else None,
+            })
+            print(f"Prepared complete-set candidate: {member} from original image.")
 
-    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, [])
-    report = {
-        "publication": "BLOCKED: complete-source preview only; visual review required",
-        "contact_sheet": contact_sheet.name,
-        "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
-        "members_missing": [],
-        "cards": preview,
-        "note": "All members have genuine distinct sources. Source coverage alone does not authorize release; inspect visual quality and rights.",
-    }
-    (output_dir / "PREVIEW_REPORT.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
+        contact_sheet = write_review_sheet(staging, group, tier, members, preview, [])
+        report = {
+            "publication": "BLOCKED: complete-source preview only; visual review required",
+            "contact_sheet": contact_sheet.name,
+            "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
+            "members_missing": [],
+            "cards": preview,
+            "note": "All members have genuine distinct sources. Source coverage alone does not authorize release; inspect visual quality and rights.",
+        }
+        (staging / "PREVIEW_REPORT.json").write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+
+        for item in staging.rglob("*"):
+            if item.is_file():
+                destination = output_dir / item.relative_to(staging)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                item.replace(destination)
     return report
 
 def main():
