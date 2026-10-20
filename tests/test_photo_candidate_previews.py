@@ -114,7 +114,7 @@ def test_same_session_required_for_all_members(preview_input):
 def test_duplicate_source_url_rejected(preview_input):
     source, write, out, _ = preview_input
     source["cards"][-1]["photo_url"] = source["cards"][0]["photo_url"]
-    with pytest.raises(ValueError, match="Previously published photograph"):
+    with pytest.raises(ValueError, match="Full session rejects reused original/page"):
         previews.prepare_candidates(write(source), output_dir=out)
     assert not list(out.glob("*_PREVIEW.png"))
 
