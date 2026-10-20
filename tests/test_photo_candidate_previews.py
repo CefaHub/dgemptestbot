@@ -132,3 +132,65 @@ def test_network_blocked_source_leaves_empty_slot_not_fake_card(preview_input, m
     assert not (old_original_dir / "sakura.bin").exists()
     assert json.loads((output / "PREVIEW_REPORT.json").read_text())["members_missing"]
     assert "BLOCKED" in result["publication"]
+
+
+def test_photo_source_cache_reuses_only_exact_verified_image_bytes(preview_input, monkeypatch, tmp_path):
+    """A rate-limited second run may reuse a real earlier source, never a fake image."""
+    from io import BytesIO
+    source, write, output = preview_input
+    for row in source["cards"]:
+        row["photo_url"] = f"https://example.invalid/cache/{row['member']}.png"
+        row["source_page"] = f"https://example.invalid/credits/{row['member']}"
+    monkeypatch.setattr(previews, "SOURCE_CACHE", tmp_path / "sources")
+    member_color = {"CHAEWON": 1, "SAKURA": 2, "KAZUHA": 3, "EUNCHAE": 4}
+
+    def valid_source(row):
+        img = Image.new("RGB", (1200, 1600), (member_color[row["member"]], 100, 150))
+        buffer = BytesIO()
+        img.save(buffer, "PNG")
+        return buffer.getvalue(), img
+
+    monkeypatch.setattr(previews, "original_image", valid_source)
+    first = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
+    assert len(first["cards"]) == 4
+
+    def unexpected_network(_row):
+        raise AssertionError("Same source must be restored from verified local cache")
+
+    monkeypatch.setattr(previews, "original_image", unexpected_network)
+    second = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
+    assert len(second["cards"]) == 4
+    assert {r["member"]: r["source_sha256"] for r in second["cards"]} == {
+        r["member"]: r["source_sha256"] for r in first["cards"]
+    }
+    assert all((output / "source_originals" / f"{name.lower()}.bin").is_file()
+               for name in member_color)
+
+
+def test_tampered_source_cache_refetches_real_image(preview_input, monkeypatch, tmp_path):
+    """Never treat tampered PNG or mismatched SHA as an approved source."""
+    from io import BytesIO
+    source, write, output = preview_input
+    for row in source["cards"]:
+        row["photo_url"] = f"https://example.invalid/fresh/{row['member']}.png"
+        row["source_page"] = f"https://example.invalid/rights/{row['member']}"
+    monkeypatch.setattr(previews, "SOURCE_CACHE", tmp_path / "sources")
+    member_color = {"CHAEWON": 1, "SAKURA": 2, "KAZUHA": 3, "EUNCHAE": 4}
+    fetched = []
+
+    def network(row):
+        fetched.append(row["member"])
+        im = Image.new("RGB", (1200, 1600), (member_color[row["member"]], 100, 150))
+        b = BytesIO()
+        im.save(b, "PNG")
+        return b.getvalue(), im
+
+    monkeypatch.setattr(previews, "original_image", network)
+    original = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
+    assert len(original["cards"]) == 4
+    cached = next((tmp_path / "sources").glob("*.bin"))
+    cached.write_bytes(b"fake-photo-not-same-sha")
+    fetched.clear()
+    again = previews.prepare_candidates(write(source), output_dir=output, archive_originals=True)
+    assert len(again["cards"]) == 4
+    assert len(fetched) == 1, "Only corrupted source must be reacquired"
