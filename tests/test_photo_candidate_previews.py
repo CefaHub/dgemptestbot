@@ -186,3 +186,27 @@ def test_corrupted_cache_refetches_and_no_invented_card(preview_input, monkeypat
     result = previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
     assert len(result["cards"]) == 5
     assert len(fetched) == 1
+
+
+
+def test_fifth_member_render_error_rolls_back_all_previews(preview_input, monkeypatch):
+    """Atomic output: even image rendering failure may not leak a 4/5 set."""
+    source, write, out, members = preview_input
+    real_art = previews.card_art
+    calls = 0
+
+    def last_render_fails(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        if calls == len(members):
+            raise RuntimeError("Pillow render failure")
+        return real_art(*args, **kwargs)
+
+    monkeypatch.setattr(previews, "card_art", last_render_fails)
+    with pytest.raises(RuntimeError, match="Pillow render failure"):
+        previews.prepare_candidates(write(source), output_dir=out, archive_originals=True)
+    assert calls == len(members)
+    assert not list(out.rglob("*_PREVIEW.png"))
+    assert not list(out.rglob("*.bin"))
+    assert not (out / "CONTACT_SHEET.png").exists()
+    assert not (out / "PREVIEW_REPORT.json").exists()
