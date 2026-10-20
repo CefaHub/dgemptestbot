@@ -113,11 +113,22 @@ def test_network_blocked_source_leaves_empty_slot_not_fake_card(preview_input, m
         return existing(row)
 
     monkeypatch.setattr(previews, "original_image", blocked_sakura)
+    # Simulate older successful research artifacts in the same folder.
+    # An unavailable source MUST NOT leave a stale "ready" card in the ZIP.
+    output.mkdir(parents=True, exist_ok=True)
+    old_png = output / "lesserafim_aura_rare_sakura_PREVIEW.png"
+    old_png.write_bytes(b"stale-card-from-previous-run")
+    old_original_dir = output / "source_originals"
+    old_original_dir.mkdir()
+    (old_original_dir / "sakura.bin").write_bytes(b"stale-source")
+    (output / "PREVIEW_REPORT.json").write_text('{"old": true}')
     result = previews.prepare_candidates(write(source), output_dir=output)
     assert {row["member"] for row in result["cards"]} == {"CHAEWON", "KAZUHA", "EUNCHAE"}
     assert set(result["members_missing"]) == {"SAKURA", "YUNJIN"}
     assert result["members_source_unavailable"][0]["member"] == "SAKURA"
     assert result["members_source_unavailable"][0]["status"] == "download_unavailable_not_verified"
     assert (output / "CONTACT_SHEET.png").is_file()
-    assert not (output / "lesserafim_aura_rare_sakura_PREVIEW.png").exists()
+    assert not old_png.exists()
+    assert not (old_original_dir / "sakura.bin").exists()
+    assert json.loads((output / "PREVIEW_REPORT.json").read_text())["members_missing"]
     assert "BLOCKED" in result["publication"]
