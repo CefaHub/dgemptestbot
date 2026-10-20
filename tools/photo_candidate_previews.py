@@ -11,10 +11,11 @@ unique, attribution-verified original photographs and a successful full-set buil
 import hashlib
 import json
 import sys
+from io import BytesIO
 from pathlib import Path
 from urllib.error import URLError
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageOps
 
 try:
     from .photo_release_pipeline import (
@@ -28,6 +29,46 @@ except ImportError:  # Direct CLI invocation from tools/ as a script.
     )
 
 PREVIEW_DIR = ROOT / "output" / "photo_candidate_previews"
+SOURCE_CACHE = ROOT / "output" / "photo_source_cache"
+
+
+def download_or_restore_original(row):
+    """Reuse exact source bytes previously fetched by CI; NEVER substitute art.
+
+    Cache identity includes BOTH the explicit download URL and attribution page.
+    Cached bytes are checked against their own SHA256 and original image quality
+    rules, then run through the same duplicate protection as live downloads.
+    Any corrupted cache is discarded and the actual source is requested again.
+    """
+    key = hashlib.sha256(
+        (row["photo_url"] + "\n" + row["source_page"]).encode("utf-8")
+    ).hexdigest()
+    base = SOURCE_CACHE / key
+    blob = base.with_suffix(".bin")
+    proof = base.with_suffix(".sha256")
+    if blob.is_file() and proof.is_file():
+        raw = blob.read_bytes()
+        if len(raw) <= 20_000_000 and hashlib.sha256(raw).hexdigest() == proof.read_text().strip():
+            try:
+                with Image.open(BytesIO(raw)) as probe:
+                    probe.verify()
+                with Image.open(BytesIO(raw)) as loaded:
+                    photo = ImageOps.exif_transpose(loaded).convert("RGB")
+                w, h = photo.size
+                if min(w, int(h * 3 / 4)) >= 600 and min(h, int(w * 4 / 3)) >= 800:
+                    print(f"Restored authentic source from verified cache: {row['member']}", flush=True)
+                    return raw, photo
+            except (OSError, ValueError):
+                pass
+        blob.unlink(missing_ok=True)
+        proof.unlink(missing_ok=True)
+
+    raw, photo = original_image(row)
+    SOURCE_CACHE.mkdir(parents=True, exist_ok=True)
+    blob.write_bytes(raw)
+    proof.write_text(hashlib.sha256(raw).hexdigest() + "\n", encoding="utf-8")
+    return raw, photo
+
 
 
 def write_review_sheet(output_dir, group, tier, member_ids, entries, missing):
@@ -135,7 +176,8 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         previous_urls.add(canonical(photo_url))
         previous_pages.add(canonical(source_page))
         try:
-            raw, original = original_image(row)
+            raw, original = (download_or_restore_original(row) if archive_originals
+                             else original_image(row))
         except (URLError, TimeoutError) as exc:
             # Wikimedia often blocks GitHub runners (429), and third-party
             # image proxies can return 404. Keep genuine completed previews
