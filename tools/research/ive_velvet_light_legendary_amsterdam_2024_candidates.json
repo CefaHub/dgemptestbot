@@ -23,7 +23,7 @@
     {
       "member": "LEESEO",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/20240613_IVE_Amsterdam_concert_07_Leeseo.jpg/800px-20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
       "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
@@ -37,12 +37,8 @@
       "focus_x": 0.5,
       "focus_y": 0.1,
       "solo_review_status": "pending",
-      "source_review_status": "alternate_original_found_preview_and_visual_qa_pending",
-      "source_note": "Unused standalone Leeseo photo #07 from same Amsterdam 2024 concert, 837x2127, CC BY-SA 4.0. Commons full original served successfully in research. May replace inaccessible #26 only if full preview passes sharpness and crop review. Do not auto publish. Preview uses official 800px Commons thumbnail of SAME 837px original file to avoid full-original CDN rate limiting.",
-      "preview_source_dimensions": [
-        800,
-        2033
-      ]
+      "source_review_status": "original_direct_retry_after_wikimedia_400_thumbnail_not_supported",
+      "source_note": "Unused standalone Leeseo original #07, 837x2127, CC BY-SA 4.0. Official full image works in browser. Commons 800px thumbnail endpoint rejected unsupported size HTTP 400, do NOT retry arbitrary Wikimedia thumbnail sizes. Full original source download may be rate limited; visual QA pending."
     },
     {
       "member": "YUJIN",
@@ -146,8 +142,8 @@
       "delivery_note": "Unmodified Wikimedia-generated preview thumbnail of SAME Commons original file used because full original returned HTTP 429 and Wikimedia CDN proxy returned 404. Native original dimensions remain documented; do not treat thumbnail as a different photograph."
     }
   ],
-  "notes": "V6: Added unused WONYOUNG #36 LEFT SOLO crop (source photo depicts WONYOUNG and YUJIN; final crop may contain WONYOUNG only) and swapped LEESEO inaccessible #26 to distinct solo original #07. Both CC BY-SA 4.0 Robbie Klinkenberg photos from same concert, visual QA pending. Now five research candidates (YUJIN, GAEUL, WONYOUNG, LIZ, LEESEO); REI remains missing (existing #16/#40 used; #32 below native-quality threshold). No release until all six unique images and cards pass review. V7: use authentic official Commons thumbnails of new #36 Wonyoung and #07 Leeseo originals to bypass origin CDN 429. Both remain pending visual review.",
-  "candidate_revision": 7,
+  "notes": "V6: Added unused WONYOUNG #36 LEFT SOLO crop (source photo depicts WONYOUNG and YUJIN; final crop may contain WONYOUNG only) and swapped LEESEO inaccessible #26 to distinct solo original #07. Both CC BY-SA 4.0 Robbie Klinkenberg photos from same concert, visual QA pending. Now five research candidates (YUJIN, GAEUL, WONYOUNG, LIZ, LEESEO); REI remains missing (existing #16/#40 used; #32 below native-quality threshold). No release until all six unique images and cards pass review. V7: use authentic official Commons thumbnails of new #36 Wonyoung and #07 Leeseo originals to bypass origin CDN 429. Both remain pending visual review. V8: restored Leeseo #07 ORIGINAL URL because Commons explicitly rejected unlisted 800px thumbnail size (HTTP 400); current queued retry cannot auto certify quality.",
+  "candidate_revision": 8,
   "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved.",
   "rejected_candidates": [
     {
