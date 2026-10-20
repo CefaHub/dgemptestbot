@@ -4,9 +4,8 @@
 Usage:
     python tools/photo_candidate_previews.py tools/research/lesserafim_aura_rare_candidates.json
 
-This intentionally accepts incomplete sets for internal review, unlike the public
-photo-release builder. Publication still requires all group members to have
-unique, attribution-verified original photographs and a successful full-set build.
+ONLY FULL SETS are accepted: all members, usable originals and reviewed rights.
+Research renders are still not published to the game catalog.
 """
 import hashlib
 import json
@@ -132,11 +131,15 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         raise ValueError("No real-photo candidates in the preview.")
     member_ids = [row.get("member") for row in cards]
     missing = spec.get("missing_members", [])
-    if (len(set(member_ids)) != len(member_ids)
-            or len(set(missing)) != len(missing)
-            or set(member_ids) & set(missing)
-            or set(member_ids) | set(missing) != set(members)):
-        raise ValueError("Candidate coverage must partition the full group exactly.")
+    # Preflight BEFORE fetching, caching, saving a card, or creating a review artifact.
+    # A candidate manifest with even ONE missing member is not a candidate set.
+    if missing or len(member_ids) != len(members) or set(member_ids) != set(members):
+        raise ValueError("Incomplete set rejected before download: every group member must have a photo.")
+    if len(set(member_ids)) != len(members):
+        raise ValueError("Incomplete set rejected: duplicate members.")
+    session = str(spec.get("photo_session_id", "")).strip()
+    if not session or any(row.get("photo_session_id") != session for row in cards):
+        raise ValueError("Complete set must contain one common verified photo session.")
 
     existing = load_json(ROOT / "tools/photo_sources.json")["cards"]
     previous_urls = {canonical(x["photo"]) for x in existing if x.get("photo")}
@@ -159,8 +162,7 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
     for member in members:
         (original_dir / f"{member.lower()}.bin").unlink(missing_ok=True)
 
-    preview = []
-    unavailable = []
+    prepared = []
 
     for row in cards:
         member = row["member"]
@@ -179,24 +181,8 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
             raw, original = (download_or_restore_original(row) if archive_originals
                              else original_image(row))
         except (URLError, TimeoutError) as exc:
-            # Wikimedia often blocks GitHub runners (429), and third-party
-            # image proxies can return 404. Keep genuine completed previews
-            # instead of aborting the entire RESEARCH report. This exception
-            # is intentionally not used by the PUBLISH pipeline.
-            unavailable.append({
-                "member": member,
-                "source_page": source_page,
-                "error": str(exc)[:250],
-                "status": "download_unavailable_not_verified",
-            })
-            print(f"PREVIEW SOURCE UNAVAILABLE: {member}: {exc}", flush=True)
-            continue
-        if archive_originals:
-            # Preserve the exact licensed source bytes *inside the CI artifact*.
-            # Avoid changing source identity if Wikimedia later rate-limits release CI.
-            originals = output_dir / "source_originals"
-            originals.mkdir(parents=True, exist_ok=True)
-            (originals / f"{member.lower()}.bin").write_bytes(raw)
+            # No 4/5 or 5/6 card previews. Fail the WHOLE set; output is empty.
+            raise ValueError(f"Full-set source unavailable for {member}: {exc}") from exc
         image = solo_region(original, row.get("solo_region"))
         sha = hashlib.sha256(raw).hexdigest()
         if sha in previous_sha:
@@ -210,6 +196,17 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         focus = (float(row.get("focus_x", 0.5)), float(row.get("focus_y", 0.35)))
         if not all(0 <= value <= 1 for value in focus):
             raise ValueError(f"Invalid focus for {member}")
+        prepared.append((row, raw, original.size, image, sha, visual, focus))
+
+    # All source bytes, copyrights, member identities, native crop sizes and
+    # duplicates have passed. ONLY NOW render any card or review artifact.
+    preview = []
+    for row, raw, original_size, image, sha, visual, focus in prepared:
+        member = row["member"]
+        if archive_originals:
+            originals = output_dir / "source_originals"
+            originals.mkdir(parents=True, exist_ok=True)
+            (originals / f"{member.lower()}.bin").write_bytes(raw)
         index = members.index(member) + 1
         artwork = card_art(
             zoomed_photo(image, row.get("zoom", 1.0), focus),
@@ -220,31 +217,27 @@ def prepare_candidates(manifest_path, output_dir=PREVIEW_DIR, archive_originals=
         artwork.save(destination, "PNG", optimize=True)
         preview.append({
             "member": member, "file": destination.name,
-            "source_page": source_page, "source_sha256": sha,
-            "source_dhash": f"{visual:016x}", "original_pixels": list(original.size),
+            "source_page": row["source_page"], "source_sha256": sha,
+            "source_dhash": f"{visual:016x}", "original_pixels": list(original_size),
             "solo_region": row.get("solo_region"), "crop_pixels": list(image.size),
             "preview_pixels": list(CARD_SIZE),
             "archived_source": f"source_originals/{member.lower()}.bin" if archive_originals else None,
         })
-        print(f"Prepared candidate card: {member} from real source image.")
+        print(f"Prepared complete-set candidate: {member} from original image.")
 
-    unfilled = missing + [row["member"] for row in unavailable]
-    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, unfilled)
+    contact_sheet = write_review_sheet(output_dir, group, tier, members, preview, [])
     report = {
-        "publication": "BLOCKED: preview-only; explicit visual review required before game catalog release",
+        "publication": "BLOCKED: complete-source preview only; visual review required",
         "contact_sheet": contact_sheet.name,
         "group": group["name"], "era": tier["era"], "rarity": tier["rarity"],
-        "members_missing": unfilled,
-        "members_declared_missing": missing,
-        "members_source_unavailable": unavailable,
+        "members_missing": [],
         "cards": preview,
-        "note": "Check image sharpness and solo crop manually; never release a missing-member set. Unavailable downloads are NOT verified cards and must not be published.",
+        "note": "All members have genuine distinct sources. Source coverage alone does not authorize release; inspect visual quality and rights.",
     }
     (output_dir / "PREVIEW_REPORT.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     return report
-
 
 def main():
     if len(sys.argv) != 2:
