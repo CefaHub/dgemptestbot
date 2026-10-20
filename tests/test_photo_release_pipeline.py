@@ -319,3 +319,58 @@ def test_wikimedia_missing_photo_404_is_never_substituted(monkeypatch):
             "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/missing.jpg"
         })
     assert len(calls) == 1
+
+
+
+def test_missing_last_original_does_not_build_three_of_four_cards(photo_sandbox):
+    """Game production cannot leave partial 3/4 assets if last source breaks."""
+    root, manifest = photo_sandbox
+    broken = root / manifest["sets"][0]["cards"][-1]["local_path"]
+    broken.unlink()
+    with pytest.raises(FileNotFoundError):
+        pipe.generate("tools/photo_releases.json")
+    assert not list(pipe.OUT.rglob("*.png")), "A partial release is forbidden"
+    assert json.loads((root / "dolce_empire/_catalog.json").read_text()) == []
+
+
+def test_same_parent_photo_four_crops_does_not_issue_group(photo_sandbox, monkeypatch):
+    """Different crops of same licensed group photograph are still one original."""
+    root, manifest = photo_sandbox
+    parent = "https://www.flickr.com/photos/photographer/unique_group_original"
+    cards = manifest["sets"][0]["cards"]
+    cards[0]["origin_photo_page"] = parent
+    cards[1]["origin_photo_page"] = parent
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    monkeypatch.setattr(
+        pipe, "original_image",
+        lambda _row: (_ for _ in ()).throw(AssertionError("Must reject before download"))
+    )
+    with pytest.raises(ValueError, match="Original photo parent reused"):
+        pipe.generate("tools/photo_releases.json")
+    assert not list(pipe.OUT.rglob("*.png"))
+
+
+def test_existing_parent_photo_blocks_entire_new_set(photo_sandbox, monkeypatch):
+    root, manifest = photo_sandbox
+    old_parent = "https://flickr.com/photos/photographer/earlier_photo"
+    old = {"cards": [{"id": "old", "photo": "https://example.test/old.png",
+                     "page": old_parent}]}
+    (root / "tools/photo_sources.json").write_text(json.dumps(old))
+    manifest["sets"][0]["cards"][-1]["origin_photo_page"] = old_parent
+    (root / "tools/photo_releases.json").write_text(json.dumps(manifest))
+    monkeypatch.setattr(
+        pipe, "original_image",
+        lambda _row: (_ for _ in ()).throw(AssertionError("Must reject before download"))
+    )
+    with pytest.raises(ValueError, match="Original photo parent reused"):
+        pipe.generate("tools/photo_releases.json")
+    assert not list(pipe.OUT.rglob("*.png"))
+
+
+def test_last_member_too_small_leaves_zero_partial_pngs(photo_sandbox):
+    root, manifest = photo_sandbox
+    last = root / manifest["sets"][0]["cards"][-1]["local_path"]
+    Image.new("RGB", (590, 750), "red").save(last)
+    with pytest.raises(ValueError, match="too small"):
+        pipe.generate("tools/photo_releases.json")
+    assert not list(pipe.OUT.rglob("*.png"))
