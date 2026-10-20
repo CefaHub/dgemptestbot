@@ -324,14 +324,53 @@ def generate(manifest_path, publish=False):
         staged = {}
         members = [name for name, _ in group["members"]]
         by_member = {item["member"]: item for item in spec["cards"]}
-        # Original Wikimedia files are often rate-limited after several thumbnail
-        # downloads on the same CI runner. Fetch large originals FIRST, while
-        # keeping final card numbers in the canonical group lineup order.
+        # STRICT FULL-SET PRE-FLIGHT. Download AND validate EVERY member's
+        # original first. A 404/429, bad crop, repeated original or missing
+        # rights must leave ZERO partial card PNGs even inside output/.
+        parent_pages = {
+            canonical(x.get("origin_photo_page") or x.get("page", ""))
+            for x in previous_sources["cards"] + pending_sources
+            if x.get("page") or x.get("origin_photo_page")
+        }
+        # Snapshots prevent validation from accidentally matching itself when
+        # the actual card-render loop records its photo provenance.
+        test_urls, test_pages = set(urls), set(pages)
+        test_sha = set(original_hashes)
+        test_visual = list(photo_hashes)
         prefetched_originals = {}
         for member in members:
             item = by_member[member]
-            if urlsplit(item.get("photo_url", "")).netloc.lower() == "upload.wikimedia.org":
-                prefetched_originals[member] = original_image(item)
+            src = item.get("photo_url") or item.get("local_path")
+            page = item["source_page"]
+            parent = item.get("origin_photo_page") or page
+            if not src or canonical(src) in test_urls or canonical(page) in test_pages:
+                raise ValueError(f"Original photo reused across releases: {member}")
+            if canonical(parent) in parent_pages:
+                raise ValueError(f"Original photo parent reused across releases: {member}")
+            test_urls.add(canonical(src))
+            test_pages.add(canonical(page))
+            parent_pages.add(canonical(parent))
+
+        for member in members:
+            prefetched_originals[member] = original_image(by_member[member])
+        for member in members:
+            item = by_member[member]
+            raw, original = prefetched_originals[member]
+            photo = solo_region(original, item.get("solo_region"))
+            focus = (float(item.get("focus_x", 0.5)), float(item.get("focus_y", 0.35)))
+            zoomed_photo(photo, item.get("zoom", 1.0), focus)
+            digest = hashlib.sha256(raw).hexdigest()
+            if digest in test_sha:
+                raise ValueError(f"Duplicate original image bytes reused for {member}")
+            test_sha.add(digest)
+            visual = perceptual_hash(photo)
+            for prior, who in test_visual:
+                if (visual ^ prior).bit_count() <= 3:
+                    raise ValueError(f"Possible photo duplicate or near-identical frame: {member} / {who}")
+            test_visual.append((visual, member))
+
+        # All members and all distinct originals now pass mandatory checks.
+        # Only now may card artwork and banner rendering begin.
         for index, (member, translated) in enumerate(group["members"], 1):
             item = by_member[member]
             source_url = item.get("photo_url") or item.get("local_path")
@@ -382,6 +421,7 @@ def generate(manifest_path, publish=False):
                 "series": tier["era"], "number": index, "total": len(members),
                 "solo_region": item.get("solo_region"),
                 "photo_session_id": session_id,
+                "origin_photo_page": item.get("origin_photo_page", page),
             })
         banner_path = f"assets/banners/{group['slug']}/{group['slug']}_{slug}_{tier['rarity']}_banner.png"
         banner_file = OUT / banner_path
