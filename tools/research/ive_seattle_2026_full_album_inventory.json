@@ -16,157 +16,262 @@
   "claimed_total_album_photos": 37,
   "enumerated_photo_count": 25,
   "selection_policy": "Do not select/render a single photo-card unless six different CC BY licensed original solo portraits with adequate native crops are all verified, same one shoot; 37 gallery files are source INVENTORY ONLY.",
-  "audit_status": "full_member_coverage_not_yet_inspected_no_card_selection",
+  "audit_status": "source_rights_audited_full_member_visual_review_pending_no_cards",
   "photos": [
     {
       "id": "55451172680",
       "source_page": "https://www.flickr.com/photos/davidjlee/55451172680/",
       "image_url": "https://live.staticflickr.com/65535/55451172680_fee120eaf6_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802157",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802157/",
       "image_url": "https://live.staticflickr.com/65535/55449802157_365cfa1d86_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450940594",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450940594/",
       "image_url": "https://live.staticflickr.com/65535/55450940594_a17473dc67_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450895028",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450895028/",
       "image_url": "https://live.staticflickr.com/65535/55450895028_8aed917744_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802142",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802142/",
       "image_url": "https://live.staticflickr.com/65535/55449802142_5bb8552a07.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802672",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802672/",
       "image_url": "https://live.staticflickr.com/65535/55449802672_640caf21a9_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450779266",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450779266/",
       "image_url": "https://live.staticflickr.com/65535/55450779266_f44a72f39e_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450895593",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450895593/",
       "image_url": "https://live.staticflickr.com/65535/55450895593_61fa36aceb_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450895638",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450895638/",
       "image_url": "https://live.staticflickr.com/65535/55450895638_cb84497cac_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55451173175",
       "source_page": "https://www.flickr.com/photos/davidjlee/55451173175/",
       "image_url": "https://live.staticflickr.com/65535/55451173175_826cc0649b_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450779156",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450779156/",
       "image_url": "https://live.staticflickr.com/65535/55450779156_2ce0f28312_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55451173095",
       "source_page": "https://www.flickr.com/photos/davidjlee/55451173095/",
       "image_url": "https://live.staticflickr.com/65535/55451173095_18e3a19a6d.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55451173085",
       "source_page": "https://www.flickr.com/photos/davidjlee/55451173085/",
       "image_url": "https://live.staticflickr.com/65535/55451173085_05b87436e4_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450941079",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450941079/",
       "image_url": "https://live.staticflickr.com/65535/55450941079_bacaf0c8ab_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802517",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802517/",
       "image_url": "https://live.staticflickr.com/65535/55449802517_1f06966fe2.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802537",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802537/",
       "image_url": "https://live.staticflickr.com/65535/55449802537_63172c3aac_h.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450779121",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450779121/",
       "image_url": "https://live.staticflickr.com/65535/55450779121_7c3baf30fd_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450779076",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450779076/",
       "image_url": "https://live.staticflickr.com/65535/55450779076_cfb244f9d7.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55449802547",
       "source_page": "https://www.flickr.com/photos/davidjlee/55449802547/",
       "image_url": "https://live.staticflickr.com/65535/55449802547_bf1185c34f_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450895443",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450895443/",
       "image_url": "https://live.staticflickr.com/65535/55450895443_5de7840dca.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55451172945",
       "source_page": "https://www.flickr.com/photos/davidjlee/55451172945/",
       "image_url": "https://live.staticflickr.com/65535/55451172945_c795db2a3e.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450895423",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450895423/",
       "image_url": "https://live.staticflickr.com/65535/55450895423_79ac4154fb.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450940899",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450940899/",
       "image_url": "https://live.staticflickr.com/65535/55450940899_111bb00598.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450940894",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450940894/",
       "image_url": "https://live.staticflickr.com/65535/55450940894_16fac425c3_c.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     },
     {
       "id": "55450940804",
       "source_page": "https://www.flickr.com/photos/davidjlee/55450940804/",
       "image_url": "https://live.staticflickr.com/65535/55450940804_efe700f01d.jpg",
-      "license_status": "verification_pending"
+      "license_status": "source_page_cc_by_4_confirmed",
+      "license": "CC BY 4.0",
+      "photographer": "David Lee",
+      "source_title": "IVE in Seattle",
+      "source_date": "August 7, 2026"
     }
-  ]
+  ],
+  "members_verified": [],
+  "cards_selected": 0,
+  "source_license_counts": {
+    "source_page_cc_by_4_confirmed": 25
+  }
 }
