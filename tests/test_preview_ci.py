@@ -64,3 +64,23 @@ def test_missing_photo_rights_not_selected(tmp_path):
     spec["cards"][2]["license_status"] = "pending"
     path.write_text(json.dumps(spec))
     assert eligible_manifests([path], set(), research=tmp_path) == []
+
+
+
+def test_ci_drops_complete_but_reused_photo_pack(tmp_path):
+    """Even 5/5 fails immediately if an older rarity already uses one picture."""
+    from tools.preview_ci import SOURCES
+    row = json.loads(SOURCES.read_text(encoding="utf-8"))["cards"][0]
+    manifest = _write(tmp_path, "new_candidates.json", "coll_itzy_aura_rare")
+    spec = json.loads(manifest.read_text(encoding="utf-8"))
+    spec["cards"][3]["source_page"] = row["page"]
+    manifest.write_text(json.dumps(spec), encoding="utf-8")
+    assert eligible_manifests([manifest], set(), research=tmp_path) == []
+
+
+def test_ci_drops_all_members_if_any_photo_resolution_is_invalid(tmp_path):
+    manifest = _write(tmp_path, "new_candidates.json", "coll_itzy_aura_rare")
+    spec = json.loads(manifest.read_text(encoding="utf-8"))
+    spec["cards"][1]["native_dimensions"] = [599, 1200]
+    manifest.write_text(json.dumps(spec), encoding="utf-8")
+    assert eligible_manifests([manifest], set(), research=tmp_path) == []
