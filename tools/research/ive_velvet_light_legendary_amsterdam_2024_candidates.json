@@ -17,30 +17,28 @@
     "LEESEO"
   ],
   "missing_members": [
-    "REI",
-    "WONYOUNG"
+    "REI"
   ],
   "cards": [
     {
       "member": "LEESEO",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
-      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
-      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_07_Leeseo.jpg",
       "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "license_status": "verified",
       "native_dimensions": [
-        948,
-        3048
+        837,
+        2127
       ],
       "focus_x": 0.5,
-      "focus_y": 0.25,
+      "focus_y": 0.1,
       "solo_review_status": "pending",
-      "source_review_status": "preview_only_visual_sharpness_pending",
-      "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required.",
-      "delivery_note": "Source original 948x3048 must be downloaded without upscaling. Arbitrary 900px thumb is not a supported Wikimedia size; revert to original, retry early in batch after previous Wikimedia 429."
+      "source_review_status": "alternate_original_found_preview_and_visual_qa_pending",
+      "source_note": "Unused standalone Leeseo photo #07 from same Amsterdam 2024 concert, 837x2127, CC BY-SA 4.0. Commons full original served successfully in research. May replace inaccessible #26 only if full preview passes sharpness and crop review. Do not auto publish."
     },
     {
       "member": "YUJIN",
@@ -93,6 +91,32 @@
       "source_note": "Previously unpublished original source frame from same 2024-06-13 Amsterdam concert. Do not publish without inspecting source sharpness, member identity, crop, and 3:4 portrait. Attribution and share-alike required."
     },
     {
+      "member": "WONYOUNG",
+      "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg",
+      "original_source": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_36_Wonyoung_and_Yujin.jpg",
+      "photographer": "Robbie Klinkenberg (Wikimedia Commons: Redalert2fan)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "license_status": "verified",
+      "original_dimensions": [
+        1500,
+        2000
+      ],
+      "solo_region": [
+        0.02,
+        0.04,
+        0.49,
+        0.93
+      ],
+      "focus_x": 0.5,
+      "focus_y": 0.16,
+      "solo_review_status": "pending",
+      "source_review_status": "new_two_person_source_solo_crop_requires_visual_qa",
+      "source_note": "New unused original #36 from same June 13 2024 concert. WONYOUNG is LEFT, YUJIN right; crop the LEFT 47% only. Native crop approx 705x1780, >600x800 quality minimum. Source author/licensing confirmed on Commons. Review against right-hand person leakage and image sharpness before approving; prior solo #27 was rejected for low detail."
+    },
+    {
       "member": "LIZ",
       "photo_session_id": "ive_show_what_i_have_amsterdam_2024_06_13_robbie_klinkenberg",
       "photo_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/20240613_IVE_Amsterdam_concert_34_Liz.jpg/960px-20240613_IVE_Amsterdam_concert_34_Liz.jpg",
@@ -114,8 +138,8 @@
       "delivery_note": "Unmodified Wikimedia-generated preview thumbnail of SAME Commons original file used because full original returned HTTP 429 and Wikimedia CDN proxy returned 404. Native original dimensions remain documented; do not treat thumbnail as a different photograph."
     }
   ],
-  "notes": "V5 visual QA: WONYOUNG #27 explicitly rejected due low-quality small figure and dark lighting; REI remains missing due native resolution and duplicate other source photos. YUJIN and LIZ revised preview crops now preserve hair/face. Remaining GAEUL and LEESEO require manual visual review and original availability. Four research candidates only (YUJIN/GAEUL/LIZ/LEESEO), two true source gaps. Do not publish partial set.",
-  "candidate_revision": 5,
+  "notes": "V6: Added unused WONYOUNG #36 LEFT SOLO crop (source photo depicts WONYOUNG and YUJIN; final crop may contain WONYOUNG only) and swapped LEESEO inaccessible #26 to distinct solo original #07. Both CC BY-SA 4.0 Robbie Klinkenberg photos from same concert, visual QA pending. Now five research candidates (YUJIN, GAEUL, WONYOUNG, LIZ, LEESEO); REI remains missing (existing #16/#40 used; #32 below native-quality threshold). No release until all six unique images and cards pass review.",
+  "candidate_revision": 6,
   "preview_network_fallback": "If Wikimedia rejects a source with HTTP 429 or the proxy returns HTTP 404, the preview builder must leave the missing member slot empty, log an unavailable URL, and retain other authentic real-source previews. Never mark unavailable sources as approved.",
   "rejected_candidates": [
     {
@@ -131,6 +155,12 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_32_Rei.jpg",
       "reason": "Native original 557x1280; fails >=600px width and cannot meet minimum native 3:4 area. #16 and #40 already published in other rarities; group shots #22/#24 not clean individual portraits.",
       "review_status": "rejected_source_resolution"
+    },
+    {
+      "member": "LEESEO",
+      "source_page": "https://commons.wikimedia.org/wiki/File:20240613_IVE_Amsterdam_concert_26_Leeseo.jpg",
+      "reason": "Original #26 exists and is CC BY-SA 4.0 but GitHub Actions could not download it due repeated 429/404. Alternative #07 is now trialed in V6. This is a download blocker, not a judgment about photographic quality.",
+      "review_status": "source_unavailable_in_ci_alternative_trial"
     }
   ]
 }
