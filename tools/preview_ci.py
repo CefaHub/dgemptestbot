@@ -11,7 +11,7 @@ import os
 import subprocess
 from pathlib import Path
 
-from tools.photo_candidate_previews import ROOT, prepare_candidates
+from tools.photo_candidate_previews import ROOT, GROUPS, prepare_candidates
 
 RESEARCH = ROOT / "tools" / "research"
 PUBLISHED = ROOT / "assets" / "collections" / "verified_sets.json"
@@ -41,6 +41,21 @@ def eligible_manifests(paths, published, research=RESEARCH):
             continue
         if spec.get("set_id") in published:
             print(f"Skip previously released collection: {spec['set_id']}")
+            continue
+        group = GROUPS.get(spec.get("group"))
+        members = [row[0] for row in group["members"]] if group else []
+        cards = spec.get("cards", [])
+        named = [row.get("member") for row in cards]
+        session = str(spec.get("photo_session_id", "")).strip()
+        if (not members or spec.get("missing_members")
+                or len(named) != len(members) or set(named) != set(members)
+                or len(set(named)) != len(members)
+                or not session
+                or any(row.get("photo_session_id") != session for row in cards)
+                or any(row.get("license_status") != "verified" for row in cards)
+                or any(not row.get(k) for row in cards for k in (
+                    "source_page", "photo_url", "photographer", "license", "license_url"))):
+            print(f"Skip incomplete/unverified set (NO preview): {path.name}")
             continue
         chosen.append(path)
     return sorted(set(chosen))
