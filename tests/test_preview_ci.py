@@ -1,24 +1,49 @@
-"""Prevent CI from re-rendering or republishing released photo sources."""
+"""Never select incomplete photo sessions for the preview job."""
 import json
-from pathlib import Path
 
 from tools.preview_ci import eligible_manifests
+from tools.photo_candidate_previews import GROUPS
 
 
-def _write(directory, name, set_id, status="research_preview_only_not_published"):
+def _write(directory, name, set_id, status="research_preview_only_not_published",
+           complete=True):
+    members = [x[0] for x in GROUPS["ITZY"]["members"]]
+    active = members if complete else members[:-1]
+    session = "new_itzy_photoshoot"
+    payload = {
+        "set_id": set_id,
+        "status": status,
+        "group": "ITZY",
+        "photo_session_id": session,
+        "missing_members": [] if complete else [members[-1]],
+        "cards": [{
+            "member": member, "photo_session_id": session,
+            "photo_url": f"https://example.invalid/photos/{member}",
+            "source_page": f"https://example.invalid/rights/{member}",
+            "photographer": "QA photographer",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "license_status": "verified",
+        } for member in active]
+    }
     path = directory / name
-    path.write_text(json.dumps({"set_id": set_id, "status": status}), encoding="utf-8")
+    path.write_text(json.dumps(payload), encoding="utf-8")
     return path
 
 
-def test_published_photo_collection_never_reprocessed(tmp_path):
-    old = _write(tmp_path, "old_candidates.json", "coll_lesserafim_aura_rare")
-    assert eligible_manifests([old], {"coll_lesserafim_aura_rare"}, research=tmp_path) == []
+def test_published_collection_never_reprocessed(tmp_path):
+    old = _write(tmp_path, "old_candidates.json", "coll_itzy_aura_rare")
+    assert eligible_manifests([old], {"coll_itzy_aura_rare"}, research=tmp_path) == []
 
 
-def test_new_unpublished_manifest_is_selected(tmp_path):
-    new = _write(tmp_path, "new_candidates.json", "coll_itzy_aura_rare")
-    assert eligible_manifests([new], {"coll_lesserafim_aura_rare"}, research=tmp_path) == [new]
+def test_complete_unpublished_manifest_only(tmp_path):
+    good = _write(tmp_path, "good_candidates.json", "coll_itzy_aura_rare")
+    assert eligible_manifests([good], set(), research=tmp_path) == [good]
+
+
+def test_incomplete_manifest_is_never_previewed(tmp_path):
+    partial = _write(tmp_path, "partial_candidates.json", "coll_itzy_aura_rare", complete=False)
+    assert eligible_manifests([partial], set(), research=tmp_path) == []
 
 
 def test_other_status_and_outside_manifest_are_ignored(tmp_path):
@@ -31,3 +56,11 @@ def test_other_status_and_outside_manifest_are_ignored(tmp_path):
 def test_same_manifest_deduplicated(tmp_path):
     new = _write(tmp_path, "new_candidates.json", "new")
     assert eligible_manifests([new, new], set(), research=tmp_path) == [new]
+
+
+def test_missing_photo_rights_not_selected(tmp_path):
+    path = _write(tmp_path, "new_candidates.json", "new")
+    spec = json.loads(path.read_text())
+    spec["cards"][2]["license_status"] = "pending"
+    path.write_text(json.dumps(spec))
+    assert eligible_manifests([path], set(), research=tmp_path) == []
