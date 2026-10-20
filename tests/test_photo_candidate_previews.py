@@ -210,3 +210,51 @@ def test_fifth_member_render_error_rolls_back_all_previews(preview_input, monkey
     assert not list(out.rglob("*.bin"))
     assert not (out / "CONTACT_SHEET.png").exists()
     assert not (out / "PREVIEW_REPORT.json").exists()
+
+
+
+def test_duplicate_parent_original_rejects_every_card_before_network(preview_input, monkeypatch):
+    """Five differently cropped Wikimedia pages of ONE group photo are not unique originals."""
+    source, write, out, members = preview_input
+    parent = "https://commons.wikimedia.org/wiki/File:ITZY_original_group_photo.jpg"
+    source["cards"][0]["origin_photo_page"] = parent
+    source["cards"][1]["origin_photo_page"] = parent
+    monkeypatch.setattr(previews, "original_image",
+                        lambda _row: (_ for _ in ()).throw(AssertionError("Must preflight first")))
+    with pytest.raises(ValueError, match="photo family"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
+
+
+def test_known_native_photo_too_small_rejects_entire_set(preview_input, monkeypatch):
+    source, write, out, _ = preview_input
+    source["cards"][3]["native_dimensions"] = [586, 732]
+    monkeypatch.setattr(previews, "original_image",
+                        lambda _row: (_ for _ in ()).throw(AssertionError("Must preflight first")))
+    with pytest.raises(ValueError, match="undersized original"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
+
+
+def test_solo_crop_declared_resolution_checked_before_network(preview_input, monkeypatch):
+    source, write, out, _ = preview_input
+    source["cards"][2]["native_dimensions"] = [1500, 2000]
+    source["cards"][2]["solo_region"] = [0.0, 0.0, 0.38, 0.6]
+    monkeypatch.setattr(previews, "original_image",
+                        lambda _row: (_ for _ in ()).throw(AssertionError("Must preflight first")))
+    with pytest.raises(ValueError, match="undersized original"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
+
+
+def test_released_original_page_rejects_all_five_before_network(preview_input, monkeypatch):
+    source, write, out, _ = preview_input
+    first_existing = json.loads(
+        (previews.ROOT / "tools/photo_sources.json").read_text(encoding="utf-8")
+    )["cards"][0]
+    source["cards"][-1]["origin_photo_page"] = first_existing["page"]
+    monkeypatch.setattr(previews, "original_image",
+                        lambda _row: (_ for _ in ()).throw(AssertionError("Must preflight first")))
+    with pytest.raises(ValueError, match="photo family"):
+        previews.prepare_candidates(write(source), output_dir=out)
+    assert not out.exists()
